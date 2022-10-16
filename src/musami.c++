@@ -2289,11 +2289,11 @@ static void parseonetoken(struct pstate *psp)
             "to follow the previous rule.");
           psp->errorcnt++;
         }else if( strcmp(x, "{NEVER-REDUCE")==0 ){
-          psp->prevrule->neverReduce = 1;
+          psp->prevrule->neverReduce = LEMON_TRUE;
         }else{
           psp->prevrule->line = psp->tokenlineno;
           psp->prevrule->code = &x[1];
-          psp->prevrule->noCode = 0;
+          psp->prevrule->noCode = LEMON_FALSE;
         }
       }else if( x[0]=='[' ){
         psp->state = PRECEDENCE_MARK_1;
@@ -2401,7 +2401,7 @@ static void parseonetoken(struct pstate *psp)
           rp->lhsalias = psp->lhsalias;
           rp->nrhs = psp->nrhs;
           rp->code = 0;
-          rp->noCode = 1;
+          rp->noCode = LEMON_TRUE;
           rp->precsym = 0;
           rp->index = psp->gp->nrule++;
           rp->nextlhs = rp->lhs->rule;
@@ -3638,7 +3638,7 @@ PRIVATE void tplt_skip_header(FILE *in, int *lineno)
 ** a pointer to the opened file. */
 PRIVATE FILE *tplt_open(struct lemon *lemp)
 {
-  static char templatename[] = "lempar.c";
+  static char templatename[] = "musami_skeleton.c++";
   char buf[1000];
   FILE *in;
   char *tpltname;
@@ -3862,9 +3862,9 @@ PRIVATE int translate_code(struct lemon *lemp, struct rule *rp){
     static char newlinestr[2] = { '\n', '\0' };
     rp->code = newlinestr;
     rp->line = rp->ruleline;
-    rp->noCode = 1;
+    rp->noCode = LEMON_TRUE;
   }else{
-    rp->noCode = 0;
+    rp->noCode = LEMON_FALSE;
   }
 
 
@@ -3880,7 +3880,7 @@ PRIVATE int translate_code(struct lemon *lemp, struct rule *rp){
       append_str("  yy_destructor(yypParser,%d,&yymsp[%d].minor);\n", 0,
                  rp->rhs[0]->index,1-rp->nrhs);
       rp->codePrefix = Strsafe(append_str(0,0,0,0));
-      rp->noCode = 0;
+      rp->noCode = LEMON_FALSE;
     }
   }else if( rp->lhsalias==0 ){
     /* There is no LHS value symbol. */
@@ -4030,7 +4030,7 @@ PRIVATE int translate_code(struct lemon *lemp, struct rule *rp){
   cp = append_str(0,0,0,0);
   if( cp && cp[0] ){
     rp->codeSuffix = Strsafe(cp);
-    rp->noCode = 0;
+    rp->noCode = LEMON_FALSE;
   }
 
   return rc;
@@ -4304,7 +4304,7 @@ void ReportTable(
   int mnTknOfst, mxTknOfst;
   int mnNtOfst, mxNtOfst;
   struct axset *ax;
-  char *prefix;
+  const char *prefix;
 
   lemp->minShiftReduce = lemp->nstate;
   lemp->errAction = lemp->minShiftReduce + lemp->nrule;
@@ -4315,7 +4315,7 @@ void ReportTable(
 
   in = tplt_open(lemp);
   if( in==0 ) return;
-  out = file_open(lemp,".c","wb");
+  out = file_open(lemp,".c++","wb");
   if( out==0 ){
     fclose(in);
     return;
@@ -4401,7 +4401,11 @@ void ReportTable(
   /* The first %include directive begins with a C-language comment,
   ** then skip over the header comment of the template file
   */
+ #ifdef __cplusplus
+  if( lemp->include==0 ) lemp->include = const_cast<char *>("");
+#else
   if( lemp->include==0 ) lemp->include = "";
+#endif
   for(i=0; ISSPACE(lemp->include[i]); i++){
     if( lemp->include[i]=='\n' ){
       lemp->include += i+1;
@@ -4578,7 +4582,7 @@ void ReportTable(
   for(i=0; i<lemp->nxstate; i++){
     for(ap=lemp->sorted[i]->ap; ap; ap=ap->next){
       if( ap->type==REDUCE || ap->type==SHIFTREDUCE ){
-        ap->x.rp->doesReduce = 1;
+        ap->x.rp->doesReduce = LEMON_TRUE;
       }
     }
   }
@@ -4892,12 +4896,12 @@ void ReportTable(
         fprintf(out,"      case %d: /* ", rp2->iRule);
         writeRuleText(out, rp2);
         fprintf(out," */ yytestcase(yyruleno==%d);\n", rp2->iRule); lineno++;
-        rp2->codeEmitted = 1;
+        rp2->codeEmitted = LEMON_TRUE;
       }
     }
     emit_code(out,rp,lemp,&lineno);
     fprintf(out,"        break;\n"); lineno++;
-    rp->codeEmitted = 1;
+    rp->codeEmitted = LEMON_TRUE;
   }
   /* Finally, output the default: rule.  We choose as the default: all
   ** empty actions. */
