@@ -25,7 +25,7 @@ $(BINDIR)/awkccc: $(SRCDIR)/awkccc.c++ $(INCS) $(OBJS)
 $(SRCDIR)/lexer.c++: $(SRCDIR)/lexer.re2c
 	$(RE2C) --no-debug-info -I$(INCDIR) $< -o $@ 
 
-$(SRCDIR)/parser.c++ $(SRCDIR)/parser.h++: $(BINDIR)/musami_skeleton.c++ $(SRCDIR)/parser.musami
+$(SRCDIR)/parser.c++ $(SRCDIR)/parser.h++:  $(BINDIR)/musami $(BINDIR)/musami_skeleton.c++ $(SRCDIR)/parser.musami
 	-$(BINDIR)/musami  -l -I$(INCDIR) $(SRCDIR)/parser.musami
 # || echo OK.
 

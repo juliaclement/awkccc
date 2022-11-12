@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>awkccc - AWK cross compiler: Main Page</title>
+<title>awkccc - AWK cross compiler: AWK Compiler / Translator</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,10 +62,62 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">awkccc - AWK cross compiler Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">AWK Compiler / Translator </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p ><a class="anchor" id="md_README"></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Welcome</h1>
+<p >Awkccc will be a compiler / transpiler for the AWK language.</p>
+<p >If you are looking for a working AWK to Python transpiler, you are a bit early. The <a href="https://github.com/juliaclement/awktopython">awktopython project</a> is still available and supports a large subset of AWK.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Status</h1>
+<ul>
+<li>Tokenizer / Lexer: Working</li>
+<li>Parser: Compiles syntactically correct AWK programs to AST data structures in memory</li>
+<li>Fails (rather than reporting errors) on incorrect programs.</li>
+<li>Does not support multiple source files (Or other command line parameters)</li>
+<li>No code generation yet written </li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Purpose</h1>
+<p >Awkccc is designed to convert a large subset of the AWK language into other languages. Initially C++ 17 and Python 3.8 and later. It is being developed using the GNU C++ and Clang++ compilers with the -std=c++17 setting. Python will be tested under the latest version of Cpython (currently 3.10.8) &amp; pypy3 (currently 7.3.9 which documents that it has Python 3.8 compatibility). Cobol, Python 2 &amp; K&amp;R C will not be supported.</p>
+<p >The translated program can either be immediately executed or saved for later execution.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Dependencies</h1>
+<ul>
+<li><p class="startli">Under Linux &amp; the BSDs: gnu make, a C++ compiler with C++-17 support (e.g. gcc or Clang), CPPUnit (libcppunit &amp; friends) which should all be available through your package manager. <br  />
+</p>
+<p class="startli">Other operating systems and recent compilers should work but I lack the means to test them. Apple XCode should support Clang.</p>
+</li>
+<li><a href="https://re2c.org/">Re2c</a> lexer generator. I'm developing on Debian Bookworm &amp; just did an <em>apt install re2c</em> to get the current version. Your distro's package manager should provide it in their apt, yum or ports/pkg collections. If not the <a href="https://re2c.org/build/build.html">re2c website</a> has instructions for building it.</li>
+<li>Several classes from my <a href="https://github.com/juliaclement/jclib">jclib</a> library are used. MIT licence. Currently, they need to be manually copied into the awkccc source tree.</li>
+<li>Musami needs to be compiled ahead of compiling the parser. Make should just do it, but if not try "make bin/musami".</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Licences</h1>
+<p >I don't modify or distribute Re2c, Clang++, GCC, CPPUnit, Make, Python, etc. Their licenses are available on their websites.</p>
+<p >Lemon is public domain, there is some doubt if this is universally available &amp; so some corporate lawyers advise their clients against using public domain software (huh???). Other public domain equivalent licences such as BSD-0 are only approved by certain organisations. I've dual licenced my changes to musami as either public domain or the <a href="https://opensource.org/licenses/bsl1.0.html">Boost 1.0 license</a> which has wide acceptance &amp; is sufficiently permissive it would be difficult to break its terms.</p>
+<p >Jclib is MIT</p>
+<p >Awktopython was licensed under the Apache Licence 2.0 &amp; I intend recycling the runtime from that into this project so I am currently posting that as the license for the whole project.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+History</h1>
+<p >This is a follow-on from the earlier <a href="https://github.com/juliaclement/awktopython">awktopython project</a> which is now frozen. Awkccc's compiler &amp; code generators are a complete rewrite from scratch (in a different language) although the awktopython Python runtime library is decent and will probably be recycled.</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Rewrite Rationale</h2>
+<p >After a few years of not writing anything major I wanted a reasonably sized project to reignite my passion for software development. I'd done some fixes to an ancient Python screenplay editor and written fountain&lt;-&gt;ODT translators (fountain is a markdown language specialised for screenplays) both in Python &amp; I decided on a whim to write an AWK to Python translator.</p>
+<p >The original plan was to write a reasonably sized subset of AWK (A language I use on a regular basis) covering the constructs I use with proper unit testing of the translator. It began as an ugly hack with a flakey tokenizer and a recursive descent parser, but once at the expression level, most of the source token strings were passed on to Python without regard for operator precedence, etc.</p>
+<p >Then scope creep stepped in ... Most of AWK is now implemented. What's left wouldn't be hard to finish &amp; I actually use it as my default AWK executable. When using PyPy3 as the back end, it runs at something between 2/3 &amp; 3/4 the speed of Gawk.</p>
+<p >I eventually rewrote the tokenizer from scratch, but everything else is very close to whatever bit of code I originally wrote for that function. Python code is generated directly from within the parser as constructs are parsed. There is insufficient separation between the tokenizer &amp; the parser and no separation at all between the parser &amp; the code generator.</p>
+<p >Then I thought it would be cool to refactor the parser to generate an AST to allow options such as optimising code or even generating different output languages but the mixing of parser and code generator meant that would be close to a total rewrite. Which leads to a </p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Language choice</h2>
+<p >Awktopython was written in Python with a homegrown tokenizer and a recursive descent parser, awkccc is written in C++ with a tokenizer in <a href="https://re2c.org/">re2c</a>'s language and a parser generated by a modified version of Richard Hipps' excellent <a href="https://sqlite.org/src/doc/trunk/doc/lemon.html">lemon</a> parser generator which I have named musami (another citrus fruit, sometimes called the sweet lemon).</p>
+<p >I didn't want to write another recursive descent parser so I started by looking for suitable Python (re-)implementations of Yacc-like parser generators, found some but none of them matched my objective and subjective criteria.</p>
+<p >This pointed me back to C++ with a suitable parser generator. I've been using C++ since the days of Zortech C++ over 30 years ago and before that dabbled with MS-DOS ports/clones of Yacc &amp; Lex in my C days (No longer sure whose implementations those were). When I decided to rewrite in C++, looking for a Yacc clone as my parser generator was a high priority. I eventually decided on the lemon parser generator then decided I didn't like a couple of minor aspects of it, so I modified it, and in a fit of whimsy named my fork "Sweet lemon" which became "musami". Since then I've made a few more relatively minor changes to to make it more C++ friendly. Re2c seems a popular choice for making lexers for use with lemon. The simple syntax and speed were compelling reasons for choosing it.</p>
+<p >Lemon is an integral part of the widly used SQLite project and maintained by the SQLite developer(s) while re2c is the lexer for PHP and maintained by a team so both are unlikely to be orphanned any time soon. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
