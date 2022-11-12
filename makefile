@@ -14,7 +14,10 @@ INCS += $(SRCDIR)/parser.h++
 OBJS = $(BINDIR)/lexer_lib.o $(BINDIR)/lexer.o $(BINDIR)/parser_lib.o $(BINDIR)/parser.o
 CPP = CPP=/usr/bin/g++
 
-build: $(BINDIR)/awkccc $(BINDIR)/LexerTestClass
+build: $(BINDIR)/musami $(BINDIR)/awkccc $(BINDIR)/LexerTestClass
+
+$(BINDIR)/musami: $(SRCDIR)/musami.c++
+	g++ -g $< -o $@
 
 $(BINDIR)/awkccc: $(SRCDIR)/awkccc.c++ $(INCS) $(OBJS) 
 	g++ -g $< -o $@ $(OBJS)
