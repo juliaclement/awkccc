@@ -1,0 +1,334 @@
+\hypertarget{namespaceawkcc}{}\doxysection{awkcc Namespace Reference}
+\label{namespaceawkcc}\index{awkcc@{awkcc}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structawkcc_1_1instruction}{instruction}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924}{addressing}} \{ \newline
+\mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924ab06127204982e7e2600ebe6049a64217}{STACK\+\_\+\+RELATIVE}} = 0
+, \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa8431865719fd0ade70caf3c2fdb86e4}{VARIABLE\+\_\+\+STORE}}
+, \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a7ce805f8898fd085b8a6c84a2749d7bb}{LOCAL\+\_\+\+STORE}}
+, \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a301275cf296185268d7939e685892e1d}{ARRAY\+\_\+\+INDEX}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a2313d8d6dc444d807fe0801653e1126d}{FUNCTIONS}}
+, \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a0d01e784889eff8c3e6f85784b9b8cda}{BUILT\+\_\+\+IN}}
+, \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa6cbfc7c0b8fa3fe586e0f5697a22db3}{IMMEDIATE}}
+, \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a14d173cdf39e51a7541e9cabdbdde43f}{GUARD3}} = IMMEDIATE
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7c}{opcodes}} \{ \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca39696e03e10e452b731ce837c9b7cf07}{LOAD\+\_\+\+NUM}} =0
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4d30ef04489d367b5c6eb141e9d17845}{LOAD\+\_\+\+STR}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae1f84a05f0eedf7ce2a85f7cd3fb13c3}{LOAD\+\_\+\+REGEX}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadafafeefa298f0924cf3ab3ef86b3f0e}{LOADNEGATIVE}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca5c4d210ff087bcadc47fb3367a866669}{STORE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca18b685ae3ceed2d56a2cbfad21570614}{POP}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7caa2a78f71a4ad7e64308ec32c50a7df62}{ADD}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1f6daa064633a500d1c7610d64ef5e35}{SUB}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca7075002d01fdc41d4e0868e75b47328f}{MUL}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca27cc3119f621f47553c58b2fa6ef900f}{DIV}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca6327bf34802293f895b74f73f9fa41fa}{MODULO}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca37a1c82c49aa51c7ea045e9428db75ac}{INCR}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca3984eaba6206a56de36fcb8dd82cf091}{DECR}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca63e2e3ca62d790190155a264bdd63ea5}{XOR}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadaed010e8ff510189b29b95a6d190791}{OR}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca18b09bf71087500280e38e0d4d0e3aff}{AND}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cac19a06c6920bb3fe93a64aa2460849c7}{CONCAT}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2759249643d8a3cfef4e1202ffe103bb}{LE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2961b2687b205f1a12f08a8a08881088}{LT}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca9bae086fe352a841c902f2e3ac77b307}{GT}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca9d7dd4aaf670bcc601923b4a800ae62d}{GE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1b9bf47ecf26ae00d00906a6355c0edd}{EQ}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7caf5d353af782c71274069efc157091158}{NE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1d6a197b3d52a59347292c7929ea1bab}{MATCH}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4645d606e866280dc5e2879ef46aae47}{NOTMATCH}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca46788a1db6cdc11a6f2ae9b43711afb8}{RETURN}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca89ca1a8852bdf5888a441f2864236a2a}{NEGATE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cacf0795e29b2a6096284178a6464d4c51}{NOT}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae41ad22ca7b86e0465b5b4ec24dda251}{GUARD5}} = NOT
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca49419191319a8142f401c2232567bceb}{CALL}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca93142df2f4ba49498dd0aea6162deee7}{CALL\+\_\+\+CODE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca0f99e01917ebe4195c0263cf2d2789ec}{BRANCH}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca50ed87605a4fd1326065cc0f2e18a942}{BRANCH\+\_\+\+TRUE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca808b0131381c332884bca7e571f26ee0}{BRANCH\+\_\+\+FALSE}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2a1c0811c9e9f06b535148d9db078342}{ENTER}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7caf3c41610c7619f5a6c4bb9b8d6d39af6}{DUP}}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca8eea2f39f1c2e518f27fe7255c0ae621}{PUSH\+\_\+\+TEST\+\_\+\+RESULT}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cade1b3dd3ed7131f25529c64ed900381d}{SWAP}}
+, \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4bc4350709533d39b5e44cf838c76a18}{GUARD6}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412}{tokens}} \{ \newline
+\mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412abe5e70b126c547855ad97e5652b2ea0f}{LBRACE}} =\textquotesingle{}\{\textquotesingle{}
+, \mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a0c432a5df755685d2f39d2d2d4615f6f}{RBRACE}} =\textquotesingle{}\}\textquotesingle{}
+, \mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a242c3232c0f5b449cf13ccd092f85e54}{LBRACKET}} =\textquotesingle{}\mbox{[}\textquotesingle{}
+, \mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a43353912b0ef5263c071ea0b8fef41cb}{RBRACKET}} =\textquotesingle{}\mbox{]}\textquotesingle{}
+, \newline
+\mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412ab9278f41d86468e709443799ab2769fd}{LPAREN}} =\textquotesingle{}(\textquotesingle{}
+, \mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a320437b364ec103a4a2b863fdb68a5d2}{RPAREN}} =\textquotesingle{})\textquotesingle{}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924}} 
+\index{awkcc@{awkcc}!addressing@{addressing}}
+\index{addressing@{addressing}!awkcc@{awkcc}}
+\doxysubsubsection{\texorpdfstring{addressing}{addressing}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924}{awkcc\+::addressing}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_RELATIVE@{STACK\_RELATIVE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!STACK\_RELATIVE@{STACK\_RELATIVE}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924ab06127204982e7e2600ebe6049a64217}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924ab06127204982e7e2600ebe6049a64217}} 
+STACK\+\_\+\+RELATIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VARIABLE\_STORE@{VARIABLE\_STORE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!VARIABLE\_STORE@{VARIABLE\_STORE}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa8431865719fd0ade70caf3c2fdb86e4}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa8431865719fd0ade70caf3c2fdb86e4}} 
+VARIABLE\+\_\+\+STORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOCAL\_STORE@{LOCAL\_STORE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LOCAL\_STORE@{LOCAL\_STORE}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a7ce805f8898fd085b8a6c84a2749d7bb}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a7ce805f8898fd085b8a6c84a2749d7bb}} 
+LOCAL\+\_\+\+STORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARRAY\_INDEX@{ARRAY\_INDEX}!awkcc@{awkcc}}\index{awkcc@{awkcc}!ARRAY\_INDEX@{ARRAY\_INDEX}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a301275cf296185268d7939e685892e1d}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a301275cf296185268d7939e685892e1d}} 
+ARRAY\+\_\+\+INDEX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FUNCTIONS@{FUNCTIONS}!awkcc@{awkcc}}\index{awkcc@{awkcc}!FUNCTIONS@{FUNCTIONS}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a2313d8d6dc444d807fe0801653e1126d}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a2313d8d6dc444d807fe0801653e1126d}} 
+FUNCTIONS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BUILT\_IN@{BUILT\_IN}!awkcc@{awkcc}}\index{awkcc@{awkcc}!BUILT\_IN@{BUILT\_IN}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a0d01e784889eff8c3e6f85784b9b8cda}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a0d01e784889eff8c3e6f85784b9b8cda}} 
+BUILT\+\_\+\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMMEDIATE@{IMMEDIATE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!IMMEDIATE@{IMMEDIATE}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa6cbfc7c0b8fa3fe586e0f5697a22db3}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa6cbfc7c0b8fa3fe586e0f5697a22db3}} 
+IMMEDIATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GUARD3@{GUARD3}!awkcc@{awkcc}}\index{awkcc@{awkcc}!GUARD3@{GUARD3}}}\mbox{\Hypertarget{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a14d173cdf39e51a7541e9cabdbdde43f}\label{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a14d173cdf39e51a7541e9cabdbdde43f}} 
+GUARD3&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{tokens_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{tokens_8hpp_source}{tokens.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7c}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7c}} 
+\index{awkcc@{awkcc}!opcodes@{opcodes}}
+\index{opcodes@{opcodes}!awkcc@{awkcc}}
+\doxysubsubsection{\texorpdfstring{opcodes}{opcodes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7c}{awkcc\+::opcodes}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOAD\_NUM@{LOAD\_NUM}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LOAD\_NUM@{LOAD\_NUM}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca39696e03e10e452b731ce837c9b7cf07}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca39696e03e10e452b731ce837c9b7cf07}} 
+LOAD\+\_\+\+NUM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOAD\_STR@{LOAD\_STR}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LOAD\_STR@{LOAD\_STR}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4d30ef04489d367b5c6eb141e9d17845}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4d30ef04489d367b5c6eb141e9d17845}} 
+LOAD\+\_\+\+STR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOAD\_REGEX@{LOAD\_REGEX}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LOAD\_REGEX@{LOAD\_REGEX}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae1f84a05f0eedf7ce2a85f7cd3fb13c3}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae1f84a05f0eedf7ce2a85f7cd3fb13c3}} 
+LOAD\+\_\+\+REGEX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOADNEGATIVE@{LOADNEGATIVE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LOADNEGATIVE@{LOADNEGATIVE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadafafeefa298f0924cf3ab3ef86b3f0e}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadafafeefa298f0924cf3ab3ef86b3f0e}} 
+LOADNEGATIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STORE@{STORE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!STORE@{STORE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca5c4d210ff087bcadc47fb3367a866669}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca5c4d210ff087bcadc47fb3367a866669}} 
+STORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POP@{POP}!awkcc@{awkcc}}\index{awkcc@{awkcc}!POP@{POP}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca18b685ae3ceed2d56a2cbfad21570614}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca18b685ae3ceed2d56a2cbfad21570614}} 
+POP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADD@{ADD}!awkcc@{awkcc}}\index{awkcc@{awkcc}!ADD@{ADD}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7caa2a78f71a4ad7e64308ec32c50a7df62}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7caa2a78f71a4ad7e64308ec32c50a7df62}} 
+ADD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUB@{SUB}!awkcc@{awkcc}}\index{awkcc@{awkcc}!SUB@{SUB}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1f6daa064633a500d1c7610d64ef5e35}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1f6daa064633a500d1c7610d64ef5e35}} 
+SUB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MUL@{MUL}!awkcc@{awkcc}}\index{awkcc@{awkcc}!MUL@{MUL}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca7075002d01fdc41d4e0868e75b47328f}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca7075002d01fdc41d4e0868e75b47328f}} 
+MUL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIV@{DIV}!awkcc@{awkcc}}\index{awkcc@{awkcc}!DIV@{DIV}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca27cc3119f621f47553c58b2fa6ef900f}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca27cc3119f621f47553c58b2fa6ef900f}} 
+DIV&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MODULO@{MODULO}!awkcc@{awkcc}}\index{awkcc@{awkcc}!MODULO@{MODULO}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca6327bf34802293f895b74f73f9fa41fa}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca6327bf34802293f895b74f73f9fa41fa}} 
+MODULO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INCR@{INCR}!awkcc@{awkcc}}\index{awkcc@{awkcc}!INCR@{INCR}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca37a1c82c49aa51c7ea045e9428db75ac}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca37a1c82c49aa51c7ea045e9428db75ac}} 
+INCR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DECR@{DECR}!awkcc@{awkcc}}\index{awkcc@{awkcc}!DECR@{DECR}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca3984eaba6206a56de36fcb8dd82cf091}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca3984eaba6206a56de36fcb8dd82cf091}} 
+DECR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XOR@{XOR}!awkcc@{awkcc}}\index{awkcc@{awkcc}!XOR@{XOR}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca63e2e3ca62d790190155a264bdd63ea5}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca63e2e3ca62d790190155a264bdd63ea5}} 
+XOR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OR@{OR}!awkcc@{awkcc}}\index{awkcc@{awkcc}!OR@{OR}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadaed010e8ff510189b29b95a6d190791}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadaed010e8ff510189b29b95a6d190791}} 
+OR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AND@{AND}!awkcc@{awkcc}}\index{awkcc@{awkcc}!AND@{AND}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca18b09bf71087500280e38e0d4d0e3aff}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca18b09bf71087500280e38e0d4d0e3aff}} 
+AND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONCAT@{CONCAT}!awkcc@{awkcc}}\index{awkcc@{awkcc}!CONCAT@{CONCAT}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cac19a06c6920bb3fe93a64aa2460849c7}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cac19a06c6920bb3fe93a64aa2460849c7}} 
+CONCAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LE@{LE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LE@{LE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2759249643d8a3cfef4e1202ffe103bb}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2759249643d8a3cfef4e1202ffe103bb}} 
+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LT@{LT}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LT@{LT}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2961b2687b205f1a12f08a8a08881088}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2961b2687b205f1a12f08a8a08881088}} 
+LT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GT@{GT}!awkcc@{awkcc}}\index{awkcc@{awkcc}!GT@{GT}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca9bae086fe352a841c902f2e3ac77b307}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca9bae086fe352a841c902f2e3ac77b307}} 
+GT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GE@{GE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!GE@{GE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca9d7dd4aaf670bcc601923b4a800ae62d}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca9d7dd4aaf670bcc601923b4a800ae62d}} 
+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EQ@{EQ}!awkcc@{awkcc}}\index{awkcc@{awkcc}!EQ@{EQ}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1b9bf47ecf26ae00d00906a6355c0edd}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1b9bf47ecf26ae00d00906a6355c0edd}} 
+EQ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NE@{NE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!NE@{NE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7caf5d353af782c71274069efc157091158}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7caf5d353af782c71274069efc157091158}} 
+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MATCH@{MATCH}!awkcc@{awkcc}}\index{awkcc@{awkcc}!MATCH@{MATCH}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1d6a197b3d52a59347292c7929ea1bab}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca1d6a197b3d52a59347292c7929ea1bab}} 
+MATCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOTMATCH@{NOTMATCH}!awkcc@{awkcc}}\index{awkcc@{awkcc}!NOTMATCH@{NOTMATCH}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4645d606e866280dc5e2879ef46aae47}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4645d606e866280dc5e2879ef46aae47}} 
+NOTMATCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RETURN@{RETURN}!awkcc@{awkcc}}\index{awkcc@{awkcc}!RETURN@{RETURN}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca46788a1db6cdc11a6f2ae9b43711afb8}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca46788a1db6cdc11a6f2ae9b43711afb8}} 
+RETURN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEGATE@{NEGATE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!NEGATE@{NEGATE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca89ca1a8852bdf5888a441f2864236a2a}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca89ca1a8852bdf5888a441f2864236a2a}} 
+NEGATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOT@{NOT}!awkcc@{awkcc}}\index{awkcc@{awkcc}!NOT@{NOT}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cacf0795e29b2a6096284178a6464d4c51}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cacf0795e29b2a6096284178a6464d4c51}} 
+NOT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GUARD5@{GUARD5}!awkcc@{awkcc}}\index{awkcc@{awkcc}!GUARD5@{GUARD5}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae41ad22ca7b86e0465b5b4ec24dda251}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae41ad22ca7b86e0465b5b4ec24dda251}} 
+GUARD5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CALL@{CALL}!awkcc@{awkcc}}\index{awkcc@{awkcc}!CALL@{CALL}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca49419191319a8142f401c2232567bceb}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca49419191319a8142f401c2232567bceb}} 
+CALL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CALL\_CODE@{CALL\_CODE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!CALL\_CODE@{CALL\_CODE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca93142df2f4ba49498dd0aea6162deee7}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca93142df2f4ba49498dd0aea6162deee7}} 
+CALL\+\_\+\+CODE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BRANCH@{BRANCH}!awkcc@{awkcc}}\index{awkcc@{awkcc}!BRANCH@{BRANCH}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca0f99e01917ebe4195c0263cf2d2789ec}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca0f99e01917ebe4195c0263cf2d2789ec}} 
+BRANCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BRANCH\_TRUE@{BRANCH\_TRUE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!BRANCH\_TRUE@{BRANCH\_TRUE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca50ed87605a4fd1326065cc0f2e18a942}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca50ed87605a4fd1326065cc0f2e18a942}} 
+BRANCH\+\_\+\+TRUE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BRANCH\_FALSE@{BRANCH\_FALSE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!BRANCH\_FALSE@{BRANCH\_FALSE}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca808b0131381c332884bca7e571f26ee0}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca808b0131381c332884bca7e571f26ee0}} 
+BRANCH\+\_\+\+FALSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENTER@{ENTER}!awkcc@{awkcc}}\index{awkcc@{awkcc}!ENTER@{ENTER}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2a1c0811c9e9f06b535148d9db078342}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca2a1c0811c9e9f06b535148d9db078342}} 
+ENTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUP@{DUP}!awkcc@{awkcc}}\index{awkcc@{awkcc}!DUP@{DUP}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7caf3c41610c7619f5a6c4bb9b8d6d39af6}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7caf3c41610c7619f5a6c4bb9b8d6d39af6}} 
+DUP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PUSH\_TEST\_RESULT@{PUSH\_TEST\_RESULT}!awkcc@{awkcc}}\index{awkcc@{awkcc}!PUSH\_TEST\_RESULT@{PUSH\_TEST\_RESULT}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca8eea2f39f1c2e518f27fe7255c0ae621}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca8eea2f39f1c2e518f27fe7255c0ae621}} 
+PUSH\+\_\+\+TEST\+\_\+\+RESULT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SWAP@{SWAP}!awkcc@{awkcc}}\index{awkcc@{awkcc}!SWAP@{SWAP}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7cade1b3dd3ed7131f25529c64ed900381d}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7cade1b3dd3ed7131f25529c64ed900381d}} 
+SWAP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GUARD6@{GUARD6}!awkcc@{awkcc}}\index{awkcc@{awkcc}!GUARD6@{GUARD6}}}\mbox{\Hypertarget{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4bc4350709533d39b5e44cf838c76a18}\label{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4bc4350709533d39b5e44cf838c76a18}} 
+GUARD6&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{tokens_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{tokens_8hpp_source}{tokens.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412}} 
+\index{awkcc@{awkcc}!tokens@{tokens}}
+\index{tokens@{tokens}!awkcc@{awkcc}}
+\doxysubsubsection{\texorpdfstring{tokens}{tokens}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412}{awkcc\+::tokens}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LBRACE@{LBRACE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LBRACE@{LBRACE}}}\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412abe5e70b126c547855ad97e5652b2ea0f}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412abe5e70b126c547855ad97e5652b2ea0f}} 
+LBRACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RBRACE@{RBRACE}!awkcc@{awkcc}}\index{awkcc@{awkcc}!RBRACE@{RBRACE}}}\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a0c432a5df755685d2f39d2d2d4615f6f}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a0c432a5df755685d2f39d2d2d4615f6f}} 
+RBRACE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LBRACKET@{LBRACKET}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LBRACKET@{LBRACKET}}}\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a242c3232c0f5b449cf13ccd092f85e54}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a242c3232c0f5b449cf13ccd092f85e54}} 
+LBRACKET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RBRACKET@{RBRACKET}!awkcc@{awkcc}}\index{awkcc@{awkcc}!RBRACKET@{RBRACKET}}}\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a43353912b0ef5263c071ea0b8fef41cb}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a43353912b0ef5263c071ea0b8fef41cb}} 
+RBRACKET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LPAREN@{LPAREN}!awkcc@{awkcc}}\index{awkcc@{awkcc}!LPAREN@{LPAREN}}}\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412ab9278f41d86468e709443799ab2769fd}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412ab9278f41d86468e709443799ab2769fd}} 
+LPAREN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RPAREN@{RPAREN}!awkcc@{awkcc}}\index{awkcc@{awkcc}!RPAREN@{RPAREN}}}\mbox{\Hypertarget{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a320437b364ec103a4a2b863fdb68a5d2}\label{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412a320437b364ec103a4a2b863fdb68a5d2}} 
+RPAREN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{tokens_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{tokens_8hpp_source}{tokens.\+hpp}}.
+

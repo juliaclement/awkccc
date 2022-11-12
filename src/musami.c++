@@ -1,4 +1,35 @@
-/*
+/***
+** Musami parser generator for C++
+** Musami is a fork by Julia Ingleby Clement of the lemon parser
+** from the SQLite project.
+** Musami was originally made to support the awkccc project
+** 
+** You may at your choice use this program under either the original
+** public domain dedication (if legal in your location) or under
+** the OSI & FSF approved Boost Software License 1.0 (BSL-1.0) 
+** https://opensource.org/licenses/bsl1.0.html
+** 
+** Julia Clement makes no claim of copyright over your generated
+** parser(s).
+**
+ ***/
+/***
+** Lemon information:
+** Documentation: https://sqlite.org/src/doc/trunk/doc/lemon.html
+** Source:        https://sqlite.org/src/file/tool/lempar.c
+** Lemon was written by Richard Hipp, principal author of SQLite
+** 
+** 
+** 2000-05-29
+**
+** The author disclaims copyright to this source code.  In place of
+** a legal notice, here is a blessing:
+**
+**    May you do good and not evil.
+**    May you find forgiveness for yourself and forgive others.
+**    May you share freely, never taking more than you give.
+**
+** Original dedication and copyright disclaimer:
 ** This file contains all sources (including headers) to the LEMON
 ** LALR(1) parser generator.  The sources have been combined into a
 ** single file to make it easy to include LEMON in the source tree
@@ -19,6 +50,8 @@
 #define ISALPHA(X) isalpha((unsigned char)(X))
 #define ISUPPER(X) isupper((unsigned char)(X))
 #define ISLOWER(X) islower((unsigned char)(X))
+inline bool ISTERMINAL(char X) {return (isupper((unsigned char)(X)) || X == '\'' );}
+inline bool ISTOKEN(char X) {return (isalpha((unsigned char)(X)) || X == '\'' );}
 
 
 #ifndef __WIN32__
@@ -169,12 +202,12 @@ static struct action *Action_new(void);
 static struct action *Action_sort(struct action *);
 
 /********** From the file "build.h" ************************************/
-void FindRulePrecedences(struct lemon*);
-void FindFirstSets(struct lemon*);
-void FindStates(struct lemon*);
-void FindLinks(struct lemon*);
-void FindFollowSets(struct lemon*);
-void FindActions(struct lemon*);
+void FindRulePrecedences(struct lemon *);
+void FindFirstSets(struct lemon *);
+void FindStates(struct lemon *);
+void FindLinks(struct lemon *);
+void FindFollowSets(struct lemon *);
+void FindActions(struct lemon *);
 
 /********* From the file "configlist.h" *********************************/
 void Configlist_init(void);
@@ -1709,7 +1742,7 @@ int main(int argc, char **argv){
   while( lem.symbols[i-1]->type==MULTITERMINAL ){ i--; }
   assert( strcmp(lem.symbols[i-1]->name,"{default}")==0 );
   lem.nsymbol = i - 1;
-  for(i=1; ISUPPER(lem.symbols[i]->name[0]); i++);
+  for(i=1; ISTERMINAL(lem.symbols[i]->name[0]); i++);
   lem.nterminal = i;
 
   /* Assign sequential rule numbers.  Start with 0.  Put rules that have no
@@ -2277,6 +2310,20 @@ static void parseonetoken(struct pstate *psp)
         psp->nrhs = 0;
         psp->lhsalias = 0;
         psp->state = WAITING_FOR_ARROW;
+      }else if( x[0]=='|' ){
+        // addtional form of preceeding rule
+        // JIC: Currently doesn't support alias, does this matter?
+        if( psp->prevrule == nullptr ) {
+          ErrorMsg(psp->filename,psp->tokenlineno,
+            "There is no prior rule upon which to attach the "
+            "alternate rule which begins on this line.");
+          psp->errorcnt++;
+        } else {
+          psp->lhs = psp->prevrule->lhs;
+          psp->nrhs = 0;
+          psp->lhsalias = psp->prevrule->lhsalias;
+          psp->state = IN_RHS;
+        }
       }else if( x[0]=='{' ){
         if( psp->prevrule==0 ){
           ErrorMsg(psp->filename,psp->tokenlineno,
@@ -2305,7 +2352,7 @@ static void parseonetoken(struct pstate *psp)
       }
       break;
     case PRECEDENCE_MARK_1:
-      if( !ISUPPER(x[0]) ){
+      if( !ISTERMINAL(x[0]) ){
         ErrorMsg(psp->filename,psp->tokenlineno,
           "The precedence symbol must be a terminal.");
         psp->errorcnt++;
@@ -2378,6 +2425,8 @@ static void parseonetoken(struct pstate *psp)
       }
       break;
     case IN_RHS:
+    {
+      bool jic_tmp = x[0] == '\'';
       if( x[0]=='.' ){
         struct rule *rp;
         rp = (struct rule *)calloc( sizeof(struct rule) +
@@ -2416,7 +2465,7 @@ static void parseonetoken(struct pstate *psp)
           psp->prevrule = rp;
         }
         psp->state = WAITING_FOR_DECL_OR_RULE;
-      }else if( ISALPHA(x[0]) ){
+      }else if( ISTOKEN(x[0]) ){
         if( psp->nrhs>=MAXRHS ){
           ErrorMsg(psp->filename,psp->tokenlineno,
             "Too many symbols on RHS of rule beginning at \"%s\".",
@@ -2428,7 +2477,7 @@ static void parseonetoken(struct pstate *psp)
           psp->alias[psp->nrhs] = 0;
           psp->nrhs++;
         }
-      }else if( (x[0]=='|' || x[0]=='/') && psp->nrhs>0 && ISUPPER(x[1]) ){
+      }else if( (x[0]=='|' || x[0]=='/') && psp->nrhs>0 && ISTERMINAL(x[1]) ){
         struct symbol *msp = psp->rhs[psp->nrhs-1];
         if( msp->type!=MULTITERMINAL ){
           struct symbol *origsp = msp;
@@ -2459,6 +2508,7 @@ static void parseonetoken(struct pstate *psp)
         psp->state = RESYNC_AFTER_RULE_ERROR;
       }
       break;
+    }
     case RHS_ALIAS_1:
       if( ISALPHA(x[0]) ){
         psp->alias[psp->nrhs-1] = x;
@@ -2606,7 +2656,7 @@ static void parseonetoken(struct pstate *psp)
     case WAITING_FOR_PRECEDENCE_SYMBOL:
       if( x[0]=='.' ){
         psp->state = WAITING_FOR_DECL_OR_RULE;
-      }else if( ISUPPER(x[0]) ){
+      }else if( ISTERMINAL(x[0]) ){
         struct symbol *sp;
         sp = Symbol_new(x);
         if( sp->prec>=0 ){
@@ -2687,9 +2737,9 @@ static void parseonetoken(struct pstate *psp)
     case WAITING_FOR_FALLBACK_ID:
       if( x[0]=='.' ){
         psp->state = WAITING_FOR_DECL_OR_RULE;
-      }else if( !ISUPPER(x[0]) ){
+      }else if( !ISTERMINAL(x[0]) ){
         ErrorMsg(psp->filename, psp->tokenlineno,
-          "%%fallback argument \"%s\" should be a token", x);
+          "%%fallback argument \"%s\" should be a token 1", x);
         psp->errorcnt++;
       }else{
         struct symbol *sp = Symbol_new(x);
@@ -2717,9 +2767,9 @@ static void parseonetoken(struct pstate *psp)
       */
       if( x[0]=='.' ){
         psp->state = WAITING_FOR_DECL_OR_RULE;
-      }else if( !ISUPPER(x[0]) ){
+      }else if( !ISTERMINAL(x[0] ) ){
         ErrorMsg(psp->filename, psp->tokenlineno,
-          "%%token argument \"%s\" should be a token", x);
+          "%%token argument \"%s\" should be a token 2", x);
         psp->errorcnt++;
       }else{
         (void)Symbol_new(x);
@@ -2728,9 +2778,9 @@ static void parseonetoken(struct pstate *psp)
     case WAITING_FOR_WILDCARD_ID:
       if( x[0]=='.' ){
         psp->state = WAITING_FOR_DECL_OR_RULE;
-      }else if( !ISUPPER(x[0]) ){
+      }else if( !ISTERMINAL(x[0] ) ){
         ErrorMsg(psp->filename, psp->tokenlineno,
-          "%%wildcard argument \"%s\" should be a token", x);
+          "%%wildcard argument \"%s\" should be a token 3", x);
         psp->errorcnt++;
       }else{
         struct symbol *sp = Symbol_new(x);
@@ -2763,16 +2813,16 @@ static void parseonetoken(struct pstate *psp)
     case WAITING_FOR_CLASS_TOKEN:
       if( x[0]=='.' ){
         psp->state = WAITING_FOR_DECL_OR_RULE;
-      }else if( ISUPPER(x[0]) || ((x[0]=='|' || x[0]=='/') && ISUPPER(x[1])) ){
+      }else if( ISTERMINAL(x[0]) || ((x[0]=='|' || x[0]=='/') && ISTERMINAL(x[1])) ){
         struct symbol *msp = psp->tkclass;
         msp->nsubsym++;
         msp->subsym = (struct symbol **) realloc(msp->subsym,
           sizeof(struct symbol*)*msp->nsubsym);
-        if( !ISUPPER(x[0]) ) x++;
+        if( !ISTERMINAL(x[0]) ) x++;
         msp->subsym[msp->nsubsym-1] = Symbol_new(x);
       }else{
         ErrorMsg(psp->filename, psp->tokenlineno,
-          "%%token_class argument \"%s\" should be a token", x);
+          "%%token_class argument \"%s\" should be a token 4", x);
         psp->errorcnt++;
         psp->state = RESYNC_AFTER_DECL_ERROR;
       }
@@ -3089,6 +3139,18 @@ void Parse(struct lemon *gp)
     }else if( (c=='/' || c=='|') && ISALPHA(cp[1]) ){
       cp += 2;
       while( (c = *cp)!=0 && (ISALNUM(c) || c=='_') ) cp++;
+      nextcp = cp;
+    }else if( c=='\''){             /* Special char, e.g. '%' */ 
+      cp ++;
+      while( (c = *cp)!=0 ){
+        if( c== '\\') {
+          cp++;
+        }
+        if( *++cp == '\'' ) {
+          ++cp;
+          break;
+        }
+      }
       nextcp = cp;
     }else{                          /* All other (one character) operators */
       cp++;
@@ -4186,22 +4248,23 @@ void print_stack_union(
   lineno = *plineno;
   if( mhflag ){ fprintf(out,"#if INTERFACE\n"); lineno++; }
   fprintf(out,"#define %sTOKENTYPE %s\n",name,
-    lemp->tokentype?lemp->tokentype:"void*");  lineno++;
+  lemp->tokentype?lemp->tokentype:"void*");  lineno++;
   if( mhflag ){ fprintf(out,"#endif\n"); lineno++; }
-  fprintf(out,"typedef union {\n"); lineno++;
-  fprintf(out,"  int yyinit;\n"); lineno++;
+  fprintf(out,"typedef struct {\n"); lineno++;
   fprintf(out,"  %sTOKENTYPE yy0;\n",name); lineno++;
+  fprintf(out,"  union {\n"); lineno++;
+  fprintf(out,"     int yyinit;\n"); lineno++;
   for(i=0; i<arraysize; i++){
     if( types[i]==0 ) continue;
-    fprintf(out,"  %s yy%d;\n",types[i],i+1); lineno++;
+    fprintf(out,"     %s yy%d;\n",types[i],i+1); lineno++;
     free(types[i]);
   }
   if( lemp->errsym && lemp->errsym->useCnt ){
-    fprintf(out,"  int yy%d;\n",lemp->errsym->dtnum); lineno++;
+    fprintf(out,"     int yy%d;\n",lemp->errsym->dtnum); lineno++;
   }
   free(stddt);
   free(types);
-  fprintf(out,"} YYMINORTYPE;\n"); lineno++;
+  fprintf(out,"}; } YYMINORTYPE;\n"); lineno++;
   *plineno = lineno;
 }
 
@@ -4395,7 +4458,7 @@ void ReportTable(
   lineno = 1;
 
   fprintf(out, 
-     "/* This file is automatically generated by Lemon from input grammar\n"
+     "/* This file is automatically generated by Musami from input grammar\n"
      "** source file \"%s\". */\n", lemp->filename); lineno += 2;
   
   /* The first %include directive begins with a C-language comment,
@@ -4433,13 +4496,53 @@ void ReportTable(
   if( mhflag ){
     fprintf(out,"#if INTERFACE\n"); lineno++;
   }else{
-    fprintf(out,"#ifndef %s%s\n", prefix, lemp->symbols[1]->name);
+    for(i=1; i<lemp->nterminal; i++){
+      if (lemp->symbols[i]->name[0] != '\'') {
+        fprintf(out,"#ifndef %s%s\n", prefix, lemp->symbols[i]->name); lineno++;
+        break;
+      }
+    }
   }
+  bool has_char_tokens = false;
   for(i=1; i<lemp->nterminal; i++){
-    fprintf(out,"#define %s%-30s %2d\n",prefix,lemp->symbols[i]->name,i);
-    lineno++;
+    if (lemp->symbols[i]->name[0] == '\'') {
+      has_char_tokens = true;
+    } else {
+      fprintf(out,"#define %s%-30s %2d\n",prefix,lemp->symbols[i]->name,i);
+      lineno++;
+    }
   }
   fprintf(out,"#endif\n"); lineno++;
+  if( has_char_tokens) {
+    fprintf(out, "#define HAS_CHAR_TOKENS\n"); lineno++;
+    unsigned char codes[128]= {0};
+    int max_code = -1;
+    for(i=1; i<lemp->nterminal; i++){
+      if (lemp->symbols[i]->name[0] == '\'') {
+        char chr=lemp->symbols[i]->name[1];
+        if( chr == '\\') {
+          switch( chr=lemp->symbols[i]->name[2] ) {
+            case 'n' : chr = '\n'; break;
+            default:   break;
+          }
+        }
+        max_code = max_code < chr ? chr : max_code;
+        codes[chr] = i;
+      }
+    }
+    fprintf( out, "unsigned char Parser_chars[128] = {", prefix);
+    for(i=0; i<=max_code; i += 8 ) {
+      fprintf(out, "\n"); lineno++;
+      for( j=i; j<i+8 && j <= max_code; ++ j ) {
+        fprintf(out, "%4d, ",codes[j]);
+      }
+    }
+    fprintf(out, "%4d };\n",codes[j]); lineno++;
+    fprintf(out,"  int %schar_to_token( char chr ) {return Parser_chars[chr];}\n", prefix); lineno++;
+  } else {
+    fprintf(out,"  int %schar_to_token( char chr ) {return -1;}\n", prefix); lineno++;
+  }
+  fprintf(out,"typedef class %sParser Parser_virtual;\n",prefix); lineno++;
   tplt_xfer(lemp->name,in,out,&lineno);
 
   /* Generate the defines */
@@ -4876,9 +4979,10 @@ void ReportTable(
   for(rp=lemp->rule; rp; rp=rp->next){
     i += translate_code(lemp, rp);
   }
-  if( i ){
-    fprintf(out,"        YYMINORTYPE yylhsminor;\n"); lineno++;
-  }
+  /* Moved out of switch to avoid bypassing constructor
+    if( i ){
+      fprintf(out,"        YYMINORTYPE yylhsminor;\n"); lineno++;
+  } */
   /* First output rules other than the default: rule */
   for(rp=lemp->rule; rp; rp=rp->next){
     struct rule *rp2;               /* Other rules with the same action */
@@ -4957,7 +5061,18 @@ void ReportHeader(struct lemon *lemp)
 
   if( lemp->tokenprefix ) prefix = lemp->tokenprefix;
   else                    prefix = "";
-  in = file_open(lemp,".h","rb");
+/**
+ * JIC: 
+ * The following code checks if any changes have occurred since
+ * the last write of the header file, suppressing a rewrite if not.
+ * Now that we no longer write all tokens to the file, its simple
+ * check logic no longer works. It won't be difficult to rewrite
+ * but I'd rather leave it until the interface the header provides
+ * is stable.
+ * 
+*/
+# ifdef JIC_CHECK
+  in = file_open(lemp,".h++","rb");
   if( in ){
     int nextChar;
     for(i=1; i<lemp->nterminal && fgets(line,LINESIZE,in); i++){
@@ -4972,11 +5087,34 @@ void ReportHeader(struct lemon *lemp)
       return;
     }
   }
-  out = file_open(lemp,".h","wb");
+# endif
+  out = file_open(lemp,".h++","wb");
   if( out ){
+    fprintf(out,"# ifndef %sMUSAMI_PARSER\n",prefix);
+    fprintf(out,"# define %sMUSAMI_PARSER\n",prefix);
     for(i=1; i<lemp->nterminal; i++){
-      fprintf(out,"#define %s%-30s %3d\n",prefix,lemp->symbols[i]->name,i);
+      if (lemp->symbols[i]->name[0] != '\'')
+        fprintf(out,"#   define %s%-30s %3d\n",prefix,lemp->symbols[i]->name,i);
     }
+    fprintf(out,"    int %schar_to_token( char chr );\n\n",prefix);
+
+    fprintf(out,"#define %sTOKENTYPE %s\n",prefix,lemp->tokentype?lemp->tokentype:"void*");
+    fprintf(out,"#define %sARG_PDECL ,%sTOKENTYPE * pAbc\n\n", prefix, prefix);
+    fprintf(out,"class %sParser {\n",prefix);
+    fprintf(out,"  public:\n",prefix);
+    fprintf(out,"    // Make compatible with CountedPointers\n",prefix);
+    fprintf(out,"    int counter_ = 0;\n",prefix);
+    fprintf(out,"    inline void CountedPointerAttach() { ++counter_; }\n",prefix);
+    fprintf(out,"    inline void CountedPointerDetach() { if( !--counter_) delete this;}\n",prefix);
+    fprintf(out,"    static %sParser * Create();\n",prefix);
+    fprintf(out,"    virtual void parse( int yymajor,              /* The major token code number */\n" );
+    fprintf(out,"                        %sTOKENTYPE yyminor       /* The value for the token */\n",prefix);
+    fprintf(out,"                        %sARG_PDECL               /* Optional %%extra_argument parameter */ ) = 0;\n",prefix);
+    fprintf(out,"    /* Translate a single character to a token. Returns zero if not known to the grammar */\n" );
+    fprintf(out,"    virtual int char_to_token( char chr ) = 0;    /* The token */\n" );
+    fprintf(out,"    virtual ~%sParser() {}\n",prefix);
+    fprintf(out,"};\n",prefix);
+    fprintf(out,"# endif\n");
     fclose(out);
   }
   return;
@@ -5388,7 +5526,7 @@ struct symbol *Symbol_new(const char *x)
     sp = (struct symbol *)calloc(1, sizeof(struct symbol) );
     MemoryCheck(sp);
     sp->name = Strsafe(x);
-    sp->type = ISUPPER(*x) ? TERMINAL : NONTERMINAL;
+    sp->type = ISTERMINAL(*x) ? TERMINAL : NONTERMINAL;
     sp->rule = 0;
     sp->fallback = 0;
     sp->prec = -1;

@@ -1,0 +1,156 @@
+\hypertarget{awkccc_8c_09_09_source}{}\doxysection{awkccc.\+c++}
+\label{awkccc_8c_09_09_source}\index{src/awkccc.c++@{src/awkccc.c++}}
+\mbox{\hyperlink{awkccc_8c_09_09}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00001}00001 \textcolor{comment}{/***}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00002}00002 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00003}00003 \textcolor{comment}{** AWKCCC main program}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00004}00004 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00005}00005 \textcolor{comment}{** Copyright (C) 2022 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00006}00006 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00007}00007 \textcolor{comment}{** Licensed under the Apache License, Version 2.0 (the "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00008}00008 \textcolor{comment}{** you may not use this file except in compliance with the License.}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00009}00009 \textcolor{comment}{** You may obtain a copy of the License at}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00010}00010 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00011}00011 \textcolor{comment}{**     http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00012}00012 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00013}00013 \textcolor{comment}{** Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00014}00014 \textcolor{comment}{** distributed under the License is distributed on an "{}AS IS"{} BASIS,}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00015}00015 \textcolor{comment}{** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00016}00016 \textcolor{comment}{** See the License for the specific language governing permissions and}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00017}00017 \textcolor{comment}{** limitations under the License.}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00018}00018 \textcolor{comment}{***/}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00019}00019 \textcolor{preprocessor}{\#include "{}../include/countedPointer.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00020}00020 \textcolor{preprocessor}{\#include "{}../include/awkccc\_ast.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00021}00021 \textcolor{preprocessor}{\#include "{}../include/awkccc\_lexer.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00022}00022 \textcolor{preprocessor}{\#include "{}../include/jcargs.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00023}00023 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parser_8h_09_09}{parser.h++}}"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00024}00024 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00025}00025 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00026}00026 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00028}00028 \textcolor{comment}{//using namespace jclib;}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00029}00029 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceawkccc}{awkccc}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00030}\mbox{\hyperlink{awkccc_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}{00030}} \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*\mbox{\hyperlink{awkccc_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}{malloc\_t}}(\textcolor{keywordtype}{size\_t}));}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00031}\mbox{\hyperlink{awkccc_8c_09_09_af133d4bffc5f90ffa719863791a61a18}{00031}} \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*\mbox{\hyperlink{awkccc_8c_09_09_af133d4bffc5f90ffa719863791a61a18}{free\_t}}(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00032}\mbox{\hyperlink{awkccc_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}{00032}} \textcolor{preprocessor}{\#define ParseTOKENTYPE jclib::CountedPointer<ast\_node>}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00033}00033 \textcolor{keywordtype}{void} \mbox{\hyperlink{awkccc_8c_09_09_aa8427503847800ef3fe8ab66fb4c55d5}{Parse}}(\textcolor{keywordtype}{void} *pParser\_, \textcolor{keywordtype}{int} tokenCode, \mbox{\hyperlink{awkccc_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token\_, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib::CountedPointer<awkccc::ast\_node>}} *);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00034}00034 \textcolor{keywordtype}{void} \mbox{\hyperlink{awkccc_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}{ParseTrace}}(FILE *stream, \textcolor{keywordtype}{char} *zPrefix);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00036}00036 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacejclib}{jclib}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00038}\mbox{\hyperlink{structarg__name__value}{00038}} \textcolor{keyword}{struct }\mbox{\hyperlink{structarg__name__value}{arg\_name\_value}} : \textcolor{keyword}{public} \mbox{\hyperlink{classjclib_1_1_counted_pointer_target}{CountedPointerTarget}} \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00039}\mbox{\hyperlink{structarg__name__value_a61ab189ca59c2f1313efa504e6b9a2e9}{00039}}     \mbox{\hyperlink{classjclib_1_1j_string}{jString}} \mbox{\hyperlink{structarg__name__value_a61ab189ca59c2f1313efa504e6b9a2e9}{arg\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00040}\mbox{\hyperlink{structarg__name__value_a4c37eada243e8a2d3d04338b8f5be42a}{00040}}     \mbox{\hyperlink{classjclib_1_1j_string}{jString}} \mbox{\hyperlink{structarg__name__value_a4c37eada243e8a2d3d04338b8f5be42a}{value\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00041}\mbox{\hyperlink{structarg__name__value_a0d8343745d7402b8f61f14adb572a132}{00041}}     \mbox{\hyperlink{structarg__name__value_a0d8343745d7402b8f61f14adb572a132}{arg\_name\_value}}( \mbox{\hyperlink{classjclib_1_1j_string}{jString}} \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} value )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00042}00042     : \mbox{\hyperlink{structarg__name__value_a61ab189ca59c2f1313efa504e6b9a2e9}{arg\_}}( \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}} )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00043}00043     , \mbox{\hyperlink{structarg__name__value_a4c37eada243e8a2d3d04338b8f5be42a}{value\_}}( value )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00044}00044     \{\}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00045}\mbox{\hyperlink{structarg__name__value_a90a53205beafe83a1cec013321e2ff3e}{00045}}     \mbox{\hyperlink{structarg__name__value_a90a53205beafe83a1cec013321e2ff3e}{arg\_name\_value}}( )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00046}00046     : \mbox{\hyperlink{structarg__name__value_a61ab189ca59c2f1313efa504e6b9a2e9}{arg\_}}( \textcolor{stringliteral}{"{}"{}} )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00047}00047     , \mbox{\hyperlink{structarg__name__value_a4c37eada243e8a2d3d04338b8f5be42a}{value\_}}( \textcolor{stringliteral}{"{}"{}} )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00048}00048     \{\}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00049}00049 \};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00051}00051 \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__instance}{arg\_instance< std::vector<CountedPointer<arg\_name\_value>}} > >::set(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00052}00052     errno = 0;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00053}00053     \mbox{\hyperlink{structarg__name__value}{arg\_name\_value}} * the\_aq = \textcolor{keyword}{new} \textcolor{keyword}{struct }\mbox{\hyperlink{structarg__name__value}{arg\_name\_value}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00054}00054     the\_aq-\/>\mbox{\hyperlink{structarg__name__value_a61ab189ca59c2f1313efa504e6b9a2e9}{arg\_}} = long\_name\_.\mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}() > 0 ? long\_name\_ : short\_name\_;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00055}00055     the\_aq-\/>\mbox{\hyperlink{structarg__name__value_a4c37eada243e8a2d3d04338b8f5be42a}{value\_}}= value;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00056}00056     answer\_.push\_back(\mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer<arg\_name\_value>}}(the\_aq));}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00057}00057     multiples\_ok\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00058}00058     \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00059}00059 \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00061}\mbox{\hyperlink{struct_user___arguments}{00061}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_user___arguments}{User\_Arguments}} \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00062}\mbox{\hyperlink{struct_user___arguments_afc280a7e14a53b6967574d45f6c33aad}{00062}}     std::vector< jString > \mbox{\hyperlink{struct_user___arguments_afc280a7e14a53b6967574d45f6c33aad}{includes\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00063}\mbox{\hyperlink{struct_user___arguments_a029892fa5f20484f64943a6db9388a6f}{00063}}     std::vector< jString > \mbox{\hyperlink{struct_user___arguments_a029892fa5f20484f64943a6db9388a6f}{variables\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00064}\mbox{\hyperlink{struct_user___arguments_a9fa5d03675a0f614fa38d7329c7238da}{00064}}     std::vector< CountedPointer<arg\_name\_value> > \mbox{\hyperlink{struct_user___arguments_a9fa5d03675a0f614fa38d7329c7238da}{source\_files\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00065}\mbox{\hyperlink{struct_user___arguments_ab685a5eeb56e6187a6613edd03ad37dc}{00065}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_user___arguments_ab685a5eeb56e6187a6613edd03ad37dc}{gawk\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00066}\mbox{\hyperlink{struct_user___arguments_a3622ffe42f0a57c5d6b81930a1cbe61f}{00066}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_user___arguments_a3622ffe42f0a57c5d6b81930a1cbe61f}{awkccc\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00067}\mbox{\hyperlink{struct_user___arguments_a052086c642d10ff5b7e2e248679c0f9c}{00067}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_user___arguments_a052086c642d10ff5b7e2e248679c0f9c}{help\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00068}\mbox{\hyperlink{struct_user___arguments_a670bd2d5670f11d996494bf401e03128}{00068}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_user___arguments_a670bd2d5670f11d996494bf401e03128}{version\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00069}00069 \};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00071}\mbox{\hyperlink{awkccc_8c_09_09_a8337c914423f4f746209d8dfe56d97cb}{00071}} \textcolor{keywordtype}{int} \mbox{\hyperlink{awkccc_8c_09_09_a8337c914423f4f746209d8dfe56d97cb}{xmain}} () \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00072}00072   std::ostringstream oss;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00073}00073   oss << \textcolor{stringliteral}{"{}One hundred and one: "{}} << 101;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00074}00074   std::string s = oss.str();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00075}00075   std::cout << s << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00076}00076   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00077}00077 \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00079}\mbox{\hyperlink{awkccc_8c_09_09_a86e95000f5765d7f5d950954a8014217}{00079}} \textcolor{keywordtype}{int} \mbox{\hyperlink{awkccc_8c_09_09_a86e95000f5765d7f5d950954a8014217}{ymain}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} * argv[]) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00081}00081     \mbox{\hyperlink{classjclib_1_1j_string}{jString}} str=\textcolor{stringliteral}{"{}a,b,cde,fij,,klm"{}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00082}00082     \textcolor{keyword}{auto} arr=str.\mbox{\hyperlink{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}{split}}(\textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00083}00083     \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} i : arr) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00084}00084         std::cout << i << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00085}00085     \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00086}00086     arr=str.\mbox{\hyperlink{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}{split}}(\textcolor{stringliteral}{"{},"{}},2);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00087}00087     \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} i : arr) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00088}00088         std::cout << i << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00089}00089     \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00090}00090     std::ostringstream oss;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00091}00091     \mbox{\hyperlink{struct_user___arguments}{User\_Arguments}} x;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00092}00092     \mbox{\hyperlink{classjclib_1_1arguments}{arguments}} args(oss);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00093}00093     args.\mbox{\hyperlink{classjclib_1_1arguments_a79ef5f1ccd5dc98b46c017c02de28c83}{load}}(\{ \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_afc280a7e14a53b6967574d45f6c33aad}{includes\_}},\textcolor{stringliteral}{"{}I"{}}, \textcolor{stringliteral}{"{}includes"{}}, \textcolor{stringliteral}{"{}Directories to search for include files"{}}, \textcolor{keyword}{true}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00094}00094                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a9fa5d03675a0f614fa38d7329c7238da}{source\_files\_}},\textcolor{stringliteral}{"{}F"{}}, \textcolor{stringliteral}{"{}file"{}}, \textcolor{stringliteral}{"{}AWK Language source file"{}}, \textcolor{keyword}{true}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00095}00095                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a052086c642d10ff5b7e2e248679c0f9c}{help\_}},\textcolor{stringliteral}{"{}h"{}}, \textcolor{stringliteral}{"{}help"{}}, \textcolor{stringliteral}{"{}Print this help message and exit"{}}, \textcolor{keyword}{false}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00096}00096                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a670bd2d5670f11d996494bf401e03128}{version\_}},\textcolor{stringliteral}{"{}V"{}}, \textcolor{stringliteral}{"{}version"{}}, \textcolor{stringliteral}{"{}Print awkccc version number and exit"{}}, \textcolor{keyword}{false}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00097}00097                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a9fa5d03675a0f614fa38d7329c7238da}{source\_files\_}},\textcolor{stringliteral}{"{}i"{}}, \textcolor{stringliteral}{"{}include"{}}, \textcolor{stringliteral}{"{}AWK Language include file"{}}, \textcolor{keyword}{true}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00098}00098                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a9fa5d03675a0f614fa38d7329c7238da}{source\_files\_}},\textcolor{stringliteral}{"{}e"{}}, \textcolor{stringliteral}{"{}source"{}}, \textcolor{stringliteral}{"{}AWK Language string"{}}, \textcolor{keyword}{true}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00099}00099                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a029892fa5f20484f64943a6db9388a6f}{variables\_}},\textcolor{stringliteral}{"{}v"{}}, \textcolor{stringliteral}{"{}assign"{}}, \textcolor{stringliteral}{"{}Variable assignment"{}}, \textcolor{keyword}{true}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00100}00100                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_ab685a5eeb56e6187a6613edd03ad37dc}{gawk\_}},\textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}gawk"{}}, \textcolor{stringliteral}{"{}Enable (some) gawk extensions"{}}, \textcolor{keyword}{false}, \textcolor{keyword}{false}),}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00101}00101                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(x.\mbox{\hyperlink{struct_user___arguments_a3622ffe42f0a57c5d6b81930a1cbe61f}{awkccc\_}},\textcolor{stringliteral}{"{}"{}}, \textcolor{stringliteral}{"{}awkccc"{}}, \textcolor{stringliteral}{"{}Enable (some) awkccc extensions"{}}, \textcolor{keyword}{false}, \textcolor{keyword}{false})\} );}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00102}00102     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00103}00103 \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00105}\mbox{\hyperlink{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{00105}} \textcolor{keywordtype}{int} \mbox{\hyperlink{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00106}00106     }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00107}00107     \textcolor{keywordtype}{char} buf\_[25601];}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00108}00108     \textcolor{keywordtype}{bool} had\_input = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00109}00109     \textcolor{keywordtype}{bool} clean\_tree = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00110}00110     \mbox{\hyperlink{classawkccc_1_1_symbol_table}{SymbolTable}} \& the\_symbol\_table = SymbolTable::instance();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00111}00111     \textcolor{keywordflow}{if}( argc > 1 ) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00112}00112         \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i = 1; i< argc; ++i )\{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00113}00113             \textcolor{keywordflow}{if}( argv[i][0] == \textcolor{charliteral}{':'})\{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00114}00114                 \textcolor{keyword}{auto} fname = argv[i]+1;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00115}00115                 \textcolor{keyword}{auto} file = fopen(fname, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00116}00116                 \textcolor{keyword}{auto} len = fread(buf\_, 1, 25600, file );}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00117}00117                 buf\_[len]=\textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00118}00118                 std::cout << buf\_ << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00119}00119                 had\_input = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00120}00120                 \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\_Parser}} *parser = \mbox{\hyperlink{class_p_a_r_s_e_r___parser_a05e769f965d793fbd9c04d5988ecd227}{PARSER\_Parser::Create}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00121}00121                 \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} lexer (buf\_,\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},0,\&the\_symbol\_table,parser);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00122}00122                 lexer.\mbox{\hyperlink{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}{initialise\_symbol\_table}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00123}00123                 lexer.\mbox{\hyperlink{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}{lex}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00124}00124                 \textcolor{keywordflow}{if}( Lexer::ast\_out.isset()) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00125}00125                     \textcolor{keywordflow}{if}( clean\_tree )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00126}00126                         Lexer::ast\_out-\/>clean\_tree(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00127}00127                     \mbox{\hyperlink{namespaceawkccc_ada7e21f5105fc61990864f035d772b59}{print\_ast}}( std::cout, Lexer::ast\_out);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00128}00128                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00129}00129                     std::cout << \textcolor{stringliteral}{"{}* * * No parse tree * * *\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00130}00130                 \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00131}00131             \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00132}00132         \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00133}00133     \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00134}00134     \textcolor{keywordflow}{if}( ! had\_input ) \{}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00135}00135         \textcolor{comment}{//strcpy(buf\_,"{}\_p1 += 4;\(\backslash\)nanswer=\_p1+\_param2[13.0]\&!7;\$1=a/7;\$2\string~/a+b[/]+c+/;\$3\string~/a+b[/]+c+/\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00136}00136         strcpy(buf\_,}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00137}00137             \textcolor{stringliteral}{"{}@include \(\backslash\)"{}filename\(\backslash\)"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00138}00138             \textcolor{stringliteral}{"{}BEGIN \{b+=a=1+2 < 3+4*5;\(\backslash\)n\}\(\backslash\)n"{}} }
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00139}00139             \textcolor{comment}{//"{}BEGIN \{a=1;\(\backslash\)nj=\$1*\$2+\$3;\(\backslash\)n\}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00140}00140             \textcolor{stringliteral}{"{}END \{print a; exit 3;\}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00141}00141         \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\_Parser}} *parser = \mbox{\hyperlink{class_p_a_r_s_e_r___parser_a05e769f965d793fbd9c04d5988ecd227}{PARSER\_Parser::Create}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00142}00142         \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} lexer (buf\_,\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},0,\&the\_symbol\_table,parser);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00143}00143         lexer.\mbox{\hyperlink{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}{initialise\_symbol\_table}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00144}00144         lexer.\mbox{\hyperlink{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}{lex}}();}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00145}00145         \textcolor{keywordflow}{if}( clean\_tree )}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00146}00146             Lexer::ast\_out-\/>clean\_tree(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00147}00147         \mbox{\hyperlink{namespaceawkccc_ada7e21f5105fc61990864f035d772b59}{print\_ast}}( std::cout, Lexer::ast\_out);}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00148}00148     \}}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00149}00149     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{awkccc_8c_09_09_source_l00150}00150 \}}
+
+\end{DoxyCode}

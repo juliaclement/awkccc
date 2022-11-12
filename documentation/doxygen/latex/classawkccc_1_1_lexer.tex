@@ -1,0 +1,372 @@
+\hypertarget{classawkccc_1_1_lexer}{}\doxysection{awkccc\+::Lexer Class Reference}
+\label{classawkccc_1_1_lexer}\index{awkccc::Lexer@{awkccc::Lexer}}
+
+
+{\ttfamily \#include $<$awkccc\+\_\+lexer.\+hpp$>$}
+
+
+
+Collaboration diagram for awkccc\+::Lexer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classawkccc_1_1_lexer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_ab587c57a5831ef30f52964e70a7af440}{parse}} (int token\+\_\+code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_a2c3d73e930df9dd4e22608efad18976c}{include\+\_\+filename}} (int token\+\_\+code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_a297402a0a4191d055716baead6795046}{parse\+\_\+string}} (int token\+\_\+code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_a09402486e369abb6eb4a7ffb6e1e313b}{start\+\_\+namespace}} (int token\+\_\+code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_aa1240484d68188db62b74207e2e7c8d8}{parsequalified}} (int token\+\_\+code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type)
+\item 
+\mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_a01388bc1dba0fbe57b6d687f82157f48}{unqualified\+\_\+to\+\_\+sym}} (int token\+\_\+code, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&token)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_ad9ff20009e2ee5b0a6d9b8747191a850}{parseunqualified}} (int token\+\_\+code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_a4c157469d647d98d7c1e138f93cc3dbc}{parsechr}} (char char\+\_\+code)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_af1b0a7a224c9770d5c2e0d4ef878d594}{maybe\+\_\+parse\+\_\+regex}} (int token\+\_\+code)
+\item 
+int \mbox{\hyperlink{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}{lex}} ()
+\item 
+void \mbox{\hyperlink{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}{initialise\+\_\+symbol\+\_\+table}} ()
+\item 
+\mbox{\hyperlink{classawkccc_1_1_lexer_a50aecfe015cf1e48873b59a659e35426}{Lexer}} (char $\ast$buf, char $\ast$lim, char $\ast$cur, char $\ast$mar, char $\ast$tok, int line, \mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc\+::\+Symbol\+Table}} $\ast$symbol\+\_\+table, \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $\ast$parser)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_a4b0ee4f9259b8ec4886c82471daacd0a}{buf\+\_\+}}
+\item 
+char $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_acff2c0922156fa5ccc45148066736bd3}{lim\+\_\+}}
+\item 
+char $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_a62d72ce9637e2294422499b13caccdd9}{cur\+\_\+}}
+\item 
+char $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_abdba2e496539718ecfe9b703d00140fe}{mar\+\_\+}}
+\item 
+char $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_a6a2227681483b9e2272acadbb58ec789}{tok\+\_\+}}
+\item 
+int \mbox{\hyperlink{classawkccc_1_1_lexer_ac37a331d3402d6721918c5901f848992}{line\+\_\+}}
+\item 
+class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyperlink{classawkccc_1_1_lexer_a865b2870b238d661325844302e45c8ac}{token\+\_\+}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc\+::\+Symbol\+Table}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_lexer_a7e685de5d9c78a769a83ea52c3f0c62d}{symbol\+\_\+table\+\_\+}}
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ class \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $>$ \mbox{\hyperlink{classawkccc_1_1_lexer_a8921e5ec5a190fa7fd06b37d8148debf}{parser\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classawkccc_1_1_lexer_abd5ab939e238a160820b72a43316f236}{allow\+\_\+regex\+\_\+}} = true
+\item 
+bool \mbox{\hyperlink{classawkccc_1_1_lexer_a93624200e19461b245c4057105314ec0}{expect\+\_\+include\+\_\+filename\+\_\+}} = false
+\item 
+bool \mbox{\hyperlink{classawkccc_1_1_lexer_a1d15077388e7b34925716f59677df2d0}{expect\+\_\+namespacename\+\_\+}} = false
+\item 
+class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyperlink{classawkccc_1_1_lexer_af059f75eaad30a0b11a33c462e258742}{namespace\+\_\+prefix\+\_\+}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()
+\item 
+class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyperlink{classawkccc_1_1_lexer_a890729c5985ed09012354e628e0d29e8}{awk\+\_\+namespace\+\_\+prefix\+\_\+}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ \mbox{\hyperlink{classawkccc_1_1_lexer_ac71bdc3f174251c61fac6986de420c1f}{ast\+\_\+out}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a50aecfe015cf1e48873b59a659e35426}\label{classawkccc_1_1_lexer_a50aecfe015cf1e48873b59a659e35426}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!Lexer@{Lexer}}
+\index{Lexer@{Lexer}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{Lexer()}{Lexer()}}
+{\footnotesize\ttfamily awkccc\+::\+Lexer\+::\+Lexer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{char $\ast$}]{lim,  }\item[{char $\ast$}]{cur,  }\item[{char $\ast$}]{mar,  }\item[{char $\ast$}]{tok,  }\item[{int}]{line,  }\item[{\mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc\+::\+Symbol\+Table}} $\ast$}]{symbol\+\_\+table,  }\item[{\mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $\ast$}]{parser }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a2c3d73e930df9dd4e22608efad18976c}\label{classawkccc_1_1_lexer_a2c3d73e930df9dd4e22608efad18976c}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!include\_filename@{include\_filename}}
+\index{include\_filename@{include\_filename}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{include\_filename()}{include\_filename()}}
+{\footnotesize\ttfamily void Lexer\+::include\+\_\+filename (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00128}{128}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}\label{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!initialise\_symbol\_table@{initialise\_symbol\_table}}
+\index{initialise\_symbol\_table@{initialise\_symbol\_table}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{initialise\_symbol\_table()}{initialise\_symbol\_table()}}
+{\footnotesize\ttfamily void Lexer\+::initialise\+\_\+symbol\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00235}{235}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}\label{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!lex@{lex}}
+\index{lex@{lex}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{lex()}{lex()}}
+{\footnotesize\ttfamily int Lexer\+::lex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer_8c_09_09_source_l00040}{40}} of file \mbox{\hyperlink{lexer_8c_09_09_source}{lexer.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_af1b0a7a224c9770d5c2e0d4ef878d594}\label{classawkccc_1_1_lexer_af1b0a7a224c9770d5c2e0d4ef878d594}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!maybe\_parse\_regex@{maybe\_parse\_regex}}
+\index{maybe\_parse\_regex@{maybe\_parse\_regex}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{maybe\_parse\_regex()}{maybe\_parse\_regex()}}
+{\footnotesize\ttfamily void Lexer\+::maybe\+\_\+parse\+\_\+regex (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00221}{221}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_ab587c57a5831ef30f52964e70a7af440}\label{classawkccc_1_1_lexer_ab587c57a5831ef30f52964e70a7af440}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!parse@{parse}}
+\index{parse@{parse}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily void Lexer\+::parse (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00119}{119}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a297402a0a4191d055716baead6795046}\label{classawkccc_1_1_lexer_a297402a0a4191d055716baead6795046}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!parse\_string@{parse\_string}}
+\index{parse\_string@{parse\_string}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{parse\_string()}{parse\_string()}}
+{\footnotesize\ttfamily void Lexer\+::parse\+\_\+string (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00132}{132}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a4c157469d647d98d7c1e138f93cc3dbc}\label{classawkccc_1_1_lexer_a4c157469d647d98d7c1e138f93cc3dbc}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!parsechr@{parsechr}}
+\index{parsechr@{parsechr}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{parsechr()}{parsechr()}}
+{\footnotesize\ttfamily void Lexer\+::parsechr (\begin{DoxyParamCaption}\item[{char}]{char\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00195}{195}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_aa1240484d68188db62b74207e2e7c8d8}\label{classawkccc_1_1_lexer_aa1240484d68188db62b74207e2e7c8d8}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!parsequalified@{parsequalified}}
+\index{parsequalified@{parsequalified}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{parsequalified()}{parsequalified()}}
+{\footnotesize\ttfamily void Lexer\+::parsequalified (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00148}{148}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_ad9ff20009e2ee5b0a6d9b8747191a850}\label{classawkccc_1_1_lexer_ad9ff20009e2ee5b0a6d9b8747191a850}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!parseunqualified@{parseunqualified}}
+\index{parseunqualified@{parseunqualified}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{parseunqualified()}{parseunqualified()}}
+{\footnotesize\ttfamily void Lexer\+::parseunqualified (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00181}{181}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a09402486e369abb6eb4a7ffb6e1e313b}\label{classawkccc_1_1_lexer_a09402486e369abb6eb4a7ffb6e1e313b}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!start\_namespace@{start\_namespace}}
+\index{start\_namespace@{start\_namespace}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{start\_namespace()}{start\_namespace()}}
+{\footnotesize\ttfamily void Lexer\+::start\+\_\+namespace (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00139}{139}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a01388bc1dba0fbe57b6d687f82157f48}\label{classawkccc_1_1_lexer_a01388bc1dba0fbe57b6d687f82157f48}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!unqualified\_to\_sym@{unqualified\_to\_sym}}
+\index{unqualified\_to\_sym@{unqualified\_to\_sym}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{unqualified\_to\_sym()}{unqualified\_to\_sym()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ Lexer\+::unqualified\+\_\+to\+\_\+sym (\begin{DoxyParamCaption}\item[{int}]{token\+\_\+code,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&}]{token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00158}{158}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classawkccc_1_1_lexer_abd5ab939e238a160820b72a43316f236}\label{classawkccc_1_1_lexer_abd5ab939e238a160820b72a43316f236}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!allow\_regex\_@{allow\_regex\_}}
+\index{allow\_regex\_@{allow\_regex\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{allow\_regex\_}{allow\_regex\_}}
+{\footnotesize\ttfamily bool awkccc\+::\+Lexer\+::allow\+\_\+regex\+\_\+ = true}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_ac71bdc3f174251c61fac6986de420c1f}\label{classawkccc_1_1_lexer_ac71bdc3f174251c61fac6986de420c1f}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!ast\_out@{ast\_out}}
+\index{ast\_out@{ast\_out}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{ast\_out}{ast\_out}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ Lexer\+::ast\+\_\+out\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a890729c5985ed09012354e628e0d29e8}\label{classawkccc_1_1_lexer_a890729c5985ed09012354e628e0d29e8}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!awk\_namespace\_prefix\_@{awk\_namespace\_prefix\_}}
+\index{awk\_namespace\_prefix\_@{awk\_namespace\_prefix\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{awk\_namespace\_prefix\_}{awk\_namespace\_prefix\_}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awkccc\+::\+Lexer\+::awk\+\_\+namespace\+\_\+prefix\+\_\+ = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a4b0ee4f9259b8ec4886c82471daacd0a}\label{classawkccc_1_1_lexer_a4b0ee4f9259b8ec4886c82471daacd0a}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!buf\_@{buf\_}}
+\index{buf\_@{buf\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{buf\_}{buf\_}}
+{\footnotesize\ttfamily char$\ast$ awkccc\+::\+Lexer\+::buf\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a62d72ce9637e2294422499b13caccdd9}\label{classawkccc_1_1_lexer_a62d72ce9637e2294422499b13caccdd9}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!cur\_@{cur\_}}
+\index{cur\_@{cur\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{cur\_}{cur\_}}
+{\footnotesize\ttfamily char $\ast$ awkccc\+::\+Lexer\+::cur\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a93624200e19461b245c4057105314ec0}\label{classawkccc_1_1_lexer_a93624200e19461b245c4057105314ec0}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!expect\_include\_filename\_@{expect\_include\_filename\_}}
+\index{expect\_include\_filename\_@{expect\_include\_filename\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{expect\_include\_filename\_}{expect\_include\_filename\_}}
+{\footnotesize\ttfamily bool awkccc\+::\+Lexer\+::expect\+\_\+include\+\_\+filename\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a1d15077388e7b34925716f59677df2d0}\label{classawkccc_1_1_lexer_a1d15077388e7b34925716f59677df2d0}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!expect\_namespacename\_@{expect\_namespacename\_}}
+\index{expect\_namespacename\_@{expect\_namespacename\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{expect\_namespacename\_}{expect\_namespacename\_}}
+{\footnotesize\ttfamily bool awkccc\+::\+Lexer\+::expect\+\_\+namespacename\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_acff2c0922156fa5ccc45148066736bd3}\label{classawkccc_1_1_lexer_acff2c0922156fa5ccc45148066736bd3}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!lim\_@{lim\_}}
+\index{lim\_@{lim\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{lim\_}{lim\_}}
+{\footnotesize\ttfamily char$\ast$ awkccc\+::\+Lexer\+::lim\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_ac37a331d3402d6721918c5901f848992}\label{classawkccc_1_1_lexer_ac37a331d3402d6721918c5901f848992}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!line\_@{line\_}}
+\index{line\_@{line\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{line\_}{line\_}}
+{\footnotesize\ttfamily int awkccc\+::\+Lexer\+::line\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_abdba2e496539718ecfe9b703d00140fe}\label{classawkccc_1_1_lexer_abdba2e496539718ecfe9b703d00140fe}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!mar\_@{mar\_}}
+\index{mar\_@{mar\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{mar\_}{mar\_}}
+{\footnotesize\ttfamily char $\ast$ awkccc\+::\+Lexer\+::mar\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_af059f75eaad30a0b11a33c462e258742}\label{classawkccc_1_1_lexer_af059f75eaad30a0b11a33c462e258742}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!namespace\_prefix\_@{namespace\_prefix\_}}
+\index{namespace\_prefix\_@{namespace\_prefix\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{namespace\_prefix\_}{namespace\_prefix\_}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awkccc\+::\+Lexer\+::namespace\+\_\+prefix\+\_\+ = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a8921e5ec5a190fa7fd06b37d8148debf}\label{classawkccc_1_1_lexer_a8921e5ec5a190fa7fd06b37d8148debf}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!parser\_@{parser\_}}
+\index{parser\_@{parser\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{parser\_}{parser\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$class \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}}$>$ awkccc\+::\+Lexer\+::parser\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a7e685de5d9c78a769a83ea52c3f0c62d}\label{classawkccc_1_1_lexer_a7e685de5d9c78a769a83ea52c3f0c62d}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!symbol\_table\_@{symbol\_table\_}}
+\index{symbol\_table\_@{symbol\_table\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{symbol\_table\_}{symbol\_table\_}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc\+::\+Symbol\+Table}}$\ast$ awkccc\+::\+Lexer\+::symbol\+\_\+table\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a6a2227681483b9e2272acadbb58ec789}\label{classawkccc_1_1_lexer_a6a2227681483b9e2272acadbb58ec789}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!tok\_@{tok\_}}
+\index{tok\_@{tok\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{tok\_}{tok\_}}
+{\footnotesize\ttfamily char $\ast$ awkccc\+::\+Lexer\+::tok\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1_lexer_a865b2870b238d661325844302e45c8ac}\label{classawkccc_1_1_lexer_a865b2870b238d661325844302e45c8ac}} 
+\index{awkccc::Lexer@{awkccc::Lexer}!token\_@{token\_}}
+\index{token\_@{token\_}!awkccc::Lexer@{awkccc::Lexer}}
+\doxysubsubsection{\texorpdfstring{token\_}{token\_}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awkccc\+::\+Lexer\+::token\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__lexer_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{awkccc__lexer_8hpp_source}{awkccc\+\_\+lexer.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{awkccc__lexer_8hpp}{awkccc\+\_\+lexer.\+hpp}}\item 
+src/\mbox{\hyperlink{lexer_8c_09_09}{lexer.\+c++}}\item 
+src/\mbox{\hyperlink{lexer__lib_8c_09_09}{lexer\+\_\+lib.\+c++}}\end{DoxyCompactItemize}

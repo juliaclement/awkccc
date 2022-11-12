@@ -1,0 +1,35 @@
+\hypertarget{tokens_8c_09_09_source}{}\doxysection{tokens.\+c++}
+\label{tokens_8c_09_09_source}\index{src/tokens.c++@{src/tokens.c++}}
+\mbox{\hyperlink{tokens_8c_09_09}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00001}00001 \textcolor{comment}{/***}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00002}00002 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00003}00003 \textcolor{comment}{** AWKCCC: Interpreter tokens exerciser}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00004}00004 \textcolor{comment}{**         Should be rewritten as a test}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00005}00005 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00006}00006 \textcolor{comment}{** Copyright (C) 2022 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00007}00007 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00008}00008 \textcolor{comment}{** Licensed under the Apache License, Version 2.0 (the "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00009}00009 \textcolor{comment}{** you may not use this file except in compliance with the License.}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00010}00010 \textcolor{comment}{** You may obtain a copy of the License at}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00011}00011 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00012}00012 \textcolor{comment}{**     http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00013}00013 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00014}00014 \textcolor{comment}{** Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00015}00015 \textcolor{comment}{** distributed under the License is distributed on an "{}AS IS"{} BASIS,}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00016}00016 \textcolor{comment}{** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00017}00017 \textcolor{comment}{** See the License for the specific language governing permissions and}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00018}00018 \textcolor{comment}{** limitations under the License.}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00019}00019 \textcolor{comment}{***/}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00020}00020 \textcolor{preprocessor}{\#include "{}../include/tokens.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00022}00022 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00023}00023 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceawkcc}{awkcc}};}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00024}\mbox{\hyperlink{tokens_8c_09_09_ae66f6b31b5ad750f1fe042a706a4e3d4}{00024}} \textcolor{keywordtype}{int} \mbox{\hyperlink{tokens_8c_09_09_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00025}00025     \mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7c}{opcodes}} en=\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4bc4350709533d39b5e44cf838c76a18}{opcodes::GUARD6}};}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00026}00026     std::cout << \textcolor{stringliteral}{"{}GUARD3:"{}} << (int)(\mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924a14d173cdf39e51a7541e9cabdbdde43f}{addressing::GUARD3}}) << \textcolor{stringliteral}{"{}, GUARD5:"{}} << (int)(\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cae41ad22ca7b86e0465b5b4ec24dda251}{opcodes::GUARD5}}) << \textcolor{stringliteral}{"{}, GUARD6:"{}} << (int)(\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7ca4bc4350709533d39b5e44cf838c76a18}{opcodes::GUARD6}}) << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00027}00027     \mbox{\hyperlink{structawkcc_1_1instruction}{instruction}} X\{\mbox{\hyperlink{namespaceawkcc_a880cab8c9c0b6c5304f8ca056c69c924aa8431865719fd0ade70caf3c2fdb86e4}{addressing::VARIABLE\_STORE}},\mbox{\hyperlink{namespaceawkcc_a26a6c900538982f462683f35678f9d7cadafafeefa298f0924cf3ab3ef86b3f0e}{opcodes::LOADNEGATIVE}},0xffff\};}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00028}00028     std::cout << \textcolor{stringliteral}{"{}\{:"{}} << (int)(\mbox{\hyperlink{namespaceawkcc_ac0cb17a092a256f02e5e64d2e0eea412abe5e70b126c547855ad97e5652b2ea0f}{tokens::LBRACE}}) << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{tokens_8c_09_09_source_l00029}00029 \}}
+
+\end{DoxyCode}

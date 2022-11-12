@@ -1,0 +1,9 @@
+<map id="awkccc::ast_op_node" name="awkccc::ast_op_node">
+<area shape="rect" id="node1" title=" " alt="" coords="436,97,596,124"/>
+<area shape="rect" id="node4" href="$classawkccc_1_1ast__bin__op__node.html" title=" " alt="" coords="644,5,831,32"/>
+<area shape="rect" id="node5" href="$classawkccc_1_1ast__left__unary__op__node.html" title=" " alt="" coords="652,57,823,98"/>
+<area shape="rect" id="node6" href="$classawkccc_1_1ast__right__unary__op__node.html" title=" " alt="" coords="648,122,827,163"/>
+<area shape="rect" id="node7" href="$classawkccc_1_1ast__ternary__op__node.html" title=" " alt="" coords="661,187,813,229"/>
+<area shape="rect" id="node2" href="$classawkccc_1_1ast__node.html" title=" " alt="" coords="251,97,388,124"/>
+<area shape="rect" id="node3" href="$classjclib_1_1_counted_pointer_target.html" title=" " alt="" coords="5,97,203,124"/>
+</map>

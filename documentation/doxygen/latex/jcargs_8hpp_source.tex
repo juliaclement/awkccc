@@ -1,0 +1,336 @@
+\hypertarget{jcargs_8hpp_source}{}\doxysection{jcargs.\+hpp}
+\label{jcargs_8hpp_source}\index{include/jcargs.hpp@{include/jcargs.hpp}}
+\mbox{\hyperlink{jcargs_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00002}00002 \textcolor{comment}{Copyright (c) 2022 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00003}00003 \textcolor{comment}{Permission is hereby granted, free of charge, to any person obtaining a copy}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00004}00004 \textcolor{comment}{of this software and associated documentation files (the "{}Software"{}), to deal}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00005}00005 \textcolor{comment}{in the Software without restriction, including without limitation the rights}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00006}00006 \textcolor{comment}{to use, copy, modify, merge, publish, distribute, sublicense, and/or sell}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00007}00007 \textcolor{comment}{copies of the Software, and to permit persons to whom the Software is}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00008}00008 \textcolor{comment}{furnished to do so, subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00009}00009 \textcolor{comment}{The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00010}00010 \textcolor{comment}{copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00011}00011 \textcolor{comment}{THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00012}00012 \textcolor{comment}{IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00013}00013 \textcolor{comment}{FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00014}00014 \textcolor{comment}{AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00015}00015 \textcolor{comment}{LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00016}00016 \textcolor{comment}{OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00017}00017 \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00018}00018 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00020}00020 \textcolor{comment}{/* }}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00021}00021 \textcolor{comment}{ * File:   args.hpp}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00022}00022 \textcolor{comment}{ * Author: Julia Clement <Julia at Clement dot nz>}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00023}00023 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00024}00024 \textcolor{comment}{ * Part of the JCLib project https://github.com/juliaclement/jclib}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00025}00025 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00026}00026 \textcolor{comment}{ * Created 22-\/24 October 2022}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00027}00027 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00028}00028 \textcolor{preprocessor}{\#ifndef JCARGS\_HPP}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00029}00029 \textcolor{preprocessor}{\#define JCARGS\_HPP}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00030}00030 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{counted_pointer_8hpp}{countedPointer.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{j_string_8hpp}{jString.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00034}00034 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00035}00035 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00036}00036 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00044}00044 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacejclib}{jclib}} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00045}\mbox{\hyperlink{classjclib_1_1arg__base}{00045}}     \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}} : \textcolor{keyword}{public} \mbox{\hyperlink{classjclib_1_1_counted_pointer_target}{CountedPointerTarget}} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00046}00046         \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00047}\mbox{\hyperlink{classjclib_1_1arg__base_a7bf97f965c52133dcee50f289b0020c3}{00047}}             \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1arguments}{arguments}} * \mbox{\hyperlink{classjclib_1_1arg__base_a7bf97f965c52133dcee50f289b0020c3}{owner\_}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00048}\mbox{\hyperlink{classjclib_1_1arg__base_a646437d954f0516daa08e8d79fac2f38}{00048}}             \mbox{\hyperlink{classjclib_1_1j_string}{jString}} \mbox{\hyperlink{classjclib_1_1arg__base_a646437d954f0516daa08e8d79fac2f38}{short\_name\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00049}\mbox{\hyperlink{classjclib_1_1arg__base_aa508815352fb3e888462ce387b4fdd7d}{00049}}             \mbox{\hyperlink{classjclib_1_1j_string}{jString}} \mbox{\hyperlink{classjclib_1_1arg__base_aa508815352fb3e888462ce387b4fdd7d}{long\_name\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00050}\mbox{\hyperlink{classjclib_1_1arg__base_a384d18e78f2a5f60ec069ceafa8aeb32}{00050}}             \mbox{\hyperlink{classjclib_1_1j_string}{jString}} \mbox{\hyperlink{classjclib_1_1arg__base_a384d18e78f2a5f60ec069ceafa8aeb32}{desc\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00051}\mbox{\hyperlink{classjclib_1_1arg__base_a7d555b08df207e7c6407bf4ef14589d3}{00051}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7d555b08df207e7c6407bf4ef14589d3}{is\_set\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00052}\mbox{\hyperlink{classjclib_1_1arg__base_a4b93a2a07c35cc3e24c56291b264aaaa}{00052}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a4b93a2a07c35cc3e24c56291b264aaaa}{multiples\_ok\_}}=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00053}\mbox{\hyperlink{classjclib_1_1arg__base_ad06bd3037ea23fd7fded5db1afed5d56}{00053}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_ad06bd3037ea23fd7fded5db1afed5d56}{takes\_parameter\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00054}\mbox{\hyperlink{classjclib_1_1arg__base_a1fc031680a04493236ffa96e3795c4d6}{00054}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a1fc031680a04493236ffa96e3795c4d6}{required\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00055}\mbox{\hyperlink{classjclib_1_1arg__base_ac389f0dd108088c64bf6778a7fc7dd4b}{00055}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_ac389f0dd108088c64bf6778a7fc7dd4b}{is\_set}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classjclib_1_1arg__base_a7d555b08df207e7c6407bf4ef14589d3}{is\_set\_}}; \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00056}\mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{00056}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{set}}() \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00057}\mbox{\hyperlink{classjclib_1_1arg__base_a98b80152726e4d8be8f030c5df48e48f}{00057}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a98b80152726e4d8be8f030c5df48e48f}{set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00058}\mbox{\hyperlink{classjclib_1_1arg__base_afac78c7bd97618e74f785f2831ccc611}{00058}}             \mbox{\hyperlink{classjclib_1_1arg__base_afac78c7bd97618e74f785f2831ccc611}{arg\_base}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} short\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} long\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} desc, \textcolor{keywordtype}{bool} takes\_parameter, \textcolor{keywordtype}{bool} required=\textcolor{keyword}{false})}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00059}00059             : \mbox{\hyperlink{classjclib_1_1arg__base_a646437d954f0516daa08e8d79fac2f38}{short\_name\_}}(short\_name)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00060}00060             , \mbox{\hyperlink{classjclib_1_1arg__base_aa508815352fb3e888462ce387b4fdd7d}{long\_name\_}}(long\_name)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00061}00061             , \mbox{\hyperlink{classjclib_1_1arg__base_a384d18e78f2a5f60ec069ceafa8aeb32}{desc\_}}(desc)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00062}00062             , \mbox{\hyperlink{classjclib_1_1arg__base_ad06bd3037ea23fd7fded5db1afed5d56}{takes\_parameter\_}}(takes\_parameter)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00063}00063             , \mbox{\hyperlink{classjclib_1_1arg__base_a1fc031680a04493236ffa96e3795c4d6}{required\_}}(required)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00064}00064             \{\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00065}00065     \};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00067}\mbox{\hyperlink{classjclib_1_1simple__bool}{00067}}     \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1simple__bool}{simple\_bool}} : \textcolor{keyword}{public} \mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00068}00068         \textcolor{keyword}{public}: }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00069}\mbox{\hyperlink{classjclib_1_1simple__bool_a94e05943350b59d3f2d23392f00006e3}{00069}}             \textcolor{keywordtype}{bool} \& \mbox{\hyperlink{classjclib_1_1simple__bool_a94e05943350b59d3f2d23392f00006e3}{answer\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00070}\mbox{\hyperlink{classjclib_1_1simple__bool_a669882b701769b6b94831d89d3eeef71}{00070}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1simple__bool_a669882b701769b6b94831d89d3eeef71}{set}}() \{\mbox{\hyperlink{classjclib_1_1simple__bool_a94e05943350b59d3f2d23392f00006e3}{answer\_}} = \textcolor{keyword}{true}; \mbox{\hyperlink{classjclib_1_1arg__base_a7d555b08df207e7c6407bf4ef14589d3}{is\_set\_}} = \textcolor{keyword}{true}; \textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00071}\mbox{\hyperlink{classjclib_1_1simple__bool_a9c1d462a555414588616e7aa96dbf933}{00071}}             \mbox{\hyperlink{classjclib_1_1simple__bool_a9c1d462a555414588616e7aa96dbf933}{simple\_bool}}( \textcolor{keywordtype}{bool} \& answer, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} short\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} long\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} desc, \textcolor{keywordtype}{bool} takes\_parameter, \textcolor{keywordtype}{bool} required=\textcolor{keyword}{false} )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00072}00072             : \mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}}( short\_name, long\_name, desc, takes\_parameter, required )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00073}00073             , \mbox{\hyperlink{classjclib_1_1simple__bool_a94e05943350b59d3f2d23392f00006e3}{answer\_}}( answer)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00074}00074             \{\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00075}\mbox{\hyperlink{classjclib_1_1simple__bool_acc16b66316b56e61810a24288d59c4e0}{00075}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1simple__bool_acc16b66316b56e61810a24288d59c4e0}{set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\} \textcolor{comment}{// FIXME: Doesn't take value;}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00076}00076     \};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00078}\mbox{\hyperlink{classjclib_1_1arg__instance}{00078}}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1arg__instance}{arg\_instance}} : \textcolor{keyword}{public} \mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00079}00079         \textcolor{keyword}{public}: }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00080}\mbox{\hyperlink{classjclib_1_1arg__instance_ae8ffb8d630f7462ddef0fcd7b12f2fc7}{00080}}             T \& \mbox{\hyperlink{classjclib_1_1arg__instance_ae8ffb8d630f7462ddef0fcd7b12f2fc7}{answer\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00081}\mbox{\hyperlink{classjclib_1_1arg__instance_a9d70536e09c34ac80dc91060e02b4719}{00081}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__instance_a9d70536e09c34ac80dc91060e02b4719}{set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00082}\mbox{\hyperlink{classjclib_1_1arg__instance_add424ddd8ce216375857c0c99e495580}{00082}}             \mbox{\hyperlink{classjclib_1_1arg__instance_add424ddd8ce216375857c0c99e495580}{arg\_instance}}( T \& answer, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} short\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} long\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} desc, \textcolor{keywordtype}{bool} takes\_parameter, \textcolor{keywordtype}{bool} required=\textcolor{keyword}{false} )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00083}00083             : \mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}}( short\_name, long\_name, desc, takes\_parameter, required )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00084}00084             , \mbox{\hyperlink{classjclib_1_1arg__instance_ae8ffb8d630f7462ddef0fcd7b12f2fc7}{answer\_}}( answer)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00085}00085             \{\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00086}00086     \};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00088}\mbox{\hyperlink{classjclib_1_1arg__instance_a39d7c23d0554ac61f92a3d6710be81d8}{00088}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<short int>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00089}00089         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00090}00090         answer\_ = strtol(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00091}00091         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00092}00092     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00094}\mbox{\hyperlink{classjclib_1_1arg__instance_a5619a2a848918623c9b66802dda3d944}{00094}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<int>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00095}00095         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00096}00096         answer\_ = strtol(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00097}00097         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00098}00098     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00100}\mbox{\hyperlink{classjclib_1_1arg__instance_ae95be6db3d9ef8e769d2ca01877ec468}{00100}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<long>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00101}00101         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00102}00102         answer\_ = strtol(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00103}00103         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00104}00104     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00106}\mbox{\hyperlink{classjclib_1_1arg__instance_a6c16b53ad49b4a67653a28b4240bbe45}{00106}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<long long>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00107}00107         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00108}00108         answer\_ = strtoll(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00109}00109         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00110}00110     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00112}\mbox{\hyperlink{classjclib_1_1arg__instance_a4d6dab9bef5d305c909375cb9a287ea4}{00112}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<unsigned short int>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00113}00113         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00114}00114         answer\_ = strtoul(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00115}00115         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00116}00116     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00118}\mbox{\hyperlink{classjclib_1_1arg__instance_ae46d85621435eab20e0c3b70e03c5837}{00118}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<unsigned int>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00119}00119         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00120}00120         answer\_ = strtoul(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00121}00121         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00124}\mbox{\hyperlink{classjclib_1_1arg__instance_a892b77e1268605ab07929e2b23ffcffb}{00124}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<unsigned long>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00125}00125         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00126}00126         answer\_ = strtoul(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00127}00127         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00128}00128     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00130}\mbox{\hyperlink{classjclib_1_1arg__instance_a05cc853399ff96f3b8c0edf1c32c084b}{00130}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<unsigned long long>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00131}00131         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00132}00132         answer\_ = strtoull(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(),\textcolor{keyword}{nullptr},10);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00133}00133         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00134}00134     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00136}\mbox{\hyperlink{classjclib_1_1arg__instance_ad60b46e96ab6b315e03b4468650c4a7f}{00136}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<jString>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00137}00137         answer\_ = value;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00138}00138         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00139}00139     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00141}\mbox{\hyperlink{classjclib_1_1arg__instance_ab8587f7c39ec27d246c5af42bf42aa65}{00141}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__base_a7129eb0895d401ac79559165691db321}{arg\_instance<std::string>::set}}(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00142}00142         answer\_.assign(value.\mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}}(), value.\mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}());}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00143}00143         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00144}00144     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00146}\mbox{\hyperlink{classjclib_1_1arg__instance_add9c09d611f4aecc82d124238ec0409c}{00146}}     \textcolor{keyword}{template}<> \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arg__instance}{arg\_instance< std::vector<jString>}} >::set(\mbox{\hyperlink{classjclib_1_1j_string}{jString}} \&value) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00147}00147         errno = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00148}00148         answer\_.push\_back(value);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00149}00149         multiples\_ok\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00150}00150         \textcolor{keywordflow}{return} errno == 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00151}00151     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00152}00152 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00153}\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{00153}}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{classjclib_1_1arg__instance}{arg\_instance<T>}}* \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(T\&answer, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} short\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} long\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} desc, \textcolor{keywordtype}{bool} takes\_parameter, \textcolor{keywordtype}{bool} required=\textcolor{keyword}{false} )\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00154}00154             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classjclib_1_1arg__instance}{arg\_instance<T>}}( answer, short\_name, long\_name, desc, takes\_parameter, required );\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00156}\mbox{\hyperlink{namespacejclib_af6f4a57371cc79caa86aa0c93114f43b}{00156}}     \mbox{\hyperlink{classjclib_1_1simple__bool}{simple\_bool}}* \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}(\textcolor{keywordtype}{bool}\&answer, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} short\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} long\_name, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} desc, \textcolor{keywordtype}{bool} takes\_parameter, \textcolor{keywordtype}{bool} required=\textcolor{keyword}{false} )\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00157}00157             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classjclib_1_1simple__bool}{simple\_bool}}( answer, short\_name, long\_name, desc, takes\_parameter, required );\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00159}\mbox{\hyperlink{classjclib_1_1arguments}{00159}}     \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1arguments}{arguments}}\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00160}00160         \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00161}\mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{00161}}             std::ostream \& \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00162}\mbox{\hyperlink{classjclib_1_1arguments_a566dc49f9442409c27a10e63292a1b50}{00162}}             std::vector< jString > \mbox{\hyperlink{classjclib_1_1arguments_a566dc49f9442409c27a10e63292a1b50}{positional\_args\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00163}00163             \textcolor{comment}{// jString end\_keywords\_ = "{}-\/-\/"{};}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00164}\mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{00164}}             std::vector<CountedPointer< arg\_base > > \mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{all\_options\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00165}\mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{00165}}             std::map<jString, CountedPointer< arg\_base > > \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\_names\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00166}\mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{00166}}             std::map<jString, CountedPointer< arg\_base > > \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\_names\_}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00167}\mbox{\hyperlink{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}{00167}}             \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \mbox{\hyperlink{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}{help\_prefix\_}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib::jString::get\_empty}}();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00168}\mbox{\hyperlink{classjclib_1_1arguments_a067c280bf6555e718467e32fbe925ece}{00168}}             \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \mbox{\hyperlink{classjclib_1_1arguments_a067c280bf6555e718467e32fbe925ece}{help\_suffix\_}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib::jString::get\_empty}}();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00169}\mbox{\hyperlink{classjclib_1_1arguments_a80a51673ad902c9d406285314f48cf90}{00169}}             \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \mbox{\hyperlink{classjclib_1_1arguments_a80a51673ad902c9d406285314f48cf90}{version\_string\_}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib::jString::get\_empty}}();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00170}\mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{00170}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}} = 0;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00171}\mbox{\hyperlink{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}{00171}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}{show\_help\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00172}\mbox{\hyperlink{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}{00172}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}{show\_version\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00173}\mbox{\hyperlink{classjclib_1_1arguments_ab7b99b349a386215a759b8a16b06fe12}{00173}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{classjclib_1_1arguments_ab7b99b349a386215a759b8a16b06fe12}{insert}}(\mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer<arg\_base>}} input) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00174}00174                 \mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{all\_options\_}}.push\_back( input );}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00175}00175                 \textcolor{keywordflow}{if}( input-\/>short\_name\_.len()==1) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00176}00176                     \textcolor{keywordflow}{if}( \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\_names\_}}.find(input-\/>short\_name\_) != \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\_names\_}}.end() ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00177}00177                         \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}Internal error: \(\backslash\)"{}"{}} << input-\/>short\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{} duplicated\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00178}00178                         \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00179}00179                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00180}00180                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00181}00181                         \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\_names\_}}[input-\/>short\_name\_] = input;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00182}00182                         input-\/>owner\_ = \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00183}00183                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00184}00184                 \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( input-\/>short\_name\_.len() != 0 ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00185}00185                     \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}Internal error: \(\backslash\)"{}"{}} << input-\/>short\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{} longer than 1 character\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00186}00186                     \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00187}00187                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00188}00188                 \textcolor{keywordflow}{if}( input-\/>long\_name\_.len()>0) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00189}00189                     \textcolor{keywordflow}{if}( \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\_names\_}}.find(input-\/>long\_name\_) != \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\_names\_}}.end() ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00190}00190                         \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}Internal error: \(\backslash\)"{}"{}} << input-\/>long\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{} duplicated\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00191}00191                         \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00192}00192                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00193}00193                     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00194}00194                         \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\_names\_}}[input-\/>long\_name\_] = input;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00195}00195                         input-\/>owner\_ = \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00196}00196                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00197}00197                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00198}00198             \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00199}00199 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00200}\mbox{\hyperlink{classjclib_1_1arguments_a79ef5f1ccd5dc98b46c017c02de28c83}{00200}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{classjclib_1_1arguments_a79ef5f1ccd5dc98b46c017c02de28c83}{load}}(std::initializer\_list<arg\_base *> input) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00201}00201                 \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} i : input) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00202}00202                     \mbox{\hyperlink{classjclib_1_1arguments_ab7b99b349a386215a759b8a16b06fe12}{insert}}( i );}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00203}00203                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00204}00204             \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00206}\mbox{\hyperlink{classjclib_1_1arguments_ac1839724dc6708617a21559de5702bde}{00206}}             \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1arguments_ac1839724dc6708617a21559de5702bde}{process\_args}}( \textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \textcolor{keywordtype}{char} ** argv, \textcolor{keywordtype}{int} start\_at = 1) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00207}00207                 \textcolor{keywordtype}{int} argnum = start\_at;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00208}00208                 \textcolor{keywordflow}{for}( ; argnum < argc \&\& argv[ argnum ][0] == \textcolor{charliteral}{'-\/'}; ++argnum ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00209}00209                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * argstr=argv[argnum ];}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00210}00210                     \textcolor{keywordflow}{if}( argstr[1] == \textcolor{charliteral}{'-\/'}) \{ \textcolor{comment}{// long arg}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00211}00211                         \textcolor{keywordflow}{if}( argstr[2] == \textcolor{charliteral}{'\(\backslash\)0'}) \{ \textcolor{comment}{// end of kw args}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00212}00212                             ++argnum;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00213}00213                             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00214}00214                         \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00215}00215                         std::vector<jString> argarray = \mbox{\hyperlink{classjclib_1_1j_string}{jString}}(argstr+2).\mbox{\hyperlink{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}{split}}(\textcolor{stringliteral}{"{}="{}},1);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00216}00216                         \mbox{\hyperlink{classjclib_1_1j_string}{jString}} kw=argarray[0];}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00217}00217                         \mbox{\hyperlink{classjclib_1_1j_string}{jString}} val=argarray[1];}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00218}00218                         \textcolor{keywordflow}{if}( ! val.\mbox{\hyperlink{classjclib_1_1j_string_a42af2a62d5f94d50df0a6fea9d04e8bd}{isvalid}}())}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00219}00219                             val = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jString::get\_empty}}();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00220}00220                         \textcolor{keyword}{auto} found = \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\_names\_}}.find(kw);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00221}00221                         \textcolor{keywordflow}{if}( found == \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\_names\_}}.end()) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00222}00222                             \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}}<< \textcolor{stringliteral}{"{}Unknown argument "{}} << argstr << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00223}00223                             \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00224}00224                         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00225}00225                             \mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}} \& \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}} = * found-\/>second;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00226}00226                             \textcolor{keywordflow}{if}( \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.is\_set\_ \&\& ! \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.multiples\_ok\_ ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00227}00227                                 \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}}<< \textcolor{stringliteral}{"{}Multiple use of "{}} << argstr << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00228}00228                                 \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00229}00229                                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00230}00230                             \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00231}00231                             \textcolor{keywordflow}{if}( \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.takes\_parameter\_) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00232}00232                                 \textcolor{keywordtype}{int} val\_len = val.\mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00233}00233                                 \textcolor{keywordtype}{int} nextargnum=argnum + 1;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00234}00234                                 \textcolor{keywordflow}{if}( (val\_len==0) \&\& (nextargnum < argc) \&\& (argv[nextargnum][0] != \textcolor{charliteral}{'-\/'})) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00235}00235                                     val = argv[++argnum];}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00236}00236                                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00237}00237                                 \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.is\_set\_ = \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.set(val);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00238}00238                             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00239}00239                                 \textcolor{keywordflow}{if}( val.\mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}() == 0 )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00240}00240                                     \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.is\_set\_ = \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.set();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00241}00241                                 \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00242}00242                                     \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.long\_name\_ << \textcolor{stringliteral}{"{} does not accept options\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00243}00243                                     \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00244}00244                                  \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00245}00245                             \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00246}00246                         \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00247}00247                     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00248}00248                         \textcolor{comment}{// args can be run together, so we have to decode the arg to know }}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00249}00249                         \textcolor{comment}{// e.g. -\/abcdef might be -\/a(=bcdef) or -\/a -\/b -\/c(=def) or ...}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00250}00250                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} * end = argstr + strlen(argstr);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00251}00251                         \textcolor{comment}{// +1 to skip the -\/}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00252}00252                         \textcolor{keywordflow}{for}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *chars = argstr+1; chars < end; ++ chars ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00253}00253                             \textcolor{keyword}{auto} kw=\mbox{\hyperlink{classjclib_1_1j_string}{jString}}(chars,1);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00254}00254                             \textcolor{keyword}{auto} found = \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\_names\_}}.find(kw);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00255}00255                             \textcolor{keywordflow}{if}( found == \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\_names\_}}.end()) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00256}00256                                 \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}}<< \textcolor{stringliteral}{"{}Unknown argument "{}} << argstr << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00257}00257                                 \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00258}00258                             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00259}00259                                 \mbox{\hyperlink{classjclib_1_1arg__base}{arg\_base}} \& \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}} = * found-\/>second;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00260}00260                                 \textcolor{keywordflow}{if}( \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.is\_set\_ \&\& ! \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.multiples\_ok\_ ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00261}00261                                     \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}}<< \textcolor{stringliteral}{"{}Multiple use of "{}} << argstr << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00262}00262                                     \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00263}00263                                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00264}00264                                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00265}00265                                 \textcolor{keywordflow}{if}( \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.takes\_parameter\_) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00266}00266                                     \mbox{\hyperlink{classjclib_1_1j_string}{jString}} val(chars+1);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00267}00267                                     \textcolor{keywordflow}{if}( chars[1] == \textcolor{charliteral}{'\(\backslash\)0'} \&\& (argnum + 1) < argc \&\& argv[argnum+1][0] != \textcolor{charliteral}{'-\/'}) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00268}00268                                         val = argv[++argnum];}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00269}00269                                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00270}00270                                     \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.is\_set\_ = \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.set(val);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00271}00271                                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00272}00272                                 \} \textcolor{keywordflow}{else} }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00273}00273                                     \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.is\_set\_ = \mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}.set();}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00274}00274                             \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00275}00275                         \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00276}00276                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00277}00277                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00278}00278                 \textcolor{comment}{// Now process the remaining (positional) arguments}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00279}00279                 \textcolor{keywordflow}{for}( ; argnum < argc; ++ argnum) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00280}00280                     this-\/>positional\_args\_.push\_back(argv[argnum]);}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00281}00281                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00282}00282                 \textcolor{comment}{// Finally, scan arguments to make sure required ones are set}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00283}00283                 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00284}00284                 \textcolor{keywordflow}{if}( ! (\mbox{\hyperlink{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}{show\_version\_}} || \mbox{\hyperlink{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}{show\_help\_}} ) )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00285}00285                 \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00286}00286                     \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} k : \mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{all\_options\_}}) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00287}00287                         \textcolor{keywordflow}{if}(  k-\/>required\_ \&\&  ! k-\/>is\_set\_) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00288}00288                             \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00289}00289                             \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}Required option \(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00290}00290                             \textcolor{keywordflow}{if}( k-\/>short\_name\_.len() > 0 \&\& k-\/>long\_name\_.len() > 0 )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00291}00291                                 \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}-\/-\/"{}} << k-\/>long\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{} (\(\backslash\)"{}-\/"{}} << k-\/>short\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{})"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00292}00292                             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (k-\/>short\_name\_.len() > 0)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00293}00293                                 \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}-\/"{}} << k-\/>short\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00294}00294                             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00295}00295                                 \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}-\/-\/"{}} << k-\/>long\_name\_ << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00296}00296                             \textcolor{keywordflow}{if}( k-\/>desc\_.len() > 0 )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00297}00297                                 \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{} ("{}} << k-\/>desc\_ << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00298}00298                             \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{} missing\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00299}00299                             \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}}++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00300}00300                         \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00301}00301                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00302}00302                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00303}00303                 \textcolor{comment}{// If version has been requested \& we are set-\/up to provide it.}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00304}00304                 \textcolor{keywordflow}{if}( \mbox{\hyperlink{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}{show\_version\_}} ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00305}00305                     \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \mbox{\hyperlink{classjclib_1_1arguments_a80a51673ad902c9d406285314f48cf90}{version\_string\_}} << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00306}00306                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00307}00307                 \textcolor{comment}{// If help has been requested or a parameter error is detected \& we are set-\/up to provide it.}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00308}00308                 \textcolor{keywordflow}{if}( \mbox{\hyperlink{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}{show\_help\_}} || ( \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}} != 0 \&\& \mbox{\hyperlink{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}{help\_prefix\_}}.\mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}()>0 ) ) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00309}00309                     \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \mbox{\hyperlink{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}{help\_prefix\_}} << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00310}00310                     \textcolor{comment}{// find longest long option name}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00311}00311                     \textcolor{keywordtype}{size\_t} longest = 1;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00312}00312                     \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} k : \mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{all\_options\_}}) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00313}00313                         longest=std::max<size\_t>( longest, k-\/>long\_name\_.len() );}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00314}00314                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00315}00315                     \textcolor{comment}{// now print the lines}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00316}00316                     longest ++;}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00317}00317                     \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} k : \mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{all\_options\_}}) \{}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00318}00318                         \textcolor{keywordflow}{if}( k-\/>short\_name\_.len() > 0 )}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00319}00319                             \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \textcolor{stringliteral}{"{}  -\/"{}} << k-\/>short\_name\_ << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00320}00320                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00321}00321                             \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}}<< \textcolor{stringliteral}{"{}     "{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00322}00322                         \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << (k-\/>long\_name\_.len()==0 ? \textcolor{stringliteral}{"{}  "{}} : \textcolor{stringliteral}{"{}-\/-\/"{}})}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00323}00323                                    << k-\/>long\_name\_.pad(longest)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00324}00324                                    << k-\/>desc\_ << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00325}00325                     \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00326}00326                     \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}} << \mbox{\hyperlink{classjclib_1_1arguments_a067c280bf6555e718467e32fbe925ece}{help\_suffix\_}} << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00327}00327                 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00328}00328                 \textcolor{keywordflow}{return} \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\_}} == 0 \&\& !(\mbox{\hyperlink{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}{show\_version\_}} || \mbox{\hyperlink{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}{show\_help\_}});}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00329}00329             \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00330}00330 }
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00331}\mbox{\hyperlink{classjclib_1_1arguments_ae0627cea8b7d6ab73c0ebddaa5774700}{00331}}             \mbox{\hyperlink{classjclib_1_1arguments_ae0627cea8b7d6ab73c0ebddaa5774700}{arguments}}(std::ostream \& error\_log=std::cerr)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00332}00332                 : \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\_log\_}}( error\_log)}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00333}00333             \{\}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00334}00334     \};}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00335}00335 \}}
+\DoxyCodeLine{\Hypertarget{jcargs_8hpp_source_l00336}00336 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,128 @@
+\hypertarget{awkccc__ast_8hpp}{}\doxysection{include/awkccc\+\_\+ast.hpp File Reference}
+\label{awkccc__ast_8hpp}\index{include/awkccc\_ast.hpp@{include/awkccc\_ast.hpp}}
+{\ttfamily \#include \char`\"{}counted\+Pointer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}j\+String.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for awkccc\+\_\+ast.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{awkccc__ast_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{awkccc__ast_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1_symbol}{awkccc\+::\+Symbol}}
+\item 
+struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{awkccc\+::\+\_\+\+Symbol\+\_\+loader}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc\+::\+Symbol\+Table}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__node__visitor}{awkccc\+::ast\+\_\+node\+\_\+visitor}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__empty__node}{awkccc\+::ast\+\_\+empty\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__statement__node}{awkccc\+::ast\+\_\+statement\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__op__node}{awkccc\+::ast\+\_\+op\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__left__unary__op__node}{awkccc\+::ast\+\_\+left\+\_\+unary\+\_\+op\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__right__unary__op__node}{awkccc\+::ast\+\_\+right\+\_\+unary\+\_\+op\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__bin__op__node}{awkccc\+::ast\+\_\+bin\+\_\+op\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__function__node}{awkccc\+::ast\+\_\+function\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__branch__loop__node}{awkccc\+::ast\+\_\+branch\+\_\+loop\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__for__loop__node}{awkccc\+::ast\+\_\+for\+\_\+loop\+\_\+node}}
+\item 
+class \mbox{\hyperlink{classawkccc_1_1ast__ternary__op__node}{awkccc\+::ast\+\_\+ternary\+\_\+op\+\_\+node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceawkccc}{awkccc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{awkccc\+::\+Symbol\+Type}} \{ \newline
+\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{awkccc\+::\+VARIABLE}}
+, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6a5644a793b448fea11b8710a012581d94}{awkccc\+::\+CONSTANT}}
+, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6a8f5ff24776ee0ab5bdbc1f64b4353f24}{awkccc\+::\+REGEX}}
+, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6a89ab68454e7c5931a96ee3305db98f63}{awkccc\+::\+FUNCTION}}
+, \newline
+\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6abc0871ae8d7f94bc323a7a9e253e3cf0}{awkccc\+::\+STATEMENT}}
+, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6a4c91741f3b4e254aa738612dcd6bfbfd}{awkccc\+::\+KEYWORD}}
+, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6a1ae2a113eb0d511b8dfe8f7f092c68ab}{awkccc\+::\+OPERATOR}}
+, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6ac40c89334bceaf3e94c07da0e448255a}{awkccc\+::\+OTHER}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{awkccc\+::node\+\_\+types}} \{ \newline
+\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147a30d3fa8575c8a3df93a60441f6a553dc}{awkccc\+::\+Program}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147ad0a3c264c4da7a566015eb3df25a4c78}{awkccc\+::\+Pattern}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147af44e67d563fab471f97740845f2ab21b}{awkccc\+::\+Function}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147a63bf0b5af32b284a0c14843b1e39c858}{awkccc\+::\+Expression}}
+, \newline
+\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147af0ee698c1c4759de4e64a37cfef6bc31}{awkccc\+::\+Statement}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147a49c75168dcdb5c76641a3b2010160fcc}{awkccc\+::\+If}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147ad3e92e662b2fefdf47ac06f7a5a69b26}{awkccc\+::\+While}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147a1d3df9c13d59d87ea59d92d2688c8a91}{awkccc\+::\+Do}}
+, \newline
+\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147ae99eace6197c97e026899129f5588248}{awkccc\+::\+For\+\_\+C}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147af7ca4d8f7c540000aeb05c2953186ce7}{awkccc\+::\+For\+\_\+\+Iterator}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147a97a26e2e1b326a1c877f776225c4fbbc}{awkccc\+::\+Operator}}
+, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147a7111987a52d677d1a10f53abf27e3c4c}{awkccc\+::\+Empty}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceawkccc_ada7e21f5105fc61990864f035d772b59}{awkccc\+::print\+\_\+ast}} (std\+::ostream \&out, ast\+\_\+node $\ast$node, bool include\+\_\+children=true, bool include\+\_\+siblings=true, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} extra=\mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}())
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_aecbda66897af318708e5685bf6dd7b90}{awkccc\+::empty\+\_\+node}} (\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} rulename, int rule\+\_\+nr=-\/1, bool dummy=true)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a77390c9bc6e5861bae732a474b3f1269}{awkccc\+::empty\+\_\+node}} (const char $\ast$rulename, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a2dd4e26898deb0841bd53b71e9b5bb99}{awkccc\+::statement\+\_\+node}} (ast\+\_\+node $\ast$kw\+\_\+node, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_ab59f6c8cebe81e25373993dc11a84e15}{awkccc\+::statement\+\_\+node}} (ast\+\_\+node $\ast$kw\+\_\+node, std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ $>$ children, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a545adf3363fe3adef36364fa701ce293}{awkccc\+::ast\+\_\+left\+\_\+unary\+\_\+op}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ op, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ right, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a6213b8996cc79e93e952f9493860c35b}{awkccc\+::ast\+\_\+right\+\_\+unary\+\_\+op}} (ast\+\_\+node $\ast$left, ast\+\_\+node $\ast$op, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_af0775a0e3a7fec75f88935e1fa4e1f72}{awkccc\+::ast\+\_\+bin\+\_\+op}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ left, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ op, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ right, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a5a39025192ef4539a3b6bfb419330e4c}{awkccc\+::ast\+\_\+concatenate\+\_\+expr}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ left, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ right, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_aeacb7553923c89290c2912c03cb7faa7}{awkccc\+::function\+\_\+node}} (\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} rulename, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ function, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ parameters, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ body, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a9c172e9a78f271baa543bc66c9cf4880}{awkccc\+::ast\+\_\+if\+\_\+statement}} (ast\+\_\+node $\ast$op, ast\+\_\+node $\ast$question, ast\+\_\+node $\ast$if\+\_\+true, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a62075a6d3771dd580e1bd4c4a3ab3ff3}{awkccc\+::ast\+\_\+if\+\_\+else\+\_\+statement}} (ast\+\_\+node $\ast$op, ast\+\_\+node $\ast$question, ast\+\_\+node $\ast$if\+\_\+true, ast\+\_\+node $\ast$if\+\_\+false, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a5f439a16a1e4188ac764a2691047219f}{awkccc\+::ast\+\_\+while\+\_\+statement}} (ast\+\_\+node $\ast$op, ast\+\_\+node $\ast$question, ast\+\_\+node $\ast$if\+\_\+true, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_a8bcd3826509e5ba4c5f2cf60f534414f}{awkccc\+::ast\+\_\+do\+\_\+statement}} (ast\+\_\+node $\ast$op, ast\+\_\+node $\ast$body, ast\+\_\+node $\ast$question, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_aab5fc0aee88ee5356f80bd49dfecb83b}{awkccc\+::ast\+\_\+for\+\_\+\+C\+\_\+statement}} (ast\+\_\+node $\ast$op, ast\+\_\+node $\ast$initialise, ast\+\_\+node $\ast$question, ast\+\_\+node $\ast$increment, ast\+\_\+node $\ast$body, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_afaef8b3b896ca9c46ebf70e86de88b9b}{awkccc\+::ast\+\_\+ternary\+\_\+op}} (ast\+\_\+node $\ast$question, ast\+\_\+node $\ast$op, ast\+\_\+node $\ast$if\+\_\+true, ast\+\_\+node $\ast$if\+\_\+false, int rule\+\_\+nr=-\/1)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ \mbox{\hyperlink{namespaceawkccc_ac44a893b766e74442cc4b51ad6fb5787}{awkccc\+::ast\+\_\+ternary\+\_\+op}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ question, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ op, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ if\+\_\+true, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ ast\+\_\+node $>$ if\+\_\+false, int rule\+\_\+nr=-\/1)
+\end{DoxyCompactItemize}

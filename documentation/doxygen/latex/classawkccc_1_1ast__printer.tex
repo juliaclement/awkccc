@@ -1,0 +1,290 @@
+\hypertarget{classawkccc_1_1ast__printer}{}\doxysection{awkccc\+::ast\+\_\+printer Class Reference}
+\label{classawkccc_1_1ast__printer}\index{awkccc::ast\_printer@{awkccc::ast\_printer}}
+
+
+Inheritance diagram for awkccc\+::ast\+\_\+printer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classawkccc_1_1ast__printer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for awkccc\+::ast\+\_\+printer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classawkccc_1_1ast__printer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structawkccc_1_1ast__printer_1_1printer__ctl}{printer\+\_\+ctl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classawkccc_1_1ast__printer_a1655f02b3e1d669edb79ab7b0440a54d}{ast\+\_\+printer}} (std\+::ostream \&out, \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$node, bool include\+\_\+children, bool include\+\_\+siblings, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} extra=j\+String\+::get\+\_\+empty())
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_ab82303c35d17bafe72d7bbc96aebb51e}{traverse}} ()
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_a3234559ef48153e7465104d43270bd66}{print\+\_\+header}} (\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_ae028cafa723ddaf3d90538585e851d1a}{visit\+\_\+ast\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_a860d91696eee97155d39aec124a987c8}{visit\+\_\+ast\+\_\+empty\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__empty__node}{ast\+\_\+empty\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_af1ca4107058b477e8da1ef381ef3b5b4}{visit\+\_\+ast\+\_\+statement\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__statement__node}{ast\+\_\+statement\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_afc0caed85c6dd9e24379d90a67a17e13}{visit\+\_\+ast\+\_\+op\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__op__node}{ast\+\_\+op\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_a291a97cb8868d370b9289915dbc20ff6}{visit\+\_\+ast\+\_\+left\+\_\+unary\+\_\+op\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__left__unary__op__node}{ast\+\_\+left\+\_\+unary\+\_\+op\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_a3d1a8761d4acbdf971d4d6bc83092e43}{visit\+\_\+ast\+\_\+right\+\_\+unary\+\_\+op\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__right__unary__op__node}{ast\+\_\+right\+\_\+unary\+\_\+op\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_aa3dd89bc4703069ecaaade75f737f005}{visit\+\_\+ast\+\_\+bin\+\_\+op\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__bin__op__node}{ast\+\_\+bin\+\_\+op\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_ae97cd1c9fcb846ced159337fb20a2bc4}{visit\+\_\+ast\+\_\+function\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__function__node}{ast\+\_\+function\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_a78e1e4e06efd1de3838973e5684adfb2}{visit\+\_\+ast\+\_\+branch\+\_\+loop\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__branch__loop__node}{ast\+\_\+branch\+\_\+loop\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_a21851573765c07600e5ea4d011b86bd6}{visit\+\_\+ast\+\_\+for\+\_\+loop\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__for__loop__node}{ast\+\_\+for\+\_\+loop\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{classawkccc_1_1ast__printer_aee626ba6ee6a81f3f5c12db36c21bb1c}{visit\+\_\+ast\+\_\+ternary\+\_\+op\+\_\+node}} (\mbox{\hyperlink{classawkccc_1_1ast__ternary__op__node}{ast\+\_\+ternary\+\_\+op\+\_\+node}} $\ast$node)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classawkccc_1_1ast__printer_ab55914fcfe707f897be1a9282fc1068c}{out\+\_\+}}
+\item 
+\mbox{\hyperlink{structawkccc_1_1ast__printer_1_1printer__ctl}{printer\+\_\+ctl}} \mbox{\hyperlink{classawkccc_1_1ast__printer_a7e24693b859e19e09f5db5994b872bfa}{ctl\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00032}{32}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a1655f02b3e1d669edb79ab7b0440a54d}\label{classawkccc_1_1ast__printer_a1655f02b3e1d669edb79ab7b0440a54d}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!ast\_printer@{ast\_printer}}
+\index{ast\_printer@{ast\_printer}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{ast\_printer()}{ast\_printer()}}
+{\footnotesize\ttfamily awkccc\+::ast\+\_\+printer\+::ast\+\_\+printer (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$}]{node,  }\item[{bool}]{include\+\_\+children,  }\item[{bool}]{include\+\_\+siblings,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{extra = {\ttfamily jString\+:\+:get\+\_\+empty()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00043}{43}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a3234559ef48153e7465104d43270bd66}\label{classawkccc_1_1ast__printer_a3234559ef48153e7465104d43270bd66}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!print\_header@{print\_header}}
+\index{print\_header@{print\_header}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{print\_header()}{print\_header()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::print\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00051}{51}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_ab82303c35d17bafe72d7bbc96aebb51e}\label{classawkccc_1_1ast__printer_ab82303c35d17bafe72d7bbc96aebb51e}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!traverse@{traverse}}
+\index{traverse@{traverse}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::traverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00048}{48}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_aa3dd89bc4703069ecaaade75f737f005}\label{classawkccc_1_1ast__printer_aa3dd89bc4703069ecaaade75f737f005}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_bin\_op\_node@{visit\_ast\_bin\_op\_node}}
+\index{visit\_ast\_bin\_op\_node@{visit\_ast\_bin\_op\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_bin\_op\_node()}{visit\_ast\_bin\_op\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+bin\+\_\+op\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__bin__op__node}{ast\+\_\+bin\+\_\+op\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_aad4f26c2c0554f27d52de141790b4689}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00110}{110}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a78e1e4e06efd1de3838973e5684adfb2}\label{classawkccc_1_1ast__printer_a78e1e4e06efd1de3838973e5684adfb2}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_branch\_loop\_node@{visit\_ast\_branch\_loop\_node}}
+\index{visit\_ast\_branch\_loop\_node@{visit\_ast\_branch\_loop\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_branch\_loop\_node()}{visit\_ast\_branch\_loop\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+branch\+\_\+loop\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__branch__loop__node}{ast\+\_\+branch\+\_\+loop\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a16dc4f673fdfd962a52d457b903d0c8d}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00135}{135}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a860d91696eee97155d39aec124a987c8}\label{classawkccc_1_1ast__printer_a860d91696eee97155d39aec124a987c8}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_empty\_node@{visit\_ast\_empty\_node}}
+\index{visit\_ast\_empty\_node@{visit\_ast\_empty\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_empty\_node()}{visit\_ast\_empty\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+empty\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__empty__node}{ast\+\_\+empty\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a5a993dcbc8ffa5474760cb98469e453e}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00085}{85}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a21851573765c07600e5ea4d011b86bd6}\label{classawkccc_1_1ast__printer_a21851573765c07600e5ea4d011b86bd6}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_for\_loop\_node@{visit\_ast\_for\_loop\_node}}
+\index{visit\_ast\_for\_loop\_node@{visit\_ast\_for\_loop\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_for\_loop\_node()}{visit\_ast\_for\_loop\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+for\+\_\+loop\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__for__loop__node}{ast\+\_\+for\+\_\+loop\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_ad73e234b1e00a96d7a69ffaee6d810d4}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00160}{160}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_ae97cd1c9fcb846ced159337fb20a2bc4}\label{classawkccc_1_1ast__printer_ae97cd1c9fcb846ced159337fb20a2bc4}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_function\_node@{visit\_ast\_function\_node}}
+\index{visit\_ast\_function\_node@{visit\_ast\_function\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_function\_node()}{visit\_ast\_function\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+function\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__function__node}{ast\+\_\+function\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_ac6ab7ebea0c51bebbf1939f13d30ca5d}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00114}{114}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a291a97cb8868d370b9289915dbc20ff6}\label{classawkccc_1_1ast__printer_a291a97cb8868d370b9289915dbc20ff6}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_left\_unary\_op\_node@{visit\_ast\_left\_unary\_op\_node}}
+\index{visit\_ast\_left\_unary\_op\_node@{visit\_ast\_left\_unary\_op\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_left\_unary\_op\_node()}{visit\_ast\_left\_unary\_op\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+left\+\_\+unary\+\_\+op\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__left__unary__op__node}{ast\+\_\+left\+\_\+unary\+\_\+op\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a1e1a7a1d6e7f497952b99de6fcc532fb}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00102}{102}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_ae028cafa723ddaf3d90538585e851d1a}\label{classawkccc_1_1ast__printer_ae028cafa723ddaf3d90538585e851d1a}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_node@{visit\_ast\_node}}
+\index{visit\_ast\_node@{visit\_ast\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_node()}{visit\_ast\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_affe6ef6793a77beadb52d53cf008238b}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00069}{69}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_afc0caed85c6dd9e24379d90a67a17e13}\label{classawkccc_1_1ast__printer_afc0caed85c6dd9e24379d90a67a17e13}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_op\_node@{visit\_ast\_op\_node}}
+\index{visit\_ast\_op\_node@{visit\_ast\_op\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_op\_node()}{visit\_ast\_op\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+op\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__op__node}{ast\+\_\+op\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a804972d2565253d468c563ad139fd869}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00096}{96}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a3d1a8761d4acbdf971d4d6bc83092e43}\label{classawkccc_1_1ast__printer_a3d1a8761d4acbdf971d4d6bc83092e43}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_right\_unary\_op\_node@{visit\_ast\_right\_unary\_op\_node}}
+\index{visit\_ast\_right\_unary\_op\_node@{visit\_ast\_right\_unary\_op\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_right\_unary\_op\_node()}{visit\_ast\_right\_unary\_op\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+right\+\_\+unary\+\_\+op\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__right__unary__op__node}{ast\+\_\+right\+\_\+unary\+\_\+op\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a356a11b42c1ba72756fad90ea747a8f6}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00106}{106}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_af1ca4107058b477e8da1ef381ef3b5b4}\label{classawkccc_1_1ast__printer_af1ca4107058b477e8da1ef381ef3b5b4}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_statement\_node@{visit\_ast\_statement\_node}}
+\index{visit\_ast\_statement\_node@{visit\_ast\_statement\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_statement\_node()}{visit\_ast\_statement\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+statement\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__statement__node}{ast\+\_\+statement\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a4d27e38fc51fefff1745cd8cf491aacd}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00089}{89}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_aee626ba6ee6a81f3f5c12db36c21bb1c}\label{classawkccc_1_1ast__printer_aee626ba6ee6a81f3f5c12db36c21bb1c}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!visit\_ast\_ternary\_op\_node@{visit\_ast\_ternary\_op\_node}}
+\index{visit\_ast\_ternary\_op\_node@{visit\_ast\_ternary\_op\_node}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{visit\_ast\_ternary\_op\_node()}{visit\_ast\_ternary\_op\_node()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+printer\+::visit\+\_\+ast\+\_\+ternary\+\_\+op\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__ternary__op__node}{ast\+\_\+ternary\+\_\+op\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classawkccc_1_1ast__node__visitor_a01b623052650d70bfe21f9427576dc8e}{awkccc\+::ast\+\_\+node\+\_\+visitor}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00185}{185}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_a7e24693b859e19e09f5db5994b872bfa}\label{classawkccc_1_1ast__printer_a7e24693b859e19e09f5db5994b872bfa}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!ctl\_@{ctl\_}}
+\index{ctl\_@{ctl\_}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{ctl\_}{ctl\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structawkccc_1_1ast__printer_1_1printer__ctl}{printer\+\_\+ctl}} awkccc\+::ast\+\_\+printer\+::ctl\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00042}{42}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__printer_ab55914fcfe707f897be1a9282fc1068c}\label{classawkccc_1_1ast__printer_ab55914fcfe707f897be1a9282fc1068c}} 
+\index{awkccc::ast\_printer@{awkccc::ast\_printer}!out\_@{out\_}}
+\index{out\_@{out\_}!awkccc::ast\_printer@{awkccc::ast\_printer}}
+\doxysubsubsection{\texorpdfstring{out\_}{out\_}}
+{\footnotesize\ttfamily std\+::ostream\& awkccc\+::ast\+\_\+printer\+::out\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00041}{41}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{parser__lib_8c_09_09}{parser\+\_\+lib.\+c++}}\end{DoxyCompactItemize}

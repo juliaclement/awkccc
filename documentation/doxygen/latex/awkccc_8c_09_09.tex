@@ -1,0 +1,139 @@
+\hypertarget{awkccc_8c_09_09}{}\doxysection{src/awkccc.c++ File Reference}
+\label{awkccc_8c_09_09}\index{src/awkccc.c++@{src/awkccc.c++}}
+{\ttfamily \#include \char`\"{}../include/counted\+Pointer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/awkccc\+\_\+ast.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/awkccc\+\_\+lexer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/jcargs.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parser.\+h++\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for awkccc.\+c++\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{awkccc_8c_09_09__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structarg__name__value}{arg\+\_\+name\+\_\+value}}
+\item 
+struct \mbox{\hyperlink{struct_user___arguments}{User\+\_\+\+Arguments}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{awkccc_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}}~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$$\ast$ \mbox{\hyperlink{awkccc_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}{malloc\+\_\+t}}(size\+\_\+t)
+\item 
+typedef void $\ast$$\ast$ \mbox{\hyperlink{awkccc_8c_09_09_af133d4bffc5f90ffa719863791a61a18}{free\+\_\+t}}(void $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{awkccc_8c_09_09_aa8427503847800ef3fe8ab66fb4c55d5}{Parse}} (void $\ast$p\+Parser\+\_\+, int token\+Code, \mbox{\hyperlink{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}} token\+\_\+, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ $\ast$)
+\item 
+void \mbox{\hyperlink{awkccc_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}{Parse\+Trace}} (FILE $\ast$stream, char $\ast$z\+Prefix)
+\item 
+int \mbox{\hyperlink{awkccc_8c_09_09_a8337c914423f4f746209d8dfe56d97cb}{xmain}} ()
+\item 
+int \mbox{\hyperlink{awkccc_8c_09_09_a86e95000f5765d7f5d950954a8014217}{ymain}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{awkccc_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}\label{awkccc_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}} 
+\index{awkccc.c++@{awkccc.c++}!ParseTOKENTYPE@{ParseTOKENTYPE}}
+\index{ParseTOKENTYPE@{ParseTOKENTYPE}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{ParseTOKENTYPE}{ParseTOKENTYPE}}
+{\footnotesize\ttfamily \#define Parse\+TOKENTYPE~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc_8c_09_09_source_l00032}{32}} of file \mbox{\hyperlink{awkccc_8c_09_09_source}{awkccc.\+c++}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{awkccc_8c_09_09_af133d4bffc5f90ffa719863791a61a18}\label{awkccc_8c_09_09_af133d4bffc5f90ffa719863791a61a18}} 
+\index{awkccc.c++@{awkccc.c++}!free\_t@{free\_t}}
+\index{free\_t@{free\_t}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{free\_t}{free\_t}}
+{\footnotesize\ttfamily typedef void $\ast$$\ast$ free\+\_\+t(void $\ast$)}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc_8c_09_09_source_l00031}{31}} of file \mbox{\hyperlink{awkccc_8c_09_09_source}{awkccc.\+c++}}.
+
+\mbox{\Hypertarget{awkccc_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}\label{awkccc_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}} 
+\index{awkccc.c++@{awkccc.c++}!malloc\_t@{malloc\_t}}
+\index{malloc\_t@{malloc\_t}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{malloc\_t}{malloc\_t}}
+{\footnotesize\ttfamily typedef void $\ast$$\ast$ malloc\+\_\+t(size\+\_\+t)}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc_8c_09_09_source_l00030}{30}} of file \mbox{\hyperlink{awkccc_8c_09_09_source}{awkccc.\+c++}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}\label{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{awkccc.c++@{awkccc.c++}!main@{main}}
+\index{main@{main}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc_8c_09_09_source_l00105}{105}} of file \mbox{\hyperlink{awkccc_8c_09_09_source}{awkccc.\+c++}}.
+
+\mbox{\Hypertarget{awkccc_8c_09_09_aa8427503847800ef3fe8ab66fb4c55d5}\label{awkccc_8c_09_09_aa8427503847800ef3fe8ab66fb4c55d5}} 
+\index{awkccc.c++@{awkccc.c++}!Parse@{Parse}}
+\index{Parse@{Parse}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily void Parse (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+Parser\+\_\+,  }\item[{int}]{token\+Code,  }\item[{\mbox{\hyperlink{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}}}]{token\+\_\+,  }\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ $\ast$}]{p\+Abc }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+\mbox{\Hypertarget{awkccc_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}\label{awkccc_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}} 
+\index{awkccc.c++@{awkccc.c++}!ParseTrace@{ParseTrace}}
+\index{ParseTrace@{ParseTrace}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{ParseTrace()}{ParseTrace()}}
+{\footnotesize\ttfamily void Parse\+Trace (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{stream,  }\item[{char $\ast$}]{z\+Prefix }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00317}{317}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{awkccc_8c_09_09_a8337c914423f4f746209d8dfe56d97cb}\label{awkccc_8c_09_09_a8337c914423f4f746209d8dfe56d97cb}} 
+\index{awkccc.c++@{awkccc.c++}!xmain@{xmain}}
+\index{xmain@{xmain}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{xmain()}{xmain()}}
+{\footnotesize\ttfamily int xmain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc_8c_09_09_source_l00071}{71}} of file \mbox{\hyperlink{awkccc_8c_09_09_source}{awkccc.\+c++}}.
+
+\mbox{\Hypertarget{awkccc_8c_09_09_a86e95000f5765d7f5d950954a8014217}\label{awkccc_8c_09_09_a86e95000f5765d7f5d950954a8014217}} 
+\index{awkccc.c++@{awkccc.c++}!ymain@{ymain}}
+\index{ymain@{ymain}!awkccc.c++@{awkccc.c++}}
+\doxysubsubsection{\texorpdfstring{ymain()}{ymain()}}
+{\footnotesize\ttfamily int ymain (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc_8c_09_09_source_l00079}{79}} of file \mbox{\hyperlink{awkccc_8c_09_09_source}{awkccc.\+c++}}.
+

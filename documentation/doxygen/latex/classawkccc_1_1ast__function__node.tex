@@ -1,0 +1,134 @@
+\hypertarget{classawkccc_1_1ast__function__node}{}\doxysection{awkccc\+::ast\+\_\+function\+\_\+node Class Reference}
+\label{classawkccc_1_1ast__function__node}\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+
+
+{\ttfamily \#include $<$awkccc\+\_\+ast.\+hpp$>$}
+
+
+
+Inheritance diagram for awkccc\+::ast\+\_\+function\+\_\+node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{classawkccc_1_1ast__function__node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for awkccc\+::ast\+\_\+function\+\_\+node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classawkccc_1_1ast__function__node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classawkccc_1_1ast__function__node_a75a80ab2d7efb79c40ca1f7f978d8266}{accept}} (\mbox{\hyperlink{classawkccc_1_1ast__node__visitor}{ast\+\_\+node\+\_\+visitor}} $\ast$visitor)
+\item 
+\mbox{\hyperlink{classawkccc_1_1ast__function__node_a55912e7fd6992bdd3129a772b029a433}{ast\+\_\+function\+\_\+node}} (\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}} type, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ function, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ parameters, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ body, int rule\+\_\+nr=-\/1)
+\item 
+virtual void \mbox{\hyperlink{classawkccc_1_1ast__function__node_a6842a05aaf96ffe90f7352acd17f11e2}{clean\+\_\+tree}} (\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$parent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ \mbox{\hyperlink{classawkccc_1_1ast__function__node_ae07ddd24d8e2cd001854321f5081ab14}{function\+\_\+}}
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ \mbox{\hyperlink{classawkccc_1_1ast__function__node_ac503207333e77572cdb8f27c8208998e}{parameters\+\_\+}}
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ \mbox{\hyperlink{classawkccc_1_1ast__function__node_acd7250ffb252ecf3b2ed0928f793e53c}{body\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00356}{356}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classawkccc_1_1ast__function__node_a55912e7fd6992bdd3129a772b029a433}\label{classawkccc_1_1ast__function__node_a55912e7fd6992bdd3129a772b029a433}} 
+\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}!ast\_function\_node@{ast\_function\_node}}
+\index{ast\_function\_node@{ast\_function\_node}!awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+\doxysubsubsection{\texorpdfstring{ast\_function\_node()}{ast\_function\_node()}}
+{\footnotesize\ttfamily awkccc\+::ast\+\_\+function\+\_\+node\+::ast\+\_\+function\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}}}]{type,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$}]{function,  }\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$}]{parameters,  }\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$}]{body,  }\item[{int}]{rule\+\_\+nr = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00363}{363}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classawkccc_1_1ast__function__node_a75a80ab2d7efb79c40ca1f7f978d8266}\label{classawkccc_1_1ast__function__node_a75a80ab2d7efb79c40ca1f7f978d8266}} 
+\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}!accept@{accept}}
+\index{accept@{accept}!awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily virtual void awkccc\+::ast\+\_\+function\+\_\+node\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__node__visitor}{ast\+\_\+node\+\_\+visitor}} $\ast$}]{visitor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classawkccc_1_1ast__node_a522f2f065284ffd581cce0add81d0e76}{awkccc\+::ast\+\_\+node}}.
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00361}{361}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__function__node_a6842a05aaf96ffe90f7352acd17f11e2}\label{classawkccc_1_1ast__function__node_a6842a05aaf96ffe90f7352acd17f11e2}} 
+\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}!clean\_tree@{clean\_tree}}
+\index{clean\_tree@{clean\_tree}!awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+\doxysubsubsection{\texorpdfstring{clean\_tree()}{clean\_tree()}}
+{\footnotesize\ttfamily void awkccc\+::ast\+\_\+function\+\_\+node\+::clean\+\_\+tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classawkccc_1_1ast__node_a039164e3d54fb84f21983221c21701ae}{awkccc\+::ast\+\_\+node}}.
+
+
+
+Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00300}{300}} of file \mbox{\hyperlink{parser__lib_8c_09_09_source}{parser\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classawkccc_1_1ast__function__node_acd7250ffb252ecf3b2ed0928f793e53c}\label{classawkccc_1_1ast__function__node_acd7250ffb252ecf3b2ed0928f793e53c}} 
+\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}!body\_@{body\_}}
+\index{body\_@{body\_}!awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+\doxysubsubsection{\texorpdfstring{body\_}{body\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$ awkccc\+::ast\+\_\+function\+\_\+node\+::body\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00360}{360}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__function__node_ae07ddd24d8e2cd001854321f5081ab14}\label{classawkccc_1_1ast__function__node_ae07ddd24d8e2cd001854321f5081ab14}} 
+\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}!function\_@{function\_}}
+\index{function\_@{function\_}!awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+\doxysubsubsection{\texorpdfstring{function\_}{function\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$ awkccc\+::ast\+\_\+function\+\_\+node\+::function\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00358}{358}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__function__node_ac503207333e77572cdb8f27c8208998e}\label{classawkccc_1_1ast__function__node_ac503207333e77572cdb8f27c8208998e}} 
+\index{awkccc::ast\_function\_node@{awkccc::ast\_function\_node}!parameters\_@{parameters\_}}
+\index{parameters\_@{parameters\_}!awkccc::ast\_function\_node@{awkccc::ast\_function\_node}}
+\doxysubsubsection{\texorpdfstring{parameters\_}{parameters\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$ awkccc\+::ast\+\_\+function\+\_\+node\+::parameters\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00359}{359}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{awkccc__ast_8hpp}{awkccc\+\_\+ast.\+hpp}}\item 
+src/\mbox{\hyperlink{parser__lib_8c_09_09}{parser\+\_\+lib.\+c++}}\end{DoxyCompactItemize}

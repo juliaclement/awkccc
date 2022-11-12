@@ -1,0 +1,401 @@
+\hypertarget{classjclib_1_1j_string}{}\doxysection{jclib\+::j\+String Class Reference}
+\label{classjclib_1_1j_string}\index{jclib::jString@{jclib::jString}}
+
+
+{\ttfamily \#include $<$j\+String.\+hpp$>$}
+
+
+
+Inheritance diagram for jclib\+::j\+String\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classjclib_1_1j_string__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for jclib\+::j\+String\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classjclib_1_1j_string__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}{data}} () const
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string_a3a08821324c65bb40e6ad0319c7f2638}{operator const char $\ast$}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}} () const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_a42af2a62d5f94d50df0a6fea9d04e8bd}{isvalid}} () const
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string_aaff59e6a3d02b04f5f841f9e75beef2d}{j\+String}} (\mbox{\hyperlink{structjclib_1_1_private_1_1j_string_base}{Private\+::j\+String\+Base}} $\ast$base)
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string_a605249bd6bd3583ff24c9f1e4f160d27}{j\+String}} ()
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string_a9efb9cf7ac496cbbe11a993190c54b8a}{j\+String}} (const char $\ast$source)
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string_afe41990aca7e931c3c88312a0e22d871}{j\+String}} (const char $\ast$source, std\+::size\+\_\+t \mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}})
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string_a8111711f7d21224237718dbb58412ef7}{j\+String}} (const char $\ast$start, const char $\ast$end)
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_a1f2757cdb0229e77bce76597104f9a8f}{operator+}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs)
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_a7e9fb048756808e07c3a31314015469c}{left}} (std\+::size\+\_\+t \mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}) const
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_aea4f8bc0134a92b0f44edd35f1a7932c}{right}} (std\+::size\+\_\+t \mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}) const
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_af55dcdfaf5f18b7cd5d0df12bf9c5bd2}{substr}} (std\+::size\+\_\+t start, std\+::size\+\_\+t \mbox{\hyperlink{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}{len}}) const
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_a7b4a0652b1d629fcb69bb171d8691efc}{pad}} (std\+::size\+\_\+t length, char pad\+\_\+char=\textquotesingle{} \textquotesingle{}) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} $>$ \mbox{\hyperlink{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}{split}} (const char $\ast$delim, int max\+\_\+splits=std\+::numeric\+\_\+limits$<$ int $>$\+::max()) const
+\item 
+int \mbox{\hyperlink{classjclib_1_1j_string_ad1d51cf9e884aabcbf0387edc40a9eb2}{find}} (\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} findee)
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_ab0d1653253c0c5636e524628cd0b0a27}{isalpha}} ()
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_aae84c1413b3d137a21fecb495c059ef1}{isupper}} ()
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_ae9c51457a9e150c838de713183783814}{islower}} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_a003c161a28051c3ce6390a45841ba38f}{join}} (const T \&input)
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_aac1073792f5fb0c9dd6bd3366532a727}{operator$<$}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_a36cc278ea8ef66ea01e2663cafffda2c}{operator$<$=}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_a8d4304413e788be0d8081635dde02f5c}{operator$>$}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_a2c9a25ba8153918cf2a1add7af1327e0}{operator$>$=}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_a957678d937d3aee8e19a1d7c0043d108}{operator==}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_ae1ad76e6e678c3dc9b9adde596fb7ddd}{operator==}} (const char $\ast$rhs) const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1j_string_affec74e67b0f1f6d7ee519344352d063}{operator!=}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{get\+\_\+empty}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classjclib_1_1j_string_a6e279e5e99d32c2c82223caeae101d85}{operator$<$$<$}} (std\+::ostream \&os, const class \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&string)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classjclib_1_1j_string_aaff59e6a3d02b04f5f841f9e75beef2d}\label{classjclib_1_1j_string_aaff59e6a3d02b04f5f841f9e75beef2d}} 
+\index{jclib::jString@{jclib::jString}!jString@{jString}}
+\index{jString@{jString}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{jString()}{jString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily jclib\+::j\+String\+::j\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjclib_1_1_private_1_1j_string_base}{Private\+::j\+String\+Base}} $\ast$}]{base }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00165}{165}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a605249bd6bd3583ff24c9f1e4f160d27}\label{classjclib_1_1j_string_a605249bd6bd3583ff24c9f1e4f160d27}} 
+\index{jclib::jString@{jclib::jString}!jString@{jString}}
+\index{jString@{jString}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{jString()}{jString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily jclib\+::j\+String\+::j\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00169}{169}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a9efb9cf7ac496cbbe11a993190c54b8a}\label{classjclib_1_1j_string_a9efb9cf7ac496cbbe11a993190c54b8a}} 
+\index{jclib::jString@{jclib::jString}!jString@{jString}}
+\index{jString@{jString}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{jString()}{jString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily jclib\+::j\+String\+::j\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00173}{173}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_afe41990aca7e931c3c88312a0e22d871}\label{classjclib_1_1j_string_afe41990aca7e931c3c88312a0e22d871}} 
+\index{jclib::jString@{jclib::jString}!jString@{jString}}
+\index{jString@{jString}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{jString()}{jString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily jclib\+::j\+String\+::j\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{source,  }\item[{std\+::size\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00177}{177}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a8111711f7d21224237718dbb58412ef7}\label{classjclib_1_1j_string_a8111711f7d21224237718dbb58412ef7}} 
+\index{jclib::jString@{jclib::jString}!jString@{jString}}
+\index{jString@{jString}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{jString()}{jString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily jclib\+::j\+String\+::j\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{start,  }\item[{const char $\ast$}]{end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00182}{182}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}\label{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}} 
+\index{jclib::jString@{jclib::jString}!data@{data}}
+\index{data@{data}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily const char $\ast$ jclib\+::j\+String\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_ad1d51cf9e884aabcbf0387edc40a9eb2}\label{classjclib_1_1j_string_ad1d51cf9e884aabcbf0387edc40a9eb2}} 
+\index{jclib::jString@{jclib::jString}!find@{find}}
+\index{find@{find}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily int jclib\+::j\+String\+::find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}}}]{findee }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return position of first occurrence of findee 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}\label{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}} 
+\index{jclib::jString@{jclib::jString}!get\_empty@{get\_empty}}
+\index{get\_empty@{get\_empty}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{get\_empty()}{get\_empty()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::get\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+return an empty string. We use so many it makes sense to pre-\/create one 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00143}{143}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_ab0d1653253c0c5636e524628cd0b0a27}\label{classjclib_1_1j_string_ab0d1653253c0c5636e524628cd0b0a27}} 
+\index{jclib::jString@{jclib::jString}!isalpha@{isalpha}}
+\index{isalpha@{isalpha}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{isalpha()}{isalpha()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::isalpha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check is only all alphabetic ascii characters 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00292}{292}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_ae9c51457a9e150c838de713183783814}\label{classjclib_1_1j_string_ae9c51457a9e150c838de713183783814}} 
+\index{jclib::jString@{jclib::jString}!islower@{islower}}
+\index{islower@{islower}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{islower()}{islower()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::islower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check all alphabetic ascii characters in string are upper case 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00314}{314}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_aae84c1413b3d137a21fecb495c059ef1}\label{classjclib_1_1j_string_aae84c1413b3d137a21fecb495c059ef1}} 
+\index{jclib::jString@{jclib::jString}!isupper@{isupper}}
+\index{isupper@{isupper}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{isupper()}{isupper()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::isupper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check all alphabetic ascii characters in string are upper case 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00303}{303}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a42af2a62d5f94d50df0a6fea9d04e8bd}\label{classjclib_1_1j_string_a42af2a62d5f94d50df0a6fea9d04e8bd}} 
+\index{jclib::jString@{jclib::jString}!isvalid@{isvalid}}
+\index{isvalid@{isvalid}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{isvalid()}{isvalid()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::isvalid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a003c161a28051c3ce6390a45841ba38f}\label{classjclib_1_1j_string_a003c161a28051c3ce6390a45841ba38f}} 
+\index{jclib::jString@{jclib::jString}!join@{join}}
+\index{join@{join}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::join (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Join elements in an iterable into a new string with the elements separated by our value. Elements must be valid for \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} constructors. Based on Python\textquotesingle{}s str.\+join() method 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00329}{329}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a7e9fb048756808e07c3a31314015469c}\label{classjclib_1_1j_string_a7e9fb048756808e07c3a31314015469c}} 
+\index{jclib::jString@{jclib::jString}!left@{left}}
+\index{left@{left}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{left()}{left()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::left (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{len }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00216}{216}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}\label{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}} 
+\index{jclib::jString@{jclib::jString}!len@{len}}
+\index{len@{len}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{len()}{len()}}
+{\footnotesize\ttfamily size\+\_\+t jclib\+::j\+String\+::len (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00152}{152}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a3a08821324c65bb40e6ad0319c7f2638}\label{classjclib_1_1j_string_a3a08821324c65bb40e6ad0319c7f2638}} 
+\index{jclib::jString@{jclib::jString}!operator const char $\ast$@{operator const char $\ast$}}
+\index{operator const char $\ast$@{operator const char $\ast$}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator const char $\ast$()}{operator const char *()}}
+{\footnotesize\ttfamily jclib\+::j\+String\+::operator const char $\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_affec74e67b0f1f6d7ee519344352d063}\label{classjclib_1_1j_string_affec74e67b0f1f6d7ee519344352d063}} 
+\index{jclib::jString@{jclib::jString}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00372}{372}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a1f2757cdb0229e77bce76597104f9a8f}\label{classjclib_1_1j_string_a1f2757cdb0229e77bce76597104f9a8f}} 
+\index{jclib::jString@{jclib::jString}!operator+@{operator+}}
+\index{operator+@{operator+}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_aac1073792f5fb0c9dd6bd3366532a727}\label{classjclib_1_1j_string_aac1073792f5fb0c9dd6bd3366532a727}} 
+\index{jclib::jString@{jclib::jString}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00354}{354}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a36cc278ea8ef66ea01e2663cafffda2c}\label{classjclib_1_1j_string_a36cc278ea8ef66ea01e2663cafffda2c}} 
+\index{jclib::jString@{jclib::jString}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00357}{357}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_ae1ad76e6e678c3dc9b9adde596fb7ddd}\label{classjclib_1_1j_string_ae1ad76e6e678c3dc9b9adde596fb7ddd}} 
+\index{jclib::jString@{jclib::jString}!operator==@{operator==}}
+\index{operator==@{operator==}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator== (\begin{DoxyParamCaption}\item[{const char $\ast$}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00369}{369}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a957678d937d3aee8e19a1d7c0043d108}\label{classjclib_1_1j_string_a957678d937d3aee8e19a1d7c0043d108}} 
+\index{jclib::jString@{jclib::jString}!operator==@{operator==}}
+\index{operator==@{operator==}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00366}{366}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a8d4304413e788be0d8081635dde02f5c}\label{classjclib_1_1j_string_a8d4304413e788be0d8081635dde02f5c}} 
+\index{jclib::jString@{jclib::jString}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00360}{360}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a2c9a25ba8153918cf2a1add7af1327e0}\label{classjclib_1_1j_string_a2c9a25ba8153918cf2a1add7af1327e0}} 
+\index{jclib::jString@{jclib::jString}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool jclib\+::j\+String\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00363}{363}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_a7b4a0652b1d629fcb69bb171d8691efc}\label{classjclib_1_1j_string_a7b4a0652b1d629fcb69bb171d8691efc}} 
+\index{jclib::jString@{jclib::jString}!pad@{pad}}
+\index{pad@{pad}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{pad()}{pad()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::pad (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{length,  }\item[{char}]{pad\+\_\+char = {\ttfamily \textquotesingle{}~\textquotesingle{}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00239}{239}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_aea4f8bc0134a92b0f44edd35f1a7932c}\label{classjclib_1_1j_string_aea4f8bc0134a92b0f44edd35f1a7932c}} 
+\index{jclib::jString@{jclib::jString}!right@{right}}
+\index{right@{right}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{right()}{right()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::right (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{len }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00222}{222}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}\label{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}} 
+\index{jclib::jString@{jclib::jString}!split@{split}}
+\index{split@{split}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} $>$ jclib\+::j\+String\+::split (\begin{DoxyParamCaption}\item[{const char $\ast$}]{delim,  }\item[{int}]{max\+\_\+splits = {\ttfamily std\+:\+:numeric\+\_\+limits$<$int$>$\+:\+:max()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00257}{257}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1j_string_af55dcdfaf5f18b7cd5d0df12bf9c5bd2}\label{classjclib_1_1j_string_af55dcdfaf5f18b7cd5d0df12bf9c5bd2}} 
+\index{jclib::jString@{jclib::jString}!substr@{substr}}
+\index{substr@{substr}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{substr()}{substr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} jclib\+::j\+String\+::substr (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{start,  }\item[{std\+::size\+\_\+t}]{len }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00229}{229}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classjclib_1_1j_string_a6e279e5e99d32c2c82223caeae101d85}\label{classjclib_1_1j_string_a6e279e5e99d32c2c82223caeae101d85}} 
+\index{jclib::jString@{jclib::jString}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const class \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{j_string_8hpp}{j\+String.\+hpp}}\end{DoxyCompactItemize}

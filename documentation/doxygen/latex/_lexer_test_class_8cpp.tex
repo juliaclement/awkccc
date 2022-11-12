@@ -1,0 +1,148 @@
+\hypertarget{_lexer_test_class_8cpp}{}\doxysection{tests/\+Lexer\+Test\+Class.cpp File Reference}
+\label{_lexer_test_class_8cpp}\index{tests/LexerTestClass.cpp@{tests/LexerTestClass.cpp}}
+{\ttfamily \#include $<$cppunit/extensions/\+Helper\+Macros.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../include/j\+String.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/awkccc\+\_\+ast.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/awkccc\+\_\+lexer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../src/parser.\+h++\char`\"{}}\newline
+Include dependency graph for Lexer\+Test\+Class.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_lexer_test_class_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace}{Lexer\+Test\+Class\+NS\+::parser\+\_\+trace}}
+\item 
+class \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{Lexer\+Test\+Class\+NS\+::parser\+\_\+mock}}
+\item 
+class \mbox{\hyperlink{class_lexer_test_class}{Lexer\+Test\+Class}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_lexer_test_class_n_s}{Lexer\+Test\+Class\+NS}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}}~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void $\ast$$\ast$ \mbox{\hyperlink{_lexer_test_class_8cpp_aa3f793f4cb403f801cad07e1f9619b2d}{malloc\+\_\+t}}(size\+\_\+t)
+\item 
+typedef void $\ast$$\ast$ \mbox{\hyperlink{_lexer_test_class_8cpp_af133d4bffc5f90ffa719863791a61a18}{free\+\_\+t}}(void $\ast$)
+\item 
+typedef struct \mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace}{Lexer\+Test\+Class\+NS\+::parser\+\_\+trace}} \mbox{\hyperlink{namespace_lexer_test_class_n_s_a0c299bdb95422cfec8792362af54b3f0}{Lexer\+Test\+Class\+NS\+::\+Parse\+Trace}}
+\item 
+typedef \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{Lexer\+Test\+Class\+NS\+::parser\+\_\+mock}} \mbox{\hyperlink{namespace_lexer_test_class_n_s_a17b011b9bc6bf4ee28ef3b7d43221c2c}{Lexer\+Test\+Class\+NS\+::\+Parser\+Mock}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_lexer_test_class_8cpp_ade3835481c316010f55b5f09a0f49dc8}{PARSER\+\_\+char\+\_\+to\+\_\+token}} (char chr)
+\item 
+\mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $\ast$ \mbox{\hyperlink{_lexer_test_class_8cpp_a3482753982f3bd597be8c565e2ee697c}{get\+\_\+parser}} ()
+\item 
+void \mbox{\hyperlink{_lexer_test_class_8cpp_ab01c753fe13c0dce73b74356a71cdc64}{Parse}} (void $\ast$p\+Parser, int token\+Code, \mbox{\hyperlink{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}} token\+\_\+, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ $\ast$p\+Abc)
+\item 
+void \mbox{\hyperlink{_lexer_test_class_8cpp_ae2ff96685825a8642d4ae7b04363e6a8}{Parse\+Trace}} (FILE $\ast$stream, char $\ast$z\+Prefix)
+\item 
+\mbox{\hyperlink{_lexer_test_class_8cpp_a291880ad3dc7cbf0f6345e06e3166f23}{CPPUNIT\+\_\+\+TEST\+\_\+\+SUITE\+\_\+\+REGISTRATION}} (\mbox{\hyperlink{class_lexer_test_class}{Lexer\+Test\+Class}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_lexer_test_class_n_s_a17b011b9bc6bf4ee28ef3b7d43221c2c}{Parser\+Mock}} \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{Lexer\+Test\+Class\+NS\+::the\+\_\+parser}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}\label{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!ParseTOKENTYPE@{ParseTOKENTYPE}}
+\index{ParseTOKENTYPE@{ParseTOKENTYPE}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{ParseTOKENTYPE}{ParseTOKENTYPE}}
+{\footnotesize\ttfamily \#define Parse\+TOKENTYPE~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_lexer_test_class_8cpp_af133d4bffc5f90ffa719863791a61a18}\label{_lexer_test_class_8cpp_af133d4bffc5f90ffa719863791a61a18}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!free\_t@{free\_t}}
+\index{free\_t@{free\_t}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{free\_t}{free\_t}}
+{\footnotesize\ttfamily typedef void $\ast$$\ast$ free\+\_\+t(void $\ast$)}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+\mbox{\Hypertarget{_lexer_test_class_8cpp_aa3f793f4cb403f801cad07e1f9619b2d}\label{_lexer_test_class_8cpp_aa3f793f4cb403f801cad07e1f9619b2d}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!malloc\_t@{malloc\_t}}
+\index{malloc\_t@{malloc\_t}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{malloc\_t}{malloc\_t}}
+{\footnotesize\ttfamily typedef void $\ast$$\ast$ malloc\+\_\+t(size\+\_\+t)}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_lexer_test_class_8cpp_a291880ad3dc7cbf0f6345e06e3166f23}\label{_lexer_test_class_8cpp_a291880ad3dc7cbf0f6345e06e3166f23}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!CPPUNIT\_TEST\_SUITE\_REGISTRATION@{CPPUNIT\_TEST\_SUITE\_REGISTRATION}}
+\index{CPPUNIT\_TEST\_SUITE\_REGISTRATION@{CPPUNIT\_TEST\_SUITE\_REGISTRATION}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{CPPUNIT\_TEST\_SUITE\_REGISTRATION()}{CPPUNIT\_TEST\_SUITE\_REGISTRATION()}}
+{\footnotesize\ttfamily CPPUNIT\+\_\+\+TEST\+\_\+\+SUITE\+\_\+\+REGISTRATION (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_lexer_test_class}{Lexer\+Test\+Class}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_lexer_test_class_8cpp_a3482753982f3bd597be8c565e2ee697c}\label{_lexer_test_class_8cpp_a3482753982f3bd597be8c565e2ee697c}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!get\_parser@{get\_parser}}
+\index{get\_parser@{get\_parser}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_parser()}{get\_parser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $\ast$ get\+\_\+parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+\mbox{\Hypertarget{_lexer_test_class_8cpp_ab01c753fe13c0dce73b74356a71cdc64}\label{_lexer_test_class_8cpp_ab01c753fe13c0dce73b74356a71cdc64}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!Parse@{Parse}}
+\index{Parse@{Parse}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily void Parse (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+Parser,  }\item[{int}]{token\+Code,  }\item[{\mbox{\hyperlink{_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}}}]{token\+\_\+,  }\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ $\ast$}]{p\+Abc }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+\mbox{\Hypertarget{_lexer_test_class_8cpp_ade3835481c316010f55b5f09a0f49dc8}\label{_lexer_test_class_8cpp_ade3835481c316010f55b5f09a0f49dc8}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!PARSER\_char\_to\_token@{PARSER\_char\_to\_token}}
+\index{PARSER\_char\_to\_token@{PARSER\_char\_to\_token}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{PARSER\_char\_to\_token()}{PARSER\_char\_to\_token()}}
+{\footnotesize\ttfamily int PARSER\+\_\+char\+\_\+to\+\_\+token (\begin{DoxyParamCaption}\item[{char}]{chr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+
+\mbox{\Hypertarget{_lexer_test_class_8cpp_ae2ff96685825a8642d4ae7b04363e6a8}\label{_lexer_test_class_8cpp_ae2ff96685825a8642d4ae7b04363e6a8}} 
+\index{LexerTestClass.cpp@{LexerTestClass.cpp}!ParseTrace@{ParseTrace}}
+\index{ParseTrace@{ParseTrace}!LexerTestClass.cpp@{LexerTestClass.cpp}}
+\doxysubsubsection{\texorpdfstring{ParseTrace()}{ParseTrace()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{namespace_lexer_test_class_n_s_a0c299bdb95422cfec8792362af54b3f0}{Parse\+Trace}} (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{stream,  }\item[{char $\ast$}]{z\+Prefix }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_lexer_test_class_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{_lexer_test_class_8cpp_source}{Lexer\+Test\+Class.\+cpp}}.
+

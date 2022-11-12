@@ -1,0 +1,109 @@
+\hypertarget{counted_pointer_8hpp_source}{}\doxysection{counted\+Pointer.\+hpp}
+\label{counted_pointer_8hpp_source}\index{include/countedPointer.hpp@{include/countedPointer.hpp}}
+\mbox{\hyperlink{counted_pointer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00002}00002 \textcolor{comment}{Copyright (c) 2017 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00003}00003 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00004}00004 \textcolor{comment}{Permission is hereby granted, free of charge, to any person obtaining a copy}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00005}00005 \textcolor{comment}{of this software and associated documentation files (the "{}Software"{}), to deal}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00006}00006 \textcolor{comment}{in the Software without restriction, including without limitation the rights}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00007}00007 \textcolor{comment}{to use, copy, modify, merge, publish, distribute, sublicense, and/or sell}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00008}00008 \textcolor{comment}{copies of the Software, and to permit persons to whom the Software is}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00009}00009 \textcolor{comment}{furnished to do so, subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00010}00010 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00011}00011 \textcolor{comment}{The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00012}00012 \textcolor{comment}{copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00013}00013 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00014}00014 \textcolor{comment}{THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00015}00015 \textcolor{comment}{IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00016}00016 \textcolor{comment}{FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00017}00017 \textcolor{comment}{AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00018}00018 \textcolor{comment}{LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00019}00019 \textcolor{comment}{OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00020}00020 \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00021}00021 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00023}00023 \textcolor{comment}{/* }}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00024}00024 \textcolor{comment}{ * File:   countedPointer.hpp}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00025}00025 \textcolor{comment}{ * Author: Julia Clement <Julia at Clement dot nz>}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00026}00026 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00027}00027 \textcolor{comment}{ * Part of the JCLib project https://github.com/juliaclement/jclib}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00028}00028 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00029}00029 \textcolor{comment}{ * Created on 1 October 2017, 9:46 PM}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00030}00030 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#ifndef COUNTINGPOINTER\_HPP}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#define COUNTINGPOINTER\_HPP}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00035}\mbox{\hyperlink{namespacejclib}{00035}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacejclib}{jclib}} \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00042}\mbox{\hyperlink{classjclib_1_1_counted_pointer}{00042}} \textcolor{keyword}{template}< \textcolor{keyword}{typename} T> \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer}} \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00043}00043 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00044}00044     T * ptr\_;}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00045}00045     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} postAssign() \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00046}00046         \textcolor{keywordflow}{if}( ptr\_ != \textcolor{keyword}{nullptr} ) \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00047}00047             ptr\_-\/>CountedPointerAttach();}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00048}00048         \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00050}00050 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00055}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a45787c3b235590582aad6103d7bdc5d0}{00055}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1_counted_pointer_a45787c3b235590582aad6103d7bdc5d0}{isnull}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} ptr\_ == \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00060}\mbox{\hyperlink{classjclib_1_1_counted_pointer_aba4799319512576d8873edd9239d7073}{00060}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classjclib_1_1_counted_pointer_aba4799319512576d8873edd9239d7073}{isset}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} ptr\_ != \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00061}00061     }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00065}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a141b33afc3d099c221036d874d73095e}{00065}}     T * \mbox{\hyperlink{classjclib_1_1_counted_pointer_a141b33afc3d099c221036d874d73095e}{get}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<} T *\textcolor{keyword}{>}(ptr\_); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00069}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a8c5ecd6ea25507d0eff36724dd1bb99a}{00069}}     T \& \mbox{\hyperlink{classjclib_1_1_counted_pointer_a8c5ecd6ea25507d0eff36724dd1bb99a}{operator *}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<} T \&\textcolor{keyword}{>}(*ptr\_); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00070}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a4b78ca5385c443f20233090e8ba374b4}{00070}}     T * \mbox{\hyperlink{classjclib_1_1_counted_pointer_a4b78ca5385c443f20233090e8ba374b4}{operator -\/>}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<} T *\textcolor{keyword}{>}(ptr\_); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00071}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a9fe098ec5696d766f413cdcab6fa8fc4}{00071}}     \textcolor{keyword}{operator} T *() \textcolor{keyword}{const} \{ \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<} T *\textcolor{keyword}{>}(ptr\_); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00077}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}{00077}}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}{set}}( T * \textcolor{keyword}{const} ptr) \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00078}00078         \textcolor{comment}{// Note: We Attach before Detach so A=A (with attach count==1)}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00079}00079         \textcolor{comment}{// doesn't cause the attach count to temporarily zero and have}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00080}00080         \textcolor{comment}{// the target delete itself;}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00081}00081         T * tmp\_ptr=ptr\_; }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00082}00082         ptr\_ = \textcolor{keyword}{const\_cast<} T*\textcolor{keyword}{>}(ptr);}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00083}00083         postAssign();}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00084}00084         \textcolor{keywordflow}{if}( tmp\_ptr != \textcolor{keyword}{nullptr} ) \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00085}00085             tmp\_ptr-\/>CountedPointerDetach(); }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00086}00086         \} }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00093}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a93e060e76df8f3ac8d20478b128d4514}{00093}}     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classjclib_1_1_counted_pointer_a93e060e76df8f3ac8d20478b128d4514}{set}}( \textcolor{keyword}{const} \mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer<T>}} \& old ) \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00094}00094         \mbox{\hyperlink{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}{set}}( old.ptr\_);}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00095}00095     \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00101}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a723e34d68ef31f93cf7730301c0938a5}{00101}}     \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer}}<T> \& \mbox{\hyperlink{classjclib_1_1_counted_pointer_a723e34d68ef31f93cf7730301c0938a5}{operator =}}( T * \textcolor{keyword}{const} ptr ) \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00102}00102         \mbox{\hyperlink{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}{set}}( ptr );}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00103}00103         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00104}00104     \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00110}\mbox{\hyperlink{classjclib_1_1_counted_pointer_aadb8af90c4b0a7e095bf923dde4cf028}{00110}}     \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer}}<T> \& \mbox{\hyperlink{classjclib_1_1_counted_pointer_a723e34d68ef31f93cf7730301c0938a5}{operator =}}( \textcolor{keyword}{const} \mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer<T>}} \& ptr ) \{ }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00111}00111         \mbox{\hyperlink{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}{set}}( ptr.ptr\_ );}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00112}00112         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00114}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a433c5ac83a77da7545b33906e017d52c}{00114}}     \mbox{\hyperlink{classjclib_1_1_counted_pointer_a433c5ac83a77da7545b33906e017d52c}{CountedPointer}}( ) : ptr\_( nullptr) \{ postAssign(); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00115}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a0349177cb94d0f9a111177b93802aa29}{00115}}     \mbox{\hyperlink{classjclib_1_1_counted_pointer_a0349177cb94d0f9a111177b93802aa29}{CountedPointer}}( T * ptr ) : ptr\_( ptr) \{ postAssign(); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00116}\mbox{\hyperlink{classjclib_1_1_counted_pointer_a2f7c6c501a3349cbdb0509b0baeb7375}{00116}}     \mbox{\hyperlink{classjclib_1_1_counted_pointer_a2f7c6c501a3349cbdb0509b0baeb7375}{CountedPointer}}( \textcolor{keyword}{const} \textcolor{keyword}{class} \mbox{\hyperlink{classjclib_1_1_counted_pointer}{CountedPointer<T>}}\& old ) : ptr\_( old.ptr\_) \{ postAssign(); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00117}\mbox{\hyperlink{classjclib_1_1_counted_pointer_af5a45ed19b253d37bd97c1eec9f35879}{00117}}     \mbox{\hyperlink{classjclib_1_1_counted_pointer_af5a45ed19b253d37bd97c1eec9f35879}{\string~CountedPointer}}() \{ \textcolor{keywordflow}{if}( ptr\_ != \textcolor{keyword}{nullptr} ) ptr\_-\/>CountedPointerDetach(); ptr\_=\textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00118}00118 \};}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00125}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target}{00125}} \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1_counted_pointer_target}{CountedPointerTarget}} \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00126}00126     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00127}00127         \textcolor{keywordtype}{int} counter\_;}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00128}00128     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00129}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a5280d04886b6b153aef29191a466cd58}{00129}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a5280d04886b6b153aef29191a466cd58}{CountedPointerAttach}}() \{ ++counter\_; \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00130}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a56b846a37c255af2bfc8320fe322d90e}{00130}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a56b846a37c255af2bfc8320fe322d90e}{CountedPointerDetach}}() \{ \textcolor{keywordflow}{if}( !-\/-\/counter\_) \textcolor{keyword}{delete} \textcolor{keyword}{this};\}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00131}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a2f2a5a38758f5b84d6491ef535782eeb}{00131}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{int}  \mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a2f2a5a38758f5b84d6491ef535782eeb}{CountedPointersAttached}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} counter\_; \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00132}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target_ad8e60530286856318f2fc428bd079e52}{00132}}         \mbox{\hyperlink{classjclib_1_1_counted_pointer_target_ad8e60530286856318f2fc428bd079e52}{CountedPointerTarget}}() : counter\_(0) \{\}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00133}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a99a879fc1b59a1b214d820f6b2aa5221}{00133}}         \mbox{\hyperlink{classjclib_1_1_counted_pointer_target_a99a879fc1b59a1b214d820f6b2aa5221}{CountedPointerTarget}}(\textcolor{keyword}{const} \mbox{\hyperlink{classjclib_1_1_counted_pointer_target}{CountedPointerTarget}} \&) : counter\_(0) \{\}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00134}00134         \textcolor{comment}{// virtual destructor to ensure derrived classes are destroyed properly}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00135}\mbox{\hyperlink{classjclib_1_1_counted_pointer_target_ac1115f4e6279eecb6c8fd0163ed1ed5a}{00135}}         \textcolor{keyword}{virtual} \mbox{\hyperlink{classjclib_1_1_counted_pointer_target_ac1115f4e6279eecb6c8fd0163ed1ed5a}{\string~CountedPointerTarget}}() \{\}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00136}00136 \};}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00149}\mbox{\hyperlink{classjclib_1_1_counted_pointer_safe}{00149}} \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1_counted_pointer_safe}{CountedPointerSafe}} : \textcolor{keyword}{public} T \{}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00150}00150     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00151}\mbox{\hyperlink{classjclib_1_1_counted_pointer_safe_acc5ed138b4a7b16ef407dfd0b9e0c2e5}{00151}}     \textcolor{keyword}{template}< \textcolor{keyword}{typename} ... Types > \mbox{\hyperlink{classjclib_1_1_counted_pointer_safe_acc5ed138b4a7b16ef407dfd0b9e0c2e5}{CountedPointerSafe}}( \textcolor{keyword}{const} Types\&...args )}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00152}00152     : T(args...)}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00153}00153     \{ T::CountedPointerAttach(); \}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00154}00154 \};}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00156}00156 \};}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00157}00157 }
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00158}00158 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* COUNTINGPOINTER\_HPP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{counted_pointer_8hpp_source_l00159}00159 }
+
+\end{DoxyCode}

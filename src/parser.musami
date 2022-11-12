@@ -1,0 +1,398 @@
+%include {
+/***
+**
+** AWKCCC Parser
+**
+** Copyright (C) 2022 Julia Ingleby Clement
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+***/
+
+#include <countedPointer.hpp>
+#include <awkccc_ast.hpp>
+using namespace jclib;
+using namespace awkccc;
+#include "parser.h++"
+}
+
+%token_prefix    PARSER_
+%token_type {jclib::CountedPointer<awkccc::ast_node>}
+%extra_argument {jclib::CountedPointer<awkccc::ast_node> * pAbc}
+%start_symbol program 
+
+/**
+* Grammar:
+  Modified from grammar in
+  https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html which states:
+  "A valid program can be represented as the non-terminal symbol program in the grammar.
+  This formal syntax shall take precedence over the preceding text syntax description."
+  Obviously it has been modified to turn into a valid Musami grammar, specify 
+  precedence & parse actions to create the AST.
+*/
+
+/* One-character tokens. */
+%token '{' '}' '(' ')' '[' ']' ',' ';' NEWLINE .
+%token '+' '-' '*' '%' '^' '!' '>' '<' '|' '?' ':' '~' '$' '=' .
+
+/* Two-character tokens. */
+%left '=' ADD_ASSIGN SUB_ASSIGN MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN POW_ASSIGN .
+/*     '+='       '-='       '*='       '/='       '%='       '^=' */
+%left '`'  ',' .
+%left '?' ':' .
+%left OROR   ANDAND . /* || &&
+%nonassoc '>' '<' NO_MATCH   EQ   LE   GE   NE   INCR  DECR  APPEND .
+/*               '!~' '==' '<=' '>=' '!=' '++'  '--'  '>>'   */
+%left '|' '&' .
+%left '+' '-' .
+%left '*' '%' '/' .
+%left '^' .
+%left '$' '[' .
+
+/* AWK lacks a lexable concatenate operator. We fake it with this */
+%left CONCATENATE .
+
+%nonassoc NAME NUMBER STRING ERE .
+%nonassoc FUNC_NAME .  /* Name followed by LPAR without white space. */
+
+/* Keywords */
+%nonassoc       Begin BeginFile Mainloop EndFile End .
+/*          'BEGIN' 'END'                            */
+
+%nonassoc       Break   Continue   Delete   Do   Else .
+/*          'break' 'continue' 'delete' 'do' 'else'  */
+
+
+%nonassoc       Exit   For   Function   If   In .
+/*          'exit' 'for' 'function' 'if' 'in'        */
+
+
+%nonassoc       Next  NextFile  Print   Printf   Return   While .
+/*          'next' 'nextfile' 'print' 'printf' 'return' 'while' */
+
+
+/* Reserved function names */
+%nonassoc BUILTIN_FUNC_NAME .
+            /* One token for the following:
+             * atan2 cos sin exp log sqrt int rand srand
+             * gsub index length match split sprintf sub
+             * substr tolower toupper close system
+             */
+%nonassoc GETLINE .
+            /* Syntactically different from other built-ins. */
+
+
+/* for as yet unknown reasons, catching into pAbc in program caused a crash
+   so as a temporary work-around I have renamed that to program_body 
+   and created an intermediate layer
+*/
+
+program(ANSWER)  ::= program_body(A) .  {auto a = empty_node( "program", yyruleno);*pAbc=ANSWER=a->add_child(A);}
+
+program_body(ANSWER) ::= item_list(B) . {ANSWER=B;}
+                     | item_list(B) item(C) . {ANSWER=B->add_sibling(C);}
+
+
+item_list(ANSWER) ::= /* empty */ . {ANSWER=empty_node( "item_list", yyruleno);}
+                  |   item_list(A) item(B) terminator . {ANSWER=A->add_sibling(B);}
+
+
+item(ANSWER)     ::= action(A) . {ANSWER=A;}
+                 | pattern(A) action(B) . {ANSWER=A->add_child(B);}
+                 | normal_pattern(A) . {ANSWER=A;}
+                 | Function NAME(A)      '(' param_list_opt(B) ')' 
+                       newline_opt action(C) . {A->sym_->set_type(FUNCTION, PARSER_FUNC_NAME);
+                       ANSWER=function_node("item",A,B,C, yyruleno);}
+                 | Function FUNC_NAME(A) '(' param_list_opt(B) ')'
+                       newline_opt action(C) . {A->sym_->set_type(FUNCTION, PARSER_FUNC_NAME);
+                       ANSWER=function_node("item",A,B,C, yyruleno);}
+
+
+param_list_opt(ANSWER) ::= /* empty */ . {ANSWER=empty_node( "param_list_opt", yyruleno);}
+                 | param_list(A) . {ANSWER=A;}
+
+
+param_list(ANSWER) ::= NAME(A) . {ANSWER=A;}
+                 | param_list(A) ',' NAME(B) . {ANSWER=A->add_sibling(B);}
+
+
+pattern(ANSWER)  ::= special_pattern(A) . {ANSWER=A;}
+                 | normal_pattern(A) . {ANSWER=A;}
+
+
+normal_pattern(ANSWER)   ::= expr(A) . {ANSWER=A;}
+                 | expr(A) ',' newline_opt expr(B) . {ANSWER=A->add_sibling(B);}
+
+
+special_pattern(ANSWER) ::= Begin . {ANSWER=new ast_node(Pattern,"BEGIN", yyruleno);}
+                 | BeginFile . {ANSWER=new ast_node(Pattern,"BEGINFILE", yyruleno);}
+                 | Mainloop . {ANSWER=new ast_node(Pattern,"MAINLOOP", yyruleno);}
+                 | EndFile . {ANSWER=new ast_node(Pattern,"ENDFILE", yyruleno);}
+                 | End . {ANSWER=new ast_node(Pattern,"END", yyruleno);}
+
+
+action(ANSWER)   ::= '{' newline_opt                             '}' . {ANSWER=empty_node( "action:newline_opt", yyruleno);}
+                 | '{' newline_opt terminated_statement_list(A)   '}' . {ANSWER=A;}
+                 | '{' newline_opt unterminated_statement_list(A) '}' . {ANSWER=A;}
+
+
+terminator(ANSWER)       ::= terminator NEWLINE(A) . {ANSWER=A;}
+                 |            ';'(A) . {ANSWER=A;}
+                 |            NEWLINE(A) . {ANSWER=A;}
+
+
+terminated_statement_list(ANSWER) ::= terminated_statement(A) . {ANSWER=A;}
+                 | terminated_statement_list(A) terminated_statement(B) . {ANSWER=A->add_sibling(B);}
+
+
+unterminated_statement_list(ANSWER) ::= unterminated_statement(A) . {ANSWER=A;}
+                 | terminated_statement_list(A) unterminated_statement(B) . {ANSWER=A->add_sibling(B);}
+
+
+terminated_statement(ANSWER) ::= action(A) newline_opt . {ANSWER=A;}
+                 | If(A) '(' expr(B) ')' newline_opt terminated_statement(C) . {ANSWER=ast_if_statement(A,B,C,yyruleno);}
+                 | If(A) '(' expr(B) ')' newline_opt terminated_statement(C)
+                       Else newline_opt terminated_statement(D) . {ANSWER=ast_if_else_statement(A,B,C,D,yyruleno);}
+                 | While(A) '(' expr(B) ')' newline_opt terminated_statement(C) . {ANSWER=ast_while_statement(A,B,C,yyruleno);}
+                 | For(A) '(' simple_statement_opt(B) ';'
+                      expr_opt(C) ';' simple_statement_opt(D) ')' newline_opt
+                      terminated_statement(E) . {ANSWER=ast_for_C_statement(A,B,C,D,E,yyruleno);}
+                 | For(A) '(' NAME(B) In NAME(C) ')' newline_opt 
+                      terminated_statement(D) . {ANSWER=A->add_children({B,C,D});}
+                 | ';' newline_opt . {ANSWER=empty_node("terminated_statement::semicolon", yyruleno);}
+                 | terminatable_statement(A) NEWLINE newline_opt . {ANSWER=A;}
+                 | terminatable_statement(A) ';'     newline_opt . {ANSWER=A;}
+
+
+unterminated_statement(ANSWER) ::= terminatable_statement(A) . {ANSWER=A;}
+                 | If(A) '(' expr(B) ')' newline_opt unterminated_statement(C) . {ANSWER=ast_if_statement(A,B,C,yyruleno);}
+                 | If(A) '(' expr(B) ')' newline_opt terminated_statement(C)
+                      Else newline_opt unterminated_statement(D) . {ANSWER=ast_if_else_statement(A,B,C,D,yyruleno);}
+                 | While(A) '(' expr(B) ')' newline_opt unterminated_statement(C) . {ANSWER=ast_while_statement(A,B,C,yyruleno);}
+                 | For(A) '(' simple_statement_opt(B) ';'
+                      expr_opt(C) ';' simple_statement_opt(D) ')' newline_opt
+                      unterminated_statement(E) . {ANSWER=ast_for_C_statement(A,B,C,D,E,yyruleno);}
+                 | For(A) '(' NAME(B) In NAME(C) ')' newline_opt
+                      unterminated_statement(D) . {ANSWER=A->add_children({B,C,D});}
+
+
+terminatable_statement(ANSWER) ::= simple_statement(A) . {ANSWER=A;}
+                 | Break(A) . {ANSWER=statement_node(A, yyruleno);}
+                 | Continue(A) . {ANSWER=statement_node(A, yyruleno);}
+                 | Next(A) . {ANSWER=statement_node(A, yyruleno);}
+                 | NextFile(A) . {ANSWER=statement_node(A, yyruleno);}
+                 | Exit(A) expr_opt(B) . {ANSWER=statement_node(A, {B}, yyruleno);}
+                 | Return(A) expr_opt(B) . {ANSWER=statement_node(A, {B}, yyruleno);}
+                 | Do(A) newline_opt terminated_statement(B) While '(' expr(C) ')' . {ANSWER=ast_do_statement(A,B,C,yyruleno);}
+
+
+simple_statement_opt(ANSWER) ::= /* empty */ . {ANSWER=empty_node("simple_statement_opt", yyruleno);}
+                 | simple_statement(A) . {ANSWER=A;}
+
+
+simple_statement(ANSWER) ::= Delete(A) NAME(B) '[' expr_list(C) ']' . {ANSWER=A->add_children({B,C});}
+                 | expr(A) . {ANSWER=A;}
+                 | print_statement(A) . {ANSWER=A;}
+
+
+print_statement(ANSWER)  ::= simple_print_statement(A) . {ANSWER=A;}
+                 | simple_print_statement(A) output_redirection(B) . {ANSWER=A->add_child(B);}
+
+
+simple_print_statement(ANSWER) ::= Print(A)  print_expr_list_opt(B) . {ANSWER=A->add_child(B);}
+                 | Print(A)  '(' multiple_expr_list(B) ')' . {ANSWER=A->add_child(B);}
+                 | Printf(A) print_expr_list(B) . {ANSWER=A->add_child(B);}
+                 | Printf(A) '(' multiple_expr_list(B) ')' . {ANSWER=A->add_child(B);}
+
+
+output_redirection(ANSWER) ::= '>'(A)    expr(B) . {ANSWER=A->add_child(B);}
+                 | APPEND(A) expr(B) . {ANSWER=A->add_child(B);}
+                 | '|'(A)    expr(B) . {ANSWER=A->add_child(B);}
+
+
+expr_list_opt(ANSWER)    ::= /* empty */ . {ANSWER=empty_node("expr_list_opt", yyruleno);}
+                 | expr_list(A) . {ANSWER=A;}
+
+
+expr_list(ANSWER)        ::= expr(A) . {ANSWER=A;}
+                 | multiple_expr_list(A) . {ANSWER=A;}
+
+
+multiple_expr_list(ANSWER) ::= expr(A) ',' newline_opt expr(B) . {ANSWER = A->add_sibling(B);}
+                 | multiple_expr_list(A) ',' newline_opt expr(B) . {ANSWER = A->add_sibling(B);}
+
+
+expr_opt(ANSWER)         ::= /* empty */ . {ANSWER=empty_node("expr_opt", yyruleno);}
+                 | expr(A) . {ANSWER=A;}
+
+
+expr(ANSWER)             ::= unary_expr(A) . {ANSWER=A;}
+                 | non_unary_expr(A) . {ANSWER=A;}
+
+
+unary_expr(ANSWER)       ::= '+'(OP) expr(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | '-'(OP) expr(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | unary_expr(A) '^'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '*'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '/'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '%'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '+'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '-'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) non_unary_expr(B) . {ANSWER = ast_concatenate_expr(A, B, yyruleno); }
+                 | unary_expr(A) '<'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) LE(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) NE(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) EQ(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '>'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) GE(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '~'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) NO_MATCH(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) In(OP) NAME(B) .       {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) ANDAND(OP) newline_opt expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) OROR(OP)  newline_opt expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_expr(A) '?'(OP) expr(IF_TRUE) ':' expr(IF_FALSE) . {ANSWER = ast_ternary_op( A, OP, IF_TRUE, IF_FALSE, yyruleno);}
+                 | unary_input_function(A) . {ANSWER=A;}
+
+
+non_unary_expr(ANSWER)   ::= '('(OP) expr(B) ')' . {ANSWER = ast_left_unary_op(OP, B, yyruleno);} 
+                 | '!'(OP) expr(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | non_unary_expr(A) '^'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '*'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '/'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '%'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '+'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '-'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A)          non_unary_expr(B) . {ANSWER = ast_concatenate_expr(A, B, yyruleno); }
+                 | non_unary_expr(A) '<'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) LE (OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) NE(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) EQ(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '>'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) GE(OP)       expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '~'(OP)      expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) NO_MATCH(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) In(OP) NAME(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | '(' multiple_expr_list(A) ')' In(OP) NAME(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) ANDAND(OP) newline_opt expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) OROR(OP)  newline_opt expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '?'(OP) expr(IF_TRUE) ':' expr(IF_FALSE) . {ANSWER = ast_ternary_op( A, OP, IF_TRUE, IF_FALSE, yyruleno);}
+                 | NUMBER(A) . {ANSWER=A;}
+                 | STRING(A) . {ANSWER=A;}
+                 | lvalue(A) . {ANSWER=A;}
+                 | ERE(A) . {ANSWER=A;}
+                 | lvalue(A) INCR(OP) . {ANSWER = ast_right_unary_op(A, OP, yyruleno);}
+                 | lvalue(A) DECR(OP) . {ANSWER = ast_right_unary_op(A, OP, yyruleno);}
+                 | INCR(OP) lvalue(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | DECR(OP) lvalue(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | lvalue(A) POW_ASSIGN(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) MOD_ASSIGN(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) MUL_ASSIGN(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) DIV_ASSIGN(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) ADD_ASSIGN(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) SUB_ASSIGN(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) '='(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | FUNC_NAME(A) '('(OP) expr_list_opt(B) ')'
+                      /* no white space allowed before '(' */ . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | BUILTIN_FUNC_NAME(A) '('(OP) expr_list_opt(B) ')' . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | BUILTIN_FUNC_NAME(A) . {ANSWER=A;}
+                 | non_unary_input_function(A) . {ANSWER=A;}
+
+
+print_expr_list_opt(ANSWER) ::= /* empty */ . {ANSWER=empty_node("print_expr_list_opt", yyruleno);}
+                 | print_expr_list(A) . {ANSWER=A;}
+
+
+print_expr_list(ANSWER)  ::= print_expr(A) . {ANSWER=A;}
+                 | print_expr_list(A) ',' newline_opt print_expr(B) . {ANSWER=A->add_sibling(B);}
+
+
+print_expr(ANSWER)       ::= unary_print_expr(A) . {ANSWER=A;}
+                 | non_unary_print_expr(A) . {ANSWER=A;}
+
+unary_print_expr(ANSWER) ::= '+'(OP) print_expr(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | '-'(OP) print_expr(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | unary_print_expr(A) '^'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) '*'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) '/'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) '%'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) '+'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) '-'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) non_unary_print_expr(B) . {ANSWER = ast_concatenate_expr(A, B, yyruleno); }
+                 | unary_print_expr(A) '~'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) NO_MATCH(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) In(OP) NAME(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) ANDAND(OP) newline_opt print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) OROR(OP)  newline_opt print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | unary_print_expr(A) '?'(OP) print_expr(IF_TRUE) ':' print_expr(IF_FALSE) . {ANSWER = ast_ternary_op( A, OP, IF_TRUE, IF_FALSE, yyruleno);}
+
+
+non_unary_print_expr(ANSWER) ::= '('(OP) expr(B) ')' . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | '!'(OP) print_expr(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '^'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '*'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '/'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '%'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '+'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '-'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A)          non_unary_print_expr(B) . {ANSWER = ast_concatenate_expr(A, B, yyruleno); }
+                 | non_unary_print_expr(A) '~'(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) NO_MATCH(OP)      print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) In(OP) NAME(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | '(' multiple_expr_list(A) ')' In(OP) NAME(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) ANDAND(OP) newline_opt print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) OROR(OP)  newline_opt print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_print_expr(A) '?'(OP) print_expr(IF_TRUE) ':' print_expr(IF_FALSE) . {ANSWER = ast_ternary_op( A, OP, IF_TRUE, IF_FALSE, yyruleno);}
+                 | NUMBER(A) . {ANSWER=A;}
+                 | STRING(A) . {ANSWER=A;}
+                 | lvalue(A) . {ANSWER=A;}
+                 | ERE(A) . {ANSWER=A;}
+                 | lvalue(A) INCR(OP) . {ANSWER = ast_right_unary_op(A, OP, yyruleno);}
+                 | lvalue(A) DECR(OP) . {ANSWER = ast_right_unary_op(A, OP, yyruleno);}
+                 | INCR(OP) lvalue(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | DECR(OP) lvalue(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+                 | lvalue(A) POW_ASSIGN(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) MOD_ASSIGN(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) MUL_ASSIGN(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) DIV_ASSIGN(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) ADD_ASSIGN(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) SUB_ASSIGN(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | lvalue(A) '='(OP) print_expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | FUNC_NAME(A) '('(OP) expr_list_opt(B) ')'
+                     /* no white space allowed before '(' */ . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | BUILTIN_FUNC_NAME(A) '('(OP) expr_list_opt(B) ')' . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | BUILTIN_FUNC_NAME(A) .{ANSWER=A;}
+
+
+lvalue(ANSWER)           ::= NAME(A) . {ANSWER=A;}
+                 | NAME(A) '['(OP) expr_list(B) ']' . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | '$'(OP) dollar_index(B) . {ANSWER = ast_left_unary_op(OP, B, yyruleno);}
+
+dollar_index(ANSWER) ::= NUMBER(A) . {ANSWER=A;}
+                     | lvalue(A) . {ANSWER=A;}
+                     | '(' expr(A) ')' . {ANSWER=A;}
+
+
+non_unary_input_function(ANSWER) ::= simple_get(A) . {ANSWER=A;}
+                 | simple_get(A) '<'(OP) expr(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+                 | non_unary_expr(A) '|'(OP) simple_get(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+
+
+unary_input_function(ANSWER) ::= unary_expr(A) '|'(OP) simple_get(B) . {ANSWER = ast_bin_op(A, OP, B, yyruleno);}
+
+
+simple_get(ANSWER)       ::= GETLINE(A) . {ANSWER=A;}
+                 | GETLINE(A) lvalue(B) .  {ANSWER=A->add_child(B);}
+
+
+newline_opt(ANSWER) ::= /* empty */ . {ANSWER=empty_node("newline_opt");}
+                 | newline_opt NEWLINE(A) . {ANSWER=A;}
+

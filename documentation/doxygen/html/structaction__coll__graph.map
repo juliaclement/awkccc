@@ -1,0 +1,8 @@
+<map id="action" name="action">
+<area shape="rect" id="node1" title=" " alt="" coords="88,235,151,261"/>
+<area shape="rect" id="node4" href="$structstate.html" title=" " alt="" coords="211,325,265,352"/>
+<area shape="rect" id="node2" href="$structsymbol.html" title=" " alt="" coords="5,128,76,155"/>
+<area shape="rect" id="node3" href="$structrule.html" title=" " alt="" coords="183,7,229,33"/>
+<area shape="rect" id="node5" href="$structconfig.html" title=" " alt="" coords="263,431,325,457"/>
+<area shape="rect" id="node6" href="$structplink.html" title=" " alt="" coords="267,536,321,563"/>
+</map>

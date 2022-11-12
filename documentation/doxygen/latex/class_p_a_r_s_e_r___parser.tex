@@ -1,0 +1,122 @@
+\hypertarget{class_p_a_r_s_e_r___parser}{}\doxysection{PARSER\+\_\+\+Parser Class Reference}
+\label{class_p_a_r_s_e_r___parser}\index{PARSER\_Parser@{PARSER\_Parser}}
+
+
+{\ttfamily \#include $<$parser.\+h++$>$}
+
+
+
+Inheritance diagram for PARSER\+\_\+\+Parser\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{class_p_a_r_s_e_r___parser__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_p_a_r_s_e_r___parser_af7de65fac0946e56d79a593f194b7c42}{Counted\+Pointer\+Attach}} ()
+\item 
+void \mbox{\hyperlink{class_p_a_r_s_e_r___parser_ab352457afc398c27135187aebe3956c4}{Counted\+Pointer\+Detach}} ()
+\item 
+virtual void \mbox{\hyperlink{class_p_a_r_s_e_r___parser_a717bf0e2466824aa4773b0497ecc4d8b}{parse}} (int yymajor, \mbox{\hyperlink{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}{PARSER\+\_\+\+TOKENTYPE}} yyminor \mbox{\hyperlink{parser_8h_09_09_a9d113e180a0743713ee3ea1c9706147c}{PARSER\+\_\+\+ARG\+\_\+\+PDECL}})=0
+\item 
+virtual int \mbox{\hyperlink{class_p_a_r_s_e_r___parser_aad0a860db6f812c9f67427020b5b6f23}{char\+\_\+to\+\_\+token}} (char chr)=0
+\item 
+virtual \mbox{\hyperlink{class_p_a_r_s_e_r___parser_a284fdf9c9ef09b5f828aaecc4c14fc37}{$\sim$\+PARSER\+\_\+\+Parser}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $\ast$ \mbox{\hyperlink{class_p_a_r_s_e_r___parser_a05e769f965d793fbd9c04d5988ecd227}{Create}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_p_a_r_s_e_r___parser_a4cee398caab604d4a474c3255e90fa92}{counter\+\_\+}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00054}{54}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_a284fdf9c9ef09b5f828aaecc4c14fc37}\label{class_p_a_r_s_e_r___parser_a284fdf9c9ef09b5f828aaecc4c14fc37}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!````~PARSER\_Parser@{$\sim$PARSER\_Parser}}
+\index{````~PARSER\_Parser@{$\sim$PARSER\_Parser}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{$\sim$PARSER\_Parser()}{~PARSER\_Parser()}}
+{\footnotesize\ttfamily virtual PARSER\+\_\+\+Parser\+::$\sim$\+PARSER\+\_\+\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00066}{66}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_aad0a860db6f812c9f67427020b5b6f23}\label{class_p_a_r_s_e_r___parser_aad0a860db6f812c9f67427020b5b6f23}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!char\_to\_token@{char\_to\_token}}
+\index{char\_to\_token@{char\_to\_token}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{char\_to\_token()}{char\_to\_token()}}
+{\footnotesize\ttfamily virtual int PARSER\+\_\+\+Parser\+::char\+\_\+to\+\_\+token (\begin{DoxyParamCaption}\item[{char}]{chr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a92108201d2f59ec27a473a612ae4398c}{Lexer\+Test\+Class\+NS\+::parser\+\_\+mock}}.
+
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_af7de65fac0946e56d79a593f194b7c42}\label{class_p_a_r_s_e_r___parser_af7de65fac0946e56d79a593f194b7c42}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!CountedPointerAttach@{CountedPointerAttach}}
+\index{CountedPointerAttach@{CountedPointerAttach}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{CountedPointerAttach()}{CountedPointerAttach()}}
+{\footnotesize\ttfamily void PARSER\+\_\+\+Parser\+::\+Counted\+Pointer\+Attach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00058}{58}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_ab352457afc398c27135187aebe3956c4}\label{class_p_a_r_s_e_r___parser_ab352457afc398c27135187aebe3956c4}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!CountedPointerDetach@{CountedPointerDetach}}
+\index{CountedPointerDetach@{CountedPointerDetach}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{CountedPointerDetach()}{CountedPointerDetach()}}
+{\footnotesize\ttfamily void PARSER\+\_\+\+Parser\+::\+Counted\+Pointer\+Detach (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00059}{59}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_a05e769f965d793fbd9c04d5988ecd227}\label{class_p_a_r_s_e_r___parser_a05e769f965d793fbd9c04d5988ecd227}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!Create@{Create}}
+\index{Create@{Create}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}} $\ast$ PARSER\+\_\+\+Parser\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_a717bf0e2466824aa4773b0497ecc4d8b}\label{class_p_a_r_s_e_r___parser_a717bf0e2466824aa4773b0497ecc4d8b}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!parse@{parse}}
+\index{parse@{parse}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily virtual void PARSER\+\_\+\+Parser\+::parse (\begin{DoxyParamCaption}\item[{int}]{yymajor,  }\item[{\mbox{\hyperlink{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}{PARSER\+\_\+\+TOKENTYPE}} yyminor}]{PARSER\+\_\+\+ARG\+\_\+\+PDECL }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_p_a_r_s_e_r___parser_a4cee398caab604d4a474c3255e90fa92}\label{class_p_a_r_s_e_r___parser_a4cee398caab604d4a474c3255e90fa92}} 
+\index{PARSER\_Parser@{PARSER\_Parser}!counter\_@{counter\_}}
+\index{counter\_@{counter\_}!PARSER\_Parser@{PARSER\_Parser}}
+\doxysubsubsection{\texorpdfstring{counter\_}{counter\_}}
+{\footnotesize\ttfamily int PARSER\+\_\+\+Parser\+::counter\+\_\+ = 0}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00057}{57}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{parser_8h_09_09}{parser.\+h++}}\end{DoxyCompactItemize}

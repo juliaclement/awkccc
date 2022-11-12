@@ -1,0 +1,246 @@
+\hypertarget{classjclib_1_1_counted_pointer}{}\doxysection{jclib\+::Counted\+Pointer\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classjclib_1_1_counted_pointer}\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+
+
+{\ttfamily \#include $<$counted\+Pointer.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classjclib_1_1_counted_pointer_a45787c3b235590582aad6103d7bdc5d0}{isnull}} () const
+\item 
+bool \mbox{\hyperlink{classjclib_1_1_counted_pointer_aba4799319512576d8873edd9239d7073}{isset}} () const
+\item 
+T $\ast$ \mbox{\hyperlink{classjclib_1_1_counted_pointer_a141b33afc3d099c221036d874d73095e}{get}} () const
+\item 
+T \& \mbox{\hyperlink{classjclib_1_1_counted_pointer_a8c5ecd6ea25507d0eff36724dd1bb99a}{operator$\ast$}} () const
+\item 
+T $\ast$ \mbox{\hyperlink{classjclib_1_1_counted_pointer_a4b78ca5385c443f20233090e8ba374b4}{operator-\/$>$}} () const
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer_a9fe098ec5696d766f413cdcab6fa8fc4}{operator T$\ast$}} () const
+\item 
+void \mbox{\hyperlink{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}{set}} (T $\ast$const ptr)
+\item 
+void \mbox{\hyperlink{classjclib_1_1_counted_pointer_a93e060e76df8f3ac8d20478b128d4514}{set}} (const \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \&old)
+\item 
+class \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \& \mbox{\hyperlink{classjclib_1_1_counted_pointer_a723e34d68ef31f93cf7730301c0938a5}{operator=}} (T $\ast$const ptr)
+\item 
+class \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \& \mbox{\hyperlink{classjclib_1_1_counted_pointer_aadb8af90c4b0a7e095bf923dde4cf028}{operator=}} (const \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \&ptr)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer_a433c5ac83a77da7545b33906e017d52c}{Counted\+Pointer}} ()
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer_a0349177cb94d0f9a111177b93802aa29}{Counted\+Pointer}} (T $\ast$ptr)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer_a2f7c6c501a3349cbdb0509b0baeb7375}{Counted\+Pointer}} (const class \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \&old)
+\item 
+\mbox{\hyperlink{classjclib_1_1_counted_pointer_af5a45ed19b253d37bd97c1eec9f35879}{$\sim$\+Counted\+Pointer}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class jclib\+::\+Counted\+Pointer$<$ T $>$}
+This is an implementation of an intrusive counted pointed. The typename T must expose two public methods Counted\+Pointer\+Atttach and Counted\+Pointer\+Detach. The expected behaviour is that these will maintain a count of attached pointers and self delete when the counter reaches zero 
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a433c5ac83a77da7545b33906e017d52c}\label{classjclib_1_1_counted_pointer_a433c5ac83a77da7545b33906e017d52c}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!CountedPointer@{CountedPointer}}
+\index{CountedPointer@{CountedPointer}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CountedPointer()}{CountedPointer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::\+Counted\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00114}{114}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a0349177cb94d0f9a111177b93802aa29}\label{classjclib_1_1_counted_pointer_a0349177cb94d0f9a111177b93802aa29}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!CountedPointer@{CountedPointer}}
+\index{CountedPointer@{CountedPointer}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CountedPointer()}{CountedPointer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::\+Counted\+Pointer (\begin{DoxyParamCaption}\item[{T $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00115}{115}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a2f7c6c501a3349cbdb0509b0baeb7375}\label{classjclib_1_1_counted_pointer_a2f7c6c501a3349cbdb0509b0baeb7375}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!CountedPointer@{CountedPointer}}
+\index{CountedPointer@{CountedPointer}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CountedPointer()}{CountedPointer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::\+Counted\+Pointer (\begin{DoxyParamCaption}\item[{const class \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \&}]{old }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00116}{116}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_af5a45ed19b253d37bd97c1eec9f35879}\label{classjclib_1_1_counted_pointer_af5a45ed19b253d37bd97c1eec9f35879}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!````~CountedPointer@{$\sim$CountedPointer}}
+\index{````~CountedPointer@{$\sim$CountedPointer}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$CountedPointer()}{~CountedPointer()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a141b33afc3d099c221036d874d73095e}\label{classjclib_1_1_counted_pointer_a141b33afc3d099c221036d874d73095e}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!get@{get}}
+\index{get@{get}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T $\ast$ \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the address of the object pointed at 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a45787c3b235590582aad6103d7bdc5d0}\label{classjclib_1_1_counted_pointer_a45787c3b235590582aad6103d7bdc5d0}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!isnull@{isnull}}
+\index{isnull@{isnull}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isnull()}{isnull()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::isnull (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test if the pointer is set to nullptr \begin{DoxyReturn}{Returns}
+true if the internal pointer is nullptr 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_aba4799319512576d8873edd9239d7073}\label{classjclib_1_1_counted_pointer_aba4799319512576d8873edd9239d7073}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!isset@{isset}}
+\index{isset@{isset}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isset()}{isset()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::isset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Test if the pointer is set to an object \begin{DoxyReturn}{Returns}
+true if the internal pointer is not nullptr 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a9fe098ec5696d766f413cdcab6fa8fc4}\label{classjclib_1_1_counted_pointer_a9fe098ec5696d766f413cdcab6fa8fc4}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!operator T$\ast$@{operator T$\ast$}}
+\index{operator T$\ast$@{operator T$\ast$}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator T$\ast$()}{operator T*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::operator T$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a8c5ecd6ea25507d0eff36724dd1bb99a}\label{classjclib_1_1_counted_pointer_a8c5ecd6ea25507d0eff36724dd1bb99a}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \& \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+retrieve a reference to the address of the object pointed at 
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a4b78ca5385c443f20233090e8ba374b4}\label{classjclib_1_1_counted_pointer_a4b78ca5385c443f20233090e8ba374b4}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T $\ast$ \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00070}{70}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_aadb8af90c4b0a7e095bf923dde4cf028}\label{classjclib_1_1_counted_pointer_aadb8af90c4b0a7e095bf923dde4cf028}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+class \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \& \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \&}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the internal value. Attaching / Detaching as requried 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the new value to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ourself 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00110}{110}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a723e34d68ef31f93cf7730301c0938a5}\label{classjclib_1_1_counted_pointer_a723e34d68ef31f93cf7730301c0938a5}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+class \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \& \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{T $\ast$const}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the internal value. Attaching / Detaching as requried 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the new value to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ourself 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00101}{101}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a93e060e76df8f3ac8d20478b128d4514}\label{classjclib_1_1_counted_pointer_a93e060e76df8f3ac8d20478b128d4514}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!set@{set}}
+\index{set@{set}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ T $>$ \&}]{old }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the internal value. Attaching / Detaching as requried occasionaally useful as a replacement for the assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the new value to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}\label{classjclib_1_1_counted_pointer_a11f97ba1153ce2caabe2e44990b54807}} 
+\index{jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}!set@{set}}
+\index{set@{set}!jclib::CountedPointer$<$ T $>$@{jclib::CountedPointer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{T $\ast$const}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the internal value. Attaching / Detaching as requried occasionaally useful as a replacement for the assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & the new value to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00077}{77}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{counted_pointer_8hpp}{counted\+Pointer.\+hpp}}\end{DoxyCompactItemize}

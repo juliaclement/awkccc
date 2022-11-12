@@ -1,0 +1,615 @@
+\hypertarget{parser_8h_09_09}{}\doxysection{src/parser.h++ File Reference}
+\label{parser_8h_09_09}\index{src/parser.h++@{src/parser.h++}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parser_8h_09_09__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\+\_\+\+Parser}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a9748b756ab4a3b117401c267cf491342}{PARSER\+\_\+\+NEWLINE}}~9
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a6f90ce7fa78ffd5beee9dba04b2ee5e8}{PARSER\+\_\+\+ADD\+\_\+\+ASSIGN}}~24
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aa761a9c5a17e4da73e950cc19e43ced6}{PARSER\+\_\+\+SUB\+\_\+\+ASSIGN}}~25
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_ad94689cca3baca6bd923cdd4395c867a}{PARSER\+\_\+\+MUL\+\_\+\+ASSIGN}}~26
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a542bc3386fd148ad841b3f4be6bdccba}{PARSER\+\_\+\+DIV\+\_\+\+ASSIGN}}~27
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a4effcb346fb8e62a5d0334db15daae2a}{PARSER\+\_\+\+MOD\+\_\+\+ASSIGN}}~28
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a5bb2db0ec62f1c40dc3f33c7d1d8c159}{PARSER\+\_\+\+POW\+\_\+\+ASSIGN}}~29
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a3250b04228ae4041fb44f401aaef1d10}{PARSER\+\_\+\+OROR}}~31
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a58c52fcc29fdc53db1ff814a8b585a1f}{PARSER\+\_\+\+ANDAND}}~32
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a3a0bda5ac2803a774708001e862ede64}{PARSER\+\_\+\+CONCATENATE}}~35
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_abf538e93bfd463114aea8b819064a88e}{PARSER\+\_\+\+NAME}}~36
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a4dced4f54c034dfaa3d15cdf7fb67646}{PARSER\+\_\+\+NUMBER}}~37
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a3fef8892f045726bd2cc4174fd2800ee}{PARSER\+\_\+\+STRING}}~38
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_ad5ecdd0f40545a98b983ff763e4cac33}{PARSER\+\_\+\+ERE}}~39
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a5e8ce2dd369bf2ea311182df95793bb3}{PARSER\+\_\+\+FUNC\+\_\+\+NAME}}~40
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a372abb15a9b6c63d1ba7f50e13d4517e}{PARSER\+\_\+\+Begin}}~41
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_ab1df2e315b6730807bf21e4603eaa200}{PARSER\+\_\+\+Begin\+File}}~42
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a9400c4f6ed420ca4f95e120c9fe06559}{PARSER\+\_\+\+Mainloop}}~43
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_acf800088d27c398d8efe29dc64ba853b}{PARSER\+\_\+\+End\+File}}~44
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aadecee68bf5dfd7bca6e0814ca41b35d}{PARSER\+\_\+\+End}}~45
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aeb72ce29bbc3127dfcfa32c997215869}{PARSER\+\_\+\+Break}}~46
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a806cd9d3c970631057f082d0af76932c}{PARSER\+\_\+\+Continue}}~47
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a95f527fc04280cf47f51763ca71d6c00}{PARSER\+\_\+\+Delete}}~48
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a37c99a0892b2544bac754a3a31810ebc}{PARSER\+\_\+\+Do}}~49
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a39e42dc9722926d3d10339b066d1a2b4}{PARSER\+\_\+\+Else}}~50
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aef67d28c9b454c40a49b0e5501351f9e}{PARSER\+\_\+\+Exit}}~51
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aa36517e25d89dc5f6f7591e02d92a1dc}{PARSER\+\_\+\+For}}~52
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a2eea1bc0d0f87a64cbaa8e75ce625d46}{PARSER\+\_\+\+Function}}~53
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a9bffd3c8232bde82ddd99ddd5a7726b6}{PARSER\+\_\+\+If}}~54
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_af47c8fd708d4ba5eac2e969183a2ebec}{PARSER\+\_\+\+In}}~55
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_add170652faf5e274f60f3d5d26fc6335}{PARSER\+\_\+\+Next}}~56
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a59f2b2a01f0f3777df5a6d9ea4151c46}{PARSER\+\_\+\+Next\+File}}~57
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a33faeabba1d2947cdbbc20e5ccc966cd}{PARSER\+\_\+\+Print}}~58
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_ad1eacea25e9e0eeaec41b9ce6e7831c3}{PARSER\+\_\+\+Printf}}~59
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_acfe3e3fc85a1012cce71717a229fb69f}{PARSER\+\_\+\+Return}}~60
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a62ca72bec8eb671e55583b3596f06928}{PARSER\+\_\+\+While}}~61
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aaa19ffac863b713febe1c32e6950a7ac}{PARSER\+\_\+\+BUILTIN\+\_\+\+FUNC\+\_\+\+NAME}}~62
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a48e26584ee2582fdbc23045dc099ef7b}{PARSER\+\_\+\+GETLINE}}~63
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_aeaa931b5c5fe9d43540c528a5d80273e}{PARSER\+\_\+\+APPEND}}~64
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a9a22489ca5a4e8b5910632ff889fc7e5}{PARSER\+\_\+\+LE}}~65
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a1efb667df55fa91ea49b58df69d07c1d}{PARSER\+\_\+\+NE}}~66
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a504e4e84feeb00765dd574a06c77bc13}{PARSER\+\_\+\+EQ}}~67
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a6a139379c7fc30755f049fbf7ce2ce44}{PARSER\+\_\+\+GE}}~68
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_ae209c5fa884921714e066e8963d519fc}{PARSER\+\_\+\+NO\+\_\+\+MATCH}}~69
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a4c3e519bcc822a1b92fbbc340804a828}{PARSER\+\_\+\+INCR}}~70
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a6d279f2995a3dd29c68dff696f69a956}{PARSER\+\_\+\+DECR}}~71
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}{PARSER\+\_\+\+TOKENTYPE}}~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}}$>$
+\item 
+\#define \mbox{\hyperlink{parser_8h_09_09_a9d113e180a0743713ee3ea1c9706147c}{PARSER\+\_\+\+ARG\+\_\+\+PDECL}}~,\mbox{\hyperlink{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}{PARSER\+\_\+\+TOKENTYPE}} $\ast$ p\+Abc
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{parser_8h_09_09_ade3835481c316010f55b5f09a0f49dc8}{PARSER\+\_\+char\+\_\+to\+\_\+token}} (char chr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{parser_8h_09_09_a6f90ce7fa78ffd5beee9dba04b2ee5e8}\label{parser_8h_09_09_a6f90ce7fa78ffd5beee9dba04b2ee5e8}} 
+\index{parser.h++@{parser.h++}!PARSER\_ADD\_ASSIGN@{PARSER\_ADD\_ASSIGN}}
+\index{PARSER\_ADD\_ASSIGN@{PARSER\_ADD\_ASSIGN}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_ADD\_ASSIGN}{PARSER\_ADD\_ASSIGN}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+ADD\+\_\+\+ASSIGN~24}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00004}{4}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a58c52fcc29fdc53db1ff814a8b585a1f}\label{parser_8h_09_09_a58c52fcc29fdc53db1ff814a8b585a1f}} 
+\index{parser.h++@{parser.h++}!PARSER\_ANDAND@{PARSER\_ANDAND}}
+\index{PARSER\_ANDAND@{PARSER\_ANDAND}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_ANDAND}{PARSER\_ANDAND}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+ANDAND~32}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00011}{11}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aeaa931b5c5fe9d43540c528a5d80273e}\label{parser_8h_09_09_aeaa931b5c5fe9d43540c528a5d80273e}} 
+\index{parser.h++@{parser.h++}!PARSER\_APPEND@{PARSER\_APPEND}}
+\index{PARSER\_APPEND@{PARSER\_APPEND}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_APPEND}{PARSER\_APPEND}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+APPEND~64}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00041}{41}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a9d113e180a0743713ee3ea1c9706147c}\label{parser_8h_09_09_a9d113e180a0743713ee3ea1c9706147c}} 
+\index{parser.h++@{parser.h++}!PARSER\_ARG\_PDECL@{PARSER\_ARG\_PDECL}}
+\index{PARSER\_ARG\_PDECL@{PARSER\_ARG\_PDECL}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_ARG\_PDECL}{PARSER\_ARG\_PDECL}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+ARG\+\_\+\+PDECL~,\mbox{\hyperlink{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}{PARSER\+\_\+\+TOKENTYPE}} $\ast$ p\+Abc}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00052}{52}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a372abb15a9b6c63d1ba7f50e13d4517e}\label{parser_8h_09_09_a372abb15a9b6c63d1ba7f50e13d4517e}} 
+\index{parser.h++@{parser.h++}!PARSER\_Begin@{PARSER\_Begin}}
+\index{PARSER\_Begin@{PARSER\_Begin}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Begin}{PARSER\_Begin}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Begin~41}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00018}{18}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_ab1df2e315b6730807bf21e4603eaa200}\label{parser_8h_09_09_ab1df2e315b6730807bf21e4603eaa200}} 
+\index{parser.h++@{parser.h++}!PARSER\_BeginFile@{PARSER\_BeginFile}}
+\index{PARSER\_BeginFile@{PARSER\_BeginFile}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_BeginFile}{PARSER\_BeginFile}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Begin\+File~42}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00019}{19}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aeb72ce29bbc3127dfcfa32c997215869}\label{parser_8h_09_09_aeb72ce29bbc3127dfcfa32c997215869}} 
+\index{parser.h++@{parser.h++}!PARSER\_Break@{PARSER\_Break}}
+\index{PARSER\_Break@{PARSER\_Break}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Break}{PARSER\_Break}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Break~46}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00023}{23}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aaa19ffac863b713febe1c32e6950a7ac}\label{parser_8h_09_09_aaa19ffac863b713febe1c32e6950a7ac}} 
+\index{parser.h++@{parser.h++}!PARSER\_BUILTIN\_FUNC\_NAME@{PARSER\_BUILTIN\_FUNC\_NAME}}
+\index{PARSER\_BUILTIN\_FUNC\_NAME@{PARSER\_BUILTIN\_FUNC\_NAME}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_BUILTIN\_FUNC\_NAME}{PARSER\_BUILTIN\_FUNC\_NAME}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+BUILTIN\+\_\+\+FUNC\+\_\+\+NAME~62}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00039}{39}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a3a0bda5ac2803a774708001e862ede64}\label{parser_8h_09_09_a3a0bda5ac2803a774708001e862ede64}} 
+\index{parser.h++@{parser.h++}!PARSER\_CONCATENATE@{PARSER\_CONCATENATE}}
+\index{PARSER\_CONCATENATE@{PARSER\_CONCATENATE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_CONCATENATE}{PARSER\_CONCATENATE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+CONCATENATE~35}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00012}{12}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a806cd9d3c970631057f082d0af76932c}\label{parser_8h_09_09_a806cd9d3c970631057f082d0af76932c}} 
+\index{parser.h++@{parser.h++}!PARSER\_Continue@{PARSER\_Continue}}
+\index{PARSER\_Continue@{PARSER\_Continue}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Continue}{PARSER\_Continue}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Continue~47}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00024}{24}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a6d279f2995a3dd29c68dff696f69a956}\label{parser_8h_09_09_a6d279f2995a3dd29c68dff696f69a956}} 
+\index{parser.h++@{parser.h++}!PARSER\_DECR@{PARSER\_DECR}}
+\index{PARSER\_DECR@{PARSER\_DECR}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_DECR}{PARSER\_DECR}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+DECR~71}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00048}{48}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a95f527fc04280cf47f51763ca71d6c00}\label{parser_8h_09_09_a95f527fc04280cf47f51763ca71d6c00}} 
+\index{parser.h++@{parser.h++}!PARSER\_Delete@{PARSER\_Delete}}
+\index{PARSER\_Delete@{PARSER\_Delete}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Delete}{PARSER\_Delete}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Delete~48}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00025}{25}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a542bc3386fd148ad841b3f4be6bdccba}\label{parser_8h_09_09_a542bc3386fd148ad841b3f4be6bdccba}} 
+\index{parser.h++@{parser.h++}!PARSER\_DIV\_ASSIGN@{PARSER\_DIV\_ASSIGN}}
+\index{PARSER\_DIV\_ASSIGN@{PARSER\_DIV\_ASSIGN}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_DIV\_ASSIGN}{PARSER\_DIV\_ASSIGN}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+DIV\+\_\+\+ASSIGN~27}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00007}{7}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a37c99a0892b2544bac754a3a31810ebc}\label{parser_8h_09_09_a37c99a0892b2544bac754a3a31810ebc}} 
+\index{parser.h++@{parser.h++}!PARSER\_Do@{PARSER\_Do}}
+\index{PARSER\_Do@{PARSER\_Do}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Do}{PARSER\_Do}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Do~49}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00026}{26}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a39e42dc9722926d3d10339b066d1a2b4}\label{parser_8h_09_09_a39e42dc9722926d3d10339b066d1a2b4}} 
+\index{parser.h++@{parser.h++}!PARSER\_Else@{PARSER\_Else}}
+\index{PARSER\_Else@{PARSER\_Else}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Else}{PARSER\_Else}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Else~50}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00027}{27}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aadecee68bf5dfd7bca6e0814ca41b35d}\label{parser_8h_09_09_aadecee68bf5dfd7bca6e0814ca41b35d}} 
+\index{parser.h++@{parser.h++}!PARSER\_End@{PARSER\_End}}
+\index{PARSER\_End@{PARSER\_End}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_End}{PARSER\_End}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+End~45}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00022}{22}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_acf800088d27c398d8efe29dc64ba853b}\label{parser_8h_09_09_acf800088d27c398d8efe29dc64ba853b}} 
+\index{parser.h++@{parser.h++}!PARSER\_EndFile@{PARSER\_EndFile}}
+\index{PARSER\_EndFile@{PARSER\_EndFile}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_EndFile}{PARSER\_EndFile}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+End\+File~44}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00021}{21}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a504e4e84feeb00765dd574a06c77bc13}\label{parser_8h_09_09_a504e4e84feeb00765dd574a06c77bc13}} 
+\index{parser.h++@{parser.h++}!PARSER\_EQ@{PARSER\_EQ}}
+\index{PARSER\_EQ@{PARSER\_EQ}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_EQ}{PARSER\_EQ}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+EQ~67}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00044}{44}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_ad5ecdd0f40545a98b983ff763e4cac33}\label{parser_8h_09_09_ad5ecdd0f40545a98b983ff763e4cac33}} 
+\index{parser.h++@{parser.h++}!PARSER\_ERE@{PARSER\_ERE}}
+\index{PARSER\_ERE@{PARSER\_ERE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_ERE}{PARSER\_ERE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+ERE~39}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00016}{16}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aef67d28c9b454c40a49b0e5501351f9e}\label{parser_8h_09_09_aef67d28c9b454c40a49b0e5501351f9e}} 
+\index{parser.h++@{parser.h++}!PARSER\_Exit@{PARSER\_Exit}}
+\index{PARSER\_Exit@{PARSER\_Exit}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Exit}{PARSER\_Exit}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Exit~51}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00028}{28}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aa36517e25d89dc5f6f7591e02d92a1dc}\label{parser_8h_09_09_aa36517e25d89dc5f6f7591e02d92a1dc}} 
+\index{parser.h++@{parser.h++}!PARSER\_For@{PARSER\_For}}
+\index{PARSER\_For@{PARSER\_For}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_For}{PARSER\_For}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+For~52}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00029}{29}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a5e8ce2dd369bf2ea311182df95793bb3}\label{parser_8h_09_09_a5e8ce2dd369bf2ea311182df95793bb3}} 
+\index{parser.h++@{parser.h++}!PARSER\_FUNC\_NAME@{PARSER\_FUNC\_NAME}}
+\index{PARSER\_FUNC\_NAME@{PARSER\_FUNC\_NAME}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_FUNC\_NAME}{PARSER\_FUNC\_NAME}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+FUNC\+\_\+\+NAME~40}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00017}{17}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a2eea1bc0d0f87a64cbaa8e75ce625d46}\label{parser_8h_09_09_a2eea1bc0d0f87a64cbaa8e75ce625d46}} 
+\index{parser.h++@{parser.h++}!PARSER\_Function@{PARSER\_Function}}
+\index{PARSER\_Function@{PARSER\_Function}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Function}{PARSER\_Function}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Function~53}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00030}{30}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a6a139379c7fc30755f049fbf7ce2ce44}\label{parser_8h_09_09_a6a139379c7fc30755f049fbf7ce2ce44}} 
+\index{parser.h++@{parser.h++}!PARSER\_GE@{PARSER\_GE}}
+\index{PARSER\_GE@{PARSER\_GE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_GE}{PARSER\_GE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+GE~68}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00045}{45}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a48e26584ee2582fdbc23045dc099ef7b}\label{parser_8h_09_09_a48e26584ee2582fdbc23045dc099ef7b}} 
+\index{parser.h++@{parser.h++}!PARSER\_GETLINE@{PARSER\_GETLINE}}
+\index{PARSER\_GETLINE@{PARSER\_GETLINE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_GETLINE}{PARSER\_GETLINE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+GETLINE~63}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00040}{40}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a9bffd3c8232bde82ddd99ddd5a7726b6}\label{parser_8h_09_09_a9bffd3c8232bde82ddd99ddd5a7726b6}} 
+\index{parser.h++@{parser.h++}!PARSER\_If@{PARSER\_If}}
+\index{PARSER\_If@{PARSER\_If}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_If}{PARSER\_If}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+If~54}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00031}{31}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_af47c8fd708d4ba5eac2e969183a2ebec}\label{parser_8h_09_09_af47c8fd708d4ba5eac2e969183a2ebec}} 
+\index{parser.h++@{parser.h++}!PARSER\_In@{PARSER\_In}}
+\index{PARSER\_In@{PARSER\_In}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_In}{PARSER\_In}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+In~55}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00032}{32}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a4c3e519bcc822a1b92fbbc340804a828}\label{parser_8h_09_09_a4c3e519bcc822a1b92fbbc340804a828}} 
+\index{parser.h++@{parser.h++}!PARSER\_INCR@{PARSER\_INCR}}
+\index{PARSER\_INCR@{PARSER\_INCR}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_INCR}{PARSER\_INCR}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+INCR~70}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00047}{47}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a9a22489ca5a4e8b5910632ff889fc7e5}\label{parser_8h_09_09_a9a22489ca5a4e8b5910632ff889fc7e5}} 
+\index{parser.h++@{parser.h++}!PARSER\_LE@{PARSER\_LE}}
+\index{PARSER\_LE@{PARSER\_LE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_LE}{PARSER\_LE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+LE~65}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00042}{42}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a9400c4f6ed420ca4f95e120c9fe06559}\label{parser_8h_09_09_a9400c4f6ed420ca4f95e120c9fe06559}} 
+\index{parser.h++@{parser.h++}!PARSER\_Mainloop@{PARSER\_Mainloop}}
+\index{PARSER\_Mainloop@{PARSER\_Mainloop}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Mainloop}{PARSER\_Mainloop}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Mainloop~43}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00020}{20}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a4effcb346fb8e62a5d0334db15daae2a}\label{parser_8h_09_09_a4effcb346fb8e62a5d0334db15daae2a}} 
+\index{parser.h++@{parser.h++}!PARSER\_MOD\_ASSIGN@{PARSER\_MOD\_ASSIGN}}
+\index{PARSER\_MOD\_ASSIGN@{PARSER\_MOD\_ASSIGN}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_MOD\_ASSIGN}{PARSER\_MOD\_ASSIGN}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+MOD\+\_\+\+ASSIGN~28}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00008}{8}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_ad94689cca3baca6bd923cdd4395c867a}\label{parser_8h_09_09_ad94689cca3baca6bd923cdd4395c867a}} 
+\index{parser.h++@{parser.h++}!PARSER\_MUL\_ASSIGN@{PARSER\_MUL\_ASSIGN}}
+\index{PARSER\_MUL\_ASSIGN@{PARSER\_MUL\_ASSIGN}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_MUL\_ASSIGN}{PARSER\_MUL\_ASSIGN}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+MUL\+\_\+\+ASSIGN~26}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00006}{6}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_abf538e93bfd463114aea8b819064a88e}\label{parser_8h_09_09_abf538e93bfd463114aea8b819064a88e}} 
+\index{parser.h++@{parser.h++}!PARSER\_NAME@{PARSER\_NAME}}
+\index{PARSER\_NAME@{PARSER\_NAME}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_NAME}{PARSER\_NAME}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+NAME~36}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00013}{13}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a1efb667df55fa91ea49b58df69d07c1d}\label{parser_8h_09_09_a1efb667df55fa91ea49b58df69d07c1d}} 
+\index{parser.h++@{parser.h++}!PARSER\_NE@{PARSER\_NE}}
+\index{PARSER\_NE@{PARSER\_NE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_NE}{PARSER\_NE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+NE~66}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00043}{43}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a9748b756ab4a3b117401c267cf491342}\label{parser_8h_09_09_a9748b756ab4a3b117401c267cf491342}} 
+\index{parser.h++@{parser.h++}!PARSER\_NEWLINE@{PARSER\_NEWLINE}}
+\index{PARSER\_NEWLINE@{PARSER\_NEWLINE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_NEWLINE}{PARSER\_NEWLINE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+NEWLINE~9}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00003}{3}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_add170652faf5e274f60f3d5d26fc6335}\label{parser_8h_09_09_add170652faf5e274f60f3d5d26fc6335}} 
+\index{parser.h++@{parser.h++}!PARSER\_Next@{PARSER\_Next}}
+\index{PARSER\_Next@{PARSER\_Next}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Next}{PARSER\_Next}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Next~56}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00033}{33}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a59f2b2a01f0f3777df5a6d9ea4151c46}\label{parser_8h_09_09_a59f2b2a01f0f3777df5a6d9ea4151c46}} 
+\index{parser.h++@{parser.h++}!PARSER\_NextFile@{PARSER\_NextFile}}
+\index{PARSER\_NextFile@{PARSER\_NextFile}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_NextFile}{PARSER\_NextFile}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Next\+File~57}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00034}{34}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_ae209c5fa884921714e066e8963d519fc}\label{parser_8h_09_09_ae209c5fa884921714e066e8963d519fc}} 
+\index{parser.h++@{parser.h++}!PARSER\_NO\_MATCH@{PARSER\_NO\_MATCH}}
+\index{PARSER\_NO\_MATCH@{PARSER\_NO\_MATCH}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_NO\_MATCH}{PARSER\_NO\_MATCH}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+NO\+\_\+\+MATCH~69}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00046}{46}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a4dced4f54c034dfaa3d15cdf7fb67646}\label{parser_8h_09_09_a4dced4f54c034dfaa3d15cdf7fb67646}} 
+\index{parser.h++@{parser.h++}!PARSER\_NUMBER@{PARSER\_NUMBER}}
+\index{PARSER\_NUMBER@{PARSER\_NUMBER}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_NUMBER}{PARSER\_NUMBER}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+NUMBER~37}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00014}{14}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a3250b04228ae4041fb44f401aaef1d10}\label{parser_8h_09_09_a3250b04228ae4041fb44f401aaef1d10}} 
+\index{parser.h++@{parser.h++}!PARSER\_OROR@{PARSER\_OROR}}
+\index{PARSER\_OROR@{PARSER\_OROR}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_OROR}{PARSER\_OROR}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+OROR~31}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00010}{10}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a5bb2db0ec62f1c40dc3f33c7d1d8c159}\label{parser_8h_09_09_a5bb2db0ec62f1c40dc3f33c7d1d8c159}} 
+\index{parser.h++@{parser.h++}!PARSER\_POW\_ASSIGN@{PARSER\_POW\_ASSIGN}}
+\index{PARSER\_POW\_ASSIGN@{PARSER\_POW\_ASSIGN}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_POW\_ASSIGN}{PARSER\_POW\_ASSIGN}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+POW\+\_\+\+ASSIGN~29}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00009}{9}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a33faeabba1d2947cdbbc20e5ccc966cd}\label{parser_8h_09_09_a33faeabba1d2947cdbbc20e5ccc966cd}} 
+\index{parser.h++@{parser.h++}!PARSER\_Print@{PARSER\_Print}}
+\index{PARSER\_Print@{PARSER\_Print}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Print}{PARSER\_Print}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Print~58}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00035}{35}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_ad1eacea25e9e0eeaec41b9ce6e7831c3}\label{parser_8h_09_09_ad1eacea25e9e0eeaec41b9ce6e7831c3}} 
+\index{parser.h++@{parser.h++}!PARSER\_Printf@{PARSER\_Printf}}
+\index{PARSER\_Printf@{PARSER\_Printf}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Printf}{PARSER\_Printf}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Printf~59}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00036}{36}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_acfe3e3fc85a1012cce71717a229fb69f}\label{parser_8h_09_09_acfe3e3fc85a1012cce71717a229fb69f}} 
+\index{parser.h++@{parser.h++}!PARSER\_Return@{PARSER\_Return}}
+\index{PARSER\_Return@{PARSER\_Return}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_Return}{PARSER\_Return}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+Return~60}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00037}{37}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a3fef8892f045726bd2cc4174fd2800ee}\label{parser_8h_09_09_a3fef8892f045726bd2cc4174fd2800ee}} 
+\index{parser.h++@{parser.h++}!PARSER\_STRING@{PARSER\_STRING}}
+\index{PARSER\_STRING@{PARSER\_STRING}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_STRING}{PARSER\_STRING}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+STRING~38}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00015}{15}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_aa761a9c5a17e4da73e950cc19e43ced6}\label{parser_8h_09_09_aa761a9c5a17e4da73e950cc19e43ced6}} 
+\index{parser.h++@{parser.h++}!PARSER\_SUB\_ASSIGN@{PARSER\_SUB\_ASSIGN}}
+\index{PARSER\_SUB\_ASSIGN@{PARSER\_SUB\_ASSIGN}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_SUB\_ASSIGN}{PARSER\_SUB\_ASSIGN}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+SUB\+\_\+\+ASSIGN~25}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00005}{5}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}\label{parser_8h_09_09_a9e4262c5b1d51b5eba3fde6b39bce050}} 
+\index{parser.h++@{parser.h++}!PARSER\_TOKENTYPE@{PARSER\_TOKENTYPE}}
+\index{PARSER\_TOKENTYPE@{PARSER\_TOKENTYPE}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_TOKENTYPE}{PARSER\_TOKENTYPE}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+TOKENTYPE~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00051}{51}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+\mbox{\Hypertarget{parser_8h_09_09_a62ca72bec8eb671e55583b3596f06928}\label{parser_8h_09_09_a62ca72bec8eb671e55583b3596f06928}} 
+\index{parser.h++@{parser.h++}!PARSER\_While@{PARSER\_While}}
+\index{PARSER\_While@{PARSER\_While}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_While}{PARSER\_While}}
+{\footnotesize\ttfamily \#define PARSER\+\_\+\+While~61}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8h_09_09_source_l00038}{38}} of file \mbox{\hyperlink{parser_8h_09_09_source}{parser.\+h++}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{parser_8h_09_09_ade3835481c316010f55b5f09a0f49dc8}\label{parser_8h_09_09_ade3835481c316010f55b5f09a0f49dc8}} 
+\index{parser.h++@{parser.h++}!PARSER\_char\_to\_token@{PARSER\_char\_to\_token}}
+\index{PARSER\_char\_to\_token@{PARSER\_char\_to\_token}!parser.h++@{parser.h++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_char\_to\_token()}{PARSER\_char\_to\_token()}}
+{\footnotesize\ttfamily int PARSER\+\_\+char\+\_\+to\+\_\+token (\begin{DoxyParamCaption}\item[{char}]{chr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8c_09_09_source_l00096}{96}} of file \mbox{\hyperlink{parser_8c_09_09_source}{parser.\+c++}}.
+

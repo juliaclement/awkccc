@@ -1,0 +1,64 @@
+\hypertarget{classjclib_1_1_counted_pointer_safe}{}\doxysection{jclib\+::Counted\+Pointer\+Safe\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classjclib_1_1_counted_pointer_safe}\index{jclib::CountedPointerSafe$<$ T $>$@{jclib::CountedPointerSafe$<$ T $>$}}
+
+
+{\ttfamily \#include $<$counted\+Pointer.\+hpp$>$}
+
+
+
+Inheritance diagram for jclib\+::Counted\+Pointer\+Safe\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classjclib_1_1_counted_pointer_safe__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for jclib\+::Counted\+Pointer\+Safe\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{classjclib_1_1_counted_pointer_safe__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename ... Types$>$ }\\\mbox{\hyperlink{classjclib_1_1_counted_pointer_safe_acc5ed138b4a7b16ef407dfd0b9e0c2e5}{Counted\+Pointer\+Safe}} (const Types \&...args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class jclib\+::\+Counted\+Pointer\+Safe$<$ T $>$}
+A template child class that permits automatic \& static variables to have counted pointers.
+
+The user must ensure that all Counted\+Pointers to instances of this class are deleted before the target.
+
+NB\+: It is not generally safe to have Counted\+Pointers point at automatic or static variables as when the pointer count reaches zero an attempt will be made to delete the variable. 
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classjclib_1_1_counted_pointer_safe_acc5ed138b4a7b16ef407dfd0b9e0c2e5}\label{classjclib_1_1_counted_pointer_safe_acc5ed138b4a7b16ef407dfd0b9e0c2e5}} 
+\index{jclib::CountedPointerSafe$<$ T $>$@{jclib::CountedPointerSafe$<$ T $>$}!CountedPointerSafe@{CountedPointerSafe}}
+\index{CountedPointerSafe@{CountedPointerSafe}!jclib::CountedPointerSafe$<$ T $>$@{jclib::CountedPointerSafe$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CountedPointerSafe()}{CountedPointerSafe()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename ... Types$>$ \\
+\mbox{\hyperlink{classjclib_1_1_counted_pointer_safe}{jclib\+::\+Counted\+Pointer\+Safe}}$<$ T $>$\+::\+Counted\+Pointer\+Safe (\begin{DoxyParamCaption}\item[{const Types \&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{counted_pointer_8hpp_source_l00151}{151}} of file \mbox{\hyperlink{counted_pointer_8hpp_source}{counted\+Pointer.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{counted_pointer_8hpp}{counted\+Pointer.\+hpp}}\end{DoxyCompactItemize}

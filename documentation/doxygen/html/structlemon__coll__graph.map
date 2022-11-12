@@ -1,0 +1,9 @@
+<map id="lemon" name="lemon">
+<area shape="rect" id="node1" title=" " alt="" coords="88,249,151,276"/>
+<area shape="rect" id="node2" href="$structstate.html" title=" " alt="" coords="399,128,454,155"/>
+<area shape="rect" id="node3" href="$structconfig.html" title=" " alt="" coords="529,249,590,276"/>
+<area shape="rect" id="node7" href="$structaction.html" title=" " alt="" coords="308,249,371,276"/>
+<area shape="rect" id="node6" href="$structplink.html" title=" " alt="" coords="532,355,587,381"/>
+<area shape="rect" id="node4" href="$structrule.html" title=" " alt="" coords="243,7,290,33"/>
+<area shape="rect" id="node5" href="$structsymbol.html" title=" " alt="" coords="84,128,155,155"/>
+</map>

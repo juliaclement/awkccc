@@ -1,0 +1,112 @@
+\hypertarget{lexer__lib_8c_09_09}{}\doxysection{src/lexer\+\_\+lib.c++ File Reference}
+\label{lexer__lib_8c_09_09}\index{src/lexer\_lib.c++@{src/lexer\_lib.c++}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}../include/awkccc\+\_\+ast.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../src/parser.\+h++\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/awkccc\+\_\+lexer.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/j\+String.\+hpp\char`\"{}}\newline
+Include dependency graph for lexer\+\_\+lib.\+c++\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lexer__lib_8c_09_09__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_symbol_table_impl}{Symbol\+Table\+Impl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lexer__lib_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}{Parse\+TOKENTYPE}}~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $>$ $>$ \mbox{\hyperlink{lexer__lib_8c_09_09_af7676e8b19f771aa7a9d161ca44cff59}{map\+\_\+t}}
+\item 
+typedef void $\ast$$\ast$ \mbox{\hyperlink{lexer__lib_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}{malloc\+\_\+t}}(size\+\_\+t)
+\item 
+typedef void $\ast$$\ast$ \mbox{\hyperlink{lexer__lib_8c_09_09_af133d4bffc5f90ffa719863791a61a18}{free\+\_\+t}}(void $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lexer__lib_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}{Parse\+Trace}} (FILE $\ast$stream, char $\ast$z\+Prefix)
+\item 
+int \mbox{\hyperlink{lexer__lib_8c_09_09_ade3835481c316010f55b5f09a0f49dc8}{PARSER\+\_\+char\+\_\+to\+\_\+token}} (char chr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lexer__lib_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}\label{lexer__lib_8c_09_09_ac1bb3745bae7c4294c72d4e35ce81a8b}} 
+\index{lexer\_lib.c++@{lexer\_lib.c++}!ParseTOKENTYPE@{ParseTOKENTYPE}}
+\index{ParseTOKENTYPE@{ParseTOKENTYPE}!lexer\_lib.c++@{lexer\_lib.c++}}
+\doxysubsubsection{\texorpdfstring{ParseTOKENTYPE}{ParseTOKENTYPE}}
+{\footnotesize\ttfamily \#define Parse\+TOKENTYPE~\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00111}{111}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{lexer__lib_8c_09_09_af133d4bffc5f90ffa719863791a61a18}\label{lexer__lib_8c_09_09_af133d4bffc5f90ffa719863791a61a18}} 
+\index{lexer\_lib.c++@{lexer\_lib.c++}!free\_t@{free\_t}}
+\index{free\_t@{free\_t}!lexer\_lib.c++@{lexer\_lib.c++}}
+\doxysubsubsection{\texorpdfstring{free\_t}{free\_t}}
+{\footnotesize\ttfamily typedef void $\ast$$\ast$ free\+\_\+t(void $\ast$)}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00113}{113}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{lexer__lib_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}\label{lexer__lib_8c_09_09_aa3f793f4cb403f801cad07e1f9619b2d}} 
+\index{lexer\_lib.c++@{lexer\_lib.c++}!malloc\_t@{malloc\_t}}
+\index{malloc\_t@{malloc\_t}!lexer\_lib.c++@{lexer\_lib.c++}}
+\doxysubsubsection{\texorpdfstring{malloc\_t}{malloc\_t}}
+{\footnotesize\ttfamily typedef void $\ast$$\ast$ malloc\+\_\+t(size\+\_\+t)}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00112}{112}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{lexer__lib_8c_09_09_af7676e8b19f771aa7a9d161ca44cff59}\label{lexer__lib_8c_09_09_af7676e8b19f771aa7a9d161ca44cff59}} 
+\index{lexer\_lib.c++@{lexer\_lib.c++}!map\_t@{map\_t}}
+\index{map\_t@{map\_t}!lexer\_lib.c++@{lexer\_lib.c++}}
+\doxysubsubsection{\texorpdfstring{map\_t}{map\_t}}
+{\footnotesize\ttfamily typedef std\+::map$<$\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}}$>$ $>$ \mbox{\hyperlink{lexer__lib_8c_09_09_af7676e8b19f771aa7a9d161ca44cff59}{map\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00032}{32}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lexer__lib_8c_09_09_ade3835481c316010f55b5f09a0f49dc8}\label{lexer__lib_8c_09_09_ade3835481c316010f55b5f09a0f49dc8}} 
+\index{lexer\_lib.c++@{lexer\_lib.c++}!PARSER\_char\_to\_token@{PARSER\_char\_to\_token}}
+\index{PARSER\_char\_to\_token@{PARSER\_char\_to\_token}!lexer\_lib.c++@{lexer\_lib.c++}}
+\doxysubsubsection{\texorpdfstring{PARSER\_char\_to\_token()}{PARSER\_char\_to\_token()}}
+{\footnotesize\ttfamily int PARSER\+\_\+char\+\_\+to\+\_\+token (\begin{DoxyParamCaption}\item[{char}]{chr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8c_09_09_source_l00096}{96}} of file \mbox{\hyperlink{parser_8c_09_09_source}{parser.\+c++}}.
+
+\mbox{\Hypertarget{lexer__lib_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}\label{lexer__lib_8c_09_09_ae2ff96685825a8642d4ae7b04363e6a8}} 
+\index{lexer\_lib.c++@{lexer\_lib.c++}!ParseTrace@{ParseTrace}}
+\index{ParseTrace@{ParseTrace}!lexer\_lib.c++@{lexer\_lib.c++}}
+\doxysubsubsection{\texorpdfstring{ParseTrace()}{ParseTrace()}}
+{\footnotesize\ttfamily void Parse\+Trace (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{stream,  }\item[{char $\ast$}]{z\+Prefix }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00317}{317}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+

@@ -1,0 +1,223 @@
+\hypertarget{classjclib_1_1arguments}{}\doxysection{jclib\+::arguments Class Reference}
+\label{classjclib_1_1arguments}\index{jclib::arguments@{jclib::arguments}}
+
+
+{\ttfamily \#include $<$jcargs.\+hpp$>$}
+
+
+
+Collaboration diagram for jclib\+::arguments\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classjclib_1_1arguments__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classjclib_1_1arguments_ab7b99b349a386215a759b8a16b06fe12}{insert}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ input)
+\item 
+void \mbox{\hyperlink{classjclib_1_1arguments_a79ef5f1ccd5dc98b46c017c02de28c83}{load}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $\ast$ $>$ input)
+\item 
+bool \mbox{\hyperlink{classjclib_1_1arguments_ac1839724dc6708617a21559de5702bde}{process\+\_\+args}} (int argc, const char $\ast$$\ast$argv, int start\+\_\+at=1)
+\item 
+\mbox{\hyperlink{classjclib_1_1arguments_ae0627cea8b7d6ab73c0ebddaa5774700}{arguments}} (std\+::ostream \&error\+\_\+log=std\+::cerr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}{error\+\_\+log\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} $>$ \mbox{\hyperlink{classjclib_1_1arguments_a566dc49f9442409c27a10e63292a1b50}{positional\+\_\+args\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ $>$ \mbox{\hyperlink{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}{all\+\_\+options\+\_\+}}
+\item 
+std\+::map$<$ \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}}, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ $>$ \mbox{\hyperlink{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}{short\+\_\+names\+\_\+}}
+\item 
+std\+::map$<$ \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}}, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ $>$ \mbox{\hyperlink{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}{long\+\_\+names\+\_\+}}
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyperlink{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}{help\+\_\+prefix\+\_\+}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyperlink{classjclib_1_1arguments_a067c280bf6555e718467e32fbe925ece}{help\+\_\+suffix\+\_\+}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()
+\item 
+\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyperlink{classjclib_1_1arguments_a80a51673ad902c9d406285314f48cf90}{version\+\_\+string\+\_\+}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()
+\item 
+int \mbox{\hyperlink{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}{errors\+\_\+}} = 0
+\item 
+bool \mbox{\hyperlink{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}{show\+\_\+help\+\_\+}} = false
+\item 
+bool \mbox{\hyperlink{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}{show\+\_\+version\+\_\+}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00159}{159}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classjclib_1_1arguments_ae0627cea8b7d6ab73c0ebddaa5774700}\label{classjclib_1_1arguments_ae0627cea8b7d6ab73c0ebddaa5774700}} 
+\index{jclib::arguments@{jclib::arguments}!arguments@{arguments}}
+\index{arguments@{arguments}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{arguments()}{arguments()}}
+{\footnotesize\ttfamily jclib\+::arguments\+::arguments (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{error\+\_\+log = {\ttfamily std\+:\+:cerr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00331}{331}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classjclib_1_1arguments_ab7b99b349a386215a759b8a16b06fe12}\label{classjclib_1_1arguments_ab7b99b349a386215a759b8a16b06fe12}} 
+\index{jclib::arguments@{jclib::arguments}!insert@{insert}}
+\index{insert@{insert}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void jclib\+::arguments\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00173}{173}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a79ef5f1ccd5dc98b46c017c02de28c83}\label{classjclib_1_1arguments_a79ef5f1ccd5dc98b46c017c02de28c83}} 
+\index{jclib::arguments@{jclib::arguments}!load@{load}}
+\index{load@{load}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void jclib\+::arguments\+::load (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $\ast$ $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_ac1839724dc6708617a21559de5702bde}\label{classjclib_1_1arguments_ac1839724dc6708617a21559de5702bde}} 
+\index{jclib::arguments@{jclib::arguments}!process\_args@{process\_args}}
+\index{process\_args@{process\_args}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{process\_args()}{process\_args()}}
+{\footnotesize\ttfamily bool jclib\+::arguments\+::process\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{const char $\ast$$\ast$}]{argv,  }\item[{int}]{start\+\_\+at = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00206}{206}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}\label{classjclib_1_1arguments_a2044af38fb74fcf51c1d514663a645dd}} 
+\index{jclib::arguments@{jclib::arguments}!all\_options\_@{all\_options\_}}
+\index{all\_options\_@{all\_options\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{all\_options\_}{all\_options\_}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ $>$ jclib\+::arguments\+::all\+\_\+options\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00164}{164}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}\label{classjclib_1_1arguments_a80990d2f5c7b5b104c1c903b10f65b5d}} 
+\index{jclib::arguments@{jclib::arguments}!error\_log\_@{error\_log\_}}
+\index{error\_log\_@{error\_log\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{error\_log\_}{error\_log\_}}
+{\footnotesize\ttfamily std\+::ostream\& jclib\+::arguments\+::error\+\_\+log\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00161}{161}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}\label{classjclib_1_1arguments_abf840aec6b24349ad096fd296844c9b3}} 
+\index{jclib::arguments@{jclib::arguments}!errors\_@{errors\_}}
+\index{errors\_@{errors\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{errors\_}{errors\_}}
+{\footnotesize\ttfamily int jclib\+::arguments\+::errors\+\_\+ = 0}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00170}{170}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}\label{classjclib_1_1arguments_a1aac145aadb2bc56e2532a3caba300bf}} 
+\index{jclib::arguments@{jclib::arguments}!help\_prefix\_@{help\_prefix\_}}
+\index{help\_prefix\_@{help\_prefix\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{help\_prefix\_}{help\_prefix\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} jclib\+::arguments\+::help\+\_\+prefix\+\_\+ = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00167}{167}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a067c280bf6555e718467e32fbe925ece}\label{classjclib_1_1arguments_a067c280bf6555e718467e32fbe925ece}} 
+\index{jclib::arguments@{jclib::arguments}!help\_suffix\_@{help\_suffix\_}}
+\index{help\_suffix\_@{help\_suffix\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{help\_suffix\_}{help\_suffix\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} jclib\+::arguments\+::help\+\_\+suffix\+\_\+ = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00168}{168}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}\label{classjclib_1_1arguments_a3f971be99d3a876e4ff5bc3ff7d03f0e}} 
+\index{jclib::arguments@{jclib::arguments}!long\_names\_@{long\_names\_}}
+\index{long\_names\_@{long\_names\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{long\_names\_}{long\_names\_}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}}, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ $>$ jclib\+::arguments\+::long\+\_\+names\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a566dc49f9442409c27a10e63292a1b50}\label{classjclib_1_1arguments_a566dc49f9442409c27a10e63292a1b50}} 
+\index{jclib::arguments@{jclib::arguments}!positional\_args\_@{positional\_args\_}}
+\index{positional\_args\_@{positional\_args\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{positional\_args\_}{positional\_args\_}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} $>$ jclib\+::arguments\+::positional\+\_\+args\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00162}{162}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}\label{classjclib_1_1arguments_a43cadeaebdd53375251ceaa5b787ee68}} 
+\index{jclib::arguments@{jclib::arguments}!short\_names\_@{short\_names\_}}
+\index{short\_names\_@{short\_names\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{short\_names\_}{short\_names\_}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}}, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{Counted\+Pointer}}$<$ \mbox{\hyperlink{classjclib_1_1arg__base}{arg\+\_\+base}} $>$ $>$ jclib\+::arguments\+::short\+\_\+names\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00165}{165}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}\label{classjclib_1_1arguments_ac960c1d8424d60fd2f10bcc4dd014ea2}} 
+\index{jclib::arguments@{jclib::arguments}!show\_help\_@{show\_help\_}}
+\index{show\_help\_@{show\_help\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{show\_help\_}{show\_help\_}}
+{\footnotesize\ttfamily bool jclib\+::arguments\+::show\+\_\+help\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}\label{classjclib_1_1arguments_a637078afc99005bca9ef3d455b11ec46}} 
+\index{jclib::arguments@{jclib::arguments}!show\_version\_@{show\_version\_}}
+\index{show\_version\_@{show\_version\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{show\_version\_}{show\_version\_}}
+{\footnotesize\ttfamily bool jclib\+::arguments\+::show\+\_\+version\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+\mbox{\Hypertarget{classjclib_1_1arguments_a80a51673ad902c9d406285314f48cf90}\label{classjclib_1_1arguments_a80a51673ad902c9d406285314f48cf90}} 
+\index{jclib::arguments@{jclib::arguments}!version\_string\_@{version\_string\_}}
+\index{version\_string\_@{version\_string\_}!jclib::arguments@{jclib::arguments}}
+\doxysubsubsection{\texorpdfstring{version\_string\_}{version\_string\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} jclib\+::arguments\+::version\+\_\+string\+\_\+ = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib\+::j\+String\+::get\+\_\+empty}}()}
+
+
+
+Definition at line \mbox{\hyperlink{jcargs_8hpp_source_l00169}{169}} of file \mbox{\hyperlink{jcargs_8hpp_source}{jcargs.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{jcargs_8hpp}{jcargs.\+hpp}}\end{DoxyCompactItemize}

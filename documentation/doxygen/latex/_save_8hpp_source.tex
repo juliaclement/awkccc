@@ -1,0 +1,98 @@
+\hypertarget{_save_8hpp_source}{}\doxysection{Save.\+hpp}
+\label{_save_8hpp_source}\index{include/Save.hpp@{include/Save.hpp}}
+\mbox{\hyperlink{_save_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00002}00002 \textcolor{comment}{Copyright (c) 2022 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00003}00003 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00004}00004 \textcolor{comment}{Permission is hereby granted, free of charge, to any person obtaining a copy}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00005}00005 \textcolor{comment}{of this software and associated documentation files (the "{}Software"{}), to deal}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00006}00006 \textcolor{comment}{in the Software without restriction, including without limitation the rights}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00007}00007 \textcolor{comment}{to use, copy, modify, merge, publish, distribute, sublicense, and/or sell}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00008}00008 \textcolor{comment}{copies of the Software, and to permit persons to whom the Software is}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00009}00009 \textcolor{comment}{furnished to do so, subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00010}00010 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00011}00011 \textcolor{comment}{The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00012}00012 \textcolor{comment}{copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00013}00013 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00014}00014 \textcolor{comment}{THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00015}00015 \textcolor{comment}{IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00016}00016 \textcolor{comment}{FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00017}00017 \textcolor{comment}{AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00018}00018 \textcolor{comment}{LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00019}00019 \textcolor{comment}{OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00020}00020 \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00021}00021 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00023}00023 \textcolor{comment}{/* }}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00024}00024 \textcolor{comment}{ * File:   Save.hpp}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00025}00025 \textcolor{comment}{ * Author: Julia Clement <Julia at Clement dot nz>}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00026}00026 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00027}00027 \textcolor{comment}{ * Purpose: Save<T> is a template class that stores a copy of a}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00028}00028 \textcolor{comment}{ *          T variable's data and restores it when the Save<T>}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00029}00029 \textcolor{comment}{ *          is destroyed.}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00030}00030 \textcolor{comment}{ *          T must be copy constructable \& assignable.}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00031}00031 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00032}00032 \textcolor{comment}{ * Part of the JCLib project https://github.com/juliaclement/jclib}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00033}00033 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00034}00034 \textcolor{comment}{ * Created on 7 November 2022}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00035}00035 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00036}00036 \textcolor{preprocessor}{\#ifndef Save\_HPP}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00037}00037 \textcolor{preprocessor}{\#define Save\_HPP}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00039}00039 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacejclib}{jclib}} \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00040}00040     \textcolor{keyword}{namespace }Private \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00041}\mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{00041}}         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00042}00042             \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00043}00043                 T \& saved\_object\_;}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00044}00044                 T saved\_data\_;}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00045}00045 \textcolor{comment}{                /*** Occasionally we need to disable the restore */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00046}00046                 \textcolor{keywordtype}{bool} enabled\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00047}00047                 \textcolor{comment}{// forbid copying}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00048}00048                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}}( \textcolor{keyword}{const} \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \& old  ) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00049}00049                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \& operator =( \textcolor{keyword}{const} \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \& old ) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00050}00050             \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00051}\mbox{\hyperlink{classjclib_1_1_private_1_1_saver_a0ee48089dfa038001508969a44ee619e}{00051}}                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver_a0ee48089dfa038001508969a44ee619e}{Saver}}(T\& savee )}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00052}00052                 : saved\_object\_( savee )}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00053}00053                 , saved\_data\_( savee )}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00054}00054                 \{\}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00055}\mbox{\hyperlink{classjclib_1_1_private_1_1_saver_afbd21c4fbacb40f95512b711acd8fb15}{00055}}                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver_afbd21c4fbacb40f95512b711acd8fb15}{\string~Saver}}( ) \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00056}00056                     \textcolor{keywordflow}{if}( enabled\_ )}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00057}00057                         saved\_object\_ = saved\_data\_;}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00058}00058                 \}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00059}00059 \textcolor{comment}{                /*** restore data ahead of destruction. }}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00060}00060 \textcolor{comment}{                 *   allows multiple restores of the }}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00061}00061 \textcolor{comment}{                 *   original data, effectively creating a checkpoint.}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00062}00062 \textcolor{comment}{                */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00063}\mbox{\hyperlink{classjclib_1_1_private_1_1_saver_afea40b01541ca75c73f6530cfce48f75}{00063}}                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \&  \mbox{\hyperlink{classjclib_1_1_private_1_1_saver_afea40b01541ca75c73f6530cfce48f75}{restore}}( ) \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00064}00064                     saved\_object\_ = saved\_data\_;}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00065}00065                     \textcolor{keywordflow}{return} * \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00066}00066                 \}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00067}00067 \textcolor{comment}{                /*** Turn off the automatic restore}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00068}00068 \textcolor{comment}{                 *   Typically used after a manual call to restore()}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00069}00069 \textcolor{comment}{                */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00070}\mbox{\hyperlink{classjclib_1_1_private_1_1_saver_af167dbfb94965a6e83050aec88b06828}{00070}}                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \& \mbox{\hyperlink{classjclib_1_1_private_1_1_saver_af167dbfb94965a6e83050aec88b06828}{disable}}() \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00071}00071                     enabled\_ = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00072}00072                     \textcolor{keywordflow}{return} * \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00073}00073                 \}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00074}00074 \textcolor{comment}{                /*** Turn on the automatic restore }}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00075}00075 \textcolor{comment}{                 *   Only required following a disable()}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00076}00076 \textcolor{comment}{                */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00077}\mbox{\hyperlink{classjclib_1_1_private_1_1_saver_a9e4aea182e25049d38e5954597c42609}{00077}}                 \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Saver}} \& \mbox{\hyperlink{classjclib_1_1_private_1_1_saver_a9e4aea182e25049d38e5954597c42609}{enable}}() \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00078}00078                     enabled\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00079}00079                     \textcolor{keywordflow}{return} * \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00080}00080                 \}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00082}00082         \};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00083}00083     \};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00084}00084 \textcolor{comment}{    /*** Create an object that will capture the current value of}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00085}00085 \textcolor{comment}{     *   savee, then restore this value when the created}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00086}00086 \textcolor{comment}{     *   object is destroyed.}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00087}00087 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00088}\mbox{\hyperlink{namespacejclib_a9de5ca738d7ff04a623ab44e2a76f662}{00088}}     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Private::Saver<T>}} \mbox{\hyperlink{namespacejclib_a9de5ca738d7ff04a623ab44e2a76f662}{Save}}( T\& savee) \{}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00089}00089         \textcolor{keywordflow}{return} \mbox{\hyperlink{classjclib_1_1_private_1_1_saver}{Private::Saver<T>}}(savee);}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00090}00090     \}}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00091}00091 \};}
+\DoxyCodeLine{\Hypertarget{_save_8hpp_source_l00092}00092 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

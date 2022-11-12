@@ -1,0 +1,294 @@
+\hypertarget{structpstate}{}\doxysection{pstate Struct Reference}
+\label{structpstate}\index{pstate@{pstate}}
+
+
+Collaboration diagram for pstate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structpstate__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{structpstate_a3046972c535a60e0b5ef0be08bddc3b0}{filename}}
+\item 
+int \mbox{\hyperlink{structpstate_acfe7adc67da5621e844fca34dd0889ec}{tokenlineno}}
+\item 
+int \mbox{\hyperlink{structpstate_a1c161d486f203af3e5dc6a3259b56079}{errorcnt}}
+\item 
+char $\ast$ \mbox{\hyperlink{structpstate_ab43cf3be5456af13f4b51437e7341751}{tokenstart}}
+\item 
+struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$ \mbox{\hyperlink{structpstate_a0fdae87f13f8df612a9ba09f6ec3b789}{gp}}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57b}{e\+\_\+state}} \mbox{\hyperlink{structpstate_a1083be3af3a58e86e01f1ac1ef9d14aa}{state}}
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{structpstate_aa7c42e4ccf94270f715b099fc85fe4b8}{fallback}}
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{structpstate_a145756fd712ddd9571b9b7d8e7ae9b26}{tkclass}}
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{structpstate_aacbcb3ad04c6fb0ffd7e4beaf5606ff2}{lhs}}
+\item 
+const char $\ast$ \mbox{\hyperlink{structpstate_ace715d18462afba755c8a9d08303e7b5}{lhsalias}}
+\item 
+int \mbox{\hyperlink{structpstate_a5a8c0e9f271b6e2f235a6da796c4823d}{nrhs}}
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{structpstate_ae71c3d93c92a602fb759b4f868d5229c}{rhs}} \mbox{[}\mbox{\hyperlink{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}{MAXRHS}}\mbox{]}
+\item 
+const char $\ast$ \mbox{\hyperlink{structpstate_abfcb64757e9dd9742ab21b81c541e53c}{alias}} \mbox{[}\mbox{\hyperlink{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}{MAXRHS}}\mbox{]}
+\item 
+struct \mbox{\hyperlink{structrule}{rule}} $\ast$ \mbox{\hyperlink{structpstate_acd58cd38bed0e78371da67e84ae6b77d}{prevrule}}
+\item 
+const char $\ast$ \mbox{\hyperlink{structpstate_a4eadfc640270f030a5db5ac0cac350cc}{declkeyword}}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{structpstate_ac4efccfc09ac41604466cc899d8ba9bc}{declargslot}}
+\item 
+int \mbox{\hyperlink{structpstate_a53baecab7c6eb53da70d872c3a020d5a}{insert\+Line\+Macro}}
+\item 
+int $\ast$ \mbox{\hyperlink{structpstate_acbd23424f898cb8b75311aed1ad1020f}{decllinenoslot}}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8}{e\+\_\+assoc}} \mbox{\hyperlink{structpstate_a30860ff79023cbc6b234a48bb534f289}{declassoc}}
+\item 
+int \mbox{\hyperlink{structpstate_a807f9636be0286b1ffbdc32b5d19c7c8}{preccounter}}
+\item 
+struct \mbox{\hyperlink{structrule}{rule}} $\ast$ \mbox{\hyperlink{structpstate_aa9807a90d93a3e1777609df2d01fa9dc}{firstrule}}
+\item 
+struct \mbox{\hyperlink{structrule}{rule}} $\ast$ \mbox{\hyperlink{structpstate_ae965736c8e1e422123ca5694cf8146f2}{lastrule}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02264}{2264}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structpstate_abfcb64757e9dd9742ab21b81c541e53c}\label{structpstate_abfcb64757e9dd9742ab21b81c541e53c}} 
+\index{pstate@{pstate}!alias@{alias}}
+\index{alias@{alias}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{alias}{alias}}
+{\footnotesize\ttfamily const char$\ast$ pstate\+::alias\mbox{[}\mbox{\hyperlink{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}{MAXRHS}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02277}{2277}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_ac4efccfc09ac41604466cc899d8ba9bc}\label{structpstate_ac4efccfc09ac41604466cc899d8ba9bc}} 
+\index{pstate@{pstate}!declargslot@{declargslot}}
+\index{declargslot@{declargslot}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{declargslot}{declargslot}}
+{\footnotesize\ttfamily char$\ast$$\ast$ pstate\+::declargslot}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02280}{2280}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a30860ff79023cbc6b234a48bb534f289}\label{structpstate_a30860ff79023cbc6b234a48bb534f289}} 
+\index{pstate@{pstate}!declassoc@{declassoc}}
+\index{declassoc@{declassoc}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{declassoc}{declassoc}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8}{e\+\_\+assoc}} pstate\+::declassoc}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02283}{2283}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a4eadfc640270f030a5db5ac0cac350cc}\label{structpstate_a4eadfc640270f030a5db5ac0cac350cc}} 
+\index{pstate@{pstate}!declkeyword@{declkeyword}}
+\index{declkeyword@{declkeyword}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{declkeyword}{declkeyword}}
+{\footnotesize\ttfamily const char$\ast$ pstate\+::declkeyword}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02279}{2279}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_acbd23424f898cb8b75311aed1ad1020f}\label{structpstate_acbd23424f898cb8b75311aed1ad1020f}} 
+\index{pstate@{pstate}!decllinenoslot@{decllinenoslot}}
+\index{decllinenoslot@{decllinenoslot}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{decllinenoslot}{decllinenoslot}}
+{\footnotesize\ttfamily int$\ast$ pstate\+::decllinenoslot}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02282}{2282}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a1c161d486f203af3e5dc6a3259b56079}\label{structpstate_a1c161d486f203af3e5dc6a3259b56079}} 
+\index{pstate@{pstate}!errorcnt@{errorcnt}}
+\index{errorcnt@{errorcnt}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{errorcnt}{errorcnt}}
+{\footnotesize\ttfamily int pstate\+::errorcnt}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02267}{2267}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_aa7c42e4ccf94270f715b099fc85fe4b8}\label{structpstate_aa7c42e4ccf94270f715b099fc85fe4b8}} 
+\index{pstate@{pstate}!fallback@{fallback}}
+\index{fallback@{fallback}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{fallback}{fallback}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}}$\ast$ pstate\+::fallback}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02271}{2271}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a3046972c535a60e0b5ef0be08bddc3b0}\label{structpstate_a3046972c535a60e0b5ef0be08bddc3b0}} 
+\index{pstate@{pstate}!filename@{filename}}
+\index{filename@{filename}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily char$\ast$ pstate\+::filename}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02265}{2265}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_aa9807a90d93a3e1777609df2d01fa9dc}\label{structpstate_aa9807a90d93a3e1777609df2d01fa9dc}} 
+\index{pstate@{pstate}!firstrule@{firstrule}}
+\index{firstrule@{firstrule}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{firstrule}{firstrule}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structrule}{rule}}$\ast$ pstate\+::firstrule}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02285}{2285}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a0fdae87f13f8df612a9ba09f6ec3b789}\label{structpstate_a0fdae87f13f8df612a9ba09f6ec3b789}} 
+\index{pstate@{pstate}!gp@{gp}}
+\index{gp@{gp}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{gp}{gp}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlemon}{lemon}}$\ast$ pstate\+::gp}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02269}{2269}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a53baecab7c6eb53da70d872c3a020d5a}\label{structpstate_a53baecab7c6eb53da70d872c3a020d5a}} 
+\index{pstate@{pstate}!insertLineMacro@{insertLineMacro}}
+\index{insertLineMacro@{insertLineMacro}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{insertLineMacro}{insertLineMacro}}
+{\footnotesize\ttfamily int pstate\+::insert\+Line\+Macro}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02281}{2281}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_ae965736c8e1e422123ca5694cf8146f2}\label{structpstate_ae965736c8e1e422123ca5694cf8146f2}} 
+\index{pstate@{pstate}!lastrule@{lastrule}}
+\index{lastrule@{lastrule}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{lastrule}{lastrule}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structrule}{rule}}$\ast$ pstate\+::lastrule}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02286}{2286}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_aacbcb3ad04c6fb0ffd7e4beaf5606ff2}\label{structpstate_aacbcb3ad04c6fb0ffd7e4beaf5606ff2}} 
+\index{pstate@{pstate}!lhs@{lhs}}
+\index{lhs@{lhs}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{lhs}{lhs}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}}$\ast$ pstate\+::lhs}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02273}{2273}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_ace715d18462afba755c8a9d08303e7b5}\label{structpstate_ace715d18462afba755c8a9d08303e7b5}} 
+\index{pstate@{pstate}!lhsalias@{lhsalias}}
+\index{lhsalias@{lhsalias}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{lhsalias}{lhsalias}}
+{\footnotesize\ttfamily const char$\ast$ pstate\+::lhsalias}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02274}{2274}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a5a8c0e9f271b6e2f235a6da796c4823d}\label{structpstate_a5a8c0e9f271b6e2f235a6da796c4823d}} 
+\index{pstate@{pstate}!nrhs@{nrhs}}
+\index{nrhs@{nrhs}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{nrhs}{nrhs}}
+{\footnotesize\ttfamily int pstate\+::nrhs}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02275}{2275}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a807f9636be0286b1ffbdc32b5d19c7c8}\label{structpstate_a807f9636be0286b1ffbdc32b5d19c7c8}} 
+\index{pstate@{pstate}!preccounter@{preccounter}}
+\index{preccounter@{preccounter}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{preccounter}{preccounter}}
+{\footnotesize\ttfamily int pstate\+::preccounter}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02284}{2284}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_acd58cd38bed0e78371da67e84ae6b77d}\label{structpstate_acd58cd38bed0e78371da67e84ae6b77d}} 
+\index{pstate@{pstate}!prevrule@{prevrule}}
+\index{prevrule@{prevrule}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{prevrule}{prevrule}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structrule}{rule}}$\ast$ pstate\+::prevrule}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02278}{2278}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_ae71c3d93c92a602fb759b4f868d5229c}\label{structpstate_ae71c3d93c92a602fb759b4f868d5229c}} 
+\index{pstate@{pstate}!rhs@{rhs}}
+\index{rhs@{rhs}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{rhs}{rhs}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}}$\ast$ pstate\+::rhs\mbox{[}\mbox{\hyperlink{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}{MAXRHS}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02276}{2276}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a1083be3af3a58e86e01f1ac1ef9d14aa}\label{structpstate_a1083be3af3a58e86e01f1ac1ef9d14aa}} 
+\index{pstate@{pstate}!state@{state}}
+\index{state@{state}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57b}{e\+\_\+state}} pstate\+::state}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02270}{2270}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_a145756fd712ddd9571b9b7d8e7ae9b26}\label{structpstate_a145756fd712ddd9571b9b7d8e7ae9b26}} 
+\index{pstate@{pstate}!tkclass@{tkclass}}
+\index{tkclass@{tkclass}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{tkclass}{tkclass}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}}$\ast$ pstate\+::tkclass}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02272}{2272}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_acfe7adc67da5621e844fca34dd0889ec}\label{structpstate_acfe7adc67da5621e844fca34dd0889ec}} 
+\index{pstate@{pstate}!tokenlineno@{tokenlineno}}
+\index{tokenlineno@{tokenlineno}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{tokenlineno}{tokenlineno}}
+{\footnotesize\ttfamily int pstate\+::tokenlineno}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02266}{2266}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{structpstate_ab43cf3be5456af13f4b51437e7341751}\label{structpstate_ab43cf3be5456af13f4b51437e7341751}} 
+\index{pstate@{pstate}!tokenstart@{tokenstart}}
+\index{tokenstart@{tokenstart}!pstate@{pstate}}
+\doxysubsubsection{\texorpdfstring{tokenstart}{tokenstart}}
+{\footnotesize\ttfamily char$\ast$ pstate\+::tokenstart}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02268}{2268}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{musami_8c_09_09}{musami.\+c++}}\end{DoxyCompactItemize}

@@ -1,0 +1,120 @@
+// re2c $INPUT -o $OUTPUT
+/***
+**
+** AWKCCC Lexer RE2C->C++
+**
+** Copyright (C) 2022 Julia Ingleby Clement
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+***/
+#include "../include/jString.hpp"
+#include "../include/awkccc_ast.hpp"
+#include "../include/awkccc_lexer.hpp"
+#include "parser.h++"
+#include <assert.h>
+#include <cstring>
+#include <iostream>
+#include <cstdio>
+
+using namespace jclib;
+using namespace awkccc;
+typedef void *(*malloc_t(size_t));
+typedef void *(*free_t(void *));
+#define ParseTOKENTYPE jclib::CountedPointer<ast_node>
+void Parse(void *pParser_, int tokenCode, ParseTOKENTYPE token_, jclib::CountedPointer<awkccc::ast_node> *);
+void ParseTrace(FILE *stream, char *zPrefix);
+
+#define END 0
+
+int Lexer::lex() {
+    bool want_more = true;
+    while(want_more) {
+        tok_ = buf_;
+        /*!re2c
+            re2c:api:style = free-form;
+            re2c:define:YYCTYPE  = char;
+            re2c:define:YYCURSOR = buf_;
+            re2c:define:YYMARKER = mar_;
+            re2c:define:YYLIMIT  = lim_;
+            re2c:define:YYFILL   = "fill(in) == 0";
+            re2c:yyfill:enable = 0;
+            let=[A-Za-z_];
+            digit=[0-9];
+            identifier = let (let|digit)*;
+            whitespace = [ \t\v\f]+;
+            lsq = "[";
+            rsq = "]";
+            embedlsq = [\[];  // [
+            embedrsq = [\]];  // ]
+            embedsq = embedlsq [^\]]* embedrsq;
+            regex = "/" ([^/]*|(embedlsq [^\]]* embedrsq)*)*;
+            stringchr1 = [^"];                // Not a quotation mark
+            stringchr2 = ([\\][\\])*"\\\"";   // unless an odd number of backslashes precede it
+            string = "\"" (stringchr1|stringchr2)*; //
+            end  = "\x00";
+            end2  = "\x07";
+            identifier"::"identifier    { parsequalified(PARSER_NAME,VARIABLE); continue; }
+            "@"?identifier              { 
+                    if( *tok_ == '@' ) {
+                        /* Two special identifiers that are processed in the lexer:
+                               "@include"     insert a source file
+                               "@namespace"   specify a namespace
+                           Strictly speaking these are gawk extensions, but starting variables
+                            with "@" isn't valid in Posix AWK, so happy to leave them active.
+                        */
+                        if( strncmp(tok_, "@include", buf_-tok_) == 0)
+                            expect_include_filename_ = true;
+                        else if ( strncmp(tok_, "@namespace", buf_-tok_) == 0)
+                            expect_namespacename_ = true;
+                        else {
+                            std::cerr << "invalid token " << tok_ << "\n";
+                        }
+                    } else
+                        parseunqualified(PARSER_NAME,VARIABLE);
+                    continue;
+                }
+            digit+                      { parse(PARSER_NUMBER,CONSTANT); continue; }
+            digit+[.]digit+             { parse(PARSER_NUMBER,CONSTANT); continue; }
+            '=='                        { parse(PARSER_EQ,OPERATOR); continue; }
+            '<='                        { parse(PARSER_LE,OPERATOR); continue; }
+            '>='                        { parse(PARSER_GE,OPERATOR); continue; }
+            '!='                        { parse(PARSER_NE,OPERATOR); continue; }
+            '+='                        { parse(PARSER_ADD_ASSIGN,OPERATOR); continue; }
+            '-='                        { parse(PARSER_SUB_ASSIGN,OPERATOR); continue; }
+            '*='                        { parse(PARSER_MUL_ASSIGN,OPERATOR); continue; }
+            '/='                        { parse(PARSER_DIV_ASSIGN,OPERATOR); continue; }
+            '%='                        { parse(PARSER_MOD_ASSIGN,OPERATOR); continue; }
+            '^='                        { parse(PARSER_POW_ASSIGN,OPERATOR); continue; }
+            '--'                        { parse(PARSER_DECR,OPERATOR); continue; }
+            '++'                        { parse(PARSER_INCR,OPERATOR); continue; }
+            '>>'                        { parse(PARSER_APPEND,OPERATOR); continue; }
+            "["                         { parsechr(*tok_); continue; }
+            "]"                         { parsechr(*tok_); continue; }
+            [(,]                        { parsechr(*tok_); allow_regex_ = true; continue; }
+            "\n"                        { parse(PARSER_NEWLINE,OTHER); allow_regex_ = true; continue; }
+            "#" .* "\n"                 { continue; }
+            "~"                         { parsechr(*tok_); allow_regex_ = true; continue; }
+            "!~"                        { parse(PARSER_NO_MATCH, OPERATOR); allow_regex_ = true; continue; }
+            string "\""                 { parse_string(PARSER_STRING, CONSTANT); allow_regex_ = true; continue; }
+            string "\n"                 { parse_string(PARSER_STRING, CONSTANT); allow_regex_ = true; continue; }
+            [!@#$%^&*)_+-={}|\\:";'<>?./] { parsechr(*tok_); continue; }
+            regex "/"  { maybe_parse_regex(PARSER_ERE); continue;}
+            regex "\n"  { maybe_parse_regex(PARSER_ERE); continue;}
+            whitespace                  { continue;}
+            end                         { parse(0,OTHER); want_more=false; continue; }
+            end2                        { parse(0,OPERATOR); want_more=false; continue; }
+            *                           { return END; }  // overrides inherited '*' rules
+*/
+    }
+    return END;
+}

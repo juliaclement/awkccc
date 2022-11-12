@@ -1,0 +1,87 @@
+\hypertarget{awkccc__lexer_8hpp_source}{}\doxysection{awkccc\+\_\+lexer.\+hpp}
+\label{awkccc__lexer_8hpp_source}\index{include/awkccc\_lexer.hpp@{include/awkccc\_lexer.hpp}}
+\mbox{\hyperlink{awkccc__lexer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00001}00001 \textcolor{comment}{/***}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00002}00002 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00003}00003 \textcolor{comment}{** AWKCCC: Lexer class}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00004}00004 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00005}00005 \textcolor{comment}{** Copyright (C) 2022 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00006}00006 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00007}00007 \textcolor{comment}{** Licensed under the Apache License, Version 2.0 (the "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00008}00008 \textcolor{comment}{** you may not use this file except in compliance with the License.}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00009}00009 \textcolor{comment}{** You may obtain a copy of the License at}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00010}00010 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00011}00011 \textcolor{comment}{**     http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00012}00012 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00013}00013 \textcolor{comment}{** Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00014}00014 \textcolor{comment}{** distributed under the License is distributed on an "{}AS IS"{} BASIS,}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00015}00015 \textcolor{comment}{** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00016}00016 \textcolor{comment}{** See the License for the specific language governing permissions and}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00017}00017 \textcolor{comment}{** limitations under the License.}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00018}00018 \textcolor{comment}{***/}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00019}00019 \textcolor{preprocessor}{\#include "{}../include/countedPointer.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00020}00020 \textcolor{preprocessor}{\#include "{}../include/jString.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00021}00021 \textcolor{preprocessor}{\#include "{}../src/parser.h++"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{awkccc__ast_8hpp}{awkccc\_ast.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00023}00023 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00024}00024 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00025}00025 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00027}00027 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceawkccc}{awkccc}} \{}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00029}\mbox{\hyperlink{classawkccc_1_1_lexer}{00029}}   \textcolor{keyword}{class }\mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} \{}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00030}00030     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00031}00031       \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}}(\textcolor{keyword}{const} \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00032}00032       \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}}\& operator =(\textcolor{keyword}{const} \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00033}00033     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00034}\mbox{\hyperlink{classawkccc_1_1_lexer_a4b0ee4f9259b8ec4886c82471daacd0a}{00034}}       \textcolor{keywordtype}{char} *\mbox{\hyperlink{classawkccc_1_1_lexer_a4b0ee4f9259b8ec4886c82471daacd0a}{buf\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00035}\mbox{\hyperlink{classawkccc_1_1_lexer_a62d72ce9637e2294422499b13caccdd9}{00035}}       \textcolor{keywordtype}{char} *\mbox{\hyperlink{classawkccc_1_1_lexer_acff2c0922156fa5ccc45148066736bd3}{lim\_}}, *\mbox{\hyperlink{classawkccc_1_1_lexer_a62d72ce9637e2294422499b13caccdd9}{cur\_}}, *\mbox{\hyperlink{classawkccc_1_1_lexer_abdba2e496539718ecfe9b703d00140fe}{mar\_}}, *\mbox{\hyperlink{classawkccc_1_1_lexer_a6a2227681483b9e2272acadbb58ec789}{tok\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00036}\mbox{\hyperlink{classawkccc_1_1_lexer_ac37a331d3402d6721918c5901f848992}{00036}}       \textcolor{keywordtype}{int} \mbox{\hyperlink{classawkccc_1_1_lexer_ac37a331d3402d6721918c5901f848992}{line\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00037}\mbox{\hyperlink{classawkccc_1_1_lexer_a865b2870b238d661325844302e45c8ac}{00037}}       \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \mbox{\hyperlink{classawkccc_1_1_lexer_a865b2870b238d661325844302e45c8ac}{token\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00038}\mbox{\hyperlink{classawkccc_1_1_lexer_a7e685de5d9c78a769a83ea52c3f0c62d}{00038}}       \textcolor{keyword}{class }\mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc::SymbolTable}} * \mbox{\hyperlink{classawkccc_1_1_lexer_a7e685de5d9c78a769a83ea52c3f0c62d}{symbol\_table\_}};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00039}\mbox{\hyperlink{classawkccc_1_1_lexer_a8921e5ec5a190fa7fd06b37d8148debf}{00039}}       \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib::CountedPointer<class PARSER\_Parser>}} \mbox{\hyperlink{classawkccc_1_1_lexer_a8921e5ec5a190fa7fd06b37d8148debf}{parser\_}}; }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00040}00040       \textcolor{comment}{// Part of determining if a token starting / should be}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00041}00041       \textcolor{comment}{// recognised as division or a regex.}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00042}00042       \textcolor{comment}{// Initially True as a program can begin with a regex }}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00043}00043       \textcolor{comment}{// but can't begin with a division}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00044}\mbox{\hyperlink{classawkccc_1_1_lexer_abd5ab939e238a160820b72a43316f236}{00044}}       \textcolor{keywordtype}{bool} \mbox{\hyperlink{classawkccc_1_1_lexer_abd5ab939e238a160820b72a43316f236}{allow\_regex\_}} = \textcolor{keyword}{true}; }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00045}\mbox{\hyperlink{classawkccc_1_1_lexer_a93624200e19461b245c4057105314ec0}{00045}}       \textcolor{keywordtype}{bool} \mbox{\hyperlink{classawkccc_1_1_lexer_a93624200e19461b245c4057105314ec0}{expect\_include\_filename\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00046}\mbox{\hyperlink{classawkccc_1_1_lexer_a1d15077388e7b34925716f59677df2d0}{00046}}       \textcolor{keywordtype}{bool} \mbox{\hyperlink{classawkccc_1_1_lexer_a1d15077388e7b34925716f59677df2d0}{expect\_namespacename\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00047}\mbox{\hyperlink{classawkccc_1_1_lexer_af059f75eaad30a0b11a33c462e258742}{00047}}       \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \mbox{\hyperlink{classawkccc_1_1_lexer_af059f75eaad30a0b11a33c462e258742}{namespace\_prefix\_}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib::jString::get\_empty}}();}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00048}00048       \textcolor{comment}{// the awk namespace is magicish, or is it?}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00049}00049       \textcolor{comment}{// currently making it prefix with "{}"{} looks sensible}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00050}\mbox{\hyperlink{classawkccc_1_1_lexer_a890729c5985ed09012354e628e0d29e8}{00050}}       \textcolor{keyword}{class }\mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \mbox{\hyperlink{classawkccc_1_1_lexer_a890729c5985ed09012354e628e0d29e8}{awk\_namespace\_prefix\_}} = \mbox{\hyperlink{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}{jclib::jString::get\_empty}}();}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00051}\mbox{\hyperlink{classawkccc_1_1_lexer_ac71bdc3f174251c61fac6986de420c1f}{00051}}       \textcolor{keyword}{static} \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib::CountedPointer<awkccc::ast\_node>}} \mbox{\hyperlink{classawkccc_1_1_lexer_ac71bdc3f174251c61fac6986de420c1f}{ast\_out}};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00053}00053       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_ab587c57a5831ef30f52964e70a7af440}{parse}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{SymbolType}} type);}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00054}00054       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_a2c3d73e930df9dd4e22608efad18976c}{include\_filename}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{SymbolType}} type);}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00055}00055       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_a297402a0a4191d055716baead6795046}{parse\_string}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{SymbolType}} type);}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00056}00056       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_a09402486e369abb6eb4a7ffb6e1e313b}{start\_namespace}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{SymbolType}} type);}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00057}00057       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_aa1240484d68188db62b74207e2e7c8d8}{parsequalified}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{SymbolType}} type); \textcolor{comment}{// "{}@"{}identifier"{}::"{}identifier}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00058}00058       \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} * \mbox{\hyperlink{classawkccc_1_1_lexer_a01388bc1dba0fbe57b6d687f82157f48}{unqualified\_to\_sym}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} \& token); \textcolor{comment}{// identifier}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00059}00059       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_ad9ff20009e2ee5b0a6d9b8747191a850}{parseunqualified}}(\textcolor{keywordtype}{int} token\_code, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{SymbolType}} type); \textcolor{comment}{// identifier}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00060}00060       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_a4c157469d647d98d7c1e138f93cc3dbc}{parsechr}}(\textcolor{keywordtype}{char} char\_code);}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00061}00061       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_af1b0a7a224c9770d5c2e0d4ef878d594}{maybe\_parse\_regex}}(\textcolor{keywordtype}{int} token\_code);}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00062}00062       \textcolor{keywordtype}{int} \mbox{\hyperlink{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}{lex}}();}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00063}00063       \textcolor{keywordtype}{void} \mbox{\hyperlink{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}{initialise\_symbol\_table}}();}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00065}\mbox{\hyperlink{classawkccc_1_1_lexer_a50aecfe015cf1e48873b59a659e35426}{00065}}       \mbox{\hyperlink{classawkccc_1_1_lexer_a50aecfe015cf1e48873b59a659e35426}{Lexer}}(\textcolor{keywordtype}{char} * buf, \textcolor{keywordtype}{char} * lim, \textcolor{keywordtype}{char} * cur, \textcolor{keywordtype}{char} * mar, \textcolor{keywordtype}{char} * tok, \textcolor{keywordtype}{int} line,}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00066}00066             \mbox{\hyperlink{classawkccc_1_1_symbol_table}{awkccc::SymbolTable}} * symbol\_table, \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\_Parser}} *parser )}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00067}00067             : \mbox{\hyperlink{classawkccc_1_1_lexer_a4b0ee4f9259b8ec4886c82471daacd0a}{buf\_}}(buf)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00068}00068             , \mbox{\hyperlink{classawkccc_1_1_lexer_acff2c0922156fa5ccc45148066736bd3}{lim\_}}(lim)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00069}00069             , \mbox{\hyperlink{classawkccc_1_1_lexer_a62d72ce9637e2294422499b13caccdd9}{cur\_}}(cur)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00070}00070             , \mbox{\hyperlink{classawkccc_1_1_lexer_abdba2e496539718ecfe9b703d00140fe}{mar\_}}(mar)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00071}00071             , \mbox{\hyperlink{classawkccc_1_1_lexer_a6a2227681483b9e2272acadbb58ec789}{tok\_}}(tok)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00072}00072             , \mbox{\hyperlink{classawkccc_1_1_lexer_ac37a331d3402d6721918c5901f848992}{line\_}}(line)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00073}00073             , \mbox{\hyperlink{classawkccc_1_1_lexer_a7e685de5d9c78a769a83ea52c3f0c62d}{symbol\_table\_}}(symbol\_table)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00074}00074             , \mbox{\hyperlink{classawkccc_1_1_lexer_a8921e5ec5a190fa7fd06b37d8148debf}{parser\_}}(parser)}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00075}00075             \textcolor{comment}{// , token\_("{}"{})}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00076}00076             \textcolor{comment}{// , allow\_regex\_}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00077}00077       \{}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00079}00079       \}}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00080}00080   \};}
+\DoxyCodeLine{\Hypertarget{awkccc__lexer_8hpp_source_l00081}00081 \};}
+
+\end{DoxyCode}

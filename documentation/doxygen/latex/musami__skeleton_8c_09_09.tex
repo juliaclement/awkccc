@@ -1,0 +1,153 @@
+\hypertarget{musami__skeleton_8c_09_09}{}\doxysection{bin/musami\+\_\+skeleton.c++ File Reference}
+\label{musami__skeleton_8c_09_09}\index{bin/musami\_skeleton.c++@{bin/musami\_skeleton.c++}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+Include dependency graph for musami\+\_\+skeleton.\+c++\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{musami__skeleton_8c_09_09__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structyy_stack_entry}{yy\+Stack\+Entry}}
+\item 
+class \mbox{\hyperlink{classyy_parser}{yy\+Parser}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{musami__skeleton_8c_09_09_aefb2aa75be4323fe06eb3ec8394bdfc7}{INTERFACE}}~1
+\item 
+\#define \mbox{\hyperlink{musami__skeleton_8c_09_09_a596f5738ac8df8375a8d6fdeb7cd7554}{YY\+\_\+\+NLOOKAHEAD}}~((int)(sizeof(yy\+\_\+lookahead)/sizeof(yy\+\_\+lookahead\mbox{[}0\mbox{]})))
+\item 
+\#define \mbox{\hyperlink{musami__skeleton_8c_09_09_a9dcaf5b61f785198ed3ea047a7c621a7}{yytestcase}}(X)
+\item 
+\#define \mbox{\hyperlink{musami__skeleton_8c_09_09_a7d144c06ecdfc5dacf3d4f88bbe1415e}{YYMALLOCARGTYPE}}~size\+\_\+t
+\item 
+\#define \mbox{\hyperlink{musami__skeleton_8c_09_09_a5c3a83864bf5991d09aa5c2abb911bf0}{TOKEN}}~yyminor
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structyy_stack_entry}{yy\+Stack\+Entry}} \mbox{\hyperlink{musami__skeleton_8c_09_09_a5de263a417820708933515190e9597ff}{yy\+Stack\+Entry}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{musami__skeleton_8c_09_09_aded474d296119ff7a0eba00b1e54e3af}{Parse\+Trace}} (FILE $\ast$Trace\+FILE, char $\ast$z\+Trace\+Prompt)
+\item 
+void \mbox{\hyperlink{musami__skeleton_8c_09_09_aadd544995e2ce792dbbf10eefe96a0c2}{Parse\+Init}} (void $\ast$yyp\+Raw\+Parser \mbox{\hyperlink{parser_8c_09_09_ab1c834e9f2084e9f4da67a1a42cd78e4}{Parse\+CTX\+\_\+\+PDECL}})
+\item 
+void \mbox{\hyperlink{musami__skeleton_8c_09_09_a12a88a15fc289c580a0e2991b20d6155}{Parse\+Finalize}} (void $\ast$p)
+\item 
+int \mbox{\hyperlink{musami__skeleton_8c_09_09_a9381ffe0da293908950d25a55221d2e4}{Parse\+Fallback}} (int i\+Token)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_aefb2aa75be4323fe06eb3ec8394bdfc7}\label{musami__skeleton_8c_09_09_aefb2aa75be4323fe06eb3ec8394bdfc7}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!INTERFACE@{INTERFACE}}
+\index{INTERFACE@{INTERFACE}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{INTERFACE}{INTERFACE}}
+{\footnotesize\ttfamily \#define INTERFACE~1}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00109}{109}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a5c3a83864bf5991d09aa5c2abb911bf0}\label{musami__skeleton_8c_09_09_a5c3a83864bf5991d09aa5c2abb911bf0}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!TOKEN@{TOKEN}}
+\index{TOKEN@{TOKEN}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{TOKEN}{TOKEN}}
+{\footnotesize\ttfamily \#define TOKEN~yyminor}
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a596f5738ac8df8375a8d6fdeb7cd7554}\label{musami__skeleton_8c_09_09_a596f5738ac8df8375a8d6fdeb7cd7554}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!YY\_NLOOKAHEAD@{YY\_NLOOKAHEAD}}
+\index{YY\_NLOOKAHEAD@{YY\_NLOOKAHEAD}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{YY\_NLOOKAHEAD}{YY\_NLOOKAHEAD}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NLOOKAHEAD~((int)(sizeof(yy\+\_\+lookahead)/sizeof(yy\+\_\+lookahead\mbox{[}0\mbox{]})))}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00114}{114}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a7d144c06ecdfc5dacf3d4f88bbe1415e}\label{musami__skeleton_8c_09_09_a7d144c06ecdfc5dacf3d4f88bbe1415e}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!YYMALLOCARGTYPE@{YYMALLOCARGTYPE}}
+\index{YYMALLOCARGTYPE@{YYMALLOCARGTYPE}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{YYMALLOCARGTYPE}{YYMALLOCARGTYPE}}
+{\footnotesize\ttfamily \#define YYMALLOCARGTYPE~size\+\_\+t}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00378}{378}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a9dcaf5b61f785198ed3ea047a7c621a7}\label{musami__skeleton_8c_09_09_a9dcaf5b61f785198ed3ea047a7c621a7}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!yytestcase@{yytestcase}}
+\index{yytestcase@{yytestcase}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{yytestcase}{yytestcase}}
+{\footnotesize\ttfamily \#define yytestcase(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00125}{125}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a5de263a417820708933515190e9597ff}\label{musami__skeleton_8c_09_09_a5de263a417820708933515190e9597ff}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!yyStackEntry@{yyStackEntry}}
+\index{yyStackEntry@{yyStackEntry}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{yyStackEntry}{yyStackEntry}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structyy_stack_entry}{yy\+Stack\+Entry}} \mbox{\hyperlink{structyy_stack_entry}{yy\+Stack\+Entry}}}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00225}{225}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a9381ffe0da293908950d25a55221d2e4}\label{musami__skeleton_8c_09_09_a9381ffe0da293908950d25a55221d2e4}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!ParseFallback@{ParseFallback}}
+\index{ParseFallback@{ParseFallback}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{ParseFallback()}{ParseFallback()}}
+{\footnotesize\ttfamily int Parse\+Fallback (\begin{DoxyParamCaption}\item[{int}]{i\+Token }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l01077}{1077}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_a12a88a15fc289c580a0e2991b20d6155}\label{musami__skeleton_8c_09_09_a12a88a15fc289c580a0e2991b20d6155}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!ParseFinalize@{ParseFinalize}}
+\index{ParseFinalize@{ParseFinalize}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{ParseFinalize()}{ParseFinalize()}}
+{\footnotesize\ttfamily void Parse\+Finalize (\begin{DoxyParamCaption}\item[{void $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00467}{467}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_aadd544995e2ce792dbbf10eefe96a0c2}\label{musami__skeleton_8c_09_09_aadd544995e2ce792dbbf10eefe96a0c2}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!ParseInit@{ParseInit}}
+\index{ParseInit@{ParseInit}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{ParseInit()}{ParseInit()}}
+{\footnotesize\ttfamily void Parse\+Init (\begin{DoxyParamCaption}\item[{void $\ast$yyp\+Raw\+Parser}]{Parse\+CTX\+\_\+\+PDECL }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00384}{384}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+
+\mbox{\Hypertarget{musami__skeleton_8c_09_09_aded474d296119ff7a0eba00b1e54e3af}\label{musami__skeleton_8c_09_09_aded474d296119ff7a0eba00b1e54e3af}} 
+\index{musami\_skeleton.c++@{musami\_skeleton.c++}!ParseTrace@{ParseTrace}}
+\index{ParseTrace@{ParseTrace}!musami\_skeleton.c++@{musami\_skeleton.c++}}
+\doxysubsubsection{\texorpdfstring{ParseTrace()}{ParseTrace()}}
+{\footnotesize\ttfamily void Parse\+Trace (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{Trace\+FILE,  }\item[{char $\ast$}]{z\+Trace\+Prompt }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami__skeleton_8c_09_09_source_l00317}{317}} of file \mbox{\hyperlink{musami__skeleton_8c_09_09_source}{musami\+\_\+skeleton.\+c++}}.
+

@@ -1,0 +1,8 @@
+<map id="plink" name="plink">
+<area shape="rect" id="node1" title=" " alt="" coords="10,7,65,33"/>
+<area shape="rect" id="node2" href="$structconfig.html" title=" " alt="" coords="27,128,88,155"/>
+<area shape="rect" id="node5" href="$structstate.html" title=" " alt="" coords="162,235,217,261"/>
+<area shape="rect" id="node3" href="$structrule.html" title=" " alt="" coords="222,7,269,33"/>
+<area shape="rect" id="node4" href="$structsymbol.html" title=" " alt="" coords="298,128,369,155"/>
+<area shape="rect" id="node6" href="$structaction.html" title=" " alt="" coords="253,327,316,353"/>
+</map>

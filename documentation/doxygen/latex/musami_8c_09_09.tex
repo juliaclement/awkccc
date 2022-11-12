@@ -1,0 +1,1914 @@
+\hypertarget{musami_8c_09_09}{}\doxysection{src/musami.c++ File Reference}
+\label{musami_8c_09_09}\index{src/musami.c++@{src/musami.c++}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for musami.\+c++\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{musami_8c_09_09__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__options}{s\+\_\+options}}
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}}
+\item 
+struct \mbox{\hyperlink{structrule}{rule}}
+\item 
+struct \mbox{\hyperlink{structconfig}{config}}
+\item 
+struct \mbox{\hyperlink{structaction}{action}}
+\item 
+struct \mbox{\hyperlink{structstate}{state}}
+\item 
+struct \mbox{\hyperlink{structplink}{plink}}
+\item 
+struct \mbox{\hyperlink{structlemon}{lemon}}
+\item 
+struct \mbox{\hyperlink{structlookahead__action}{lookahead\+\_\+action}}
+\item 
+struct \mbox{\hyperlink{structacttab}{acttab}}
+\item 
+struct \mbox{\hyperlink{structpstate}{pstate}}
+\item 
+struct \mbox{\hyperlink{structaxset}{axset}}
+\item 
+struct \mbox{\hyperlink{structs__x1}{s\+\_\+x1}}
+\item 
+struct \mbox{\hyperlink{structs__x1node}{s\+\_\+x1node}}
+\item 
+struct \mbox{\hyperlink{structs__x2}{s\+\_\+x2}}
+\item 
+struct \mbox{\hyperlink{structs__x2node}{s\+\_\+x2node}}
+\item 
+struct \mbox{\hyperlink{structs__x3}{s\+\_\+x3}}
+\item 
+struct \mbox{\hyperlink{structs__x3node}{s\+\_\+x3node}}
+\item 
+struct \mbox{\hyperlink{structs__x4}{s\+\_\+x4}}
+\item 
+struct \mbox{\hyperlink{structs__x4node}{s\+\_\+x4node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a1391f6af809bf0a317ca08ab93e4ff4b}{ISSPACE}}(X)~isspace((unsigned char)(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a75433e9b49353107b2519be558575ff9}{ISDIGIT}}(X)~isdigit((unsigned char)(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a03aaed8f6fd881ef9899cfeb1826aba1}{ISALNUM}}(X)~isalnum((unsigned char)(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a134795ef4fd2c63cb8d1cc380c843659}{ISALPHA}}(X)~isalpha((unsigned char)(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a62f50af90d5d9ff38f1c3f1d9dd1e4db}{ISUPPER}}(X)~isupper((unsigned char)(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_ab4bf51b693a13523ccdfaede0f024f2d}{ISLOWER}}(X)~islower((unsigned char)(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}}
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}{MAXRHS}}~1000
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_aaecfedda8641c3aaa2b94042947c22c7}{lemon\+Strlen}}(X)~((int)strlen(X))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a9e7382319176db6dc7f81aca4ea71790}{Set\+Find}}(X,  Y)~(X\mbox{[}Y\mbox{]})       /$\ast$ True if Y is in set X $\ast$/
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_aa1d2aa206e89cc4340ade4e98561a656}{NO\+\_\+\+OFFSET}}~(-\/2147483647)
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_aae20ef09500570d943353a9a1abcf584}{Memory\+Check}}(X)
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a4abe3cc60152b2bb68ed96664c5eb79b}{acttab\+\_\+lookahead\+\_\+size}}(X)~((X)-\/$>$n\+Action)
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a1f57505fcb8b3bde79d32ef1a0e16a55}{acttab\+\_\+yyaction}}(X,  N)~((X)-\/$>$a\+Action\mbox{[}N\mbox{]}.\mbox{\hyperlink{structaction}{action}})
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a284fa7f09b03f405dd607b239d3006bd}{acttab\+\_\+yylookahead}}(X,  N)~((X)-\/$>$a\+Action\mbox{[}N\mbox{]}.lookahead)
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a442a1929649a787163766537c7ae7464}{NEXT}}(A)~($\ast$(char$\ast$$\ast$)(((char$\ast$)A)+offset))
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a7f112cacf7307ce9512180acaded41bf}{LISTSIZE}}~30
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a730cc6f171ae74e10adfacd79be6e138}{ISOPT}}(X)~((X)\mbox{[}0\mbox{]}==\textquotesingle{}-\/\textquotesingle{}$\vert$$\vert$(X)\mbox{[}0\mbox{]}==\textquotesingle{}+\textquotesingle{}$\vert$$\vert$strchr((X),\textquotesingle{}=\textquotesingle{})!=0)
+\item 
+\#define \mbox{\hyperlink{musami_8c_09_09_a0095c1e0ae26941efea12c77f2232f2f}{LINESIZE}}~1000
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structacttab}{acttab}} \mbox{\hyperlink{musami_8c_09_09_ac12c4941ec0ad423ebfc3f8de2d597cd}{acttab}}
+\item 
+typedef struct \mbox{\hyperlink{structs__x1node}{s\+\_\+x1node}} \mbox{\hyperlink{musami_8c_09_09_a035f404f4faaf09c2468ce36402748d9}{x1node}}
+\item 
+typedef struct \mbox{\hyperlink{structs__x2node}{s\+\_\+x2node}} \mbox{\hyperlink{musami_8c_09_09_aa8170bbd74a56344ebcd3ca9e8fa0367}{x2node}}
+\item 
+typedef struct \mbox{\hyperlink{structs__x3node}{s\+\_\+x3node}} \mbox{\hyperlink{musami_8c_09_09_a48f98621df69553555f9be0c375d4971}{x3node}}
+\item 
+typedef struct \mbox{\hyperlink{structs__x4node}{s\+\_\+x4node}} \mbox{\hyperlink{musami_8c_09_09_ac175ec01732f2bf3693e942c082134db}{x4node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482}{option\+\_\+type}} \{ \newline
+\mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a76ffcc7656abf0c9dd98b6d5332c58d9}{OPT\+\_\+\+FLAG}} =1
+, \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a5d1948e718145bcb48afc3143e412a26}{OPT\+\_\+\+INT}}
+, \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a06af45f1e947621f2f692f530319d7c9}{OPT\+\_\+\+DBL}}
+, \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a91e7b05156fd80c0d07df2eb55b98e3d}{OPT\+\_\+\+STR}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482ac6deaa5d15bb57d6bea1fd4749ce1a21}{OPT\+\_\+\+FFLAG}}
+, \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a64c8621a0ff1a9cc1347fca7d52f6f92}{OPT\+\_\+\+FINT}}
+, \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a47197ffa73ef13a3d0c400372190dd1f}{OPT\+\_\+\+FDBL}}
+, \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a43c371ae1db51681bccf29d351df09a1}{OPT\+\_\+\+FSTR}}
+ \}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}} \{ \mbox{\hyperlink{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13a76f4e81c3e1bd0e4d734a472308d22d0}{LEMON\+\_\+\+FALSE}} =0
+, \mbox{\hyperlink{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13a0743794696a9fde192f67d48eb4d9b28}{LEMON\+\_\+\+TRUE}}
+ \}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231}{symbol\+\_\+type}} \{ \mbox{\hyperlink{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231a9b2989c4ac8a0f9a7f46528384eaa5c7}{TERMINAL}}
+, \mbox{\hyperlink{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231a27f6108698c432f104699b8e6e3d81c5}{NONTERMINAL}}
+, \mbox{\hyperlink{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231aac70fb461120946c9c01f870d8b23a88}{MULTITERMINAL}}
+ \}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8}{e\+\_\+assoc}} \{ \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8adb45120aafd37a973140edee24708065}{LEFT}}
+, \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8aec8379af7490bb9eaaf579cf17876f38}{RIGHT}}
+, \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}
+, \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8a822987746a55a3436f5a30502f32d7b5}{UNK}}
+ \}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790a}{cfgstatus}} \{ \mbox{\hyperlink{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790aa00a900c9df90c74f75004b3dc04f173d}{COMPLETE}}
+, \mbox{\hyperlink{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790aa0a00da50814c46c6e714304c1bdd35e7}{INCOMPLETE}}
+ \}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}{e\+\_\+action}} \{ \newline
+\mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba1ce4ab037343ee04fbf20ceb2ebc5081}{SHIFT}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba5707b7b8bf1b098d620552e9576d8061}{ACCEPT}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba315a9ca402673dba76b20984e1f7dcb5}{REDUCE}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba2fd6f336d08340583bd620a7f5694c90}{ERROR}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba6c0de1163dfe542ce3abaed32de9edc1}{SSCONFLICT}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba79cdcafbcd311ad8f6ec437e919f6cac}{SRCONFLICT}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba9eb9a86aa9e8e1d65bbbb12ce296d90c}{RRCONFLICT}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba77c7878f6df080b2f1a7d13f18837f86}{SH\+\_\+\+RESOLVED}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8bae2a748a3b5b80969dab0c5f51a161a95}{RD\+\_\+\+RESOLVED}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba75c3ed5083592b3dd736ff3e870aadd2}{NOT\+\_\+\+USED}}
+, \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba6ab93f18963a20c82de3200f21817196}{SHIFTREDUCE}}
+ \}
+\item 
+enum \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57b}{e\+\_\+state}} \{ \newline
+\mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bab0c48e95b68bff1f7820e23b8fd0bc98}{INITIALIZE}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba3015abe8359eb2d83aeb285a8998a015}{WAITING\+\_\+\+FOR\+\_\+\+DECL\+\_\+\+OR\+\_\+\+RULE}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba89d73de849ec9b8d40e1436463927124}{WAITING\+\_\+\+FOR\+\_\+\+DECL\+\_\+\+KEYWORD}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57baf1b898bbdddbcbf5c948c48ff2602e58}{WAITING\+\_\+\+FOR\+\_\+\+DECL\+\_\+\+ARG}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7c815bb4711633df7dc6a167716d7942}{WAITING\+\_\+\+FOR\+\_\+\+PRECEDENCE\+\_\+\+SYMBOL}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1105cf4d8ebed91d04ab4d539b200933}{WAITING\+\_\+\+FOR\+\_\+\+ARROW}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba2618c4226ca64c85fdf51280389157a8}{IN\+\_\+\+RHS}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba0c58ef8474a58d8c293385fd3ab08998}{LHS\+\_\+\+ALIAS\+\_\+1}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba56d617ab053b6ffe256b5b2f122f1b9e}{LHS\+\_\+\+ALIAS\+\_\+2}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1af850c32ee60400b81e002c77644c0f}{LHS\+\_\+\+ALIAS\+\_\+3}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba4b01b2016bdac00219b18f1af3e69985}{RHS\+\_\+\+ALIAS\+\_\+1}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba409fab1cf6f56af6177c30ae80bfa91e}{RHS\+\_\+\+ALIAS\+\_\+2}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba0766c35a47990ed3aa0bbd632afb28df}{PRECEDENCE\+\_\+\+MARK\+\_\+1}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bab695082d73468e33f902a949469f1c8b}{PRECEDENCE\+\_\+\+MARK\+\_\+2}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7fbf0ae3dc8db191a6bd258327040242}{RESYNC\+\_\+\+AFTER\+\_\+\+RULE\+\_\+\+ERROR}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba2b79bb5f5a500ceca4060118b0cc76ec}{RESYNC\+\_\+\+AFTER\+\_\+\+DECL\+\_\+\+ERROR}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7896a155ec65933973ca91f34e6c6950}{WAITING\+\_\+\+FOR\+\_\+\+DESTRUCTOR\+\_\+\+SYMBOL}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba3219e10fcaaf120be884aee392ebfac6}{WAITING\+\_\+\+FOR\+\_\+\+DATATYPE\+\_\+\+SYMBOL}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bad4b6071418d830c4c383ced4e10b62bf}{WAITING\+\_\+\+FOR\+\_\+\+FALLBACK\+\_\+\+ID}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bac225b509cb5d2b8307d5527ee14c1eb8}{WAITING\+\_\+\+FOR\+\_\+\+WILDCARD\+\_\+\+ID}}
+, \newline
+\mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba9982df7687cf882914bfafe4521fb551}{WAITING\+\_\+\+FOR\+\_\+\+CLASS\+\_\+\+ID}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1e31e9ffed515743a5bac920abaf3dc8}{WAITING\+\_\+\+FOR\+\_\+\+CLASS\+\_\+\+TOKEN}}
+, \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bae082c8d695e1682ca1aec6e1870591be}{WAITING\+\_\+\+FOR\+\_\+\+TOKEN\+\_\+\+NAME}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{musami_8c_09_09_ac034ac413a3ab10293022008652712eb}{ISTERMINAL}} (char X)
+\item 
+bool \mbox{\hyperlink{musami_8c_09_09_a5351f9bfd359528835f6bce4ae8fd3b7}{ISTOKEN}} (char X)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a0ffbd1568022fbe7cb2f8dbeb6a3d8c3}{memory\+\_\+error}} ()
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a97fcce8829117bf9c7dba2ad6f134bf3}{Find\+Rule\+Precedences}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a6053d3215360923072dd0ad5d7569d58}{Find\+First\+Sets}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a8898e9663c06e5834efc010fd0882bc6}{Find\+States}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a4153780b1cdd044b19a96da1e67211cd}{Find\+Links}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a8d5892ae3ec4750b46a9ebcf53d68367}{Find\+Follow\+Sets}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a80da591631826d979daab6ff4734ede8}{Find\+Actions}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a0401ee1afa5626711641ef86d46f8370}{Configlist\+\_\+init}} (void)
+\item 
+struct \mbox{\hyperlink{structconfig}{config}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a8ac3e2b8b5caa52294671b8a6d67151d}{Configlist\+\_\+add}} (struct \mbox{\hyperlink{structrule}{rule}} $\ast$, int)
+\item 
+struct \mbox{\hyperlink{structconfig}{config}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a4de1e4a3981a61284ae0c136fa869717}{Configlist\+\_\+addbasis}} (struct \mbox{\hyperlink{structrule}{rule}} $\ast$, int)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_af41047dc624f6084e0352267f03e60cd}{Configlist\+\_\+closure}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aa065ddf3d597157acc65af1d03bfac77}{Configlist\+\_\+sort}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_ab0938b687a32f81deee8e7a19bcb25e5}{Configlist\+\_\+sortbasis}} (void)
+\item 
+struct \mbox{\hyperlink{structconfig}{config}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_afeea1cc5c34369dc115b189e6f9f4c34}{Configlist\+\_\+return}} (void)
+\item 
+struct \mbox{\hyperlink{structconfig}{config}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_ac24a98e57b183c6f4c85b4a9594bcc1b}{Configlist\+\_\+basis}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aaefdd625eb3a71fef57cbe4ea8c51ca9}{Configlist\+\_\+eat}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a313a4a1cc1c23f881b84e3fdbaf509c3}{Configlist\+\_\+reset}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a1a6435abb635388c5b126c6ac085f677}{Error\+Msg}} (const char $\ast$, int, const char $\ast$,...)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_acfc8aee873a014bc4b4af02600a84045}{Opt\+Init}} (char $\ast$$\ast$, struct \mbox{\hyperlink{structs__options}{s\+\_\+options}} $\ast$, FILE $\ast$)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a77812fe7d0de290deb9e381afdb2fc30}{Opt\+NArgs}} (void)
+\item 
+char $\ast$ \mbox{\hyperlink{musami_8c_09_09_a48cbb2548b157ae968be1cbf454f2102}{Opt\+Arg}} (int)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aefbd0c69ee33365a0bd88c9726af4a20}{Opt\+Err}} (int)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aa871ab8ee51473d0d64832e15b682d41}{Opt\+Print}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_abd4de7662ff6c42041e8fd174608d09a}{Parse}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp)
+\item 
+struct \mbox{\hyperlink{structplink}{plink}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a16f452952a283dbcde6391eada844229}{Plink\+\_\+new}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_af48769b4935a20dd167222f206c582b3}{Plink\+\_\+add}} (struct \mbox{\hyperlink{structplink}{plink}} $\ast$$\ast$, struct \mbox{\hyperlink{structconfig}{config}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aafe89d10eea8355e5a21a1c22540d23e}{Plink\+\_\+copy}} (struct \mbox{\hyperlink{structplink}{plink}} $\ast$$\ast$, struct \mbox{\hyperlink{structplink}{plink}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a7c0dec90c099103fb63c4945ddaa6c2f}{Plink\+\_\+delete}} (struct \mbox{\hyperlink{structplink}{plink}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a73a1ce49712b0f8f8e336e69f1854ef1}{Reprint}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a52f5609e895f613f635e8032da0d3060}{Report\+Output}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a973bf6408011059ccd20608ae674769d}{Report\+Table}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$, int, int)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a9f0e46fb0f39caed497ba1c5e6bc1d2c}{Report\+Header}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a61a0c6841d6e0acbac583f98139c64c4}{Compress\+Tables}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a1d183ebd74d75142736945d0c019a05e}{Resort\+States}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a9e3fd2c13a68d0c97f4dca4952fcb015}{Set\+Size}} (int)
+\item 
+char $\ast$ \mbox{\hyperlink{musami_8c_09_09_a433cb7f81be445bf342f77fd1b9e374c}{Set\+New}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aa958be3838835937f69f24a1e143214d}{Set\+Free}} (char $\ast$)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a56c99719a02e6fa54cd4220c517edeb3}{Set\+Add}} (char $\ast$, int)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a03c795b1681b473900b135fa3e7000b9}{Set\+Union}} (char $\ast$, char $\ast$)
+\item 
+const char $\ast$ \mbox{\hyperlink{musami_8c_09_09_a09fe06fbc49de1b9615627bd1aeeadc0}{Strsafe}} (const char $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a085e4cb794f7302f16da7990bac4c769}{Strsafe\+\_\+init}} (void)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a6633eceecee95084e8e06d4464a4c442}{Strsafe\+\_\+insert}} (const char $\ast$)
+\item 
+const char $\ast$ \mbox{\hyperlink{musami_8c_09_09_a0c3a6f4fc1eecef0775505b0be139789}{Strsafe\+\_\+find}} (const char $\ast$)
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a4a47676e242ee304df3f0571545d1ddc}{Symbol\+\_\+new}} (const char $\ast$)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_abbf60dcc12ed8d5c52ef5e29d441be56}{Symbolcmpp}} (const void $\ast$, const void $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a89805c1292d899fa98afc401a20162a1}{Symbol\+\_\+init}} (void)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a5ac810e81926782fb5ad47c4668c730c}{Symbol\+\_\+insert}} (struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$, const char $\ast$)
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a3fc05bf35c89d6f8aa382a41abd0ef36}{Symbol\+\_\+find}} (const char $\ast$)
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_ad29df575d28fbcaf4008fde1c7750395}{Symbol\+\_\+\+Nth}} (int)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a63076cb8a7cede687eecb70dda80de9a}{Symbol\+\_\+count}} (void)
+\item 
+struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$$\ast$ \mbox{\hyperlink{musami_8c_09_09_ad5b5df0b25203405fc83f9b04c7a8535}{Symbol\+\_\+arrayof}} (void)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_ad99bc258d2373d8c69be83644d9161ba}{Configcmp}} (const char $\ast$, const char $\ast$)
+\item 
+struct \mbox{\hyperlink{structstate}{state}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a19cedb3e4249fc45ad1a5a60d983b8e3}{State\+\_\+new}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a8aac6477340919fc5e0dcd7ec8efa049}{State\+\_\+init}} (void)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_aeaa59d8b5d6496ea297302fc46fffd16}{State\+\_\+insert}} (struct \mbox{\hyperlink{structstate}{state}} $\ast$, struct \mbox{\hyperlink{structconfig}{config}} $\ast$)
+\item 
+struct \mbox{\hyperlink{structstate}{state}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_af181f8b07c70d5cd5b7f19b8c2ef50cb}{State\+\_\+find}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$)
+\item 
+struct \mbox{\hyperlink{structstate}{state}} $\ast$$\ast$ \mbox{\hyperlink{musami_8c_09_09_aa6ee47230a22ec1e386cf9e1d3587858}{State\+\_\+arrayof}} (void)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_ad76d2ad262b2688e04dd8e773c4cdf41}{Configtable\+\_\+init}} (void)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a341c2f0c907861cb80e8b791ea34e2fc}{Configtable\+\_\+insert}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$)
+\item 
+struct \mbox{\hyperlink{structconfig}{config}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a4559ab18dd02453fbb2a1c94b8327c59}{Configtable\+\_\+find}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a7035985d4ccd10bd308f00fb582442aa}{Configtable\+\_\+clear}} (int($\ast$)(struct \mbox{\hyperlink{structconfig}{config}} $\ast$))
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a603b5f90242ec7e0ad76e9c1205f9029}{Action\+\_\+add}} (struct \mbox{\hyperlink{structaction}{action}} $\ast$$\ast$app, enum \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}{e\+\_\+action}} type, struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$sp, char $\ast$arg)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a6475869e633b169b6330c91bef24eb75}{acttab\+\_\+free}} (\mbox{\hyperlink{structacttab}{acttab}} $\ast$p)
+\item 
+\mbox{\hyperlink{structacttab}{acttab}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a9fb759e60cc86af53b531fb590093a99}{acttab\+\_\+alloc}} (int nsymbol, int nterminal)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a64cdeb0c808763a0b89284462fc99a84}{acttab\+\_\+action}} (\mbox{\hyperlink{structacttab}{acttab}} $\ast$p, int lookahead, int \mbox{\hyperlink{structaction}{action}})
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_ad44309f3ae83c1fda003d7ac70643241}{acttab\+\_\+insert}} (\mbox{\hyperlink{structacttab}{acttab}} $\ast$p, int make\+It\+Safe)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_ae9f6ec40113464619684255530cad548}{acttab\+\_\+action\+\_\+size}} (\mbox{\hyperlink{structacttab}{acttab}} $\ast$p)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} struct \mbox{\hyperlink{structstate}{state}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_a33b911ab3d7c9005abc38b4620e9e3a2}{getstate}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_a5701cd550ad516438643e37ab4f83652}{buildshifts}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$, struct \mbox{\hyperlink{structstate}{state}} $\ast$)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a454d343f78ba6645a76b2931fbf0a4d3}{same\+\_\+symbol}} (struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$a, struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$b)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} struct \mbox{\hyperlink{structconfig}{config}} $\ast$ \mbox{\hyperlink{musami_8c_09_09_abb7f6686f6c4cbca4dcf92d3c1da3f76}{newconfig}} (void)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_a49b2edd29f6d42adb58379d4560efaca}{deleteconfig}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$old)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} char $\ast$ \mbox{\hyperlink{musami_8c_09_09_a8efc61e5e788a7fc9161e188fb1e1892}{file\+\_\+makename}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, const char $\ast$suffix)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} FILE $\ast$ \mbox{\hyperlink{musami_8c_09_09_aab685784f87747bbb09ad2721b844ed1}{file\+\_\+open}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, const char $\ast$suffix, const char $\ast$mode)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a6d7823592bc6514c18db08b4e7b90e3a}{rule\+\_\+print}} (FILE $\ast$out, struct \mbox{\hyperlink{structrule}{rule}} $\ast$rp)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_aff9a2bcf962f86fba6e34a2100a0f842}{Rule\+Print}} (FILE $\ast$fp, struct \mbox{\hyperlink{structrule}{rule}} $\ast$rp, int i\+Cursor)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a8583305e844d0a78a616a0a43dec4f54}{Config\+Print}} (FILE $\ast$fp, struct \mbox{\hyperlink{structconfig}{config}} $\ast$cfp)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_ae35f41549324436f8bfda4741f5af7ea}{Print\+Action}} (struct \mbox{\hyperlink{structaction}{action}} $\ast$ap, FILE $\ast$fp, int indent)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} char $\ast$ \mbox{\hyperlink{musami_8c_09_09_a8aeecc964adeae428f6eecba2a7883f0}{pathsearch}} (char $\ast$argv0, char $\ast$name, int modemask)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} int \mbox{\hyperlink{musami_8c_09_09_ae6afacdc9e0b7f0704f3d642588b677f}{compute\+\_\+action}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, struct \mbox{\hyperlink{structaction}{action}} $\ast$ap)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_a5594125cae448c33a2f2ad6b9c3b4c4e}{tplt\+\_\+xfer}} (char $\ast$name, FILE $\ast$in, FILE $\ast$out, int $\ast$lineno)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_aa22d0451f52d76e088355fa92f7e89a9}{tplt\+\_\+skip\+\_\+header}} (FILE $\ast$in, int $\ast$lineno)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} FILE $\ast$ \mbox{\hyperlink{musami_8c_09_09_aba876388d20304d1c163f6920dd61363}{tplt\+\_\+open}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_a84c066e584e58fc6860b542fb587f85c}{tplt\+\_\+linedir}} (FILE $\ast$out, int lineno, char $\ast$filename)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_ad0eb62c3483a7c001cb391006794dbcb}{tplt\+\_\+print}} (FILE $\ast$out, struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, char $\ast$str, int $\ast$lineno)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a25ddbeede36cd2bade72ce63c11a7bca}{emit\+\_\+destructor\+\_\+code}} (FILE $\ast$out, struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$sp, struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, int $\ast$lineno)
+\item 
+int \mbox{\hyperlink{musami_8c_09_09_a8f386d102c0b03bb2802d25919d7ba17}{has\+\_\+destructor}} (struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$sp, struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} char $\ast$ \mbox{\hyperlink{musami_8c_09_09_aab17e8ca90a133a190245f310ca6b98e}{append\+\_\+str}} (const char $\ast$z\+Text, int n, int p1, int p2)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} int \mbox{\hyperlink{musami_8c_09_09_a1e6575254b6536a658aa3110aefd9356}{translate\+\_\+code}} (struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, struct \mbox{\hyperlink{structrule}{rule}} $\ast$rp)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void \mbox{\hyperlink{musami_8c_09_09_a5ba1e185b42917f14bb7a58ec8755704}{emit\+\_\+code}} (FILE $\ast$out, struct \mbox{\hyperlink{structrule}{rule}} $\ast$rp, struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, int $\ast$lineno)
+\item 
+void \mbox{\hyperlink{musami_8c_09_09_a4d9392661599b6def4b5992ada39a80b}{print\+\_\+stack\+\_\+union}} (FILE $\ast$out, struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$lemp, int $\ast$plineno, int mhflag)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} unsigned \mbox{\hyperlink{musami_8c_09_09_a4e82a9d010c5ff8b72d02193e97941fc}{strhash}} (const char $\ast$x)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} int \mbox{\hyperlink{musami_8c_09_09_a23fc7ea691636a1533504a09bdb070c4}{statecmp}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$a, struct \mbox{\hyperlink{structconfig}{config}} $\ast$b)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} unsigned \mbox{\hyperlink{musami_8c_09_09_abdf85a94d6c425800af0f4b53b95999f}{statehash}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$a)
+\item 
+\mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} unsigned \mbox{\hyperlink{musami_8c_09_09_a5fb1bc06552b5573dee79845b0566c38}{confighash}} (struct \mbox{\hyperlink{structconfig}{config}} $\ast$a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{musami_8c_09_09_a4abe3cc60152b2bb68ed96664c5eb79b}\label{musami_8c_09_09_a4abe3cc60152b2bb68ed96664c5eb79b}} 
+\index{musami.c++@{musami.c++}!acttab\_lookahead\_size@{acttab\_lookahead\_size}}
+\index{acttab\_lookahead\_size@{acttab\_lookahead\_size}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_lookahead\_size}{acttab\_lookahead\_size}}
+{\footnotesize\ttfamily \#define acttab\+\_\+lookahead\+\_\+size(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~((X)-\/$>$n\+Action)}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00639}{639}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a1f57505fcb8b3bde79d32ef1a0e16a55}\label{musami_8c_09_09_a1f57505fcb8b3bde79d32ef1a0e16a55}} 
+\index{musami.c++@{musami.c++}!acttab\_yyaction@{acttab\_yyaction}}
+\index{acttab\_yyaction@{acttab\_yyaction}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_yyaction}{acttab\_yyaction}}
+{\footnotesize\ttfamily \#define acttab\+\_\+yyaction(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{N }\end{DoxyParamCaption})~((X)-\/$>$a\+Action\mbox{[}N\mbox{]}.\mbox{\hyperlink{structaction}{action}})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00642}{642}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a284fa7f09b03f405dd607b239d3006bd}\label{musami_8c_09_09_a284fa7f09b03f405dd607b239d3006bd}} 
+\index{musami.c++@{musami.c++}!acttab\_yylookahead@{acttab\_yylookahead}}
+\index{acttab\_yylookahead@{acttab\_yylookahead}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_yylookahead}{acttab\_yylookahead}}
+{\footnotesize\ttfamily \#define acttab\+\_\+yylookahead(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{N }\end{DoxyParamCaption})~((X)-\/$>$a\+Action\mbox{[}N\mbox{]}.lookahead)}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00645}{645}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a03aaed8f6fd881ef9899cfeb1826aba1}\label{musami_8c_09_09_a03aaed8f6fd881ef9899cfeb1826aba1}} 
+\index{musami.c++@{musami.c++}!ISALNUM@{ISALNUM}}
+\index{ISALNUM@{ISALNUM}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISALNUM}{ISALNUM}}
+{\footnotesize\ttfamily \#define ISALNUM(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~isalnum((unsigned char)(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00049}{49}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a134795ef4fd2c63cb8d1cc380c843659}\label{musami_8c_09_09_a134795ef4fd2c63cb8d1cc380c843659}} 
+\index{musami.c++@{musami.c++}!ISALPHA@{ISALPHA}}
+\index{ISALPHA@{ISALPHA}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISALPHA}{ISALPHA}}
+{\footnotesize\ttfamily \#define ISALPHA(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~isalpha((unsigned char)(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00050}{50}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a75433e9b49353107b2519be558575ff9}\label{musami_8c_09_09_a75433e9b49353107b2519be558575ff9}} 
+\index{musami.c++@{musami.c++}!ISDIGIT@{ISDIGIT}}
+\index{ISDIGIT@{ISDIGIT}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISDIGIT}{ISDIGIT}}
+{\footnotesize\ttfamily \#define ISDIGIT(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~isdigit((unsigned char)(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00048}{48}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ab4bf51b693a13523ccdfaede0f024f2d}\label{musami_8c_09_09_ab4bf51b693a13523ccdfaede0f024f2d}} 
+\index{musami.c++@{musami.c++}!ISLOWER@{ISLOWER}}
+\index{ISLOWER@{ISLOWER}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISLOWER}{ISLOWER}}
+{\footnotesize\ttfamily \#define ISLOWER(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~islower((unsigned char)(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00052}{52}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a730cc6f171ae74e10adfacd79be6e138}\label{musami_8c_09_09_a730cc6f171ae74e10adfacd79be6e138}} 
+\index{musami.c++@{musami.c++}!ISOPT@{ISOPT}}
+\index{ISOPT@{ISOPT}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISOPT}{ISOPT}}
+{\footnotesize\ttfamily \#define ISOPT(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~((X)\mbox{[}0\mbox{]}==\textquotesingle{}-\/\textquotesingle{}$\vert$$\vert$(X)\mbox{[}0\mbox{]}==\textquotesingle{}+\textquotesingle{}$\vert$$\vert$strchr((X),\textquotesingle{}=\textquotesingle{})!=0)}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01957}{1957}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a1391f6af809bf0a317ca08ab93e4ff4b}\label{musami_8c_09_09_a1391f6af809bf0a317ca08ab93e4ff4b}} 
+\index{musami.c++@{musami.c++}!ISSPACE@{ISSPACE}}
+\index{ISSPACE@{ISSPACE}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISSPACE}{ISSPACE}}
+{\footnotesize\ttfamily \#define ISSPACE(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~isspace((unsigned char)(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00047}{47}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a62f50af90d5d9ff38f1c3f1d9dd1e4db}\label{musami_8c_09_09_a62f50af90d5d9ff38f1c3f1d9dd1e4db}} 
+\index{musami.c++@{musami.c++}!ISUPPER@{ISUPPER}}
+\index{ISUPPER@{ISUPPER}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISUPPER}{ISUPPER}}
+{\footnotesize\ttfamily \#define ISUPPER(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~isupper((unsigned char)(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00051}{51}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aaecfedda8641c3aaa2b94042947c22c7}\label{musami_8c_09_09_aaecfedda8641c3aaa2b94042947c22c7}} 
+\index{musami.c++@{musami.c++}!lemonStrlen@{lemonStrlen}}
+\index{lemonStrlen@{lemonStrlen}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{lemonStrlen}{lemonStrlen}}
+{\footnotesize\ttfamily \#define lemon\+Strlen(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~((int)strlen(X))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00093}{93}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a0095c1e0ae26941efea12c77f2232f2f}\label{musami_8c_09_09_a0095c1e0ae26941efea12c77f2232f2f}} 
+\index{musami.c++@{musami.c++}!LINESIZE@{LINESIZE}}
+\index{LINESIZE@{LINESIZE}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{LINESIZE}{LINESIZE}}
+{\footnotesize\ttfamily \#define LINESIZE~1000}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03656}{3656}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a7f112cacf7307ce9512180acaded41bf}\label{musami_8c_09_09_a7f112cacf7307ce9512180acaded41bf}} 
+\index{musami.c++@{musami.c++}!LISTSIZE@{LISTSIZE}}
+\index{LISTSIZE@{LISTSIZE}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{LISTSIZE}{LISTSIZE}}
+{\footnotesize\ttfamily \#define LISTSIZE~30}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01926}{1926}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}\label{musami_8c_09_09_a2f6841589db4dcc8ca996adef30bd039}} 
+\index{musami.c++@{musami.c++}!MAXRHS@{MAXRHS}}
+\index{MAXRHS@{MAXRHS}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{MAXRHS}{MAXRHS}}
+{\footnotesize\ttfamily \#define MAXRHS~1000}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00081}{81}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aae20ef09500570d943353a9a1abcf584}\label{musami_8c_09_09_aae20ef09500570d943353a9a1abcf584}} 
+\index{musami.c++@{musami.c++}!MemoryCheck@{MemoryCheck}}
+\index{MemoryCheck@{MemoryCheck}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{MemoryCheck}{MemoryCheck}}
+{\footnotesize\ttfamily \#define Memory\+Check(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{if}((X)==0)\{ \(\backslash\)}
+\DoxyCodeLine{  extern \textcolor{keywordtype}{void} \mbox{\hyperlink{musami_8c_09_09_a0ffbd1568022fbe7cb2f8dbeb6a3d8c3}{memory\_error}}(); \(\backslash\)}
+\DoxyCodeLine{  memory\_error(); \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00465}{465}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a442a1929649a787163766537c7ae7464}\label{musami_8c_09_09_a442a1929649a787163766537c7ae7464}} 
+\index{musami.c++@{musami.c++}!NEXT@{NEXT}}
+\index{NEXT@{NEXT}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{NEXT}{NEXT}}
+{\footnotesize\ttfamily \#define NEXT(\begin{DoxyParamCaption}\item[{}]{A }\end{DoxyParamCaption})~($\ast$(char$\ast$$\ast$)(((char$\ast$)A)+offset))}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01858}{1858}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aa1d2aa206e89cc4340ade4e98561a656}\label{musami_8c_09_09_aa1d2aa206e89cc4340ade4e98561a656}} 
+\index{musami.c++@{musami.c++}!NO\_OFFSET@{NO\_OFFSET}}
+\index{NO\_OFFSET@{NO\_OFFSET}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{NO\_OFFSET}{NO\_OFFSET}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+OFFSET~(-\/2147483647)}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00402}{402}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}\label{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}} 
+\index{musami.c++@{musami.c++}!PRIVATE@{PRIVATE}}
+\index{PRIVATE@{PRIVATE}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{PRIVATE}{PRIVATE}}
+{\footnotesize\ttfamily \#define PRIVATE}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00076}{76}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a9e7382319176db6dc7f81aca4ea71790}\label{musami_8c_09_09_a9e7382319176db6dc7f81aca4ea71790}} 
+\index{musami.c++@{musami.c++}!SetFind@{SetFind}}
+\index{SetFind@{SetFind}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{SetFind}{SetFind}}
+{\footnotesize\ttfamily \#define Set\+Find(\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y }\end{DoxyParamCaption})~(X\mbox{[}Y\mbox{]})       /$\ast$ True if Y is in set X $\ast$/}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00265}{265}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{musami_8c_09_09_ac12c4941ec0ad423ebfc3f8de2d597cd}\label{musami_8c_09_09_ac12c4941ec0ad423ebfc3f8de2d597cd}} 
+\index{musami.c++@{musami.c++}!acttab@{acttab}}
+\index{acttab@{acttab}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab}{acttab}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structacttab}{acttab}} \mbox{\hyperlink{structacttab}{acttab}}}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00622}{622}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a035f404f4faaf09c2468ce36402748d9}\label{musami_8c_09_09_a035f404f4faaf09c2468ce36402748d9}} 
+\index{musami.c++@{musami.c++}!x1node@{x1node}}
+\index{x1node@{x1node}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{x1node}{x1node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__x1node}{s\+\_\+x1node}} \mbox{\hyperlink{musami_8c_09_09_a035f404f4faaf09c2468ce36402748d9}{x1node}}}
+
+\mbox{\Hypertarget{musami_8c_09_09_aa8170bbd74a56344ebcd3ca9e8fa0367}\label{musami_8c_09_09_aa8170bbd74a56344ebcd3ca9e8fa0367}} 
+\index{musami.c++@{musami.c++}!x2node@{x2node}}
+\index{x2node@{x2node}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{x2node}{x2node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__x2node}{s\+\_\+x2node}} \mbox{\hyperlink{musami_8c_09_09_aa8170bbd74a56344ebcd3ca9e8fa0367}{x2node}}}
+
+\mbox{\Hypertarget{musami_8c_09_09_a48f98621df69553555f9be0c375d4971}\label{musami_8c_09_09_a48f98621df69553555f9be0c375d4971}} 
+\index{musami.c++@{musami.c++}!x3node@{x3node}}
+\index{x3node@{x3node}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{x3node}{x3node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__x3node}{s\+\_\+x3node}} \mbox{\hyperlink{musami_8c_09_09_a48f98621df69553555f9be0c375d4971}{x3node}}}
+
+\mbox{\Hypertarget{musami_8c_09_09_ac175ec01732f2bf3693e942c082134db}\label{musami_8c_09_09_ac175ec01732f2bf3693e942c082134db}} 
+\index{musami.c++@{musami.c++}!x4node@{x4node}}
+\index{x4node@{x4node}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{x4node}{x4node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__x4node}{s\+\_\+x4node}} \mbox{\hyperlink{musami_8c_09_09_ac175ec01732f2bf3693e942c082134db}{x4node}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13}\label{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13}} 
+\index{musami.c++@{musami.c++}!Boolean@{Boolean}}
+\index{Boolean@{Boolean}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Boolean}{Boolean}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13}{Boolean}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEMON\_FALSE@{LEMON\_FALSE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!LEMON\_FALSE@{LEMON\_FALSE}}}\mbox{\Hypertarget{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13a76f4e81c3e1bd0e4d734a472308d22d0}\label{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13a76f4e81c3e1bd0e4d734a472308d22d0}} 
+LEMON\+\_\+\+FALSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEMON\_TRUE@{LEMON\_TRUE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!LEMON\_TRUE@{LEMON\_TRUE}}}\mbox{\Hypertarget{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13a0743794696a9fde192f67d48eb4d9b28}\label{musami_8c_09_09_ae7d38601dfbd73adbe5c1b3ec34e0e13a0743794696a9fde192f67d48eb4d9b28}} 
+LEMON\+\_\+\+TRUE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00272}{272}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790a}\label{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790a}} 
+\index{musami.c++@{musami.c++}!cfgstatus@{cfgstatus}}
+\index{cfgstatus@{cfgstatus}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{cfgstatus}{cfgstatus}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790a}{cfgstatus}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMPLETE@{COMPLETE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!COMPLETE@{COMPLETE}}}\mbox{\Hypertarget{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790aa00a900c9df90c74f75004b3dc04f173d}\label{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790aa00a900c9df90c74f75004b3dc04f173d}} 
+COMPLETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INCOMPLETE@{INCOMPLETE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!INCOMPLETE@{INCOMPLETE}}}\mbox{\Hypertarget{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790aa0a00da50814c46c6e714304c1bdd35e7}\label{musami_8c_09_09_ab2a0d6d6b60483efa63ba6ff5922790aa0a00da50814c46c6e714304c1bdd35e7}} 
+INCOMPLETE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00346}{346}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}} 
+\index{musami.c++@{musami.c++}!e\_action@{e\_action}}
+\index{e\_action@{e\_action}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{e\_action}{e\_action}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}{e\+\_\+action}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFT@{SHIFT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!SHIFT@{SHIFT}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba1ce4ab037343ee04fbf20ceb2ebc5081}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba1ce4ab037343ee04fbf20ceb2ebc5081}} 
+SHIFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACCEPT@{ACCEPT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!ACCEPT@{ACCEPT}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba5707b7b8bf1b098d620552e9576d8061}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba5707b7b8bf1b098d620552e9576d8061}} 
+ACCEPT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REDUCE@{REDUCE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!REDUCE@{REDUCE}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba315a9ca402673dba76b20984e1f7dcb5}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba315a9ca402673dba76b20984e1f7dcb5}} 
+REDUCE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ERROR@{ERROR}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!ERROR@{ERROR}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba2fd6f336d08340583bd620a7f5694c90}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba2fd6f336d08340583bd620a7f5694c90}} 
+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSCONFLICT@{SSCONFLICT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!SSCONFLICT@{SSCONFLICT}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba6c0de1163dfe542ce3abaed32de9edc1}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba6c0de1163dfe542ce3abaed32de9edc1}} 
+SSCONFLICT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SRCONFLICT@{SRCONFLICT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!SRCONFLICT@{SRCONFLICT}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba79cdcafbcd311ad8f6ec437e919f6cac}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba79cdcafbcd311ad8f6ec437e919f6cac}} 
+SRCONFLICT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RRCONFLICT@{RRCONFLICT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RRCONFLICT@{RRCONFLICT}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba9eb9a86aa9e8e1d65bbbb12ce296d90c}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba9eb9a86aa9e8e1d65bbbb12ce296d90c}} 
+RRCONFLICT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SH\_RESOLVED@{SH\_RESOLVED}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!SH\_RESOLVED@{SH\_RESOLVED}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba77c7878f6df080b2f1a7d13f18837f86}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba77c7878f6df080b2f1a7d13f18837f86}} 
+SH\+\_\+\+RESOLVED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RD\_RESOLVED@{RD\_RESOLVED}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RD\_RESOLVED@{RD\_RESOLVED}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8bae2a748a3b5b80969dab0c5f51a161a95}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8bae2a748a3b5b80969dab0c5f51a161a95}} 
+RD\+\_\+\+RESOLVED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOT\_USED@{NOT\_USED}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!NOT\_USED@{NOT\_USED}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba75c3ed5083592b3dd736ff3e870aadd2}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba75c3ed5083592b3dd736ff3e870aadd2}} 
+NOT\+\_\+\+USED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHIFTREDUCE@{SHIFTREDUCE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!SHIFTREDUCE@{SHIFTREDUCE}}}\mbox{\Hypertarget{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba6ab93f18963a20c82de3200f21817196}\label{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba6ab93f18963a20c82de3200f21817196}} 
+SHIFTREDUCE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00362}{362}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8}\label{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8}} 
+\index{musami.c++@{musami.c++}!e\_assoc@{e\_assoc}}
+\index{e\_assoc@{e\_assoc}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{e\_assoc}{e\_assoc}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8}{e\+\_\+assoc}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!LEFT@{LEFT}}}\mbox{\Hypertarget{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8adb45120aafd37a973140edee24708065}\label{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8adb45120aafd37a973140edee24708065}} 
+LEFT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RIGHT@{RIGHT}}}\mbox{\Hypertarget{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8aec8379af7490bb9eaaf579cf17876f38}\label{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8aec8379af7490bb9eaaf579cf17876f38}} 
+RIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!NONE@{NONE}}}\mbox{\Hypertarget{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8ac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8ac157bdf0b85a40d2619cbc8bc1ae5fe2}} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNK@{UNK}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!UNK@{UNK}}}\mbox{\Hypertarget{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8a822987746a55a3436f5a30502f32d7b5}\label{musami_8c_09_09_a8a4ff1bee8c11dde5ab054f22ff3abd8a822987746a55a3436f5a30502f32d7b5}} 
+UNK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00281}{281}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57b}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57b}} 
+\index{musami.c++@{musami.c++}!e\_state@{e\_state}}
+\index{e\_state@{e\_state}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{e\_state}{e\_state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57b}{e\+\_\+state}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INITIALIZE@{INITIALIZE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!INITIALIZE@{INITIALIZE}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bab0c48e95b68bff1f7820e23b8fd0bc98}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bab0c48e95b68bff1f7820e23b8fd0bc98}} 
+INITIALIZE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_DECL\_OR\_RULE@{WAITING\_FOR\_DECL\_OR\_RULE}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_DECL\_OR\_RULE@{WAITING\_FOR\_DECL\_OR\_RULE}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba3015abe8359eb2d83aeb285a8998a015}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba3015abe8359eb2d83aeb285a8998a015}} 
+WAITING\+\_\+\+FOR\+\_\+\+DECL\+\_\+\+OR\+\_\+\+RULE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_DECL\_KEYWORD@{WAITING\_FOR\_DECL\_KEYWORD}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_DECL\_KEYWORD@{WAITING\_FOR\_DECL\_KEYWORD}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba89d73de849ec9b8d40e1436463927124}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba89d73de849ec9b8d40e1436463927124}} 
+WAITING\+\_\+\+FOR\+\_\+\+DECL\+\_\+\+KEYWORD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_DECL\_ARG@{WAITING\_FOR\_DECL\_ARG}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_DECL\_ARG@{WAITING\_FOR\_DECL\_ARG}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57baf1b898bbdddbcbf5c948c48ff2602e58}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57baf1b898bbdddbcbf5c948c48ff2602e58}} 
+WAITING\+\_\+\+FOR\+\_\+\+DECL\+\_\+\+ARG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_PRECEDENCE\_SYMBOL@{WAITING\_FOR\_PRECEDENCE\_SYMBOL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_PRECEDENCE\_SYMBOL@{WAITING\_FOR\_PRECEDENCE\_SYMBOL}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7c815bb4711633df7dc6a167716d7942}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7c815bb4711633df7dc6a167716d7942}} 
+WAITING\+\_\+\+FOR\+\_\+\+PRECEDENCE\+\_\+\+SYMBOL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_ARROW@{WAITING\_FOR\_ARROW}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_ARROW@{WAITING\_FOR\_ARROW}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1105cf4d8ebed91d04ab4d539b200933}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1105cf4d8ebed91d04ab4d539b200933}} 
+WAITING\+\_\+\+FOR\+\_\+\+ARROW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IN\_RHS@{IN\_RHS}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!IN\_RHS@{IN\_RHS}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba2618c4226ca64c85fdf51280389157a8}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba2618c4226ca64c85fdf51280389157a8}} 
+IN\+\_\+\+RHS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LHS\_ALIAS\_1@{LHS\_ALIAS\_1}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!LHS\_ALIAS\_1@{LHS\_ALIAS\_1}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba0c58ef8474a58d8c293385fd3ab08998}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba0c58ef8474a58d8c293385fd3ab08998}} 
+LHS\+\_\+\+ALIAS\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LHS\_ALIAS\_2@{LHS\_ALIAS\_2}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!LHS\_ALIAS\_2@{LHS\_ALIAS\_2}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba56d617ab053b6ffe256b5b2f122f1b9e}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba56d617ab053b6ffe256b5b2f122f1b9e}} 
+LHS\+\_\+\+ALIAS\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LHS\_ALIAS\_3@{LHS\_ALIAS\_3}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!LHS\_ALIAS\_3@{LHS\_ALIAS\_3}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1af850c32ee60400b81e002c77644c0f}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1af850c32ee60400b81e002c77644c0f}} 
+LHS\+\_\+\+ALIAS\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RHS\_ALIAS\_1@{RHS\_ALIAS\_1}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RHS\_ALIAS\_1@{RHS\_ALIAS\_1}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba4b01b2016bdac00219b18f1af3e69985}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba4b01b2016bdac00219b18f1af3e69985}} 
+RHS\+\_\+\+ALIAS\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RHS\_ALIAS\_2@{RHS\_ALIAS\_2}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RHS\_ALIAS\_2@{RHS\_ALIAS\_2}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba409fab1cf6f56af6177c30ae80bfa91e}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba409fab1cf6f56af6177c30ae80bfa91e}} 
+RHS\+\_\+\+ALIAS\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRECEDENCE\_MARK\_1@{PRECEDENCE\_MARK\_1}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!PRECEDENCE\_MARK\_1@{PRECEDENCE\_MARK\_1}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba0766c35a47990ed3aa0bbd632afb28df}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba0766c35a47990ed3aa0bbd632afb28df}} 
+PRECEDENCE\+\_\+\+MARK\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRECEDENCE\_MARK\_2@{PRECEDENCE\_MARK\_2}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!PRECEDENCE\_MARK\_2@{PRECEDENCE\_MARK\_2}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bab695082d73468e33f902a949469f1c8b}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bab695082d73468e33f902a949469f1c8b}} 
+PRECEDENCE\+\_\+\+MARK\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RESYNC\_AFTER\_RULE\_ERROR@{RESYNC\_AFTER\_RULE\_ERROR}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RESYNC\_AFTER\_RULE\_ERROR@{RESYNC\_AFTER\_RULE\_ERROR}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7fbf0ae3dc8db191a6bd258327040242}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7fbf0ae3dc8db191a6bd258327040242}} 
+RESYNC\+\_\+\+AFTER\+\_\+\+RULE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RESYNC\_AFTER\_DECL\_ERROR@{RESYNC\_AFTER\_DECL\_ERROR}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!RESYNC\_AFTER\_DECL\_ERROR@{RESYNC\_AFTER\_DECL\_ERROR}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba2b79bb5f5a500ceca4060118b0cc76ec}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba2b79bb5f5a500ceca4060118b0cc76ec}} 
+RESYNC\+\_\+\+AFTER\+\_\+\+DECL\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_DESTRUCTOR\_SYMBOL@{WAITING\_FOR\_DESTRUCTOR\_SYMBOL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_DESTRUCTOR\_SYMBOL@{WAITING\_FOR\_DESTRUCTOR\_SYMBOL}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7896a155ec65933973ca91f34e6c6950}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba7896a155ec65933973ca91f34e6c6950}} 
+WAITING\+\_\+\+FOR\+\_\+\+DESTRUCTOR\+\_\+\+SYMBOL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_DATATYPE\_SYMBOL@{WAITING\_FOR\_DATATYPE\_SYMBOL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_DATATYPE\_SYMBOL@{WAITING\_FOR\_DATATYPE\_SYMBOL}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba3219e10fcaaf120be884aee392ebfac6}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba3219e10fcaaf120be884aee392ebfac6}} 
+WAITING\+\_\+\+FOR\+\_\+\+DATATYPE\+\_\+\+SYMBOL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_FALLBACK\_ID@{WAITING\_FOR\_FALLBACK\_ID}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_FALLBACK\_ID@{WAITING\_FOR\_FALLBACK\_ID}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bad4b6071418d830c4c383ced4e10b62bf}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bad4b6071418d830c4c383ced4e10b62bf}} 
+WAITING\+\_\+\+FOR\+\_\+\+FALLBACK\+\_\+\+ID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_WILDCARD\_ID@{WAITING\_FOR\_WILDCARD\_ID}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_WILDCARD\_ID@{WAITING\_FOR\_WILDCARD\_ID}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bac225b509cb5d2b8307d5527ee14c1eb8}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bac225b509cb5d2b8307d5527ee14c1eb8}} 
+WAITING\+\_\+\+FOR\+\_\+\+WILDCARD\+\_\+\+ID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_CLASS\_ID@{WAITING\_FOR\_CLASS\_ID}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_CLASS\_ID@{WAITING\_FOR\_CLASS\_ID}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba9982df7687cf882914bfafe4521fb551}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba9982df7687cf882914bfafe4521fb551}} 
+WAITING\+\_\+\+FOR\+\_\+\+CLASS\+\_\+\+ID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_CLASS\_TOKEN@{WAITING\_FOR\_CLASS\_TOKEN}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_CLASS\_TOKEN@{WAITING\_FOR\_CLASS\_TOKEN}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1e31e9ffed515743a5bac920abaf3dc8}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57ba1e31e9ffed515743a5bac920abaf3dc8}} 
+WAITING\+\_\+\+FOR\+\_\+\+CLASS\+\_\+\+TOKEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WAITING\_FOR\_TOKEN\_NAME@{WAITING\_FOR\_TOKEN\_NAME}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!WAITING\_FOR\_TOKEN\_NAME@{WAITING\_FOR\_TOKEN\_NAME}}}\mbox{\Hypertarget{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bae082c8d695e1682ca1aec6e1870591be}\label{musami_8c_09_09_a74a75e4700f1f71bb89d80765319e57bae082c8d695e1682ca1aec6e1870591be}} 
+WAITING\+\_\+\+FOR\+\_\+\+TOKEN\+\_\+\+NAME&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02239}{2239}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482}} 
+\index{musami.c++@{musami.c++}!option\_type@{option\_type}}
+\index{option\_type@{option\_type}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{option\_type}{option\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482}{option\+\_\+type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_FLAG@{OPT\_FLAG}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_FLAG@{OPT\_FLAG}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a76ffcc7656abf0c9dd98b6d5332c58d9}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a76ffcc7656abf0c9dd98b6d5332c58d9}} 
+OPT\+\_\+\+FLAG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_INT@{OPT\_INT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_INT@{OPT\_INT}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a5d1948e718145bcb48afc3143e412a26}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a5d1948e718145bcb48afc3143e412a26}} 
+OPT\+\_\+\+INT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_DBL@{OPT\_DBL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_DBL@{OPT\_DBL}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a06af45f1e947621f2f692f530319d7c9}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a06af45f1e947621f2f692f530319d7c9}} 
+OPT\+\_\+\+DBL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_STR@{OPT\_STR}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_STR@{OPT\_STR}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a91e7b05156fd80c0d07df2eb55b98e3d}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a91e7b05156fd80c0d07df2eb55b98e3d}} 
+OPT\+\_\+\+STR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_FFLAG@{OPT\_FFLAG}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_FFLAG@{OPT\_FFLAG}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482ac6deaa5d15bb57d6bea1fd4749ce1a21}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482ac6deaa5d15bb57d6bea1fd4749ce1a21}} 
+OPT\+\_\+\+FFLAG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_FINT@{OPT\_FINT}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_FINT@{OPT\_FINT}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a64c8621a0ff1a9cc1347fca7d52f6f92}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a64c8621a0ff1a9cc1347fca7d52f6f92}} 
+OPT\+\_\+\+FINT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_FDBL@{OPT\_FDBL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_FDBL@{OPT\_FDBL}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a47197ffa73ef13a3d0c400372190dd1f}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a47197ffa73ef13a3d0c400372190dd1f}} 
+OPT\+\_\+\+FDBL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OPT\_FSTR@{OPT\_FSTR}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!OPT\_FSTR@{OPT\_FSTR}}}\mbox{\Hypertarget{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a43c371ae1db51681bccf29d351df09a1}\label{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a43c371ae1db51681bccf29d351df09a1}} 
+OPT\+\_\+\+FSTR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00228}{228}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231}\label{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231}} 
+\index{musami.c++@{musami.c++}!symbol\_type@{symbol\_type}}
+\index{symbol\_type@{symbol\_type}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{symbol\_type}{symbol\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231}{symbol\+\_\+type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TERMINAL@{TERMINAL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!TERMINAL@{TERMINAL}}}\mbox{\Hypertarget{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231a9b2989c4ac8a0f9a7f46528384eaa5c7}\label{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231a9b2989c4ac8a0f9a7f46528384eaa5c7}} 
+TERMINAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONTERMINAL@{NONTERMINAL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!NONTERMINAL@{NONTERMINAL}}}\mbox{\Hypertarget{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231a27f6108698c432f104699b8e6e3d81c5}\label{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231a27f6108698c432f104699b8e6e3d81c5}} 
+NONTERMINAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MULTITERMINAL@{MULTITERMINAL}!musami.c++@{musami.c++}}\index{musami.c++@{musami.c++}!MULTITERMINAL@{MULTITERMINAL}}}\mbox{\Hypertarget{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231aac70fb461120946c9c01f870d8b23a88}\label{musami_8c_09_09_a9e6705a3296471be728a3b6570b56231aac70fb461120946c9c01f870d8b23a88}} 
+MULTITERMINAL&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00276}{276}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{musami_8c_09_09_a603b5f90242ec7e0ad76e9c1205f9029}\label{musami_8c_09_09_a603b5f90242ec7e0ad76e9c1205f9029}} 
+\index{musami.c++@{musami.c++}!Action\_add@{Action\_add}}
+\index{Action\_add@{Action\_add}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Action\_add()}{Action\_add()}}
+{\footnotesize\ttfamily void Action\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structaction}{action}} $\ast$$\ast$}]{app,  }\item[{enum \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}{e\+\_\+action}}}]{type,  }\item[{struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$}]{sp,  }\item[{char $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00574}{574}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a64cdeb0c808763a0b89284462fc99a84}\label{musami_8c_09_09_a64cdeb0c808763a0b89284462fc99a84}} 
+\index{musami.c++@{musami.c++}!acttab\_action@{acttab\_action}}
+\index{acttab\_action@{acttab\_action}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_action()}{acttab\_action()}}
+{\footnotesize\ttfamily void acttab\+\_\+action (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacttab}{acttab}} $\ast$}]{p,  }\item[{int}]{lookahead,  }\item[{int}]{action }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00672}{672}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ae9f6ec40113464619684255530cad548}\label{musami_8c_09_09_ae9f6ec40113464619684255530cad548}} 
+\index{musami.c++@{musami.c++}!acttab\_action\_size@{acttab\_action\_size}}
+\index{acttab\_action\_size@{acttab\_action\_size}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_action\_size()}{acttab\_action\_size()}}
+{\footnotesize\ttfamily int acttab\+\_\+action\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacttab}{acttab}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00822}{822}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a9fb759e60cc86af53b531fb590093a99}\label{musami_8c_09_09_a9fb759e60cc86af53b531fb590093a99}} 
+\index{musami.c++@{musami.c++}!acttab\_alloc@{acttab\_alloc}}
+\index{acttab\_alloc@{acttab\_alloc}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_alloc()}{acttab\_alloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structacttab}{acttab}} $\ast$ acttab\+\_\+alloc (\begin{DoxyParamCaption}\item[{int}]{nsymbol,  }\item[{int}]{nterminal }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00655}{655}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a6475869e633b169b6330c91bef24eb75}\label{musami_8c_09_09_a6475869e633b169b6330c91bef24eb75}} 
+\index{musami.c++@{musami.c++}!acttab\_free@{acttab\_free}}
+\index{acttab\_free@{acttab\_free}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_free()}{acttab\_free()}}
+{\footnotesize\ttfamily void acttab\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacttab}{acttab}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00648}{648}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ad44309f3ae83c1fda003d7ac70643241}\label{musami_8c_09_09_ad44309f3ae83c1fda003d7ac70643241}} 
+\index{musami.c++@{musami.c++}!acttab\_insert@{acttab\_insert}}
+\index{acttab\_insert@{acttab\_insert}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{acttab\_insert()}{acttab\_insert()}}
+{\footnotesize\ttfamily int acttab\+\_\+insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structacttab}{acttab}} $\ast$}]{p,  }\item[{int}]{make\+It\+Safe }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00713}{713}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aab17e8ca90a133a190245f310ca6b98e}\label{musami_8c_09_09_aab17e8ca90a133a190245f310ca6b98e}} 
+\index{musami.c++@{musami.c++}!append\_str@{append\_str}}
+\index{append\_str@{append\_str}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{append\_str()}{append\_str()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} char $\ast$ append\+\_\+str (\begin{DoxyParamCaption}\item[{const char $\ast$}]{z\+Text,  }\item[{int}]{n,  }\item[{int}]{p1,  }\item[{int}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03860}{3860}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5701cd550ad516438643e37ab4f83652}\label{musami_8c_09_09_a5701cd550ad516438643e37ab4f83652}} 
+\index{musami.c++@{musami.c++}!buildshifts@{buildshifts}}
+\index{buildshifts@{buildshifts}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{buildshifts()}{buildshifts()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void buildshifts (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{struct \mbox{\hyperlink{structstate}{state}} $\ast$}]{stp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01057}{1057}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a61a0c6841d6e0acbac583f98139c64c4}\label{musami_8c_09_09_a61a0c6841d6e0acbac583f98139c64c4}} 
+\index{musami.c++@{musami.c++}!CompressTables@{CompressTables}}
+\index{CompressTables@{CompressTables}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{CompressTables()}{CompressTables()}}
+{\footnotesize\ttfamily void Compress\+Tables (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05130}{5130}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ae6afacdc9e0b7f0704f3d642588b677f}\label{musami_8c_09_09_ae6afacdc9e0b7f0704f3d642588b677f}} 
+\index{musami.c++@{musami.c++}!compute\_action@{compute\_action}}
+\index{compute\_action@{compute\_action}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{compute\_action()}{compute\_action()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} int compute\+\_\+action (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{struct \mbox{\hyperlink{structaction}{action}} $\ast$}]{ap }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03630}{3630}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ad99bc258d2373d8c69be83644d9161ba}\label{musami_8c_09_09_ad99bc258d2373d8c69be83644d9161ba}} 
+\index{musami.c++@{musami.c++}!Configcmp@{Configcmp}}
+\index{Configcmp@{Configcmp}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configcmp()}{Configcmp()}}
+{\footnotesize\ttfamily int Configcmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+a,  }\item[{const char $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05723}{5723}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5fb1bc06552b5573dee79845b0566c38}\label{musami_8c_09_09_a5fb1bc06552b5573dee79845b0566c38}} 
+\index{musami.c++@{musami.c++}!confighash@{confighash}}
+\index{confighash@{confighash}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{confighash()}{confighash()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} unsigned confighash (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05902}{5902}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8ac3e2b8b5caa52294671b8a6d67151d}\label{musami_8c_09_09_a8ac3e2b8b5caa52294671b8a6d67151d}} 
+\index{musami.c++@{musami.c++}!Configlist\_add@{Configlist\_add}}
+\index{Configlist\_add@{Configlist\_add}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_add()}{Configlist\_add()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structconfig}{config}} $\ast$ Configlist\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structrule}{rule}} $\ast$}]{rp,  }\item[{int}]{dot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01378}{1378}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a4de1e4a3981a61284ae0c136fa869717}\label{musami_8c_09_09_a4de1e4a3981a61284ae0c136fa869717}} 
+\index{musami.c++@{musami.c++}!Configlist\_addbasis@{Configlist\_addbasis}}
+\index{Configlist\_addbasis@{Configlist\_addbasis}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_addbasis()}{Configlist\_addbasis()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structconfig}{config}} $\ast$ Configlist\+\_\+addbasis (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structrule}{rule}} $\ast$}]{rp,  }\item[{int}]{dot }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01405}{1405}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ac24a98e57b183c6f4c85b4a9594bcc1b}\label{musami_8c_09_09_ac24a98e57b183c6f4c85b4a9594bcc1b}} 
+\index{musami.c++@{musami.c++}!Configlist\_basis@{Configlist\_basis}}
+\index{Configlist\_basis@{Configlist\_basis}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_basis()}{Configlist\_basis()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structconfig}{config}} $\ast$ Configlist\+\_\+basis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01505}{1505}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_af41047dc624f6084e0352267f03e60cd}\label{musami_8c_09_09_af41047dc624f6084e0352267f03e60cd}} 
+\index{musami.c++@{musami.c++}!Configlist\_closure@{Configlist\_closure}}
+\index{Configlist\_closure@{Configlist\_closure}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_closure()}{Configlist\_closure()}}
+{\footnotesize\ttfamily void Configlist\+\_\+closure (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01433}{1433}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aaefdd625eb3a71fef57cbe4ea8c51ca9}\label{musami_8c_09_09_aaefdd625eb3a71fef57cbe4ea8c51ca9}} 
+\index{musami.c++@{musami.c++}!Configlist\_eat@{Configlist\_eat}}
+\index{Configlist\_eat@{Configlist\_eat}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_eat()}{Configlist\_eat()}}
+{\footnotesize\ttfamily void Configlist\+\_\+eat (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{cfp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01514}{1514}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a0401ee1afa5626711641ef86d46f8370}\label{musami_8c_09_09_a0401ee1afa5626711641ef86d46f8370}} 
+\index{musami.c++@{musami.c++}!Configlist\_init@{Configlist\_init}}
+\index{Configlist\_init@{Configlist\_init}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_init()}{Configlist\_init()}}
+{\footnotesize\ttfamily void Configlist\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01358}{1358}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a313a4a1cc1c23f881b84e3fdbaf509c3}\label{musami_8c_09_09_a313a4a1cc1c23f881b84e3fdbaf509c3}} 
+\index{musami.c++@{musami.c++}!Configlist\_reset@{Configlist\_reset}}
+\index{Configlist\_reset@{Configlist\_reset}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_reset()}{Configlist\_reset()}}
+{\footnotesize\ttfamily void Configlist\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01368}{1368}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_afeea1cc5c34369dc115b189e6f9f4c34}\label{musami_8c_09_09_afeea1cc5c34369dc115b189e6f9f4c34}} 
+\index{musami.c++@{musami.c++}!Configlist\_return@{Configlist\_return}}
+\index{Configlist\_return@{Configlist\_return}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_return()}{Configlist\_return()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structconfig}{config}} $\ast$ Configlist\+\_\+return (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01495}{1495}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aa065ddf3d597157acc65af1d03bfac77}\label{musami_8c_09_09_aa065ddf3d597157acc65af1d03bfac77}} 
+\index{musami.c++@{musami.c++}!Configlist\_sort@{Configlist\_sort}}
+\index{Configlist\_sort@{Configlist\_sort}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_sort()}{Configlist\_sort()}}
+{\footnotesize\ttfamily void Configlist\+\_\+sort (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01478}{1478}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ab0938b687a32f81deee8e7a19bcb25e5}\label{musami_8c_09_09_ab0938b687a32f81deee8e7a19bcb25e5}} 
+\index{musami.c++@{musami.c++}!Configlist\_sortbasis@{Configlist\_sortbasis}}
+\index{Configlist\_sortbasis@{Configlist\_sortbasis}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configlist\_sortbasis()}{Configlist\_sortbasis()}}
+{\footnotesize\ttfamily void Configlist\+\_\+sortbasis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01486}{1486}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8583305e844d0a78a616a0a43dec4f54}\label{musami_8c_09_09_a8583305e844d0a78a616a0a43dec4f54}} 
+\index{musami.c++@{musami.c++}!ConfigPrint@{ConfigPrint}}
+\index{ConfigPrint@{ConfigPrint}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ConfigPrint()}{ConfigPrint()}}
+{\footnotesize\ttfamily void Config\+Print (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{cfp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03372}{3372}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a7035985d4ccd10bd308f00fb582442aa}\label{musami_8c_09_09_a7035985d4ccd10bd308f00fb582442aa}} 
+\index{musami.c++@{musami.c++}!Configtable\_clear@{Configtable\_clear}}
+\index{Configtable\_clear@{Configtable\_clear}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configtable\_clear()}{Configtable\_clear()}}
+{\footnotesize\ttfamily void Configtable\+\_\+clear (\begin{DoxyParamCaption}\item[{int($\ast$)(struct \mbox{\hyperlink{structconfig}{config}} $\ast$)}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l06027}{6027}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a4559ab18dd02453fbb2a1c94b8327c59}\label{musami_8c_09_09_a4559ab18dd02453fbb2a1c94b8327c59}} 
+\index{musami.c++@{musami.c++}!Configtable\_find@{Configtable\_find}}
+\index{Configtable\_find@{Configtable\_find}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configtable\_find()}{Configtable\_find()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structconfig}{config}} $\ast$ Configtable\+\_\+find (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l06010}{6010}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ad76d2ad262b2688e04dd8e773c4cdf41}\label{musami_8c_09_09_ad76d2ad262b2688e04dd8e773c4cdf41}} 
+\index{musami.c++@{musami.c++}!Configtable\_init@{Configtable\_init}}
+\index{Configtable\_init@{Configtable\_init}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configtable\_init()}{Configtable\_init()}}
+{\footnotesize\ttfamily void Configtable\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05934}{5934}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a341c2f0c907861cb80e8b791ea34e2fc}\label{musami_8c_09_09_a341c2f0c907861cb80e8b791ea34e2fc}} 
+\index{musami.c++@{musami.c++}!Configtable\_insert@{Configtable\_insert}}
+\index{Configtable\_insert@{Configtable\_insert}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Configtable\_insert()}{Configtable\_insert()}}
+{\footnotesize\ttfamily int Configtable\+\_\+insert (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05953}{5953}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a49b2edd29f6d42adb58379d4560efaca}\label{musami_8c_09_09_a49b2edd29f6d42adb58379d4560efaca}} 
+\index{musami.c++@{musami.c++}!deleteconfig@{deleteconfig}}
+\index{deleteconfig@{deleteconfig}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{deleteconfig()}{deleteconfig()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void deleteconfig (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{old }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01351}{1351}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5ba1e185b42917f14bb7a58ec8755704}\label{musami_8c_09_09_a5ba1e185b42917f14bb7a58ec8755704}} 
+\index{musami.c++@{musami.c++}!emit\_code@{emit\_code}}
+\index{emit\_code@{emit\_code}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{emit\_code()}{emit\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void emit\+\_\+code (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{out,  }\item[{struct \mbox{\hyperlink{structrule}{rule}} $\ast$}]{rp,  }\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{int $\ast$}]{lineno }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l04105}{4105}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a25ddbeede36cd2bade72ce63c11a7bca}\label{musami_8c_09_09_a25ddbeede36cd2bade72ce63c11a7bca}} 
+\index{musami.c++@{musami.c++}!emit\_destructor\_code@{emit\_destructor\_code}}
+\index{emit\_destructor\_code@{emit\_destructor\_code}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{emit\_destructor\_code()}{emit\_destructor\_code()}}
+{\footnotesize\ttfamily void emit\+\_\+destructor\+\_\+code (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{out,  }\item[{struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$}]{sp,  }\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{int $\ast$}]{lineno }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03791}{3791}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a1a6435abb635388c5b126c6ac085f677}\label{musami_8c_09_09_a1a6435abb635388c5b126c6ac085f677}} 
+\index{musami.c++@{musami.c++}!ErrorMsg@{ErrorMsg}}
+\index{ErrorMsg@{ErrorMsg}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ErrorMsg()}{ErrorMsg()}}
+{\footnotesize\ttfamily void Error\+Msg (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{int}]{lineno,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01531}{1531}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8efc61e5e788a7fc9161e188fb1e1892}\label{musami_8c_09_09_a8efc61e5e788a7fc9161e188fb1e1892}} 
+\index{musami.c++@{musami.c++}!file\_makename@{file\_makename}}
+\index{file\_makename@{file\_makename}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{file\_makename()}{file\_makename()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} char $\ast$ file\+\_\+makename (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{const char $\ast$}]{suffix }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03240}{3240}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aab685784f87747bbb09ad2721b844ed1}\label{musami_8c_09_09_aab685784f87747bbb09ad2721b844ed1}} 
+\index{musami.c++@{musami.c++}!file\_open@{file\_open}}
+\index{file\_open@{file\_open}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{file\_open()}{file\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} FILE $\ast$ file\+\_\+open (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{const char $\ast$}]{suffix,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03275}{3275}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a80da591631826d979daab6ff4734ede8}\label{musami_8c_09_09_a80da591631826d979daab6ff4734ede8}} 
+\index{musami.c++@{musami.c++}!FindActions@{FindActions}}
+\index{FindActions@{FindActions}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{FindActions()}{FindActions()}}
+{\footnotesize\ttfamily void Find\+Actions (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01183}{1183}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a6053d3215360923072dd0ad5d7569d58}\label{musami_8c_09_09_a6053d3215360923072dd0ad5d7569d58}} 
+\index{musami.c++@{musami.c++}!FindFirstSets@{FindFirstSets}}
+\index{FindFirstSets@{FindFirstSets}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{FindFirstSets()}{FindFirstSets()}}
+{\footnotesize\ttfamily void Find\+First\+Sets (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00872}{872}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8d5892ae3ec4750b46a9ebcf53d68367}\label{musami_8c_09_09_a8d5892ae3ec4750b46a9ebcf53d68367}} 
+\index{musami.c++@{musami.c++}!FindFollowSets@{FindFollowSets}}
+\index{FindFollowSets@{FindFollowSets}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{FindFollowSets()}{FindFollowSets()}}
+{\footnotesize\ttfamily void Find\+Follow\+Sets (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01145}{1145}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a4153780b1cdd044b19a96da1e67211cd}\label{musami_8c_09_09_a4153780b1cdd044b19a96da1e67211cd}} 
+\index{musami.c++@{musami.c++}!FindLinks@{FindLinks}}
+\index{FindLinks@{FindLinks}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{FindLinks()}{FindLinks()}}
+{\footnotesize\ttfamily void Find\+Links (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01110}{1110}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a97fcce8829117bf9c7dba2ad6f134bf3}\label{musami_8c_09_09_a97fcce8829117bf9c7dba2ad6f134bf3}} 
+\index{musami.c++@{musami.c++}!FindRulePrecedences@{FindRulePrecedences}}
+\index{FindRulePrecedences@{FindRulePrecedences}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{FindRulePrecedences()}{FindRulePrecedences()}}
+{\footnotesize\ttfamily void Find\+Rule\+Precedences (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{xp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00843}{843}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8898e9663c06e5834efc010fd0882bc6}\label{musami_8c_09_09_a8898e9663c06e5834efc010fd0882bc6}} 
+\index{musami.c++@{musami.c++}!FindStates@{FindStates}}
+\index{FindStates@{FindStates}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{FindStates()}{FindStates()}}
+{\footnotesize\ttfamily void Find\+States (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00935}{935}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a33b911ab3d7c9005abc38b4620e9e3a2}\label{musami_8c_09_09_a33b911ab3d7c9005abc38b4620e9e3a2}} 
+\index{musami.c++@{musami.c++}!getstate@{getstate}}
+\index{getstate@{getstate}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{getstate()}{getstate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} struct \mbox{\hyperlink{structstate}{state}} $\ast$ getstate (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00997}{997}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8f386d102c0b03bb2802d25919d7ba17}\label{musami_8c_09_09_a8f386d102c0b03bb2802d25919d7ba17}} 
+\index{musami.c++@{musami.c++}!has\_destructor@{has\_destructor}}
+\index{has\_destructor@{has\_destructor}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{has\_destructor()}{has\_destructor()}}
+{\footnotesize\ttfamily int has\+\_\+destructor (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$}]{sp,  }\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03837}{3837}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ac034ac413a3ab10293022008652712eb}\label{musami_8c_09_09_ac034ac413a3ab10293022008652712eb}} 
+\index{musami.c++@{musami.c++}!ISTERMINAL@{ISTERMINAL}}
+\index{ISTERMINAL@{ISTERMINAL}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISTERMINAL()}{ISTERMINAL()}}
+{\footnotesize\ttfamily bool ISTERMINAL (\begin{DoxyParamCaption}\item[{char}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00053}{53}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5351f9bfd359528835f6bce4ae8fd3b7}\label{musami_8c_09_09_a5351f9bfd359528835f6bce4ae8fd3b7}} 
+\index{musami.c++@{musami.c++}!ISTOKEN@{ISTOKEN}}
+\index{ISTOKEN@{ISTOKEN}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ISTOKEN()}{ISTOKEN()}}
+{\footnotesize\ttfamily bool ISTOKEN (\begin{DoxyParamCaption}\item[{char}]{X }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l00054}{54}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}\label{musami_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{musami.c++@{musami.c++}!main@{main}}
+\index{main@{main}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01659}{1659}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a0ffbd1568022fbe7cb2f8dbeb6a3d8c3}\label{musami_8c_09_09_a0ffbd1568022fbe7cb2f8dbeb6a3d8c3}} 
+\index{musami.c++@{musami.c++}!memory\_error@{memory\_error}}
+\index{memory\_error@{memory\_error}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{memory\_error()}{memory\_error()}}
+{\footnotesize\ttfamily void memory\+\_\+error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01547}{1547}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_abb7f6686f6c4cbca4dcf92d3c1da3f76}\label{musami_8c_09_09_abb7f6686f6c4cbca4dcf92d3c1da3f76}} 
+\index{musami.c++@{musami.c++}!newconfig@{newconfig}}
+\index{newconfig@{newconfig}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{newconfig()}{newconfig()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} struct \mbox{\hyperlink{structconfig}{config}} $\ast$ newconfig (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01346}{1346}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a48cbb2548b157ae968be1cbf454f2102}\label{musami_8c_09_09_a48cbb2548b157ae968be1cbf454f2102}} 
+\index{musami.c++@{musami.c++}!OptArg@{OptArg}}
+\index{OptArg@{OptArg}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{OptArg()}{OptArg()}}
+{\footnotesize\ttfamily char $\ast$ Opt\+Arg (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02170}{2170}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aefbd0c69ee33365a0bd88c9726af4a20}\label{musami_8c_09_09_aefbd0c69ee33365a0bd88c9726af4a20}} 
+\index{musami.c++@{musami.c++}!OptErr@{OptErr}}
+\index{OptErr@{OptErr}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{OptErr()}{OptErr()}}
+{\footnotesize\ttfamily void Opt\+Err (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02177}{2177}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_acfc8aee873a014bc4b4af02600a84045}\label{musami_8c_09_09_acfc8aee873a014bc4b4af02600a84045}} 
+\index{musami.c++@{musami.c++}!OptInit@{OptInit}}
+\index{OptInit@{OptInit}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{OptInit()}{OptInit()}}
+{\footnotesize\ttfamily int Opt\+Init (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{a,  }\item[{struct \mbox{\hyperlink{structs__options}{s\+\_\+options}} $\ast$}]{o,  }\item[{FILE $\ast$}]{err }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02133}{2133}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a77812fe7d0de290deb9e381afdb2fc30}\label{musami_8c_09_09_a77812fe7d0de290deb9e381afdb2fc30}} 
+\index{musami.c++@{musami.c++}!OptNArgs@{OptNArgs}}
+\index{OptNArgs@{OptNArgs}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{OptNArgs()}{OptNArgs()}}
+{\footnotesize\ttfamily int Opt\+NArgs (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02157}{2157}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aa871ab8ee51473d0d64832e15b682d41}\label{musami_8c_09_09_aa871ab8ee51473d0d64832e15b682d41}} 
+\index{musami.c++@{musami.c++}!OptPrint@{OptPrint}}
+\index{OptPrint@{OptPrint}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{OptPrint()}{OptPrint()}}
+{\footnotesize\ttfamily void Opt\+Print (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l02184}{2184}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_abd4de7662ff6c42041e8fd174608d09a}\label{musami_8c_09_09_abd4de7662ff6c42041e8fd174608d09a}} 
+\index{musami.c++@{musami.c++}!Parse@{Parse}}
+\index{Parse@{Parse}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Parse()}{Parse()}}
+{\footnotesize\ttfamily void Parse (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03003}{3003}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8aeecc964adeae428f6eecba2a7883f0}\label{musami_8c_09_09_a8aeecc964adeae428f6eecba2a7883f0}} 
+\index{musami.c++@{musami.c++}!pathsearch@{pathsearch}}
+\index{pathsearch@{pathsearch}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{pathsearch()}{pathsearch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} char $\ast$ pathsearch (\begin{DoxyParamCaption}\item[{char $\ast$}]{argv0,  }\item[{char $\ast$}]{name,  }\item[{int}]{modemask }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03582}{3582}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_af48769b4935a20dd167222f206c582b3}\label{musami_8c_09_09_af48769b4935a20dd167222f206c582b3}} 
+\index{musami.c++@{musami.c++}!Plink\_add@{Plink\_add}}
+\index{Plink\_add@{Plink\_add}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Plink\_add()}{Plink\_add()}}
+{\footnotesize\ttfamily void Plink\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structplink}{plink}} $\ast$$\ast$}]{plpp,  }\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{cfp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03198}{3198}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aafe89d10eea8355e5a21a1c22540d23e}\label{musami_8c_09_09_aafe89d10eea8355e5a21a1c22540d23e}} 
+\index{musami.c++@{musami.c++}!Plink\_copy@{Plink\_copy}}
+\index{Plink\_copy@{Plink\_copy}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Plink\_copy()}{Plink\_copy()}}
+{\footnotesize\ttfamily void Plink\+\_\+copy (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structplink}{plink}} $\ast$$\ast$}]{to,  }\item[{struct \mbox{\hyperlink{structplink}{plink}} $\ast$}]{from }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03208}{3208}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a7c0dec90c099103fb63c4945ddaa6c2f}\label{musami_8c_09_09_a7c0dec90c099103fb63c4945ddaa6c2f}} 
+\index{musami.c++@{musami.c++}!Plink\_delete@{Plink\_delete}}
+\index{Plink\_delete@{Plink\_delete}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Plink\_delete()}{Plink\_delete()}}
+{\footnotesize\ttfamily void Plink\+\_\+delete (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structplink}{plink}} $\ast$}]{plp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03220}{3220}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a16f452952a283dbcde6391eada844229}\label{musami_8c_09_09_a16f452952a283dbcde6391eada844229}} 
+\index{musami.c++@{musami.c++}!Plink\_new@{Plink\_new}}
+\index{Plink\_new@{Plink\_new}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Plink\_new()}{Plink\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structplink}{plink}} $\ast$ Plink\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03177}{3177}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a4d9392661599b6def4b5992ada39a80b}\label{musami_8c_09_09_a4d9392661599b6def4b5992ada39a80b}} 
+\index{musami.c++@{musami.c++}!print\_stack\_union@{print\_stack\_union}}
+\index{print\_stack\_union@{print\_stack\_union}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{print\_stack\_union()}{print\_stack\_union()}}
+{\footnotesize\ttfamily void print\+\_\+stack\+\_\+union (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{out,  }\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{int $\ast$}]{plineno,  }\item[{int}]{mhflag }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l04154}{4154}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ae35f41549324436f8bfda4741f5af7ea}\label{musami_8c_09_09_ae35f41549324436f8bfda4741f5af7ea}} 
+\index{musami.c++@{musami.c++}!PrintAction@{PrintAction}}
+\index{PrintAction@{PrintAction}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{PrintAction()}{PrintAction()}}
+{\footnotesize\ttfamily int Print\+Action (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structaction}{action}} $\ast$}]{ap,  }\item[{FILE $\ast$}]{fp,  }\item[{int}]{indent }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03415}{3415}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a9f0e46fb0f39caed497ba1c5e6bc1d2c}\label{musami_8c_09_09_a9f0e46fb0f39caed497ba1c5e6bc1d2c}} 
+\index{musami.c++@{musami.c++}!ReportHeader@{ReportHeader}}
+\index{ReportHeader@{ReportHeader}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ReportHeader()}{ReportHeader()}}
+{\footnotesize\ttfamily void Report\+Header (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+JIC\+: The following code checks if any changes have occurred since the last write of the header file, suppressing a rewrite if not. Now that we no longer write all tokens to the file, its simple check logic no longer works. It won\textquotesingle{}t be difficult to rewrite but I\textquotesingle{}d rather leave it until the interface the header provides is stable.
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05054}{5054}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a52f5609e895f613f635e8032da0d3060}\label{musami_8c_09_09_a52f5609e895f613f635e8032da0d3060}} 
+\index{musami.c++@{musami.c++}!ReportOutput@{ReportOutput}}
+\index{ReportOutput@{ReportOutput}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ReportOutput()}{ReportOutput()}}
+{\footnotesize\ttfamily void Report\+Output (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03481}{3481}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a973bf6408011059ccd20608ae674769d}\label{musami_8c_09_09_a973bf6408011059ccd20608ae674769d}} 
+\index{musami.c++@{musami.c++}!ReportTable@{ReportTable}}
+\index{ReportTable@{ReportTable}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ReportTable()}{ReportTable()}}
+{\footnotesize\ttfamily void Report\+Table (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{int}]{mhflag,  }\item[{int}]{sql\+Flag }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l04351}{4351}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a73a1ce49712b0f8f8e336e69f1854ef1}\label{musami_8c_09_09_a73a1ce49712b0f8f8e336e69f1854ef1}} 
+\index{musami.c++@{musami.c++}!Reprint@{Reprint}}
+\index{Reprint@{Reprint}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Reprint()}{Reprint()}}
+{\footnotesize\ttfamily void Reprint (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03316}{3316}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a1d183ebd74d75142736945d0c019a05e}\label{musami_8c_09_09_a1d183ebd74d75142736945d0c019a05e}} 
+\index{musami.c++@{musami.c++}!ResortStates@{ResortStates}}
+\index{ResortStates@{ResortStates}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{ResortStates()}{ResortStates()}}
+{\footnotesize\ttfamily void Resort\+States (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05270}{5270}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a6d7823592bc6514c18db08b4e7b90e3a}\label{musami_8c_09_09_a6d7823592bc6514c18db08b4e7b90e3a}} 
+\index{musami.c++@{musami.c++}!rule\_print@{rule\_print}}
+\index{rule\_print@{rule\_print}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{rule\_print()}{rule\_print()}}
+{\footnotesize\ttfamily void rule\+\_\+print (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{out,  }\item[{struct \mbox{\hyperlink{structrule}{rule}} $\ast$}]{rp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03295}{3295}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aff9a2bcf962f86fba6e34a2100a0f842}\label{musami_8c_09_09_aff9a2bcf962f86fba6e34a2100a0f842}} 
+\index{musami.c++@{musami.c++}!RulePrint@{RulePrint}}
+\index{RulePrint@{RulePrint}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{RulePrint()}{RulePrint()}}
+{\footnotesize\ttfamily void Rule\+Print (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{struct \mbox{\hyperlink{structrule}{rule}} $\ast$}]{rp,  }\item[{int}]{i\+Cursor }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03351}{3351}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a454d343f78ba6645a76b2931fbf0a4d3}\label{musami_8c_09_09_a454d343f78ba6645a76b2931fbf0a4d3}} 
+\index{musami.c++@{musami.c++}!same\_symbol@{same\_symbol}}
+\index{same\_symbol@{same\_symbol}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{same\_symbol()}{same\_symbol()}}
+{\footnotesize\ttfamily int same\+\_\+symbol (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$}]{a,  }\item[{struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l01041}{1041}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a56c99719a02e6fa54cd4220c517edeb3}\label{musami_8c_09_09_a56c99719a02e6fa54cd4220c517edeb3}} 
+\index{musami.c++@{musami.c++}!SetAdd@{SetAdd}}
+\index{SetAdd@{SetAdd}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{SetAdd()}{SetAdd()}}
+{\footnotesize\ttfamily int Set\+Add (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{int}]{e }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05339}{5339}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aa958be3838835937f69f24a1e143214d}\label{musami_8c_09_09_aa958be3838835937f69f24a1e143214d}} 
+\index{musami.c++@{musami.c++}!SetFree@{SetFree}}
+\index{SetFree@{SetFree}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{SetFree()}{SetFree()}}
+{\footnotesize\ttfamily void Set\+Free (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05332}{5332}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a433cb7f81be445bf342f77fd1b9e374c}\label{musami_8c_09_09_a433cb7f81be445bf342f77fd1b9e374c}} 
+\index{musami.c++@{musami.c++}!SetNew@{SetNew}}
+\index{SetNew@{SetNew}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{SetNew()}{SetNew()}}
+{\footnotesize\ttfamily char $\ast$ Set\+New (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05322}{5322}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a9e3fd2c13a68d0c97f4dca4952fcb015}\label{musami_8c_09_09_a9e3fd2c13a68d0c97f4dca4952fcb015}} 
+\index{musami.c++@{musami.c++}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily void Set\+Size (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05316}{5316}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a03c795b1681b473900b135fa3e7000b9}\label{musami_8c_09_09_a03c795b1681b473900b135fa3e7000b9}} 
+\index{musami.c++@{musami.c++}!SetUnion@{SetUnion}}
+\index{SetUnion@{SetUnion}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{SetUnion()}{SetUnion()}}
+{\footnotesize\ttfamily int Set\+Union (\begin{DoxyParamCaption}\item[{char $\ast$}]{s1,  }\item[{char $\ast$}]{s2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05349}{5349}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aa6ee47230a22ec1e386cf9e1d3587858}\label{musami_8c_09_09_aa6ee47230a22ec1e386cf9e1d3587858}} 
+\index{musami.c++@{musami.c++}!State\_arrayof@{State\_arrayof}}
+\index{State\_arrayof@{State\_arrayof}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{State\_arrayof()}{State\_arrayof()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structstate}{state}} $\ast$$\ast$ State\+\_\+arrayof (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05888}{5888}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_af181f8b07c70d5cd5b7f19b8c2ef50cb}\label{musami_8c_09_09_af181f8b07c70d5cd5b7f19b8c2ef50cb}} 
+\index{musami.c++@{musami.c++}!State\_find@{State\_find}}
+\index{State\_find@{State\_find}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{State\_find()}{State\_find()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structstate}{state}} $\ast$ State\+\_\+find (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05870}{5870}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a8aac6477340919fc5e0dcd7ec8efa049}\label{musami_8c_09_09_a8aac6477340919fc5e0dcd7ec8efa049}} 
+\index{musami.c++@{musami.c++}!State\_init@{State\_init}}
+\index{State\_init@{State\_init}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{State\_init()}{State\_init()}}
+{\footnotesize\ttfamily void State\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05794}{5794}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aeaa59d8b5d6496ea297302fc46fffd16}\label{musami_8c_09_09_aeaa59d8b5d6496ea297302fc46fffd16}} 
+\index{musami.c++@{musami.c++}!State\_insert@{State\_insert}}
+\index{State\_insert@{State\_insert}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{State\_insert()}{State\_insert()}}
+{\footnotesize\ttfamily int State\+\_\+insert (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structstate}{state}} $\ast$}]{data,  }\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05813}{5813}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a19cedb3e4249fc45ad1a5a60d983b8e3}\label{musami_8c_09_09_a19cedb3e4249fc45ad1a5a60d983b8e3}} 
+\index{musami.c++@{musami.c++}!State\_new@{State\_new}}
+\index{State\_new@{State\_new}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{State\_new()}{State\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structstate}{state}} $\ast$ State\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05760}{5760}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a23fc7ea691636a1533504a09bdb070c4}\label{musami_8c_09_09_a23fc7ea691636a1533504a09bdb070c4}} 
+\index{musami.c++@{musami.c++}!statecmp@{statecmp}}
+\index{statecmp@{statecmp}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{statecmp()}{statecmp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} int statecmp (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{a,  }\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05734}{5734}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_abdf85a94d6c425800af0f4b53b95999f}\label{musami_8c_09_09_abdf85a94d6c425800af0f4b53b95999f}} 
+\index{musami.c++@{musami.c++}!statehash@{statehash}}
+\index{statehash@{statehash}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{statehash()}{statehash()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} unsigned statehash (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structconfig}{config}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05749}{5749}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a4e82a9d010c5ff8b72d02193e97941fc}\label{musami_8c_09_09_a4e82a9d010c5ff8b72d02193e97941fc}} 
+\index{musami.c++@{musami.c++}!strhash@{strhash}}
+\index{strhash@{strhash}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{strhash()}{strhash()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} unsigned strhash (\begin{DoxyParamCaption}\item[{const char $\ast$}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05375}{5375}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a09fe06fbc49de1b9615627bd1aeeadc0}\label{musami_8c_09_09_a09fe06fbc49de1b9615627bd1aeeadc0}} 
+\index{musami.c++@{musami.c++}!Strsafe@{Strsafe}}
+\index{Strsafe@{Strsafe}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Strsafe()}{Strsafe()}}
+{\footnotesize\ttfamily const char $\ast$ Strsafe (\begin{DoxyParamCaption}\item[{const char $\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05386}{5386}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a0c3a6f4fc1eecef0775505b0be139789}\label{musami_8c_09_09_a0c3a6f4fc1eecef0775505b0be139789}} 
+\index{musami.c++@{musami.c++}!Strsafe\_find@{Strsafe\_find}}
+\index{Strsafe\_find@{Strsafe\_find}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Strsafe\_find()}{Strsafe\_find()}}
+{\footnotesize\ttfamily const char $\ast$ Strsafe\+\_\+find (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05502}{5502}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a085e4cb794f7302f16da7990bac4c769}\label{musami_8c_09_09_a085e4cb794f7302f16da7990bac4c769}} 
+\index{musami.c++@{musami.c++}!Strsafe\_init@{Strsafe\_init}}
+\index{Strsafe\_init@{Strsafe\_init}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Strsafe\_init()}{Strsafe\_init()}}
+{\footnotesize\ttfamily void Strsafe\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05427}{5427}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a6633eceecee95084e8e06d4464a4c442}\label{musami_8c_09_09_a6633eceecee95084e8e06d4464a4c442}} 
+\index{musami.c++@{musami.c++}!Strsafe\_insert@{Strsafe\_insert}}
+\index{Strsafe\_insert@{Strsafe\_insert}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Strsafe\_insert()}{Strsafe\_insert()}}
+{\footnotesize\ttfamily int Strsafe\+\_\+insert (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05446}{5446}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ad5b5df0b25203405fc83f9b04c7a8535}\label{musami_8c_09_09_ad5b5df0b25203405fc83f9b04c7a8535}} 
+\index{musami.c++@{musami.c++}!Symbol\_arrayof@{Symbol\_arrayof}}
+\index{Symbol\_arrayof@{Symbol\_arrayof}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_arrayof()}{Symbol\_arrayof()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$$\ast$ Symbol\+\_\+arrayof (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05709}{5709}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a63076cb8a7cede687eecb70dda80de9a}\label{musami_8c_09_09_a63076cb8a7cede687eecb70dda80de9a}} 
+\index{musami.c++@{musami.c++}!Symbol\_count@{Symbol\_count}}
+\index{Symbol\_count@{Symbol\_count}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_count()}{Symbol\_count()}}
+{\footnotesize\ttfamily int Symbol\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05701}{5701}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a3fc05bf35c89d6f8aa382a41abd0ef36}\label{musami_8c_09_09_a3fc05bf35c89d6f8aa382a41abd0ef36}} 
+\index{musami.c++@{musami.c++}!Symbol\_find@{Symbol\_find}}
+\index{Symbol\_find@{Symbol\_find}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_find()}{Symbol\_find()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ Symbol\+\_\+find (\begin{DoxyParamCaption}\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05673}{5673}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a89805c1292d899fa98afc401a20162a1}\label{musami_8c_09_09_a89805c1292d899fa98afc401a20162a1}} 
+\index{musami.c++@{musami.c++}!Symbol\_init@{Symbol\_init}}
+\index{Symbol\_init@{Symbol\_init}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_init()}{Symbol\_init()}}
+{\footnotesize\ttfamily void Symbol\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05595}{5595}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5ac810e81926782fb5ad47c4668c730c}\label{musami_8c_09_09_a5ac810e81926782fb5ad47c4668c730c}} 
+\index{musami.c++@{musami.c++}!Symbol\_insert@{Symbol\_insert}}
+\index{Symbol\_insert@{Symbol\_insert}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_insert()}{Symbol\_insert()}}
+{\footnotesize\ttfamily int Symbol\+\_\+insert (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$}]{data,  }\item[{const char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05614}{5614}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a4a47676e242ee304df3f0571545d1ddc}\label{musami_8c_09_09_a4a47676e242ee304df3f0571545d1ddc}} 
+\index{musami.c++@{musami.c++}!Symbol\_new@{Symbol\_new}}
+\index{Symbol\_new@{Symbol\_new}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_new()}{Symbol\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ Symbol\+\_\+new (\begin{DoxyParamCaption}\item[{const char $\ast$}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05520}{5520}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ad29df575d28fbcaf4008fde1c7750395}\label{musami_8c_09_09_ad29df575d28fbcaf4008fde1c7750395}} 
+\index{musami.c++@{musami.c++}!Symbol\_Nth@{Symbol\_Nth}}
+\index{Symbol\_Nth@{Symbol\_Nth}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbol\_Nth()}{Symbol\_Nth()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structsymbol}{symbol}} $\ast$ Symbol\+\_\+\+Nth (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05689}{5689}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_abbf60dcc12ed8d5c52ef5e29d441be56}\label{musami_8c_09_09_abbf60dcc12ed8d5c52ef5e29d441be56}} 
+\index{musami.c++@{musami.c++}!Symbolcmpp@{Symbolcmpp}}
+\index{Symbolcmpp@{Symbolcmpp}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{Symbolcmpp()}{Symbolcmpp()}}
+{\footnotesize\ttfamily int Symbolcmpp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{\+\_\+a,  }\item[{const void $\ast$}]{\+\_\+b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l05560}{5560}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a84c066e584e58fc6860b542fb587f85c}\label{musami_8c_09_09_a84c066e584e58fc6860b542fb587f85c}} 
+\index{musami.c++@{musami.c++}!tplt\_linedir@{tplt\_linedir}}
+\index{tplt\_linedir@{tplt\_linedir}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{tplt\_linedir()}{tplt\_linedir()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void tplt\+\_\+linedir (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{out,  }\item[{int}]{lineno,  }\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03757}{3757}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aba876388d20304d1c163f6920dd61363}\label{musami_8c_09_09_aba876388d20304d1c163f6920dd61363}} 
+\index{musami.c++@{musami.c++}!tplt\_open@{tplt\_open}}
+\index{tplt\_open@{tplt\_open}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{tplt\_open()}{tplt\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} FILE $\ast$ tplt\+\_\+open (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03701}{3701}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_ad0eb62c3483a7c001cb391006794dbcb}\label{musami_8c_09_09_ad0eb62c3483a7c001cb391006794dbcb}} 
+\index{musami.c++@{musami.c++}!tplt\_print@{tplt\_print}}
+\index{tplt\_print@{tplt\_print}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{tplt\_print()}{tplt\_print()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void tplt\+\_\+print (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{out,  }\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{char $\ast$}]{str,  }\item[{int $\ast$}]{lineno }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03769}{3769}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_aa22d0451f52d76e088355fa92f7e89a9}\label{musami_8c_09_09_aa22d0451f52d76e088355fa92f7e89a9}} 
+\index{musami.c++@{musami.c++}!tplt\_skip\_header@{tplt\_skip\_header}}
+\index{tplt\_skip\_header@{tplt\_skip\_header}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{tplt\_skip\_header()}{tplt\_skip\_header()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void tplt\+\_\+skip\+\_\+header (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{in,  }\item[{int $\ast$}]{lineno }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03691}{3691}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a5594125cae448c33a2f2ad6b9c3b4c4e}\label{musami_8c_09_09_a5594125cae448c33a2f2ad6b9c3b4c4e}} 
+\index{musami.c++@{musami.c++}!tplt\_xfer@{tplt\_xfer}}
+\index{tplt\_xfer@{tplt\_xfer}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{tplt\_xfer()}{tplt\_xfer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} void tplt\+\_\+xfer (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{FILE $\ast$}]{in,  }\item[{FILE $\ast$}]{out,  }\item[{int $\ast$}]{lineno }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03666}{3666}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
+\mbox{\Hypertarget{musami_8c_09_09_a1e6575254b6536a658aa3110aefd9356}\label{musami_8c_09_09_a1e6575254b6536a658aa3110aefd9356}} 
+\index{musami.c++@{musami.c++}!translate\_code@{translate\_code}}
+\index{translate\_code@{translate\_code}!musami.c++@{musami.c++}}
+\doxysubsubsection{\texorpdfstring{translate\_code()}{translate\_code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{musami_8c_09_09_a5e151c615eda34903514212f05a5ccf8}{PRIVATE}} int translate\+\_\+code (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlemon}{lemon}} $\ast$}]{lemp,  }\item[{struct \mbox{\hyperlink{structrule}{rule}} $\ast$}]{rp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{musami_8c_09_09_source_l03908}{3908}} of file \mbox{\hyperlink{musami_8c_09_09_source}{musami.\+c++}}.
+
