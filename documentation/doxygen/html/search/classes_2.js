@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['config_0',['config',['../structconfig.html',1,'']]],
+  ['config_0',['config',['../structconfig.html',1,'config'],['../classjclib_1_1config.html',1,'jclib::config']]],
   ['countedpointer_1',['CountedPointer',['../classjclib_1_1_counted_pointer.html',1,'jclib']]],
   ['countedpointer_3c_20awkccc_3a_3aast_5fnode_20_3e_2',['CountedPointer&lt; awkccc::ast_node &gt;',['../classjclib_1_1_counted_pointer.html',1,'jclib']]],
   ['countedpointer_3c_20awkccc_3a_3asymbol_20_3e_3',['CountedPointer&lt; awkccc::Symbol &gt;',['../classjclib_1_1_counted_pointer.html',1,'jclib']]],

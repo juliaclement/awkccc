@@ -7,7 +7,7 @@ var searchData=
   ['variables_5f_4',['variables_',['../struct_user___arguments.html#a029892fa5f20484f64943a6db9388a6f',1,'User_Arguments']]],
   ['vartype_5',['vartype',['../structlemon.html#aba6673e46aed4d62614c1042f70fde66',1,'lemon']]],
   ['version_5f_6',['version_',['../struct_user___arguments.html#a670bd2d5670f11d996494bf401e03128',1,'User_Arguments']]],
-  ['version_5fstring_5f_7',['version_string_',['../classjclib_1_1arguments.html#a80a51673ad902c9d406285314f48cf90',1,'jclib::arguments']]],
+  ['version_5fstring_5f_7',['version_string_',['../classjclib_1_1arguments.html#ab947f5ed286af72ad25eb7bd9691fdab',1,'jclib::arguments']]],
   ['visit_5fast_5fbin_5fop_5fnode_8',['visit_ast_bin_op_node',['../classawkccc_1_1ast__node__visitor.html#aad4f26c2c0554f27d52de141790b4689',1,'awkccc::ast_node_visitor::visit_ast_bin_op_node()'],['../classawkccc_1_1ast__printer.html#aa3dd89bc4703069ecaaade75f737f005',1,'awkccc::ast_printer::visit_ast_bin_op_node(ast_bin_op_node *node)']]],
   ['visit_5fast_5fbranch_5floop_5fnode_9',['visit_ast_branch_loop_node',['../classawkccc_1_1ast__printer.html#a78e1e4e06efd1de3838973e5684adfb2',1,'awkccc::ast_printer::visit_ast_branch_loop_node()'],['../classawkccc_1_1ast__node__visitor.html#a16dc4f673fdfd962a52d457b903d0c8d',1,'awkccc::ast_node_visitor::visit_ast_branch_loop_node()']]],
   ['visit_5fast_5fempty_5fnode_10',['visit_ast_empty_node',['../classawkccc_1_1ast__printer.html#a860d91696eee97155d39aec124a987c8',1,'awkccc::ast_printer::visit_ast_empty_node()'],['../classawkccc_1_1ast__node__visitor.html#a5a993dcbc8ffa5474760cb98469e453e',1,'awkccc::ast_node_visitor::visit_ast_empty_node(class ast_empty_node *)=0']]],

@@ -14,7 +14,8 @@ var searchData=
   ['intofst_11',['iNtOfst',['../structstate.html#a76c5eafaf09d92e514623f3f3171fba6',1,'state']]],
   ['iorder_12',['iOrder',['../structaxset.html#ab339566a86fe750207ec69e673294fce',1,'axset']]],
   ['irule_13',['iRule',['../structrule.html#a385b82413a7000a6ee00920796e69659',1,'rule']]],
-  ['is_5fset_5f_14',['is_set_',['../classjclib_1_1arg__base.html#a7d555b08df207e7c6407bf4ef14589d3',1,'jclib::arg_base']]],
-  ['istkn_15',['isTkn',['../structaxset.html#a33c39174f3938bc758e668d14cc7c7a6',1,'axset']]],
-  ['itknofst_16',['iTknOfst',['../structstate.html#a8b8000826bd6bdea4863293f586efc1b',1,'state']]]
+  ['is_5fdefaulted_5f_14',['is_defaulted_',['../classjclib_1_1arg__base.html#ab9e6cbb9a0d17f8d7802fca2a17337ea',1,'jclib::arg_base']]],
+  ['is_5fset_5f_15',['is_set_',['../classjclib_1_1arg__base.html#a7d555b08df207e7c6407bf4ef14589d3',1,'jclib::arg_base']]],
+  ['istkn_16',['isTkn',['../structaxset.html#a33c39174f3938bc758e668d14cc7c7a6',1,'axset']]],
+  ['itknofst_17',['iTknOfst',['../structstate.html#a8b8000826bd6bdea4863293f586efc1b',1,'state']]]
 ];

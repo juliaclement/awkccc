@@ -1,0 +1,261 @@
+\hypertarget{tests_2_lexer_test_class_8cpp_source}{}\doxysection{Lexer\+Test\+Class.\+cpp}
+\label{tests_2_lexer_test_class_8cpp_source}\index{tests/LexerTestClass.cpp@{tests/LexerTestClass.cpp}}
+\mbox{\hyperlink{tests_2_lexer_test_class_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00002}00002 \textcolor{comment}{Copyright (c) 2022 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00003}00003 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00004}00004 \textcolor{comment}{Permission is hereby granted, free of charge, to any person obtaining a copy}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00005}00005 \textcolor{comment}{of this software and associated documentation files (the "{}Software"{}), to deal}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00006}00006 \textcolor{comment}{in the Software without restriction, including without limitation the rights}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00007}00007 \textcolor{comment}{to use, copy, modify, merge, publish, distribute, sublicense, and/or sell}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00008}00008 \textcolor{comment}{copies of the Software, and to permit persons to whom the Software is}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00009}00009 \textcolor{comment}{furnished to do so, subject to the following conditions:}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00010}00010 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00011}00011 \textcolor{comment}{The above copyright notice and this permission notice shall be included in all}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00012}00012 \textcolor{comment}{copies or substantial portions of the Software.}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00013}00013 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00014}00014 \textcolor{comment}{THE SOFTWARE IS PROVIDED "{}AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00015}00015 \textcolor{comment}{IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00016}00016 \textcolor{comment}{FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00017}00017 \textcolor{comment}{AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00018}00018 \textcolor{comment}{LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00019}00019 \textcolor{comment}{OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00020}00020 \textcolor{comment}{SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00021}00021 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00022}00022 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00023}00023 \textcolor{comment}{ * File:   LexerTestClass.cpp}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00024}00024 \textcolor{comment}{ * Author: Julia Clement <Julia at Clement dot nz>}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00025}00025 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00026}00026 \textcolor{comment}{ * Created on 08/11/2022, 17:05:55}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00027}00027 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00029}00029 \textcolor{preprocessor}{\#ifdef ONE\_FIXTURE}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00030}00030 \textcolor{preprocessor}{\#include <cppunit/CompilerOutputter.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <cppunit/extensions/TestFactoryRegistry.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00032}00032 \textcolor{preprocessor}{\#include <cppunit/ui/text/TestRunner.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00033}00033 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00034}00034 \textcolor{preprocessor}{\#include <cppunit/extensions/HelperMacros.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00035}00035 \textcolor{preprocessor}{\#include "{}../include/jString.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00036}00036 \textcolor{preprocessor}{\#include "{}../include/awkccc\_ast.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00037}00037 \textcolor{preprocessor}{\#include "{}../include/awkccc\_lexer.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00038}00038 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacejclib}{jclib}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00039}00039 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceawkccc}{awkccc}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00041}00041 \textcolor{preprocessor}{\#include "{}../src/parser.h++"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00043}00043 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacejclib}{jclib}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00044}00044 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespaceawkccc}{awkccc}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00045}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_aa3f793f4cb403f801cad07e1f9619b2d}{00045}} \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_aa3f793f4cb403f801cad07e1f9619b2d}{malloc\_t}}(\textcolor{keywordtype}{size\_t}));}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00046}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_af133d4bffc5f90ffa719863791a61a18}{00046}} \textcolor{keyword}{typedef} \textcolor{keywordtype}{void} *(*\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_af133d4bffc5f90ffa719863791a61a18}{free\_t}}(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00047}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{00047}} \textcolor{preprocessor}{\#define ParseTOKENTYPE jclib::CountedPointer<ast\_node>}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00048}00048 \textcolor{comment}{// This character to token table is a cut-\/n-\/paste from the }}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00049}00049 \textcolor{comment}{// generated parser.c++ file.}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00050}00050 \textcolor{comment}{// If the original table changes, it will need recopying.}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00051}00051 \textcolor{keyword}{static}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00052}00052 \textcolor{comment}{// -\/ -\/ -\/ cut \& paste begins -\/ -\/ -\/}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00053}00053 \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} PARSER\_chars[128] = \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00054}00054    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00055}00055    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00056}00056    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00057}00057    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00058}00058    0,   15,    0,    0,   22,   13,   33,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00059}00059    3,    4,   12,   10,    7,   11,    0,   34, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00060}00060    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00061}00061    0,    0,   20,    8,   17,   23,   16,   19, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00062}00062    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00063}00063    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00064}00064    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00065}00065    0,    0,    0,    5,    0,    6,   14,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00066}00066   30,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00067}00067    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00068}00068    0,    0,    0,    0,    0,    0,    0,    0, }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00069}00069    0,    0,    0,    1,   18,    2,   21,    0 \};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00070}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ade3835481c316010f55b5f09a0f49dc8}{00070}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ade3835481c316010f55b5f09a0f49dc8}{PARSER\_char\_to\_token}}( \textcolor{keywordtype}{char} chr ) \{\textcolor{keywordflow}{return} PARSER\_chars[chr];\}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00071}00071 \textcolor{comment}{// -\/ -\/ -\/ cut \& paste ends -\/ -\/ -\/}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00072}\mbox{\hyperlink{namespace_lexer_test_class_n_s}{00072}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_lexer_test_class_n_s}{LexerTestClassNS}} \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00073}\mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace}{00073}}     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace}{parser\_trace}} \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00074}\mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace_a2f4134bf86709317a4387c82e1065299}{00074}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace_a2f4134bf86709317a4387c82e1065299}{TokenCode\_}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00075}\mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace_a7fe865ab3c707188b715105af771b14c}{00075}}         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} \mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace_a7fe865ab3c707188b715105af771b14c}{token\_}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00076}\mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace_a8a23c0ed827018461888d9cdebcf19e3}{00076}}         \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib::CountedPointer<awkccc::ast\_node>}} *\mbox{\hyperlink{struct_lexer_test_class_n_s_1_1parser__trace_a8a23c0ed827018461888d9cdebcf19e3}{pAbc\_}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00077}\mbox{\hyperlink{namespace_lexer_test_class_n_s_a0c299bdb95422cfec8792362af54b3f0}{00077}}     \} \mbox{\hyperlink{namespace_lexer_test_class_n_s_a0c299bdb95422cfec8792362af54b3f0}{ParseTrace}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00078}\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{00078}}     \textcolor{keyword}{typedef} \textcolor{keyword}{class }\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{parser\_mock}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\_Parser}} \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00079}00079         \textcolor{keyword}{public}: }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00080}\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{00080}}             std::vector<ParseTrace> \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00081}\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_afa853d52785f8be9b5835eb1f10e9e44}{00081}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_afa853d52785f8be9b5835eb1f10e9e44}{parse}}( \textcolor{keywordtype}{int} tokenCode, \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token\_, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib::CountedPointer<awkccc::ast\_node>}} *pAbc ) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00082}00082                 \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}.push\_back( \{tokenCode, token\_, pAbc\} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00083}00083             \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00084}\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a92108201d2f59ec27a473a612ae4398c}{00084}}             \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a92108201d2f59ec27a473a612ae4398c}{char\_to\_token}}(\textcolor{keywordtype}{char} chr) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00085}00085                 \textcolor{keywordflow}{return} PARSER\_chars[chr];}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00086}00086             \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00087}\mbox{\hyperlink{namespace_lexer_test_class_n_s_a17b011b9bc6bf4ee28ef3b7d43221c2c}{00087}}     \} \mbox{\hyperlink{namespace_lexer_test_class_n_s_a17b011b9bc6bf4ee28ef3b7d43221c2c}{ParserMock}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00088}\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{00088}}     \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{ParserMock}} \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00089}00089 \};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00091}00091 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_lexer_test_class_n_s}{LexerTestClassNS}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00092}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_a3482753982f3bd597be8c565e2ee697c}{00092}} \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\_Parser}}* \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_a3482753982f3bd597be8c565e2ee697c}{get\_parser}}( ) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00093}00093     \textcolor{comment}{// Don't let reference counter destroy our static variable}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00094}00094     \textcolor{keywordflow}{if}( \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_p_a_r_s_e_r___parser_a4cee398caab604d4a474c3255e90fa92}{counter\_}} == 0 )}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00095}00095         \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_p_a_r_s_e_r___parser_a4cee398caab604d4a474c3255e90fa92}{counter\_}}++; }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00096}00096     \textcolor{keywordflow}{return} \& \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00097}00097 \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00099}\mbox{\hyperlink{awkccc_8c_09_09_aa8427503847800ef3fe8ab66fb4c55d5}{00099}} \textcolor{keywordtype}{void} \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ab01c753fe13c0dce73b74356a71cdc64}{Parse}}(\textcolor{keywordtype}{void} *pParser, \textcolor{keywordtype}{int} tokenCode, \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token\_, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib::CountedPointer<awkccc::ast\_node>}} *pAbc) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00100}00100     \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{ParserMock}} * parser = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{ParserMock}} *\textcolor{keyword}{>}(pParser);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00101}00101     parser-\/>\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_afa853d52785f8be9b5835eb1f10e9e44}{parse}}( tokenCode, token\_, pAbc );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00102}00102 \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00104}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ae2ff96685825a8642d4ae7b04363e6a8}{00104}} \textcolor{keywordtype}{void} \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ae2ff96685825a8642d4ae7b04363e6a8}{ParseTrace}}(FILE *stream, \textcolor{keywordtype}{char} *zPrefix) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00107}\mbox{\hyperlink{class_lexer_test_class}{00107}} \textcolor{keyword}{class }\mbox{\hyperlink{class_lexer_test_class}{LexerTestClass}} : \textcolor{keyword}{public} CPPUNIT\_NS::TestFixture \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00108}00108 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00109}\mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{00109}}     \textcolor{keywordtype}{char} * \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00110}\mbox{\hyperlink{class_lexer_test_class_a055797005fff48552de2a468fc96b27a}{00110}}     \mbox{\hyperlink{class_lexer_test_class_a055797005fff48552de2a468fc96b27a}{LexerTestClass}}() \{\}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00111}\mbox{\hyperlink{class_lexer_test_class_a0968ef74069c1b1eaee922ac0b3da625}{00111}}     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_lexer_test_class_a0968ef74069c1b1eaee922ac0b3da625}{\string~LexerTestClass}}() \{\}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00112}\mbox{\hyperlink{class_lexer_test_class_ad4c50084fca0fde0b10228852a6cb2e2}{00112}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lexer_test_class_ad4c50084fca0fde0b10228852a6cb2e2}{setUp}}()\{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00114}\mbox{\hyperlink{class_lexer_test_class_a7c97547bb1a35622ca8628ef4ad4066b}{00114}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lexer_test_class_a7c97547bb1a35622ca8628ef4ad4066b}{tearDown}}()\{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00115}00115     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00116}\mbox{\hyperlink{class_lexer_test_class_a901a234ae7d8fb2cf4833c81082d76b1}{00116}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lexer_test_class_a901a234ae7d8fb2cf4833c81082d76b1}{delete\_buffer}}() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00117}00117         \textcolor{keyword}{delete} \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00118}00118         \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00119}00119     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00120}\mbox{\hyperlink{class_lexer_test_class_a937982bd4d429a17ea24ba62fa333f8e}{00120}}     \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} * \mbox{\hyperlink{class_lexer_test_class_a937982bd4d429a17ea24ba62fa333f8e}{create\_lexer}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * code ) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00121}00121         \mbox{\hyperlink{classawkccc_1_1_symbol_table}{SymbolTable}} \& the\_symbol\_table = SymbolTable::instance();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00122}00122         \mbox{\hyperlink{class_p_a_r_s_e_r___parser}{PARSER\_Parser}} * pParser=\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_a3482753982f3bd597be8c565e2ee697c}{get\_parser}}();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00123}00123         \mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{ParserMock}} * parser = \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock}{ParserMock}} *\textcolor{keyword}{>}(pParser);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00124}00124         parser-\/>\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}.clear();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00125}00125         \textcolor{keywordflow}{if}( \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}} ) }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00126}00126             \mbox{\hyperlink{class_lexer_test_class_a901a234ae7d8fb2cf4833c81082d76b1}{delete\_buffer}}();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00127}00127         \textcolor{keywordflow}{if}( code ) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00128}00128             \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}} = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[std::strlen(code)+1];}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00129}00129             std::strcpy( \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}}, code );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00130}00130         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00131}00131             \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}} = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[2];}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00132}00132             \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}}[0] = \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}}[1] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00133}00133         \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00134}00134         \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} * lexer = \textcolor{keyword}{new} \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}}( \mbox{\hyperlink{class_lexer_test_class_a1a1084490a23adb456c4ab7c14c87e04}{buf\_}} ,\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},\textcolor{keyword}{nullptr},0,\&the\_symbol\_table,parser);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00135}00135         lexer-\/>\mbox{\hyperlink{classawkccc_1_1_lexer_a69428bca45a3ce63702e799fce3d4aa7}{initialise\_symbol\_table}}();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00136}00136         \textcolor{keywordflow}{return} lexer;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00137}00137     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00138}\mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{00138}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * code ) \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00139}00139         \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}} * lexer = \mbox{\hyperlink{class_lexer_test_class_a937982bd4d429a17ea24ba62fa333f8e}{create\_lexer}}( code );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00140}00140         lexer-\/>\mbox{\hyperlink{classawkccc_1_1_lexer_a46098cfd054dfdb2f3bac17d517cf794}{lex}}();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00141}00141         \textcolor{keyword}{delete} lexer;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00142}00142         \mbox{\hyperlink{class_lexer_test_class_a901a234ae7d8fb2cf4833c81082d76b1}{delete\_buffer}}();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00143}00143     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00144}00144 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00145}00145     \textcolor{keywordtype}{void} testBegin() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00146}00146         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}BEGIN\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00147}00147         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].TokenCode\_ == \mbox{\hyperlink{parser_8h_09_09_a372abb15a9b6c63d1ba7f50e13d4517e}{PARSER\_Begin}} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00148}00148     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00149}00149     \textcolor{keywordtype}{void} test1CharOp() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00150}00150         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}*\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00151}00151         \textcolor{comment}{// Tests that lexer passes the expected token, not that it is the correct token}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00152}00152         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].TokenCode\_ == PARSER\_chars[\textcolor{charliteral}{'*'}] );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00153}00153     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00154}00154     \textcolor{keywordtype}{void} testRegex() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00155}00155         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}/[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00156}00156         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].TokenCode\_ == \mbox{\hyperlink{parser_8h_09_09_ad5ecdd0f40545a98b983ff763e4cac33}{PARSER\_ERE}} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00158}00158     \textcolor{keywordtype}{void} testRegexNotAllowed() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00159}00159         \textcolor{comment}{// a/... should be interpreted as 'a','/', ... \& not as a regex}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00160}00160         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}a/[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00161}00161         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].TokenCode\_ == \mbox{\hyperlink{parser_8h_09_09_abf538e93bfd463114aea8b819064a88e}{PARSER\_NAME}} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00162}00162         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[1].TokenCode\_ == PARSER\_chars[\textcolor{charliteral}{'/'}] );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00163}00163     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00164}00164     \textcolor{keywordtype}{void} testRegexNotAllowed2() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00165}00165         \textcolor{comment}{// a/=... should be interpreted as 'a','/=','...' \& not as a regex}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00166}00166         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}a/=[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00167}00167         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].TokenCode\_ == \mbox{\hyperlink{parser_8h_09_09_abf538e93bfd463114aea8b819064a88e}{PARSER\_NAME}} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00168}00168         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[1].TokenCode\_ == \mbox{\hyperlink{parser_8h_09_09_a542bc3386fd148ad841b3f4be6bdccba}{PARSER\_DIV\_ASSIGN}} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00169}00169     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00170}00170     \textcolor{keywordtype}{void} testPlusEquals() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00171}00171         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}+="{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00172}00172         CPPUNIT\_ASSERT(\mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].TokenCode\_ == \mbox{\hyperlink{parser_8h_09_09_a6f90ce7fa78ffd5beee9dba04b2ee5e8}{PARSER\_ADD\_ASSIGN}} );}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00173}00173     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00174}00174     \textcolor{keywordtype}{void} testVariableGoesToVariable() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00175}00175         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00176}00176         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00177}00177         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00178}00178         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00179}00179         CPPUNIT\_ASSERT( sym-\/>type\_ ==  \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{awkccc::VARIABLE}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00180}00180     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00181}00181     \textcolor{keywordtype}{void} testVariableName() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00182}00182         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00183}00183         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00184}00184         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00185}00185         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00186}00186         CPPUNIT\_ASSERT( sym-\/>name\_ ==  \textcolor{stringliteral}{"{}avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00187}00187     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00188}00188     \textcolor{keywordtype}{void} testNamespaceOverridePermutesVariableName() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00189}00189         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}xxx::avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00190}00190         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00191}00191         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00192}00192         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00193}00193         CPPUNIT\_ASSERT( sym-\/>name\_ ==  \textcolor{stringliteral}{"{}xxx\_\_avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00194}00194     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00195}00195     \textcolor{keywordtype}{void} testNamespacePermutesVariableName() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00196}00196         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}@namespace xxx avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00197}00197         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00198}00198         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00199}00199         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00200}00200         CPPUNIT\_ASSERT( sym-\/>name\_ ==  \textcolor{stringliteral}{"{}xxx\_\_avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00201}00201     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00202}00202     \textcolor{keywordtype}{void} testNamespaceIgnoredByAllUppercase() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00203}00203         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}@namespace xxx ABC"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00204}00204         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00205}00205         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00206}00206         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00207}00207         CPPUNIT\_ASSERT( sym-\/>name\_ ==  \textcolor{stringliteral}{"{}ABC"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00208}00208     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00209}00209     \textcolor{keywordtype}{void} testNamespaceIgnoredByReservedWord() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00210}00210         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}@namespace xxx if"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00211}00211         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00212}00212         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00213}00213         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00214}00214         CPPUNIT\_ASSERT( sym-\/>name\_ ==  \textcolor{stringliteral}{"{}if"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00215}00215     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00216}00216     \textcolor{keywordtype}{void} testNamespaceOverrideAllUppercase() \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00217}00217         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}xxx::ABC"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00218}00218         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00219}00219         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00220}00220         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00221}00221         CPPUNIT\_ASSERT( sym-\/>name\_ ==  \textcolor{stringliteral}{"{}xxx\_\_ABC"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00222}00222     \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00223}00223     CPPUNIT\_TEST\_SUITE(\mbox{\hyperlink{class_lexer_test_class}{LexerTestClass}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00224}00224         CPPUNIT\_TEST(testBegin);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00225}00225         CPPUNIT\_TEST(test1CharOp);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00226}00226         CPPUNIT\_TEST(testRegex);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00227}00227         CPPUNIT\_TEST(testRegexNotAllowed);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00228}00228         CPPUNIT\_TEST(testRegexNotAllowed2);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00229}00229         CPPUNIT\_TEST(testPlusEquals);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00230}00230         CPPUNIT\_TEST(testVariableGoesToVariable);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00231}00231         CPPUNIT\_TEST(testVariableName);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00232}00232         CPPUNIT\_TEST(testNamespaceOverridePermutesVariableName);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00233}00233         CPPUNIT\_TEST(testNamespacePermutesVariableName);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00234}00234         CPPUNIT\_TEST(testNamespaceIgnoredByAllUppercase);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00235}00235         CPPUNIT\_TEST(testNamespaceIgnoredByReservedWord);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00236}00236         CPPUNIT\_TEST(testNamespaceOverrideAllUppercase);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00237}00237     CPPUNIT\_TEST\_SUITE\_END();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00238}00238 \};}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00239}00239 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00240}\mbox{\hyperlink{tests_2_lexer_test_class_8cpp_a291880ad3dc7cbf0f6345e06e3166f23}{00240}} \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_a291880ad3dc7cbf0f6345e06e3166f23}{CPPUNIT\_TEST\_SUITE\_REGISTRATION}}(\mbox{\hyperlink{class_lexer_test_class}{LexerTestClass}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00241}00241 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00242}00242 \textcolor{preprocessor}{\#ifdef ONE\_FIXTURE}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00243}00243 \textcolor{keywordtype}{int} \mbox{\hyperlink{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[])}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00244}00244 \{}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00245}00245     \textcolor{comment}{// Get the top level suite from the registry}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00246}00246     CPPUNIT\_NS::Test *suite = CPPUNIT\_NS::TestFactoryRegistry::getRegistry().makeTest();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00247}00247 }
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00248}00248     CppUnit::TextUi::TestRunner runner;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00249}00249     runner.addTest(suite);}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00250}00250     \textcolor{keywordtype}{bool} wasSucessful = runner.run();}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00251}00251     \textcolor{keywordtype}{char}* c = (\textcolor{keywordtype}{char}*) malloc(10 * \textcolor{keyword}{sizeof} (\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00252}00252     \textcolor{comment}{//scanf (c,"{}\%c"{});}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00253}00253     \textcolor{keywordflow}{return} wasSucessful ? 0 : 1;}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00254}00254 \}}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00255}00255 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
