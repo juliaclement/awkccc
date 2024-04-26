@@ -24,3 +24,4 @@ src/parser.out
 src/recc
 src/tokens
 tests/LexerTestClass
+bin/generate_source.o

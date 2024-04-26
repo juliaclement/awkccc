@@ -42,8 +42,9 @@ class SymbolTableImpl : public SymbolTable {
         virtual Symbol * insert(
                 class jclib::jString name,
                 int token,
-                SymbolType type = VARIABLE) {
-            Symbol * sym = new Symbol( name, token, type);
+                SymbolType type = VARIABLE,
+                bool is_built_in = false) {
+            Symbol * sym = new Symbol( name, token, type, is_built_in );
             sym_table_[sym->name_] = sym;
             return sym;
         }
@@ -65,7 +66,7 @@ class SymbolTableImpl : public SymbolTable {
                 SymbolType type = VARIABLE) {
             if( Symbol * answer = find(name) )
                 return answer;
-            return insert( name, token, type );
+            return insert( name, token, type, false );
         }
 
         static SymbolTableImpl & instance() {
@@ -75,7 +76,7 @@ class SymbolTableImpl : public SymbolTable {
 
         virtual void load(std::initializer_list<struct _Symbol_loader> input) {
             for( auto i : input) {
-                insert( i.name_, i.token_, i.type_);
+                insert( i.name_, i.token_, i.type_, i.is_built_in_ );
             }
         }
 
@@ -92,7 +93,7 @@ class SymbolTableImpl : public SymbolTable {
             auto target = tmp_name+namespace_name.len()+2;
             for( auto i : input) {
                 strcpy(target,i.name_);
-                insert( tmp_name, i.token_, i.type_);
+                insert( tmp_name, i.token_, i.type_, false);
             }
             if( also_load_global )
                 load(input);
@@ -291,17 +292,39 @@ void Lexer::initialise_symbol_table() {
         {"++",OPERATOR,PARSER_INCR},
         {"--",OPERATOR,PARSER_DECR},
         {">>",OPERATOR,PARSER_APPEND},
+        {"ARGC", VARIABLE, PARSER_NAME, true },
+        {"ARGV", VARIABLE, PARSER_NAME, true },
+        {"CONVFMT", VARIABLE, PARSER_NAME, true },
+        {"ENVIRON", VARIABLE, PARSER_NAME, true },
+        {"FILENAME", VARIABLE, PARSER_NAME, true },
+        {"FNR", VARIABLE, PARSER_NAME, true },
+        {"FS", VARIABLE, PARSER_NAME, true },
+        {"NF", VARIABLE, PARSER_NAME, true },
+        {"NR", VARIABLE, PARSER_NAME, true },
+        {"OFMT", VARIABLE, PARSER_NAME, true },
+        {"OFS", VARIABLE, PARSER_NAME, true },
+        {"ORS", VARIABLE, PARSER_NAME, true },
+        {"RLENGTH", VARIABLE, PARSER_NAME, true },
+        {"RS", VARIABLE, PARSER_NAME, true },
+        {"RSTART", VARIABLE, PARSER_NAME, true },
+        {"SUBSEP", VARIABLE, PARSER_NAME, true },
     });
     symbol_table_->loadnamespace("gawk",true,{
         {"BEGINFILE",KEYWORD,PARSER_BeginFile},
         {"ENDFILE",KEYWORD,PARSER_EndFile},
         {"nextfile",STATEMENT,PARSER_NextFile},
+        {"ARGIND", VARIABLE, PARSER_NAME, true },
+        {"ERRNO", VARIABLE, PARSER_NAME, true },
+        {"RT", VARIABLE, PARSER_NAME, true },
     });
     symbol_table_->loadnamespace("awkccc",true,{
         {"BEGINFILE",KEYWORD,PARSER_BeginFile},
         {"MAINLOOP",KEYWORD,PARSER_Mainloop},
         {"ENDFILE",KEYWORD,PARSER_EndFile},
         {"nextfile",STATEMENT,PARSER_NextFile},
+        {"ARGIND", VARIABLE, PARSER_NAME, true },
+        {"ERRNO", VARIABLE, PARSER_NAME, true },
+        {"RT", VARIABLE, PARSER_NAME, true },
     });
     symbol_table_->loadnamespace("awkccc",false,{
         {"blocksize",VARIABLE,PARSER_NAME},

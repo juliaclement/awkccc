@@ -50,12 +50,15 @@ namespace awkccc {
         SymbolType type_;
         int token_;
         bool regex_may_follow_ = true;
+        bool is_built_in_ = false;
         Symbol( class jclib::jString name,
                 int token,
-                SymbolType type = VARIABLE)
+                SymbolType type = VARIABLE,
+                bool is_built_in = false )
             : name_(name)
             , type_(type)
             , token_(token)
+            , is_built_in_( is_built_in )
             {}
         void set_type( SymbolType type, int token ){
             type_=type;
@@ -70,6 +73,7 @@ namespace awkccc {
         const char * name_;
         SymbolType type_;
         int token_ = 0;
+        bool is_built_in_ = false;
         bool allow_regex_ = true;
     };
 
@@ -92,7 +96,8 @@ namespace awkccc {
         virtual Symbol * insert(
                 class jclib::jString name,
                 int token,
-                SymbolType type = VARIABLE) = 0;
+                SymbolType type = VARIABLE,
+                bool is_built_in = false) = 0;
 
         virtual Symbol * find( jclib::jString &str) = 0;
 
