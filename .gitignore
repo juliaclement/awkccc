@@ -25,3 +25,5 @@ src/recc
 src/tokens
 tests/LexerTestClass
 bin/generate_source.o
+bin/VariableTestClass
+bin/VariableTestRunner
