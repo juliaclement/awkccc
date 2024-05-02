@@ -9,5 +9,6 @@ var searchData=
   ['findlinks_6',['FindLinks',['../musami_8c_09_09.html#a4153780b1cdd044b19a96da1e67211cd',1,'musami.c++']]],
   ['findruleprecedences_7',['FindRulePrecedences',['../musami_8c_09_09.html#a97fcce8829117bf9c7dba2ad6f134bf3',1,'musami.c++']]],
   ['findstates_8',['FindStates',['../musami_8c_09_09.html#a8898e9663c06e5834efc010fd0882bc6',1,'musami.c++']]],
-  ['function_5fnode_9',['function_node',['../namespaceawkccc.html#aeacb7553923c89290c2912c03cb7faa7',1,'awkccc']]]
+  ['format_9',['format',['../classawkccc_1_1_awkccc__variable.html#a901841aea84c0dcf938db69ed92cb2b1',1,'awkccc::Awkccc_variable']]],
+  ['function_5fnode_10',['function_node',['../namespaceawkccc.html#aeacb7553923c89290c2912c03cb7faa7',1,'awkccc']]]
 ];

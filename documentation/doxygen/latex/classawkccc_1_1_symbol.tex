@@ -25,7 +25,7 @@ Collaboration diagram for awkccc\+::Symbol\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classawkccc_1_1_symbol_a18592bff0e61d9bad769500f839c6546}{Symbol}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}})
+\mbox{\hyperlink{classawkccc_1_1_symbol_a2158f9b9e8322dba9cd232201be425d9}{Symbol}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}, bool is\+\_\+built\+\_\+in=false)
 \item 
 void \mbox{\hyperlink{classawkccc_1_1_symbol_af5773bd0a9ce494375d9dfe84a0be847}{set\+\_\+type}} (\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type, int token)
 \end{DoxyCompactItemize}
@@ -39,6 +39,8 @@ class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \mbox{\hyper
 int \mbox{\hyperlink{classawkccc_1_1_symbol_a222755872e085994472bafefa656ee56}{token\+\_\+}}
 \item 
 bool \mbox{\hyperlink{classawkccc_1_1_symbol_aed418b88867f4ed0f3afb341f80c8afd}{regex\+\_\+may\+\_\+follow\+\_\+}} = true
+\item 
+bool \mbox{\hyperlink{classawkccc_1_1_symbol_a305aa64ddfe4cf5a4d64624d6ef3ed73}{is\+\_\+built\+\_\+in\+\_\+}} = false
 \end{DoxyCompactItemize}
 
 
@@ -50,15 +52,15 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00047}{47}} of file
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classawkccc_1_1_symbol_a18592bff0e61d9bad769500f839c6546}\label{classawkccc_1_1_symbol_a18592bff0e61d9bad769500f839c6546}} 
+\mbox{\Hypertarget{classawkccc_1_1_symbol_a2158f9b9e8322dba9cd232201be425d9}\label{classawkccc_1_1_symbol_a2158f9b9e8322dba9cd232201be425d9}} 
 \index{awkccc::Symbol@{awkccc::Symbol}!Symbol@{Symbol}}
 \index{Symbol@{Symbol}!awkccc::Symbol@{awkccc::Symbol}}
 \doxysubsubsection{\texorpdfstring{Symbol()}{Symbol()}}
-{\footnotesize\ttfamily awkccc\+::\+Symbol\+::\+Symbol (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily awkccc\+::\+Symbol\+::\+Symbol (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}},  }\item[{bool}]{is\+\_\+built\+\_\+in = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 
@@ -71,11 +73,21 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00053}{53}} of file
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classawkccc_1_1_symbol_a305aa64ddfe4cf5a4d64624d6ef3ed73}\label{classawkccc_1_1_symbol_a305aa64ddfe4cf5a4d64624d6ef3ed73}} 
+\index{awkccc::Symbol@{awkccc::Symbol}!is\_built\_in\_@{is\_built\_in\_}}
+\index{is\_built\_in\_@{is\_built\_in\_}!awkccc::Symbol@{awkccc::Symbol}}
+\doxysubsubsection{\texorpdfstring{is\_built\_in\_}{is\_built\_in\_}}
+{\footnotesize\ttfamily bool awkccc\+::\+Symbol\+::is\+\_\+built\+\_\+in\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
 \mbox{\Hypertarget{classawkccc_1_1_symbol_ad41f50dbecb074783cdbd47a8341eed4}\label{classawkccc_1_1_symbol_ad41f50dbecb074783cdbd47a8341eed4}} 
 \index{awkccc::Symbol@{awkccc::Symbol}!name\_@{name\_}}
 \index{name\_@{name\_}!awkccc::Symbol@{awkccc::Symbol}}

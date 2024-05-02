@@ -92,6 +92,48 @@ private:
         CPPUNIT_ASSERT(fabs(var.number_)-7.0 < Awkccc_variable::epsilon_ );
         CPPUNIT_ASSERT(var.string_ == "7" ); // unchanged
     }
+    void testCompareNumeric() {
+        Awkccc_variable one(1);
+        Awkccc_variable two(2);
+        Awkccc_variable secondtwo(2);
+        CPPUNIT_ASSERT( one.compare(two) < 0 );
+        CPPUNIT_ASSERT( two.compare(one) > 0 );
+        CPPUNIT_ASSERT( two.compare(secondtwo) == 0 );
+    }
+    void testCompareString() {
+        Awkccc_variable one("one");
+        Awkccc_variable two("two");
+        Awkccc_variable secondtwo("two");
+        CPPUNIT_ASSERT( one.compare(two) < 0 );
+        CPPUNIT_ASSERT( two.compare(one) > 0 );
+        CPPUNIT_ASSERT( two.compare(secondtwo) == 0 );
+    }
+    void testCompareStringOps() {
+        Awkccc_variable one("one");
+        Awkccc_variable two("two");
+        Awkccc_variable secondtwo("two");
+        CPPUNIT_ASSERT( one < two );
+        CPPUNIT_ASSERT( one <= two );
+        CPPUNIT_ASSERT( one != two );
+        CPPUNIT_ASSERT( two > one );
+        CPPUNIT_ASSERT( two >= one );
+        CPPUNIT_ASSERT( two == secondtwo );
+        CPPUNIT_ASSERT( two <= secondtwo );
+        CPPUNIT_ASSERT( two >= secondtwo );
+    }
+    void testCompareNumOps() {
+        Awkccc_variable one(1);
+        Awkccc_variable two(2);
+        Awkccc_variable secondtwo(2);
+        CPPUNIT_ASSERT( one < two );
+        CPPUNIT_ASSERT( one <= two );
+        CPPUNIT_ASSERT( one != two );
+        CPPUNIT_ASSERT( two > one );
+        CPPUNIT_ASSERT( two >= one );
+        CPPUNIT_ASSERT( two == secondtwo );
+        CPPUNIT_ASSERT( two <= secondtwo );
+        CPPUNIT_ASSERT( two >= secondtwo );
+    }
     void testCastIntegerToString() {
         Awkccc_variable var(7);
         CPPUNIT_ASSERT( var.number_is_valid_ );
@@ -180,6 +222,10 @@ private:
         CPPUNIT_TEST(testCreateString);
         CPPUNIT_TEST(testCreateNumericString);
         CPPUNIT_TEST(testCastStringToNumber);
+        CPPUNIT_TEST(testCompareNumeric);
+        CPPUNIT_TEST(testCompareString);
+        CPPUNIT_TEST(testCompareStringOps);
+        CPPUNIT_TEST(testCompareNumOps);
         CPPUNIT_TEST(testCastIntegerToString);
         CPPUNIT_TEST(testCastNegIntegerToString);
         CPPUNIT_TEST(testCastNumberToString);

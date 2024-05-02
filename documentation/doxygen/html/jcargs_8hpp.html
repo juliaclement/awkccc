@@ -69,8 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle"><div class="title">jcargs.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -78,6 +77,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="j_string_8hpp_source.html">jString.hpp</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
@@ -86,14 +86,15 @@ Include dependency graph for jcargs.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="jcargs_8hpp__incl.png" border="0" usemap="#ainclude_2jcargs_8hpp" alt=""/></div>
 <map name="ainclude_2jcargs_8hpp" id="ainclude_2jcargs_8hpp">
-<area shape="rect" title=" " alt="" coords="477,5,617,32"/>
+<area shape="rect" title=" " alt="" coords="530,5,670,32"/>
 <area shape="rect" href="counted_pointer_8hpp.html" title=" " alt="" coords="5,155,152,181"/>
 <area shape="rect" href="j_string_8hpp.html" title=" " alt="" coords="337,80,429,107"/>
 <area shape="rect" title=" " alt="" coords="662,155,725,181"/>
 <area shape="rect" title=" " alt="" coords="504,80,589,107"/>
 <area shape="rect" title=" " alt="" coords="613,80,693,107"/>
-<area shape="rect" title=" " alt="" coords="717,80,776,107"/>
-<area shape="rect" title=" " alt="" coords="800,80,851,107"/>
+<area shape="rect" title=" " alt="" coords="718,80,791,107"/>
+<area shape="rect" title=" " alt="" coords="816,80,875,107"/>
+<area shape="rect" title=" " alt="" coords="899,80,949,107"/>
 <area shape="rect" title=" " alt="" coords="176,155,235,181"/>
 <area shape="rect" title=" " alt="" coords="259,155,325,181"/>
 <area shape="rect" title=" " alt="" coords="349,155,416,181"/>
@@ -106,8 +107,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="jcargs_8hpp__dep__incl.png" border="0" usemap="#ainclude_2jcargs_8hppdep" alt=""/></div>
 <map name="ainclude_2jcargs_8hppdep" id="ainclude_2jcargs_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,145,32"/>
-<area shape="rect" href="awkccc_8c_09_09.html" title=" " alt="" coords="12,80,139,107"/>
+<area shape="rect" title=" " alt="" coords="111,5,251,32"/>
+<area shape="rect" href="awkccc_8h_09_09.html" title=" " alt="" coords="21,80,176,107"/>
+<area shape="rect" href="awkccc_8c_09_09.html" title=" " alt="" coords="201,80,327,107"/>
+<area shape="rect" href="generate__source_8c_09_09.html" title=" " alt="" coords="5,155,192,181"/>
 </map>
 </div>
 </div>
@@ -119,8 +122,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1simple__bool.html">jclib::simple_bool</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1arg__instance.html">jclib::arg_instance&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1arguments.html">jclib::arguments</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1config.html">jclib::config</a></td></tr>
@@ -130,15 +131,24 @@ Classes</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacejclib"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejclib.html">jclib</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a7194a23c6f389f275164c552631b700a"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a7194a23c6f389f275164c552631b700a"><td class="memTemplItemLeft" align="right" valign="top">arg_instance&lt; T &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacejclib.html#a7194a23c6f389f275164c552631b700a">jclib::arg</a> (T &amp;answer, jString short_name, jString long_name, jString desc, bool takes_parameter, bool required=false)</td></tr>
-<tr class="separator:a7194a23c6f389f275164c552631b700a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6f4a57371cc79caa86aa0c93114f43b"><td class="memItemLeft" align="right" valign="top">simple_bool *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacejclib.html#af6f4a57371cc79caa86aa0c93114f43b">jclib::arg</a> (bool &amp;answer, jString short_name, jString long_name, jString desc, bool takes_parameter, bool required=false)</td></tr>
-<tr class="separator:af6f4a57371cc79caa86aa0c93114f43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a91ada3db8ff8936fcc64f899b41b5d7c" name="a91ada3db8ff8936fcc64f899b41b5d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91ada3db8ff8936fcc64f899b41b5d7c">&#9670;&nbsp;</a></span>answer_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; answer_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="jcargs_8hpp_source.html#l00083">83</a> of file <a class="el" href="jcargs_8hpp_source.html">jcargs.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

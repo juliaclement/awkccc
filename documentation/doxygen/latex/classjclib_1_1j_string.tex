@@ -65,6 +65,8 @@ bool \mbox{\hyperlink{classjclib_1_1j_string_ae9c51457a9e150c838de713183783814}{
 \item 
 {\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \mbox{\hyperlink{classjclib_1_1j_string_a003c161a28051c3ce6390a45841ba38f}{join}} (const T \&input)
 \item 
+int \mbox{\hyperlink{classjclib_1_1j_string_acdff73b23041ade42bada788c90f1941}{compare}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
+\item 
 bool \mbox{\hyperlink{classjclib_1_1j_string_aac1073792f5fb0c9dd6bd3366532a727}{operator$<$}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
 \item 
 bool \mbox{\hyperlink{classjclib_1_1j_string_a36cc278ea8ef66ea01e2663cafffda2c}{operator$<$=}} (const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&rhs) const
@@ -152,6 +154,16 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00208}{208}} of file \
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classjclib_1_1j_string_acdff73b23041ade42bada788c90f1941}\label{classjclib_1_1j_string_acdff73b23041ade42bada788c90f1941}} 
+\index{jclib::jString@{jclib::jString}!compare@{compare}}
+\index{compare@{compare}!jclib::jString@{jclib::jString}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}}
+{\footnotesize\ttfamily int jclib\+::j\+String\+::compare (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Comparison operator, provides C strcmp on strings 
+
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00385}{385}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+
 \mbox{\Hypertarget{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}\label{classjclib_1_1j_string_a872eaaec620afdc377791d522f7619bc}} 
 \index{jclib::jString@{jclib::jString}!data@{data}}
 \index{data@{data}!jclib::jString@{jclib::jString}}
@@ -170,7 +182,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00168}{168}} of file \
 
 Return position of first occurrence of findee 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00311}{311}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00312}{312}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}\label{classjclib_1_1j_string_a64b12d83c87606faedf066ad33c07f53}} 
 \index{jclib::jString@{jclib::jString}!get\_empty@{get\_empty}}
@@ -190,7 +202,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00156}{156}} of file \
 
 Check is only all alphabetic ascii characters 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00321}{321}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00322}{322}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_ae9c51457a9e150c838de713183783814}\label{classjclib_1_1j_string_ae9c51457a9e150c838de713183783814}} 
 \index{jclib::jString@{jclib::jString}!islower@{islower}}
@@ -200,7 +212,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00321}{321}} of file \
 
 Check all alphabetic ascii characters in string are upper case 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00343}{343}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00344}{344}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_aae84c1413b3d137a21fecb495c059ef1}\label{classjclib_1_1j_string_aae84c1413b3d137a21fecb495c059ef1}} 
 \index{jclib::jString@{jclib::jString}!isupper@{isupper}}
@@ -210,7 +222,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00343}{343}} of file \
 
 Check all alphabetic ascii characters in string are upper case 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00332}{332}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00333}{333}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a42af2a62d5f94d50df0a6fea9d04e8bd}\label{classjclib_1_1j_string_a42af2a62d5f94d50df0a6fea9d04e8bd}} 
 \index{jclib::jString@{jclib::jString}!isvalid@{isvalid}}
@@ -231,7 +243,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00176}{176}} of file \
 
 Join elements in an iterable into a new string with the elements separated by our value. Elements must be valid for \mbox{\hyperlink{classjclib_1_1j_string}{j\+String}} constructors. Based on Python\textquotesingle{}s str.\+join() method 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00358}{358}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00359}{359}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a7e9fb048756808e07c3a31314015469c}\label{classjclib_1_1j_string_a7e9fb048756808e07c3a31314015469c}} 
 \index{jclib::jString@{jclib::jString}!left@{left}}
@@ -241,7 +253,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00358}{358}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00245}{245}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00246}{246}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}\label{classjclib_1_1j_string_a4f2213068b23fbcd585eb6d54a3fef55}} 
 \index{jclib::jString@{jclib::jString}!len@{len}}
@@ -271,7 +283,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00170}{170}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00401}{401}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00407}{407}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a1f2757cdb0229e77bce76597104f9a8f}\label{classjclib_1_1j_string_a1f2757cdb0229e77bce76597104f9a8f}} 
 \index{jclib::jString@{jclib::jString}!operator+@{operator+}}
@@ -281,7 +293,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00401}{401}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00226}{226}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00227}{227}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_aac1073792f5fb0c9dd6bd3366532a727}\label{classjclib_1_1j_string_aac1073792f5fb0c9dd6bd3366532a727}} 
 \index{jclib::jString@{jclib::jString}!operator$<$@{operator$<$}}
@@ -291,7 +303,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00226}{226}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00383}{383}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00389}{389}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a36cc278ea8ef66ea01e2663cafffda2c}\label{classjclib_1_1j_string_a36cc278ea8ef66ea01e2663cafffda2c}} 
 \index{jclib::jString@{jclib::jString}!operator$<$=@{operator$<$=}}
@@ -301,7 +313,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00383}{383}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00386}{386}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00392}{392}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_ae1ad76e6e678c3dc9b9adde596fb7ddd}\label{classjclib_1_1j_string_ae1ad76e6e678c3dc9b9adde596fb7ddd}} 
 \index{jclib::jString@{jclib::jString}!operator==@{operator==}}
@@ -311,7 +323,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00386}{386}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00398}{398}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00404}{404}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a957678d937d3aee8e19a1d7c0043d108}\label{classjclib_1_1j_string_a957678d937d3aee8e19a1d7c0043d108}} 
 \index{jclib::jString@{jclib::jString}!operator==@{operator==}}
@@ -321,7 +333,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00398}{398}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00395}{395}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00401}{401}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a8d4304413e788be0d8081635dde02f5c}\label{classjclib_1_1j_string_a8d4304413e788be0d8081635dde02f5c}} 
 \index{jclib::jString@{jclib::jString}!operator$>$@{operator$>$}}
@@ -331,7 +343,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00395}{395}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00389}{389}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00395}{395}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a2c9a25ba8153918cf2a1add7af1327e0}\label{classjclib_1_1j_string_a2c9a25ba8153918cf2a1add7af1327e0}} 
 \index{jclib::jString@{jclib::jString}!operator$>$=@{operator$>$=}}
@@ -341,7 +353,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00389}{389}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00392}{392}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00398}{398}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_a7b4a0652b1d629fcb69bb171d8691efc}\label{classjclib_1_1j_string_a7b4a0652b1d629fcb69bb171d8691efc}} 
 \index{jclib::jString@{jclib::jString}!pad@{pad}}
@@ -351,7 +363,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00392}{392}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00268}{268}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_aea4f8bc0134a92b0f44edd35f1a7932c}\label{classjclib_1_1j_string_aea4f8bc0134a92b0f44edd35f1a7932c}} 
 \index{jclib::jString@{jclib::jString}!right@{right}}
@@ -361,7 +373,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00268}{268}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00251}{251}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00252}{252}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}\label{classjclib_1_1j_string_ace3b1ad453717614ca476b0f1d205c91}} 
 \index{jclib::jString@{jclib::jString}!split@{split}}
@@ -371,7 +383,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00251}{251}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00286}{286}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00287}{287}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 \mbox{\Hypertarget{classjclib_1_1j_string_af55dcdfaf5f18b7cd5d0df12bf9c5bd2}\label{classjclib_1_1j_string_af55dcdfaf5f18b7cd5d0df12bf9c5bd2}} 
 \index{jclib::jString@{jclib::jString}!substr@{substr}}
@@ -381,7 +393,7 @@ Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00286}{286}} of file \
 
 
 
-Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00258}{258}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
+Definition at line \mbox{\hyperlink{j_string_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{j_string_8hpp_source}{j\+String.\+hpp}}.
 
 
 

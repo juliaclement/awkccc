@@ -101,6 +101,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__ternary__op__node.html">ast_ternary_op_node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_awkccc__variable.html">Awkccc_variable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_lexer.html">Lexer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol.html">Symbol</a></td></tr>
@@ -141,6 +143,12 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:a12a4986c6f88a68f88dfaef2d67d1147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a5163f4f9d772fbbc8ea8dcca5f6619"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a7a5163f4f9d772fbbc8ea8dcca5f6619">Awkccc_data_type</a> { <a class="el" href="namespaceawkccc.html#a7a5163f4f9d772fbbc8ea8dcca5f6619ad6912202b88711a7a29068105fcd1f17">Uninitialised</a>
+, <a class="el" href="namespaceawkccc.html#a7a5163f4f9d772fbbc8ea8dcca5f6619aca211e739291264e0ed2455384d66612">String</a>
+, <a class="el" href="namespaceawkccc.html#a7a5163f4f9d772fbbc8ea8dcca5f6619a9d6c0ce522c1087f443cce2f3e05b0b8">Number</a>
+, <a class="el" href="namespaceawkccc.html#a7a5163f4f9d772fbbc8ea8dcca5f6619aa2937c753192cf7d41b459b779299b72">Numeric_String</a>
+ }</td></tr>
+<tr class="separator:a7a5163f4f9d772fbbc8ea8dcca5f6619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -180,6 +188,29 @@ Functions</h2></td></tr>
 <tr class="separator:ac44a893b766e74442cc4b51ad6fb5787"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a7a5163f4f9d772fbbc8ea8dcca5f6619" name="a7a5163f4f9d772fbbc8ea8dcca5f6619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a5163f4f9d772fbbc8ea8dcca5f6619">&#9670;&nbsp;</a></span>Awkccc_data_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceawkccc.html#a7a5163f4f9d772fbbc8ea8dcca5f6619">awkccc::Awkccc_data_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >A variable at any moment may be any of: uninitalised equivalent to "" and 0.0, a string, a number (represented by a double), a numeric string as defined in IEEE Std 1003.1-2017. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7a5163f4f9d772fbbc8ea8dcca5f6619ad6912202b88711a7a29068105fcd1f17" name="a7a5163f4f9d772fbbc8ea8dcca5f6619ad6912202b88711a7a29068105fcd1f17"></a>Uninitialised&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7a5163f4f9d772fbbc8ea8dcca5f6619aca211e739291264e0ed2455384d66612" name="a7a5163f4f9d772fbbc8ea8dcca5f6619aca211e739291264e0ed2455384d66612"></a>String&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7a5163f4f9d772fbbc8ea8dcca5f6619a9d6c0ce522c1087f443cce2f3e05b0b8" name="a7a5163f4f9d772fbbc8ea8dcca5f6619a9d6c0ce522c1087f443cce2f3e05b0b8"></a>Number&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7a5163f4f9d772fbbc8ea8dcca5f6619aa2937c753192cf7d41b459b779299b72" name="a7a5163f4f9d772fbbc8ea8dcca5f6619aa2937c753192cf7d41b459b779299b72"></a>Numeric_String&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="awkccc__variable_8h_09_09_source.html#l00032">32</a> of file <a class="el" href="awkccc__variable_8h_09_09_source.html">awkccc_variable.h++</a>.</p>
+
+</div>
+</div>
 <a id="a12a4986c6f88a68f88dfaef2d67d1147" name="a12a4986c6f88a68f88dfaef2d67d1147"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12a4986c6f88a68f88dfaef2d67d1147">&#9670;&nbsp;</a></span>node_types</h2>
 
@@ -206,7 +237,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a12a4986c6f88a68f88dfaef2d67d1147a7111987a52d677d1a10f53abf27e3c4c" name="a12a4986c6f88a68f88dfaef2d67d1147a7111987a52d677d1a10f53abf27e3c4c"></a>Empty&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00117">117</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00122">122</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +314,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00345">345</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00350">350</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -327,7 +358,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00349">349</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00354">354</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -377,7 +408,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00448">448</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00453">453</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -439,7 +470,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00498">498</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00503">503</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +526,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00435">435</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00440">440</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +576,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00429">429</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00434">434</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -589,7 +620,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00308">308</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00313">313</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -633,7 +664,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00323">323</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00328">328</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -689,7 +720,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00545">545</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00550">550</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -745,7 +776,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00549">549</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00554">554</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -795,7 +826,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00442">442</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00447">447</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -833,7 +864,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00243">243</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00248">248</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -877,7 +908,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00239">239</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00244">244</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -933,7 +964,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00381">381</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00386">386</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1050,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00264">264</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00269">269</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -1063,7 +1094,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00268">268</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00273">273</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>

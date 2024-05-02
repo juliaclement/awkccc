@@ -579,7 +579,7 @@
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00575}00575   \textcolor{keyword}{struct} \mbox{\hyperlink{structaction}{action}} **app,}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00576}00576   \textcolor{keyword}{enum} \mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8b}{e\_action}} \mbox{\hyperlink{structaction_ac0dce56259e3c49ee6a14e738ac63f0d}{type}},}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00577}00577   \textcolor{keyword}{struct} \mbox{\hyperlink{structsymbol}{symbol}} *\mbox{\hyperlink{structaction_a8bb419de6aa7116057d284c32003e623}{sp}},}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00578}00578   \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00578}00578   \textcolor{keywordtype}{char} *arg}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00579}00579 )\{}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00580}00580   \textcolor{keyword}{struct }\mbox{\hyperlink{structaction}{action}} *newaction;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00581}00581   newaction = Action\_new();}
@@ -589,9 +589,9 @@
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00585}00585   newaction-\/>\mbox{\hyperlink{structaction_a8bb419de6aa7116057d284c32003e623}{sp}} = \mbox{\hyperlink{structaction_a8bb419de6aa7116057d284c32003e623}{sp}};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00586}00586   newaction-\/>\mbox{\hyperlink{structaction_a34da56f0125f67a24b8c99392cbc5084}{spOpt}} = 0;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00587}00587   \textcolor{keywordflow}{if}( \mbox{\hyperlink{structaction_ac0dce56259e3c49ee6a14e738ac63f0d}{type}}==\mbox{\hyperlink{musami_8c_09_09_a9695563ba2c3d4e59f4680439da60d8ba1ce4ab037343ee04fbf20ceb2ebc5081}{SHIFT}} )\{}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00588}00588     newaction-\/>\mbox{\hyperlink{structaction_af7e885fea47e992be1c3d4bebe6ede94}{x}}.\mbox{\hyperlink{structaction_a5642dd2fd42e8fcd1dbe242e7a9386ce}{stp}} = (\textcolor{keyword}{struct }\mbox{\hyperlink{structstate}{state}} *)\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}};}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00588}00588     newaction-\/>\mbox{\hyperlink{structaction_af7e885fea47e992be1c3d4bebe6ede94}{x}}.\mbox{\hyperlink{structaction_a5642dd2fd42e8fcd1dbe242e7a9386ce}{stp}} = (\textcolor{keyword}{struct }\mbox{\hyperlink{structstate}{state}} *)arg;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00589}00589   \}\textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00590}00590     newaction-\/>\mbox{\hyperlink{structaction_af7e885fea47e992be1c3d4bebe6ede94}{x}}.\mbox{\hyperlink{structaction_af3ef54d83f6ee6fabe6200fff85e60be}{rp}} = (\textcolor{keyword}{struct }\mbox{\hyperlink{structrule}{rule}} *)\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}};}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00590}00590     newaction-\/>\mbox{\hyperlink{structaction_af7e885fea47e992be1c3d4bebe6ede94}{x}}.\mbox{\hyperlink{structaction_af3ef54d83f6ee6fabe6200fff85e60be}{rp}} = (\textcolor{keyword}{struct }\mbox{\hyperlink{structrule}{rule}} *)arg;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00591}00591   \}}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00592}00592 \}}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l00593}00593 \textcolor{comment}{/********************** New code to implement the "{}acttab"{} module ***********/}}
@@ -2026,10 +2026,10 @@
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02022}02022       errline(i,1,err);}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02023}02023     \}}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02024}02024     errcnt++;}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02025}02025   \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( op[j].\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}==0 )\{}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02025}02025   \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}==0 )\{}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02026}02026     \textcolor{comment}{/* Ignore this option */}}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02027}02027   \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( op[j].\mbox{\hyperlink{structs__options_a507483deac8a091d8c3c81c7889b3536}{type}}==\mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a76ffcc7656abf0c9dd98b6d5332c58d9}{OPT\_FLAG}} )\{}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02028}02028     *((\textcolor{keywordtype}{int}*)op[j].\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}) = v;}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02028}02028     *((\textcolor{keywordtype}{int}*)op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}) = v;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02029}02029   \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( op[j].\mbox{\hyperlink{structs__options_a507483deac8a091d8c3c81c7889b3536}{type}}==\mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482ac6deaa5d15bb57d6bea1fd4749ce1a21}{OPT\_FFLAG}} )\{}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02030}02030     (*(void(*)(int))(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}))(v);}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02031}02031   \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( op[j].\mbox{\hyperlink{structs__options_a507483deac8a091d8c3c81c7889b3536}{type}}==\mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a43c371ae1db51681bccf29d351df09a1}{OPT\_FSTR}} )\{}
@@ -2112,19 +2112,19 @@
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02108}02108       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482ac6deaa5d15bb57d6bea1fd4749ce1a21}{OPT\_FFLAG}}:}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02109}02109         \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02110}02110       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a06af45f1e947621f2f692f530319d7c9}{OPT\_DBL}}:}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02111}02111         *(\textcolor{keywordtype}{double}*)(op[j].\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}) = dv;}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02111}02111         *(\textcolor{keywordtype}{double}*)(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}) = dv;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02112}02112         \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02113}02113       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a47197ffa73ef13a3d0c400372190dd1f}{OPT\_FDBL}}:}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02114}02114         (*(void(*)(double))(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}))(dv);}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02115}02115         \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02116}02116       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a5d1948e718145bcb48afc3143e412a26}{OPT\_INT}}:}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02117}02117         *(\textcolor{keywordtype}{int}*)(op[j].\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}) = lv;}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02117}02117         *(\textcolor{keywordtype}{int}*)(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}) = lv;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02118}02118         \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02119}02119       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a64c8621a0ff1a9cc1347fca7d52f6f92}{OPT\_FINT}}:}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02120}02120         (*(void(*)(int))(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}))((int)lv);}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02121}02121         \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02122}02122       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a91e7b05156fd80c0d07df2eb55b98e3d}{OPT\_STR}}:}
-\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02123}02123         *(\textcolor{keywordtype}{char}**)(op[j].\mbox{\hyperlink{namespacejclib_a7194a23c6f389f275164c552631b700a}{arg}}) = sv;}
+\DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02123}02123         *(\textcolor{keywordtype}{char}**)(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}) = sv;}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02124}02124         \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02125}02125       \textcolor{keywordflow}{case} \mbox{\hyperlink{musami_8c_09_09_a0042f4ead86b209e8ceb5c8e26c8c482a43c371ae1db51681bccf29d351df09a1}{OPT\_FSTR}}:}
 \DoxyCodeLine{\Hypertarget{musami_8c_09_09_source_l02126}02126         (*(void(*)(\textcolor{keywordtype}{char} *))(op[j].\mbox{\hyperlink{structs__options_a1a1945e3be316ea869f08484bcfd5cef}{arg}}))(sv);}

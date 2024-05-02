@@ -102,6 +102,7 @@ class Awkccc_variable {
         /** Get or create jString value.
          *  FIXME 1 use OFMT / CONVFMT depending on context
          *  FIXME 2 replace with <format> once C++20 in all target systems
+         *          test __cpp_lib_format
          * */ 
         jclib::jString format() {
             if( string_is_valid_ )
@@ -170,6 +171,56 @@ class Awkccc_variable {
             ensure_double();
             string_is_valid_ = false;
             return --number_;
+        }
+        /** Comparison operators.
+         * All comparisons are routed through the single compare() routine which returns negative, 0 or
+         * positive with the same meaning as strcmp.
+         * 
+         * POSIX 2017 states:
+         * " Comparisons (with the '<', "<=", "!=", "==", '>', and ">=" operators) shall be made
+         *   numerically if both operands are numeric, if one is numeric and the other has a string
+         *   value that is a numeric string, or if one is numeric and the other has the uninitialized
+         *   value.
+         *   Otherwise, operands shall be converted to strings as required and a string comparison
+         *   shall be made as follows:
+         *   For the "!=" and "==" operators, the strings should be compared to check if they are
+         *   identical but may be compared using the locale-specific collation sequence to check if
+         *   they collate equally.
+         *   For the other operators, the strings shall be compared using the locale-specific collation
+         *   sequence.
+         *   The value of the comparison expression shall be 1 if the relation is true, or 0 if the
+         *  relation is false."
+         * FIXME: Haven't yet implemented locale-specific collation as required by the standard
+         */
+        int compare( const Awkccc_variable &rhs ) const {
+            if( number_is_valid_ && rhs.number_is_valid_ ){
+                const double diff = number_ - rhs.number_;
+                return  ( fabs( diff ) < epsilon_ )
+                        ? 0
+                        : (diff < 0)
+                            ? -1
+                            : 1;
+            }
+            jclib::jString lhss(*this),rhss(rhs);
+            return lhss.compare( rhss );
+        }
+        bool operator <( const Awkccc_variable &rhs ) const {
+            return compare( rhs ) < 0;
+        }
+        bool operator <=( const Awkccc_variable &rhs ) const {
+            return compare( rhs ) <= 0;
+        }
+        bool operator >( const Awkccc_variable &rhs ) const {
+            return compare( rhs ) > 0;
+        }
+        bool operator >=( const Awkccc_variable &rhs ) const {
+            return compare( rhs ) >= 0;
+        }
+        bool operator ==( const Awkccc_variable &rhs ) const {
+            return compare( rhs ) == 0;
+        }
+        bool operator !=( const Awkccc_variable &rhs ) const {
+            return compare( rhs ) != 0;
         }
     };
     namespace {

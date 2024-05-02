@@ -1,0 +1,56 @@
+\hypertarget{generate__source_8c_09_09_source}{}\doxysection{generate\+\_\+source.\+c++}
+\label{generate__source_8c_09_09_source}\index{src/generate\_source.c++@{src/generate\_source.c++}}
+\mbox{\hyperlink{generate__source_8c_09_09}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00001}00001 \textcolor{comment}{/***}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00002}00002 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00003}00003 \textcolor{comment}{** AWKCCC template manager}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00004}00004 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00005}00005 \textcolor{comment}{** Copyright (C) 2024 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00006}00006 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00007}00007 \textcolor{comment}{** Licensed under the Apache License, Version 2.0 (the "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00008}00008 \textcolor{comment}{** you may not use this file except in compliance with the License.}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00009}00009 \textcolor{comment}{** You may obtain a copy of the License at}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00010}00010 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00011}00011 \textcolor{comment}{**     http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00012}00012 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00013}00013 \textcolor{comment}{** Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00014}00014 \textcolor{comment}{** distributed under the License is distributed on an "{}AS IS"{} BASIS,}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00015}00015 \textcolor{comment}{** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00016}00016 \textcolor{comment}{** See the License for the specific language governing permissions and}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00017}00017 \textcolor{comment}{** limitations under the License.}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00018}00018 \textcolor{comment}{***/}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00019}00019 \textcolor{preprocessor}{\#include "{}../include/awkccc.h++"{}}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00020}00020 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacejclib}{jclib}};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00021}\mbox{\hyperlink{awkccc_8h_09_09_aa7175465d660d6a43fdbb773821f520d}{00021}} \textcolor{keywordtype}{void} \mbox{\hyperlink{generate__source_8c_09_09_a7315d3d2807004d466514c7c05f8d02e}{generate\_output}}( std::ifstream \& template\_text, \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} filename\_out, std::vector<jString> code[7] )\{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00022}00022     std::ofstream program\_file(filename\_out, std::ios\_base::trunc | std::ios\_base::out );}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00023}00023     std::string markers[] = \{\textcolor{stringliteral}{"{}\%variables;"{}},\textcolor{stringliteral}{"{}\%procedures;"{}},\textcolor{stringliteral}{"{}\%begin;"{}},\textcolor{stringliteral}{"{}\%begin\_file;"{}},\textcolor{stringliteral}{"{}\%body;"{}},\textcolor{stringliteral}{"{}\%end\_file;"{}},\textcolor{stringliteral}{"{}\%end;"{}}\};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00024}00024     std::string line;}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00025}00025     \textcolor{keywordflow}{while}( getline( template\_text, line ) )\{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00026}00026         \textcolor{keywordflow}{if}( line[0] == \textcolor{charliteral}{'\%'} ) \{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00027}00027             \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00028}00028             \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} i = 0; i <= \mbox{\hyperlink{awkccc_8h_09_09_aea9d72b1524324e5ed5825f597ebd0fc}{template\_END}}; ++i ) \{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00029}00029                 \textcolor{keyword}{auto} kw = markers[i];}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00030}00030                 \textcolor{keywordflow}{if}( line.compare(0,kw.length(),kw)) \{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00031}00031                     found = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00032}00032                     \textcolor{keywordflow}{for}( \textcolor{keyword}{auto} block\_line : code[i] )\{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00033}00033                         program\_file << block\_line << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00034}00034                     \}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00035}00035                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00036}00036                 \}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00037}00037             \}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00038}00038             \textcolor{keywordflow}{if}( ! found )}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00039}00039                 program\_file << line << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00040}00040         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00041}00041             program\_file << line << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00042}00042         \}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00044}00044     program\_file.close();}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00046}\mbox{\hyperlink{awkccc_8h_09_09_ac90ca9d5c033707112b710724d2c6399}{00046}} \textcolor{keywordtype}{void} \mbox{\hyperlink{generate__source_8c_09_09_a7315d3d2807004d466514c7c05f8d02e}{generate\_output}}( \mbox{\hyperlink{classjclib_1_1j_string}{jString}} template\_filename, \mbox{\hyperlink{classjclib_1_1j_string}{jString}} filename\_out, std::vector<jString> code[7] )\{}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00047}00047     std::ifstream template\_text( template\_filename );}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00048}00048     \mbox{\hyperlink{generate__source_8c_09_09_a7315d3d2807004d466514c7c05f8d02e}{generate\_output}}( template\_text, filename\_out, code );}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00049}00049     template\_text.close();}
+\DoxyCodeLine{\Hypertarget{generate__source_8c_09_09_source_l00050}00050 \}}
+
+\end{DoxyCode}
