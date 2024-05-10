@@ -141,6 +141,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a003c161a28051c3ce6390a45841ba38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdff73b23041ade42bada788c90f1941"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1j_string.html#acdff73b23041ade42bada788c90f1941">compare</a> (const <a class="el" href="classjclib_1_1j_string.html">jString</a> &amp;rhs) const</td></tr>
 <tr class="separator:acdff73b23041ade42bada788c90f1941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef72a3e29dea2ff3ad2b6509578b212e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1j_string.html#aef72a3e29dea2ff3ad2b6509578b212e">compare_locale</a> (const <a class="el" href="classjclib_1_1j_string.html">jString</a> &amp;rhs) const</td></tr>
+<tr class="separator:aef72a3e29dea2ff3ad2b6509578b212e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1073792f5fb0c9dd6bd3366532a727"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1j_string.html#aac1073792f5fb0c9dd6bd3366532a727">operator&lt;</a> (const <a class="el" href="classjclib_1_1j_string.html">jString</a> &amp;rhs) const</td></tr>
 <tr class="separator:aac1073792f5fb0c9dd6bd3366532a727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36cc278ea8ef66ea01e2663cafffda2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjclib_1_1j_string.html#a36cc278ea8ef66ea01e2663cafffda2c">operator&lt;=</a> (const <a class="el" href="classjclib_1_1j_string.html">jString</a> &amp;rhs) const</td></tr>
@@ -353,9 +355,38 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Comparison operator, provides C strcmp on strings </p>
+<p >Comparison function, provides C strcmp on strings </p>
 
 <p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00385">385</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aef72a3e29dea2ff3ad2b6509578b212e" name="aef72a3e29dea2ff3ad2b6509578b212e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef72a3e29dea2ff3ad2b6509578b212e">&#9670;&nbsp;</a></span>compare_locale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int jclib::jString::compare_locale </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classjclib_1_1j_string.html">jString</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Comparison function, provides C strcoll on strings </p>
+
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00390">390</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -691,7 +722,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00407">407</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00412">412</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -747,7 +778,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00389">389</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00394">394</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -775,7 +806,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00392">392</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00397">397</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -803,7 +834,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00404">404</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00409">409</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +862,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00401">401</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00406">406</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -859,7 +890,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00395">395</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00400">400</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>
@@ -887,7 +918,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00398">398</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="j_string_8hpp_source.html#l00403">403</a> of file <a class="el" href="j_string_8hpp_source.html">jString.hpp</a>.</p>
 
 </div>
 </div>

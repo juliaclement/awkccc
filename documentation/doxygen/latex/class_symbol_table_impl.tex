@@ -23,7 +23,7 @@ Collaboration diagram for Symbol\+Table\+Impl\+:\nopagebreak
 \item 
 virtual void \mbox{\hyperlink{class_symbol_table_impl_a851b4c39c1c562982cda1405a842d00c}{insert}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $>$s)
 \item 
-virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{class_symbol_table_impl_ae05a6af244b90bde62099f023425a233}{insert}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=VARIABLE, bool is\+\_\+built\+\_\+in=false)
+virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{class_symbol_table_impl_a58683349fc0ba66e07851ef94615398a}{insert}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awk\+\_\+name, class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} c\+\_\+name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=VARIABLE, bool is\+\_\+built\+\_\+in=false)
 \item 
 virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{class_symbol_table_impl_aca3c1080d98d404874fa81e4d1ea131c}{find}} (\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&str)
 \item 
@@ -31,7 +31,7 @@ virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlin
 \item 
 virtual void \mbox{\hyperlink{class_symbol_table_impl_af04e3fdc992948b86d8658d73e5fec0a}{load}} (std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{\+\_\+\+Symbol\+\_\+loader}} $>$ input)
 \item 
-virtual void \mbox{\hyperlink{class_symbol_table_impl_a2fcf22dd2690253fef4361e867b0b284}{loadnamespace}} (const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&namespace\+\_\+name, bool also\+\_\+load\+\_\+global, std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{\+\_\+\+Symbol\+\_\+loader}} $>$ input)
+virtual void \mbox{\hyperlink{class_symbol_table_impl_a2ba635e25527d96b8acb2f34264ae679}{loadnamespace}} (const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&namespace\+\_\+name, bool also\+\_\+load\+\_\+global, std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___n_s___symbol__loader}{\+\_\+\+NS\+\_\+\+Symbol\+\_\+loader}} $>$ input)
 \item 
 virtual \mbox{\hyperlink{class_symbol_table_impl_ac686d91c47522df99d64f834bb487822}{$\sim$\+Symbol\+Table\+Impl}} ()
 \end{DoxyCompactItemize}
@@ -64,7 +64,7 @@ Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00035}{35}} of f
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00102}{102}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00119}{119}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 
 
@@ -81,7 +81,7 @@ Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a1acb3a793dbe29ea93b610
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00052}{52}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00053}{53}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 \mbox{\Hypertarget{class_symbol_table_impl_a70e862e998ab72a1993946558a9ff7ea}\label{class_symbol_table_impl_a70e862e998ab72a1993946558a9ff7ea}} 
 \index{SymbolTableImpl@{SymbolTableImpl}!get@{get}}
@@ -91,21 +91,21 @@ Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00052}{52}} of f
 
 return existing Symbol or create a new one 
 
-Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a4766911bde3174cb972c70af0083c993}{awkccc\+::\+Symbol\+Table}}.
+Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_aed3094b3caf9b2fdc0ca308b048c1f74}{awkccc\+::\+Symbol\+Table}}.
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00063}{63}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00064}{64}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
-\mbox{\Hypertarget{class_symbol_table_impl_ae05a6af244b90bde62099f023425a233}\label{class_symbol_table_impl_ae05a6af244b90bde62099f023425a233}} 
+\mbox{\Hypertarget{class_symbol_table_impl_a58683349fc0ba66e07851ef94615398a}\label{class_symbol_table_impl_a58683349fc0ba66e07851ef94615398a}} 
 \index{SymbolTableImpl@{SymbolTableImpl}!insert@{insert}}
 \index{insert@{insert}!SymbolTableImpl@{SymbolTableImpl}}
 \doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ Symbol\+Table\+Impl\+::insert (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily VARIABLE},  }\item[{bool}]{is\+\_\+built\+\_\+in = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ Symbol\+Table\+Impl\+::insert (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{awk\+\_\+name,  }\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{c\+\_\+name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily VARIABLE},  }\item[{bool}]{is\+\_\+built\+\_\+in = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a1c70cdbcfb514fbeac0b2518ee07ca0a}{awkccc\+::\+Symbol\+Table}}.
+Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a289799ae25fbde2dff854e92e1fd1e3b}{awkccc\+::\+Symbol\+Table}}.
 
 
 
@@ -133,7 +133,7 @@ Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00038}{38}} of f
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00072}{72}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00084}{84}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 \mbox{\Hypertarget{class_symbol_table_impl_af04e3fdc992948b86d8658d73e5fec0a}\label{class_symbol_table_impl_af04e3fdc992948b86d8658d73e5fec0a}} 
 \index{SymbolTableImpl@{SymbolTableImpl}!load@{load}}
@@ -147,21 +147,21 @@ Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a75d6a02bef48e136005d76
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00077}{77}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00089}{89}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
-\mbox{\Hypertarget{class_symbol_table_impl_a2fcf22dd2690253fef4361e867b0b284}\label{class_symbol_table_impl_a2fcf22dd2690253fef4361e867b0b284}} 
+\mbox{\Hypertarget{class_symbol_table_impl_a2ba635e25527d96b8acb2f34264ae679}\label{class_symbol_table_impl_a2ba635e25527d96b8acb2f34264ae679}} 
 \index{SymbolTableImpl@{SymbolTableImpl}!loadnamespace@{loadnamespace}}
 \index{loadnamespace@{loadnamespace}!SymbolTableImpl@{SymbolTableImpl}}
 \doxysubsubsection{\texorpdfstring{loadnamespace()}{loadnamespace()}}
-{\footnotesize\ttfamily virtual void Symbol\+Table\+Impl\+::loadnamespace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&}]{namespace\+\_\+name,  }\item[{bool}]{also\+\_\+load\+\_\+global,  }\item[{std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{\+\_\+\+Symbol\+\_\+loader}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual void Symbol\+Table\+Impl\+::loadnamespace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&}]{namespace\+\_\+name,  }\item[{bool}]{also\+\_\+load\+\_\+global,  }\item[{std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___n_s___symbol__loader}{\+\_\+\+NS\+\_\+\+Symbol\+\_\+loader}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a5ad94d1001e82126ade1fec1d68b2306}{awkccc\+::\+Symbol\+Table}}.
+Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a7fe4ed4ead3adb87445b81df24fafa05}{awkccc\+::\+Symbol\+Table}}.
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00083}{83}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00095}{95}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 
 

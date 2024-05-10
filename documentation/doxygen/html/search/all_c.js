@@ -36,7 +36,7 @@ var searchData=
   ['load_5fnum_33',['LOAD_NUM',['../namespaceawkcc.html#a26a6c900538982f462683f35678f9d7ca39696e03e10e452b731ce837c9b7cf07',1,'awkcc']]],
   ['load_5fregex_34',['LOAD_REGEX',['../namespaceawkcc.html#a26a6c900538982f462683f35678f9d7cae1f84a05f0eedf7ce2a85f7cd3fb13c3',1,'awkcc']]],
   ['load_5fstr_35',['LOAD_STR',['../namespaceawkcc.html#a26a6c900538982f462683f35678f9d7ca4d30ef04489d367b5c6eb141e9d17845',1,'awkcc']]],
-  ['loadnamespace_36',['loadnamespace',['../class_symbol_table_impl.html#a2fcf22dd2690253fef4361e867b0b284',1,'SymbolTableImpl::loadnamespace()'],['../classawkccc_1_1_symbol_table.html#a5ad94d1001e82126ade1fec1d68b2306',1,'awkccc::SymbolTable::loadnamespace()']]],
+  ['loadnamespace_36',['loadnamespace',['../class_symbol_table_impl.html#a2ba635e25527d96b8acb2f34264ae679',1,'SymbolTableImpl::loadnamespace()'],['../classawkccc_1_1_symbol_table.html#a7fe4ed4ead3adb87445b81df24fafa05',1,'awkccc::SymbolTable::loadnamespace()']]],
   ['loadnegative_37',['LOADNEGATIVE',['../namespaceawkcc.html#a26a6c900538982f462683f35678f9d7cadafafeefa298f0924cf3ab3ef86b3f0e',1,'awkcc']]],
   ['local_5fstore_38',['LOCAL_STORE',['../namespaceawkcc.html#a880cab8c9c0b6c5304f8ca056c69c924a7ce805f8898fd085b8a6c84a2749d7bb',1,'awkcc']]],
   ['long_5fname_5f_39',['long_name_',['../classjclib_1_1arg__base.html#aa508815352fb3e888462ce387b4fdd7d',1,'jclib::arg_base']]],

@@ -22,15 +22,15 @@ void \mbox{\hyperlink{classawkccc_1_1_symbol_table_ac7da4d02254aed180427782cf9c5
 \item 
 void \mbox{\hyperlink{classawkccc_1_1_symbol_table_a8228c3efce0b6012bac19f2992e8bd2c}{insert}} (\mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} \&s)
 \item 
-virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_symbol_table_a1c70cdbcfb514fbeac0b2518ee07ca0a}{insert}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}, bool is\+\_\+built\+\_\+in=false)=0
+virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_symbol_table_a289799ae25fbde2dff854e92e1fd1e3b}{insert}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awk\+\_\+name, class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} c\+\_\+name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}, bool is\+\_\+built\+\_\+in=false)=0
 \item 
 virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_symbol_table_a1acb3a793dbe29ea93b6108034cd821c}{find}} (\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&str)=0
 \item 
-virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_symbol_table_a4766911bde3174cb972c70af0083c993}{get}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}})=0
+virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ \mbox{\hyperlink{classawkccc_1_1_symbol_table_aed3094b3caf9b2fdc0ca308b048c1f74}{get}} (class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awk\+\_\+name, int token, \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}} type=\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}})=0
 \item 
 virtual void \mbox{\hyperlink{classawkccc_1_1_symbol_table_a75d6a02bef48e136005d762cddf4b212}{load}} (std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{\+\_\+\+Symbol\+\_\+loader}} $>$)=0
 \item 
-virtual void \mbox{\hyperlink{classawkccc_1_1_symbol_table_a5ad94d1001e82126ade1fec1d68b2306}{loadnamespace}} (const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&namespace\+\_\+name, bool also\+\_\+load\+\_\+global, std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{\+\_\+\+Symbol\+\_\+loader}} $>$ input)=0
+virtual void \mbox{\hyperlink{classawkccc_1_1_symbol_table_a7fe4ed4ead3adb87445b81df24fafa05}{loadnamespace}} (const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&namespace\+\_\+name, bool also\+\_\+load\+\_\+global, std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___n_s___symbol__loader}{\+\_\+\+NS\+\_\+\+Symbol\+\_\+loader}} $>$ input)=0
 \item 
 virtual \mbox{\hyperlink{classawkccc_1_1_symbol_table_a90ec988b7c23489bb882ac050ed7e0f3}{$\sim$\+Symbol\+Table}} ()
 \end{DoxyCompactItemize}
@@ -49,7 +49,7 @@ static \mbox{\hyperlink{classawkccc_1_1_symbol_table}{Symbol\+Table}} \& \mbox{\
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 
@@ -62,7 +62,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00080}{80}} of file
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00099}{99}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1_symbol_table_a90ec988b7c23489bb882ac050ed7e0f3}\label{classawkccc_1_1_symbol_table_a90ec988b7c23489bb882ac050ed7e0f3}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!````~SymbolTable@{$\sim$SymbolTable}}
@@ -72,7 +72,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00084}{84}} of file
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00120}{120}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00136}{136}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 
@@ -87,25 +87,32 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00120}{120}} of fil
 
 Implemented in \mbox{\hyperlink{class_symbol_table_impl_aca3c1080d98d404874fa81e4d1ea131c}{Symbol\+Table\+Impl}}.
 
-\mbox{\Hypertarget{classawkccc_1_1_symbol_table_a4766911bde3174cb972c70af0083c993}\label{classawkccc_1_1_symbol_table_a4766911bde3174cb972c70af0083c993}} 
+\mbox{\Hypertarget{classawkccc_1_1_symbol_table_aed3094b3caf9b2fdc0ca308b048c1f74}\label{classawkccc_1_1_symbol_table_aed3094b3caf9b2fdc0ca308b048c1f74}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!get@{get}}
 \index{get@{get}!awkccc::SymbolTable@{awkccc::SymbolTable}}
 \doxysubsubsection{\texorpdfstring{get()}{get()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ awkccc\+::\+Symbol\+Table\+::get (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ awkccc\+::\+Symbol\+Table\+::get (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{awk\+\_\+name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 return existing \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} or create a new one 
 
 Implemented in \mbox{\hyperlink{class_symbol_table_impl_a70e862e998ab72a1993946558a9ff7ea}{Symbol\+Table\+Impl}}.
 
-\mbox{\Hypertarget{classawkccc_1_1_symbol_table_a1c70cdbcfb514fbeac0b2518ee07ca0a}\label{classawkccc_1_1_symbol_table_a1c70cdbcfb514fbeac0b2518ee07ca0a}} 
+\mbox{\Hypertarget{classawkccc_1_1_symbol_table_a289799ae25fbde2dff854e92e1fd1e3b}\label{classawkccc_1_1_symbol_table_a289799ae25fbde2dff854e92e1fd1e3b}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!insert@{insert}}
 \index{insert@{insert}!awkccc::SymbolTable@{awkccc::SymbolTable}}
 \doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ awkccc\+::\+Symbol\+Table\+::insert (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}},  }\item[{bool}]{is\+\_\+built\+\_\+in = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$ awkccc\+::\+Symbol\+Table\+::insert (\begin{DoxyParamCaption}\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{awk\+\_\+name,  }\item[{class \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{c\+\_\+name,  }\item[{int}]{token,  }\item[{\mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}{Symbol\+Type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db}{VARIABLE}}},  }\item[{bool}]{is\+\_\+built\+\_\+in = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
+\begin{DoxyParams}{Parameters}
+{\em c\+\_\+name} & AWK source name\\
+\hline
+{\em token} & Name in Generated C++ \\
+\hline
+\end{DoxyParams}
 
-Implemented in \mbox{\hyperlink{class_symbol_table_impl_ae05a6af244b90bde62099f023425a233}{Symbol\+Table\+Impl}}.
+
+Implemented in \mbox{\hyperlink{class_symbol_table_impl_a58683349fc0ba66e07851ef94615398a}{Symbol\+Table\+Impl}}.
 
 \mbox{\Hypertarget{classawkccc_1_1_symbol_table_a97f81a8f95a64320ea14e93fb54152c4}\label{classawkccc_1_1_symbol_table_a97f81a8f95a64320ea14e93fb54152c4}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!insert@{insert}}
@@ -125,7 +132,7 @@ Implemented in \mbox{\hyperlink{class_symbol_table_impl_a851b4c39c1c562982cda140
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00107}{107}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1_symbol_table_ac7da4d02254aed180427782cf9c5dca8}\label{classawkccc_1_1_symbol_table_ac7da4d02254aed180427782cf9c5dca8}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!insert@{insert}}
@@ -135,7 +142,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00092}{92}} of file
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1_symbol_table_a8665fa225ab4ea3a907dfd4e074f45f1}\label{classawkccc_1_1_symbol_table_a8665fa225ab4ea3a907dfd4e074f45f1}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!instance@{instance}}
@@ -145,7 +152,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00088}{88}} of file
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00105}{105}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00122}{122}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 \mbox{\Hypertarget{classawkccc_1_1_symbol_table_a75d6a02bef48e136005d762cddf4b212}\label{classawkccc_1_1_symbol_table_a75d6a02bef48e136005d762cddf4b212}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!load@{load}}
@@ -157,15 +164,15 @@ Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00105}{105}} of 
 
 Implemented in \mbox{\hyperlink{class_symbol_table_impl_af04e3fdc992948b86d8658d73e5fec0a}{Symbol\+Table\+Impl}}.
 
-\mbox{\Hypertarget{classawkccc_1_1_symbol_table_a5ad94d1001e82126ade1fec1d68b2306}\label{classawkccc_1_1_symbol_table_a5ad94d1001e82126ade1fec1d68b2306}} 
+\mbox{\Hypertarget{classawkccc_1_1_symbol_table_a7fe4ed4ead3adb87445b81df24fafa05}\label{classawkccc_1_1_symbol_table_a7fe4ed4ead3adb87445b81df24fafa05}} 
 \index{awkccc::SymbolTable@{awkccc::SymbolTable}!loadnamespace@{loadnamespace}}
 \index{loadnamespace@{loadnamespace}!awkccc::SymbolTable@{awkccc::SymbolTable}}
 \doxysubsubsection{\texorpdfstring{loadnamespace()}{loadnamespace()}}
-{\footnotesize\ttfamily virtual void awkccc\+::\+Symbol\+Table\+::loadnamespace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&}]{namespace\+\_\+name,  }\item[{bool}]{also\+\_\+load\+\_\+global,  }\item[{std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___symbol__loader}{\+\_\+\+Symbol\+\_\+loader}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void awkccc\+::\+Symbol\+Table\+::loadnamespace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} \&}]{namespace\+\_\+name,  }\item[{bool}]{also\+\_\+load\+\_\+global,  }\item[{std\+::initializer\+\_\+list$<$ struct \mbox{\hyperlink{structawkccc_1_1___n_s___symbol__loader}{\+\_\+\+NS\+\_\+\+Symbol\+\_\+loader}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Implemented in \mbox{\hyperlink{class_symbol_table_impl_a2fcf22dd2690253fef4361e867b0b284}{Symbol\+Table\+Impl}}.
+Implemented in \mbox{\hyperlink{class_symbol_table_impl_a2ba635e25527d96b8acb2f34264ae679}{Symbol\+Table\+Impl}}.
 
 
 

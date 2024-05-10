@@ -6,7 +6,7 @@ var searchData=
   ['action_3',['action',['../structlookahead__action.html#a7d4d7be1914c4bec91f85b76ffbe6295',1,'lookahead_action']]],
   ['alias_4',['alias',['../structpstate.html#abfcb64757e9dd9742ab21b81c541e53c',1,'pstate']]],
   ['all_5foptions_5f_5',['all_options_',['../classjclib_1_1arguments.html#a2044af38fb74fcf51c1d514663a645dd',1,'jclib::arguments']]],
-  ['allow_5fregex_5f_6',['allow_regex_',['../structawkccc_1_1___symbol__loader.html#a7de7441ec60974ae6423a9bee33bc8af',1,'awkccc::_Symbol_loader::allow_regex_()'],['../classawkccc_1_1_lexer.html#abd5ab939e238a160820b72a43316f236',1,'awkccc::Lexer::allow_regex_()']]],
+  ['allow_5fregex_5f_6',['allow_regex_',['../structawkccc_1_1___symbol__loader.html#a7de7441ec60974ae6423a9bee33bc8af',1,'awkccc::_Symbol_loader::allow_regex_()'],['../structawkccc_1_1___n_s___symbol__loader.html#a263e970ee62af1a24dbe334564a25450',1,'awkccc::_NS_Symbol_loader::allow_regex_()'],['../classawkccc_1_1_lexer.html#abd5ab939e238a160820b72a43316f236',1,'awkccc::Lexer::allow_regex_()']]],
   ['alookahead_7',['aLookahead',['../structacttab.html#af40c645ba153f5630cc4a641544452a9',1,'acttab']]],
   ['answer_5f_8',['answer_',['../jcargs_8hpp.html#a91ada3db8ff8936fcc64f899b41b5d7c',1,'answer_():&#160;jcargs.hpp'],['../classjclib_1_1simple__bool.html#a94e05943350b59d3f2d23392f00006e3',1,'jclib::simple_bool::answer_()']]],
   ['ap_9',['ap',['../structstate.html#a9edbd946d98aba66f182e6ebf8185d7f',1,'state']]],
@@ -18,6 +18,7 @@ var searchData=
   ['assoc_15',['assoc',['../structsymbol.html#a771c889b03b44c911937df203dd64f63',1,'symbol']]],
   ['ast_5fout_16',['ast_out',['../classawkccc_1_1_lexer.html#ac71bdc3f174251c61fac6986de420c1f',1,'awkccc::Lexer']]],
   ['autoreduce_17',['autoReduce',['../structstate.html#a19d205f53a4a82a4f4b972d0c7159822',1,'state']]],
-  ['awk_5fnamespace_5fprefix_5f_18',['awk_namespace_prefix_',['../classawkccc_1_1_lexer.html#a890729c5985ed09012354e628e0d29e8',1,'awkccc::Lexer']]],
-  ['awkccc_5f_19',['awkccc_',['../struct_user___arguments.html#a3622ffe42f0a57c5d6b81930a1cbe61f',1,'User_Arguments']]]
+  ['awk_5fname_5f_18',['awk_name_',['../classawkccc_1_1_symbol.html#af50c0736dc3d04a656d54a2169ba2c04',1,'awkccc::Symbol::awk_name_()'],['../structawkccc_1_1___symbol__loader.html#add96a9b6ca76c431b16eadb3c75c438d',1,'awkccc::_Symbol_loader::awk_name_()']]],
+  ['awk_5fnamespace_5fprefix_5f_19',['awk_namespace_prefix_',['../classawkccc_1_1_lexer.html#a890729c5985ed09012354e628e0d29e8',1,'awkccc::Lexer']]],
+  ['awkccc_5f_20',['awkccc_',['../struct_user___arguments.html#a3622ffe42f0a57c5d6b81930a1cbe61f',1,'User_Arguments']]]
 ];

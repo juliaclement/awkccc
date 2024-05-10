@@ -4,7 +4,7 @@ var searchData=
   ['nactionalloc_1',['nActionAlloc',['../structacttab.html#a4836bf372ea8e78c0ff0cc23d7331330',1,'acttab']]],
   ['nactiontab_2',['nactiontab',['../structlemon.html#a129382fd32de2a48ad064e94cdde9f87',1,'lemon']]],
   ['name_3',['name',['../structsymbol.html#a778e02d22328bbdfe636fd90ddaf94c3',1,'symbol::name()'],['../structlemon.html#a278763cc1efb250e51a339e6ece76779',1,'lemon::name()']]],
-  ['name_5f_4',['name_',['../classawkccc_1_1_symbol.html#ad41f50dbecb074783cdbd47a8341eed4',1,'awkccc::Symbol::name_()'],['../structawkccc_1_1___symbol__loader.html#a8e0c6b735cab2df2fc8e0675dee74808',1,'awkccc::_Symbol_loader::name_()'],['../classawkccc_1_1ast__node.html#a11fec8e942539602af9d4a824c94c3ae',1,'awkccc::ast_node::name_()']]],
+  ['name_5f_4',['name_',['../structawkccc_1_1___n_s___symbol__loader.html#a35b702af17716db8d106093e0daf982f',1,'awkccc::_NS_Symbol_loader::name_()'],['../classawkccc_1_1ast__node.html#a11fec8e942539602af9d4a824c94c3ae',1,'awkccc::ast_node::name_()']]],
   ['namespace_5fprefix_5f_5',['namespace_prefix_',['../classawkccc_1_1_lexer.html#af059f75eaad30a0b11a33c462e258742',1,'awkccc::Lexer']]],
   ['nconflict_6',['nconflict',['../structlemon.html#a32cffc536c6549297e55b847d6ace646',1,'lemon']]],
   ['ne_7',['NE',['../namespaceawkcc.html#a26a6c900538982f462683f35678f9d7caf5d353af782c71274069efc157091158',1,'awkcc']]],
