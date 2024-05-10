@@ -46,16 +46,19 @@ namespace awkccc {
 
     class Symbol: public jclib::CountedPointerTarget {
     public:
-        class jclib::jString name_;
+        class jclib::jString awk_name_;
+        class jclib::jString c_name_;
         SymbolType type_;
         int token_;
         bool regex_may_follow_ = true;
         bool is_built_in_ = false;
-        Symbol( class jclib::jString name,
+        Symbol( class jclib::jString awk_name,
+                class jclib::jString c_name,                
                 int token,
                 SymbolType type = VARIABLE,
                 bool is_built_in = false )
-            : name_(name)
+            : awk_name_(awk_name)
+            , c_name_(c_name)
             , type_(type)
             , token_(token)
             , is_built_in_( is_built_in )
@@ -70,6 +73,18 @@ namespace awkccc {
      * Used for quick loading of the symbol table
     */
     struct _Symbol_loader {
+        const char * awk_name_;
+        const char * c_name_;
+        SymbolType type_;
+        int token_ = 0;
+        bool is_built_in_ = false;
+        bool allow_regex_ = true;
+    };
+
+    /**
+     * Used for quick loading of the symbol table into a namespace
+    */
+    struct _NS_Symbol_loader {
         const char * name_;
         SymbolType type_;
         int token_ = 0;
@@ -93,11 +108,12 @@ namespace awkccc {
             insert(jclib::CountedPointer<Symbol>(&s));
         }
 
-        virtual Symbol * insert(
-                class jclib::jString name,
-                int token,
-                SymbolType type = VARIABLE,
-                bool is_built_in = false) = 0;
+        virtual Symbol * insert( 
+            class jclib::jString awk_name, /// AWK source name
+            class jclib::jString c_name, /// Name in Generated C++ 
+            int token,
+            SymbolType type = VARIABLE,
+            bool is_built_in = false ) = 0;
 
         virtual Symbol * find( jclib::jString &str) = 0;
 
@@ -105,7 +121,7 @@ namespace awkccc {
          * return existing Symbol or create a new one
         */
         virtual Symbol * get( 
-                class jclib::jString name,
+                class jclib::jString awk_name,
                 int token,
                 SymbolType type = VARIABLE ) = 0;
 
@@ -113,7 +129,7 @@ namespace awkccc {
         
         virtual void loadnamespace(const jclib::jString &namespace_name,
                     bool also_load_global,
-                    std::initializer_list<struct _Symbol_loader> input) = 0;
+                    std::initializer_list<struct _NS_Symbol_loader> input) = 0;
 
         static SymbolTable & instance();
 
@@ -177,7 +193,7 @@ namespace awkccc {
             }
             ast_node( char * full_name, node_types type, Symbol *sym, int rule_nr = -1, bool dummy = false)
             : type_( type )
-            , name_(sym->name_)
+            , name_(sym->awk_name_)
             , sym_(sym)
             , has_sym_( sym != nullptr )
             , extra_children_allowed_(true)
@@ -189,7 +205,7 @@ namespace awkccc {
             }
             ast_node( node_types type, jclib::CountedPointer<Symbol> sym, int rule_nr = -1, bool dummy = false)
             : type_( type )
-            , name_(sym->name_)
+            , name_(sym->awk_name_)
             , sym_(sym)
             , has_sym_( sym.isset() )
             , extra_children_allowed_(true)
@@ -267,11 +283,11 @@ namespace awkccc {
     };
 
     inline jclib::CountedPointer<ast_node> statement_node( ast_node * kw_node, int rule_nr = -1 ) {
-        return new ast_statement_node( kw_node, Statement, kw_node->sym_->name_, rule_nr);
+        return new ast_statement_node( kw_node, Statement, kw_node->sym_->awk_name_, rule_nr);
     }
 
     inline jclib::CountedPointer<ast_node> statement_node( ast_node * kw_node, std::initializer_list< jclib::CountedPointer<ast_node> > children, int rule_nr = -1 ) {
-        auto answer = new ast_statement_node( kw_node, Statement, kw_node->sym_->name_, rule_nr);
+        auto answer = new ast_statement_node( kw_node, Statement, kw_node->sym_->awk_name_, rule_nr);
         answer->add_children( children);
         return answer;
     }

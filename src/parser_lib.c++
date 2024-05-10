@@ -53,7 +53,7 @@ namespace awkccc {
                 if( node->rule_nr_ == -1){
                     out_ << " (Lexer";
                         if( node->sym_ && node->name_.len() == 0) {
-                            out_ << " " << node->sym_->name_;
+                            out_ << " " << node->sym_->awk_name_;
                         }
                     out_ << ") ";
                 } else
@@ -113,7 +113,7 @@ namespace awkccc {
             // Function node
             void visit_ast_function_node( ast_function_node * node ){
                 print_header(node);
-                out_ << ctl_.padding_ << "function " << node->function_->sym_->name_  << "\n";
+                out_ << ctl_.padding_ << "function " << node->function_->sym_->awk_name_  << "\n";
                 if( ctl_.include_children_ ) {
                     auto save_ctl = Save(ctl_);
                     ctl_.padding_ = ctl_.padding_ + "    ";

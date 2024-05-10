@@ -36,16 +36,17 @@ class SymbolTableImpl : public SymbolTable {
     public:
         map_t sym_table_;
         virtual void insert(jclib::CountedPointer<Symbol>s) {
-            sym_table_[s->name_] = s;
+            sym_table_[s->awk_name_] = s;
         }
         
         virtual Symbol * insert(
-                class jclib::jString name,
+                class jclib::jString awk_name,
+                class jclib::jString c_name,
                 int token,
                 SymbolType type = VARIABLE,
                 bool is_built_in = false) {
-            Symbol * sym = new Symbol( name, token, type, is_built_in );
-            sym_table_[sym->name_] = sym;
+            Symbol * sym = new Symbol( awk_name, c_name, token, type, is_built_in );
+            sym_table_[sym->awk_name_] = sym;
             return sym;
         }
 
@@ -64,9 +65,20 @@ class SymbolTableImpl : public SymbolTable {
                 class jclib::jString name,
                 int token,
                 SymbolType type = VARIABLE) {
+            if( Symbol * exact = find(name) )
+                return exact;
+            auto parts = name.split("::",1);
+            auto size = parts.size();
+            jString c_name;
+            if( size == 1 ) {
+                c_name = jString("Awk__")+name;
+                name = jString("Awk::")+name;
+            } else {
+                c_name = parts[0]+jString("__")+parts[1];
+            }
             if( Symbol * answer = find(name) )
                 return answer;
-            return insert( name, token, type, false );
+            return insert( name, c_name, token, type, false );
         }
 
         static SymbolTableImpl & instance() {
@@ -76,27 +88,32 @@ class SymbolTableImpl : public SymbolTable {
 
         virtual void load(std::initializer_list<struct _Symbol_loader> input) {
             for( auto i : input) {
-                insert( i.name_, i.token_, i.type_, i.is_built_in_ );
+                insert( i.awk_name_, i.c_name_, i.token_, i.type_, i.is_built_in_ );
             }
         }
 
         virtual void loadnamespace(const jclib::jString &namespace_name,
                     bool also_load_global,
-                    std::initializer_list<struct _Symbol_loader> input) {
+                    std::initializer_list<struct _NS_Symbol_loader> input) {
             size_t max_name_len = 0;
             for( auto i : input) {
                 max_name_len = std::max<size_t>(max_name_len,strlen(i.name_));
             }
-            auto tmp_name = new char[namespace_name.len()+max_name_len+3];
-            strcpy(tmp_name,(const char *)namespace_name);
-            strcpy(tmp_name+namespace_name.len(),"__");
-            auto target = tmp_name+namespace_name.len()+2;
+            auto tmp_awk_name = new char[namespace_name.len()+max_name_len+3];
+            auto tmp_c_name = new char[namespace_name.len()+max_name_len+3];
+            strcpy(tmp_c_name,(const char *)namespace_name);
+            strcpy(tmp_awk_name,(const char *)namespace_name);
+            strcpy(tmp_c_name+namespace_name.len(),"__");
+            strcpy(tmp_awk_name+namespace_name.len(),"::");
+            auto awk_target = tmp_awk_name+namespace_name.len()+2;
+            auto c_target = tmp_c_name+namespace_name.len()+2;
             for( auto i : input) {
-                strcpy(target,i.name_);
-                insert( tmp_name, i.token_, i.type_, false);
+                strcpy(awk_target,i.name_);
+                strcpy(c_target,i.name_);
+                insert( tmp_awk_name, tmp_c_name, i.token_, i.type_, false);
             }
             if( also_load_global )
-                load(input);
+                loadnamespace("Awk",false,input);
         }
 
         virtual ~SymbolTableImpl() {}
@@ -139,17 +156,17 @@ void Lexer::parse_string(int token_code, SymbolType type) { // @include((whitesp
 
 void Lexer::start_namespace(int token_code, SymbolType type) { // @namespace ((whitespace)) >>name<<
     token_ = jString(tok_,buf_);
-    if( token_ == jString("awk"))
-        namespace_prefix_ = jclib::jString::get_empty();
-    else
-        namespace_prefix_ = token_+jclib::jString("__");
+    awk_namespace_prefix_ = token_+jclib::jString("::");
+    namespace_prefix_ = token_+jclib::jString("__");
     expect_namespacename_ = false;
 }
 
 void Lexer::parsequalified(int token_code, SymbolType type) { // (Not "@") identifier"::"identifier
-        jString token = jString(tok_,buf_);
-        auto bits = token.split("::",1);
-        token_ = jString("__").join(bits);
+        token_=jString(tok_,buf_);
+        /*
+         jString token = jString(tok_,buf_);
+         auto bits = token.split("::",1);
+         token_ = jString("__").join(bits); */
         auto sym=symbol_table_->get(token_,PARSER_NAME);
         auto ast = new awkccc::ast_node(Expression, sym );
         parser_->parse( sym->token_, ast, & ast_out  );
@@ -158,9 +175,9 @@ void Lexer::parsequalified(int token_code, SymbolType type) { // (Not "@") ident
 
 Symbol * Lexer::unqualified_to_sym( int token_code, jString & token ) {
         // What do we have here?
-        // All caps -> awk::
-        // AWK keyword -> awk::
-        // namespace == awk:: -> no prefix
+        // All caps -> Awk::
+        // AWK keyword -> Awk::
+        // namespace == Awk:: -> no prefix
         // else namespace__token
         if( ( namespace_prefix_.len()==0) || ( token.isalpha() && token.isupper() ) )
             return symbol_table_->get(token, token_code, VARIABLE );
@@ -175,7 +192,7 @@ Symbol * Lexer::unqualified_to_sym( int token_code, jString & token ) {
                     return sym;
             }
         }
-        token=namespace_prefix_+token;
+        token=awk_namespace_prefix_+token;
         return symbol_table_->get(token, token_code, VARIABLE );
 }
 
@@ -186,7 +203,7 @@ void Lexer::parseunqualified(int token_code, SymbolType type) { // identifier
         size_t stringlen=buf_-tok_;
         token_ = jString(tok_,buf_);
         auto sym=unqualified_to_sym(token_code, token_);
-        token_ = sym->name_;
+        token_ = sym->awk_name_;
         auto ast = new awkccc::ast_node(Expression, sym );
         parser_->parse( sym->token_, ast, & ast_out  );
         allow_regex_ = false; 
@@ -235,26 +252,44 @@ void Lexer::maybe_parse_regex(int token_code) {
 
 void Lexer::initialise_symbol_table() {
     symbol_table_->load({
-        {"\n",OTHER,PARSER_NEWLINE},
-        {"@@@",OPERATOR,PARSER_CONCATENATE},    // Dummy used in parser's AST for concatenate
+        {"\n","\n",OTHER,PARSER_NEWLINE},
+        {"@@@", "@@@", OPERATOR,PARSER_CONCATENATE},    // Dummy used in parser's AST for concatenate
+        {"+=","+=",OPERATOR,PARSER_ADD_ASSIGN},
+        {"-=","-=",OPERATOR,PARSER_SUB_ASSIGN},
+        {"*=","*=",OPERATOR,PARSER_MUL_ASSIGN},
+        {"/=","/=",OPERATOR,PARSER_DIV_ASSIGN},
+        {"%=","%=",OPERATOR,PARSER_MOD_ASSIGN},
+        {"^=","^=",OPERATOR,PARSER_POW_ASSIGN},
+        {"||","||",OPERATOR,PARSER_OROR},
+        {"&&","&&",OPERATOR,PARSER_ANDAND},
+        {"!~","!~",OPERATOR,PARSER_NO_MATCH},
+        {"==","==",OPERATOR,PARSER_EQ},
+        {"<=","<=",OPERATOR,PARSER_LE},
+        {">=",">=",OPERATOR,PARSER_GE},
+        {"!=","!=",OPERATOR,PARSER_NE},
+        {"++","++",OPERATOR,PARSER_INCR},
+        {"--","--",OPERATOR,PARSER_DECR},
+        {">>",">>",OPERATOR,PARSER_APPEND},
+        {"break","break",STATEMENT,PARSER_Break},
+        {"continue","continue",STATEMENT,PARSER_Continue},
+        {"delete","delete",STATEMENT,PARSER_Delete},
+        {"do","do",STATEMENT,PARSER_Do},
+        {"else","else",STATEMENT,PARSER_Else},
+        {"exit","exit",STATEMENT,PARSER_Exit},
+        {"for","for",STATEMENT,PARSER_For},
+        {"function","function",STATEMENT,PARSER_Function},
+        {"if","if",STATEMENT,PARSER_If},
+        {"in","in",KEYWORD,PARSER_In},
+        {"next","next",STATEMENT,PARSER_Next},
+        {"print","print",STATEMENT,PARSER_Print},
+        {"printf","printf",STATEMENT,PARSER_Printf},
+        {"return","return",STATEMENT,PARSER_Return},
+        {"while","while",STATEMENT,PARSER_While},
+        {"getline","getline",STATEMENT,PARSER_GETLINE},});
+
+    symbol_table_->loadnamespace("Awk",false,{
         {"BEGIN",KEYWORD,PARSER_Begin},
         {"END",KEYWORD,PARSER_End},
-        {"break",STATEMENT,PARSER_Break},
-        {"continue",STATEMENT,PARSER_Continue},
-        {"delete",STATEMENT,PARSER_Delete},
-        {"do",STATEMENT,PARSER_Do},
-        {"else",STATEMENT,PARSER_Else},
-        {"exit",STATEMENT,PARSER_Exit},
-        {"for",STATEMENT,PARSER_For},
-        {"function",STATEMENT,PARSER_Function},
-        {"if",STATEMENT,PARSER_If},
-        {"in",KEYWORD,PARSER_In},
-        {"next",STATEMENT,PARSER_Next},
-        {"print",STATEMENT,PARSER_Print},
-        {"printf",STATEMENT,PARSER_Printf},
-        {"return",STATEMENT,PARSER_Return},
-        {"while",STATEMENT,PARSER_While},
-        {"getline",STATEMENT,PARSER_GETLINE},
         {"atan2",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
         {"cos",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
         {"sin",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
@@ -276,22 +311,6 @@ void Lexer::initialise_symbol_table() {
         {"toupper",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
         {"close",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
         {"system",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"+=",OPERATOR,PARSER_ADD_ASSIGN},
-        {"-=",OPERATOR,PARSER_SUB_ASSIGN},
-        {"*=",OPERATOR,PARSER_MUL_ASSIGN},
-        {"/=",OPERATOR,PARSER_DIV_ASSIGN},
-        {"%=",OPERATOR,PARSER_MOD_ASSIGN},
-        {"^=",OPERATOR,PARSER_POW_ASSIGN},
-        {"||",OPERATOR,PARSER_OROR},
-        {"&&",OPERATOR,PARSER_ANDAND},
-        {"!~",OPERATOR,PARSER_NO_MATCH},
-        {"==",OPERATOR,PARSER_EQ},
-        {"<=",OPERATOR,PARSER_LE},
-        {">=",OPERATOR,PARSER_GE},
-        {"!=",OPERATOR,PARSER_NE},
-        {"++",OPERATOR,PARSER_INCR},
-        {"--",OPERATOR,PARSER_DECR},
-        {">>",OPERATOR,PARSER_APPEND},
         {"ARGC", VARIABLE, PARSER_NAME, true },
         {"ARGV", VARIABLE, PARSER_NAME, true },
         {"CONVFMT", VARIABLE, PARSER_NAME, true },
