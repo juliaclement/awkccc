@@ -20,10 +20,9 @@ var searchData=
   ['stp_17',['stp',['../structconfig.html#a1a4d98b23408bb047054579dd46c70e2',1,'config::stp()'],['../structaction.html#a5642dd2fd42e8fcd1dbe242e7a9386ce',1,'action::stp()'],['../structaxset.html#aa1eb7e365fefc2c7b34887334f5fb714',1,'axset::stp()']]],
   ['string_5f_18',['string_',['../classawkccc_1_1_awkccc__variable.html#a175c7f84bbc2837e06e9710c2ecf47bd',1,'awkccc::Awkccc_variable']]],
   ['string_5fis_5fvalid_5f_19',['string_is_valid_',['../classawkccc_1_1_awkccc__variable.html#a40ff7b7740ff6af2050ae34cae965a4b',1,'awkccc::Awkccc_variable']]],
-  ['subsep_20',['SUBSEP',['../class_awkccc__runtime.html#a1f1c976dd5a2225633cf660836b2e7b5',1,'Awkccc_runtime']]],
-  ['subsym_21',['subsym',['../structsymbol.html#aed5a397a5be7694d28fb665ddb3dc6d5',1,'symbol']]],
-  ['sym_5f_22',['sym_',['../classawkccc_1_1ast__node.html#ae022314f83cac608ce39f73d93a1defe',1,'awkccc::ast_node']]],
-  ['sym_5ftable_5f_23',['sym_table_',['../class_symbol_table_impl.html#a2a93c29cff88f1143af45a1e3915a9cb',1,'SymbolTableImpl']]],
-  ['symbol_5ftable_5f_24',['symbol_table_',['../classawkccc_1_1_lexer.html#a7e685de5d9c78a769a83ea52c3f0c62d',1,'awkccc::Lexer']]],
-  ['symbols_25',['symbols',['../structlemon.html#a48601b9fa6772db8f0450213ee09d511',1,'lemon']]]
+  ['subsym_20',['subsym',['../structsymbol.html#aed5a397a5be7694d28fb665ddb3dc6d5',1,'symbol']]],
+  ['sym_5f_21',['sym_',['../classawkccc_1_1ast__node.html#ae022314f83cac608ce39f73d93a1defe',1,'awkccc::ast_node']]],
+  ['sym_5ftable_5f_22',['sym_table_',['../class_symbol_table_impl.html#a2a93c29cff88f1143af45a1e3915a9cb',1,'SymbolTableImpl']]],
+  ['symbol_5ftable_5f_23',['symbol_table_',['../classawkccc_1_1_lexer.html#a7e685de5d9c78a769a83ea52c3f0c62d',1,'awkccc::Lexer']]],
+  ['symbols_24',['symbols',['../structlemon.html#a48601b9fa6772db8f0450213ee09d511',1,'lemon']]]
 ];

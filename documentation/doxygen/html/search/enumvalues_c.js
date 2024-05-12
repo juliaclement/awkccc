@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['operator_0',['OPERATOR',['../namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6a1ae2a113eb0d511b8dfe8f7f092c68ab',1,'awkccc']]],
-  ['operator_1',['Operator',['../namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147a97a26e2e1b326a1c877f776225c4fbbc',1,'awkccc']]],
+  ['operator_0',['Operator',['../namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147a97a26e2e1b326a1c877f776225c4fbbc',1,'awkccc']]],
+  ['operator_1',['OPERATOR',['../namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6a1ae2a113eb0d511b8dfe8f7f092c68ab',1,'awkccc']]],
   ['opt_5fdbl_2',['OPT_DBL',['../musami_8c_09_09.html#a0042f4ead86b209e8ceb5c8e26c8c482a06af45f1e947621f2f692f530319d7c9',1,'musami.c++']]],
   ['opt_5ffdbl_3',['OPT_FDBL',['../musami_8c_09_09.html#a0042f4ead86b209e8ceb5c8e26c8c482a47197ffa73ef13a3d0c400372190dd1f',1,'musami.c++']]],
   ['opt_5ffflag_4',['OPT_FFLAG',['../musami_8c_09_09.html#a0042f4ead86b209e8ceb5c8e26c8c482ac6deaa5d15bb57d6bea1fd4749ce1a21',1,'musami.c++']]],

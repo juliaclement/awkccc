@@ -40,12 +40,15 @@ class SymbolTableImpl : public SymbolTable {
         }
         
         virtual Symbol * insert(
-                class jclib::jString awk_name,
-                class jclib::jString c_name,
-                int token,
-                SymbolType type = VARIABLE,
-                bool is_built_in = false) {
-            Symbol * sym = new Symbol( awk_name, c_name, token, type, is_built_in );
+            class jclib::jString awk_name,
+            class jclib::jString c_name,
+            int token,
+            SymbolType type = VARIABLE,
+            bool is_built_in = false,
+            const char * args = "",
+            const char * returns = "",
+            const char * include = "" ) {
+            Symbol * sym = new Symbol( awk_name, c_name, token, type, is_built_in, args, returns, include );
             sym_table_[sym->awk_name_] = sym;
             return sym;
         }
@@ -88,7 +91,7 @@ class SymbolTableImpl : public SymbolTable {
 
         virtual void load(std::initializer_list<struct _Symbol_loader> input) {
             for( auto i : input) {
-                insert( i.awk_name_, i.c_name_, i.token_, i.type_, i.is_built_in_ );
+                insert( i.awk_name_, i.c_name_, i.token_, i.type_, i.is_built_in_, i.returns_, i.args_, i.include_ );
             }
         }
 
@@ -287,30 +290,35 @@ void Lexer::initialise_symbol_table() {
         {"while","while",STATEMENT,PARSER_While},
         {"getline","getline",STATEMENT,PARSER_GETLINE},});
 
+    symbol_table_->load({
+        // Mathematic functions
+        {"atan2","atan2",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "FF", "F","<cmath>"},
+        {"cos", "cos",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {"sin","sin",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {"exp","exp",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {"log","log",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {"sqrt","sqrt",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        // int_least_64 is a typedef not a function, working on the basis here that a cast will be close enough
+        {"int","int_least64_t",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "I","<cstdint>"},
+        {"rand","rand",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "-", "F","<cmath>"},
+        {"srand","srand",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        // String functions
+        {"gsub","gsub",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,true, "", "I",""}, // FIXME
+        {"index","index",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {"length","length",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {"match","match",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,true, "", "I",""}, // FIXME
+        {"split","split",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {"sub","sub",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {"substr","substr",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {"tolower","tolower",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {"toupper","toupper", FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {"sprintf","sprintf",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "S",""}, // FIXME
+        {"close","close",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {"system","std::system",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "S", "I","<stdlib>"},});
+
     symbol_table_->loadnamespace("Awk",false,{
         {"BEGIN",KEYWORD,PARSER_Begin},
         {"END",KEYWORD,PARSER_End},
-        {"atan2",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"cos",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"sin",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"exp",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"log",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"sqrt",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"int",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"rand",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"srand",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"gsub",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"index",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"length",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"match",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"split",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"sprintf",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"sub",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"substr",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"tolower",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"toupper",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"close",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
-        {"system",FUNCTION,PARSER_BUILTIN_FUNC_NAME},
         {"ARGC", VARIABLE, PARSER_NAME, true },
         {"ARGV", VARIABLE, PARSER_NAME, true },
         {"CONVFMT", VARIABLE, PARSER_NAME, true },

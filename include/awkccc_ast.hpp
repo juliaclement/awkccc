@@ -52,16 +52,28 @@ namespace awkccc {
         int token_;
         bool regex_may_follow_ = true;
         bool is_built_in_ = false;
+        class jclib::jString args_;
+        class jclib::jString returns_;
+        class jclib::jString include_;
+        /// tells code generator if it needs to be generated.
+        bool is_used_;
         Symbol( class jclib::jString awk_name,
                 class jclib::jString c_name,                
                 int token,
                 SymbolType type = VARIABLE,
-                bool is_built_in = false )
+                bool is_built_in = false,
+                class jclib::jString args = jclib::jString::get_empty(),
+                class jclib::jString returns = jclib::jString::get_empty(),
+                class jclib::jString include = jclib::jString::get_empty(),
+                bool is_used_ = false )
             : awk_name_(awk_name)
             , c_name_(c_name)
             , type_(type)
             , token_(token)
             , is_built_in_( is_built_in )
+            , args_( args )
+            , returns_( returns )
+            , include_( include )
             {}
         void set_type( SymbolType type, int token ){
             type_=type;
@@ -79,6 +91,9 @@ namespace awkccc {
         int token_ = 0;
         bool is_built_in_ = false;
         bool allow_regex_ = true;
+        const char * args_ = "";
+        const char * returns_ = "";
+        const char * include_ = "";
     };
 
     /**
@@ -113,7 +128,10 @@ namespace awkccc {
             class jclib::jString c_name, /// Name in Generated C++ 
             int token,
             SymbolType type = VARIABLE,
-            bool is_built_in = false ) = 0;
+            bool is_built_in = false,
+            const char * args_ = "",
+            const char * returns_ = "",
+            const char * include_ = "" ) = 0;
 
         virtual Symbol * find( jclib::jString &str) = 0;
 

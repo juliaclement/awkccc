@@ -27,21 +27,21 @@ using namespace awkccc;
  **/
 class Awkccc_runtime {
     public:
-        int ARGC;
-        std::map<jclib::jString, Awkccc_variable> ARGV;
-        Awkccc_variable CONVFMT;
-        std::map<jclib::jString, Awkccc_variable>  ENVIRON;
-        Awkccc_variable FILENAME;
-        long FNR;
-        Awkccc_variable FS;
-        int NF;
-        int NR;
-        Awkccc_variable OFMT;
-        Awkccc_variable OFS;
-        Awkccc_variable ORS;
-        int RLENGTH;
-        Awkccc_variable RS;
-        Awkccc_variable RSTART;
-        Awkccc_variable SUBSEP;
+        int Awk__ARGC;
+        std::map<jclib::jString, Awkccc_variable> Awk__ARGV;
+        Awkccc_variable Awk__CONVFMT;
+        std::map<jclib::jString, Awkccc_variable>  Awk__ENVIRON;
+        jclib::jString Awk__FILENAME;
+        long Awk__FNR;
+        Awkccc_variable Awk__FS;
+        int Awk__NF;
+        int Awk__NR;
+        Awkccc_variable Awk__OFMT;
+        Awkccc_variable Awk__OFS;
+        Awkccc_variable Awk__ORS;
+        int Awk__RLENGTH;
+        Awkccc_variable Awk__RS;
+        Awkccc_variable Awk__RSTART;
+        Awkccc_variable Awk__SUBSEP;
 };
 #endif

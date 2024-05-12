@@ -95,8 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac7da4d02254aed180427782cf9c5dca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8228c3efce0b6012bac19f2992e8bd2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a8228c3efce0b6012bac19f2992e8bd2c">insert</a> (<a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> &amp;s)</td></tr>
 <tr class="separator:a8228c3efce0b6012bac19f2992e8bd2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a289799ae25fbde2dff854e92e1fd1e3b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a289799ae25fbde2dff854e92e1fd1e3b">insert</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> c_name, int token, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>, bool is_built_in=false)=0</td></tr>
-<tr class="separator:a289799ae25fbde2dff854e92e1fd1e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ad78df0f85cb426f46db3f20d69528"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#aa4ad78df0f85cb426f46db3f20d69528">insert</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> c_name, int token, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>, bool is_built_in=false, const char *args_=&quot;&quot;, const char *returns_=&quot;&quot;, const char *include_=&quot;&quot;)=0</td></tr>
+<tr class="separator:aa4ad78df0f85cb426f46db3f20d69528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1acb3a793dbe29ea93b6108034cd821c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a1acb3a793dbe29ea93b6108034cd821c">find</a> (<a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;str)=0</td></tr>
 <tr class="separator:a1acb3a793dbe29ea93b6108034cd821c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed3094b3caf9b2fdc0ca308b048c1f74"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#aed3094b3caf9b2fdc0ca308b048c1f74">get</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, int token, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>)=0</td></tr>
@@ -120,7 +120,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00095">95</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00110">110</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae4b1e5fd2262494616311a18a325c458" name="ae4b1e5fd2262494616311a18a325c458"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4b1e5fd2262494616311a18a325c458">&#9670;&nbsp;</a></span>SymbolTable()</h2>
@@ -145,7 +145,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00099">99</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00114">114</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -172,7 +172,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00136">136</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00154">154</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -250,8 +250,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a289799ae25fbde2dff854e92e1fd1e3b" name="a289799ae25fbde2dff854e92e1fd1e3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a289799ae25fbde2dff854e92e1fd1e3b">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/4]</span></h2>
+<a id="aa4ad78df0f85cb426f46db3f20d69528" name="aa4ad78df0f85cb426f46db3f20d69528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ad78df0f85cb426f46db3f20d69528">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +287,25 @@ Protected Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>is_built_in</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>is_built_in</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>args_</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>returns_</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>include_</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -309,7 +327,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a58683349fc0ba66e07851ef94615398a">SymbolTableImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a8231dc5309379e24fb2621cc5d4be2e5">SymbolTableImpl</a>.</p>
 
 </div>
 </div>
@@ -365,7 +383,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00107">107</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00122">122</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -393,7 +411,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00103">103</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00118">118</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +438,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00122">122</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00125">125</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
 
 </div>
 </div>

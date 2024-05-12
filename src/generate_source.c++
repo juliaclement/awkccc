@@ -20,7 +20,7 @@
 using namespace jclib;
 void generate_output( std::ifstream & template_text, jclib::jString filename_out, std::vector<jString> code[7] ){
     std::ofstream program_file(filename_out, std::ios_base::trunc | std::ios_base::out );
-    std::string markers[] = {"%variables;","%procedures;","%begin;","%begin_file;","%body;","%end_file;","%end;"};
+    std::string markers[] = {"%includes;","%variables;","%procedures;","%begin;","%begin_file;","%body;","%end_file;","%end;"};
     std::string line;
     while( getline( template_text, line ) ){
         if( line[0] == '%' ) {
