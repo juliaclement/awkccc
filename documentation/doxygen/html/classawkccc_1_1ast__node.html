@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a522f2f065284ffd581cce0add81d0e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38da5a80e811f86d04abd69dab1e7e44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__node.html#a38da5a80e811f86d04abd69dab1e7e44">ast_node</a> (<a class="el" href="namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147">node_types</a> type, <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> name, int rule_nr=-1, bool dummy=false)</td></tr>
 <tr class="separator:a38da5a80e811f86d04abd69dab1e7e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eb8c1102c4dea0e7604e66066ae5b93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__node.html#a3eb8c1102c4dea0e7604e66066ae5b93">ast_node</a> (<a class="el" href="namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147">node_types</a> type, <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_namespace, <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> name, bool namespace_required=true, int rule_nr=-1, bool dummy=false)</td></tr>
+<tr class="separator:a3eb8c1102c4dea0e7604e66066ae5b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af01f2b9b509b8ae3e17fed49539e69af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__node.html#af01f2b9b509b8ae3e17fed49539e69af">ast_node</a> (char *full_name, <a class="el" href="namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147">node_types</a> type, <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *sym, int rule_nr=-1, bool dummy=false)</td></tr>
 <tr class="separator:af01f2b9b509b8ae3e17fed49539e69af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85e60d515b846768ce3f7a244cacb584"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__node.html#a85e60d515b846768ce3f7a244cacb584">ast_node</a> (<a class="el" href="namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147">node_types</a> type, <a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> &gt; sym, int rule_nr=-1, bool dummy=false)</td></tr>
@@ -163,10 +165,10 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00186">186</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00209">209</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a38da5a80e811f86d04abd69dab1e7e44" name="a38da5a80e811f86d04abd69dab1e7e44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38da5a80e811f86d04abd69dab1e7e44">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a38da5a80e811f86d04abd69dab1e7e44">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,12 +213,74 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00200">200</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00223">223</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3eb8c1102c4dea0e7604e66066ae5b93" name="a3eb8c1102c4dea0e7604e66066ae5b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb8c1102c4dea0e7604e66066ae5b93">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">awkccc::ast_node::ast_node </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147">node_types</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
+          <td class="paramname"><em>awk_namespace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>namespace_required</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rule_nr</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dummy</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00239">239</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
 <a id="af01f2b9b509b8ae3e17fed49539e69af" name="af01f2b9b509b8ae3e17fed49539e69af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af01f2b9b509b8ae3e17fed49539e69af">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af01f2b9b509b8ae3e17fed49539e69af">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,12 +331,12 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00213">213</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00257">257</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
 <a id="a85e60d515b846768ce3f7a244cacb584" name="a85e60d515b846768ce3f7a244cacb584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85e60d515b846768ce3f7a244cacb584">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e60d515b846768ce3f7a244cacb584">&#9670;&nbsp;</a></span>ast_node() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,7 +381,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00225">225</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00269">269</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -348,7 +412,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classawkccc_1_1ast__empty__node.html#a9894ef4f456dba89f713a514ba4f418f">awkccc::ast_empty_node</a>, <a class="el" href="classawkccc_1_1ast__statement__node.html#a60d86b49dfdd87335da850c2c8eb811c">awkccc::ast_statement_node</a>, <a class="el" href="classawkccc_1_1ast__op__node.html#aabbf29310b5b3f70eee9bd102e4fd0ce">awkccc::ast_op_node</a>, <a class="el" href="classawkccc_1_1ast__left__unary__op__node.html#a547611d09decd6c6a58e8a1880e44650">awkccc::ast_left_unary_op_node</a>, <a class="el" href="classawkccc_1_1ast__right__unary__op__node.html#aa0a5edbc6c11480ab764fcdaf1a22a28">awkccc::ast_right_unary_op_node</a>, <a class="el" href="classawkccc_1_1ast__bin__op__node.html#a38f0203b61652d85f5883f3f2fcf27b0">awkccc::ast_bin_op_node</a>, <a class="el" href="classawkccc_1_1ast__function__node.html#a75a80ab2d7efb79c40ca1f7f978d8266">awkccc::ast_function_node</a>, <a class="el" href="classawkccc_1_1ast__branch__loop__node.html#a6a8594709ab28f196f556ea8cc01e885">awkccc::ast_branch_loop_node</a>, <a class="el" href="classawkccc_1_1ast__for__loop__node.html#aea24f2345cb459987d1021c0d983a359">awkccc::ast_for_loop_node</a>, and <a class="el" href="classawkccc_1_1ast__ternary__op__node.html#a5352e1ecade5a92088d91b3159b215cd">awkccc::ast_ternary_op_node</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00198">198</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00221">221</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -376,7 +440,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00247">247</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00291">291</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -424,7 +488,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00237">237</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00281">281</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -471,7 +535,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00196">196</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00219">219</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -487,7 +551,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00193">193</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00216">216</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +567,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00192">192</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00215">215</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -519,7 +583,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00191">191</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00214">214</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -535,7 +599,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00189">189</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00212">212</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -551,7 +615,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00190">190</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00213">213</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -567,7 +631,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00195">195</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00218">218</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -583,7 +647,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00194">194</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00217">217</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +663,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00188">188</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00211">211</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>

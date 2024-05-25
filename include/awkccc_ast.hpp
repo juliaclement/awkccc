@@ -32,6 +32,9 @@
 #include "jString.hpp"
 #include <vector>
 
+namespace {
+    jclib::jString Empty_String;
+}
 namespace awkccc {
     enum SymbolType {
         VARIABLE,
@@ -46,6 +49,7 @@ namespace awkccc {
 
     class Symbol: public jclib::CountedPointerTarget {
     public:
+        class jclib::jString awk_namespace_;
         class jclib::jString awk_name_;
         class jclib::jString c_name_;
         SymbolType type_;
@@ -57,7 +61,8 @@ namespace awkccc {
         class jclib::jString include_;
         /// tells code generator if it needs to be generated.
         bool is_used_;
-        Symbol( class jclib::jString awk_name,
+        Symbol( class jclib::jString awk_namespace,
+                class jclib::jString awk_name,
                 class jclib::jString c_name,                
                 int token,
                 SymbolType type = VARIABLE,
@@ -66,7 +71,8 @@ namespace awkccc {
                 class jclib::jString returns = jclib::jString::get_empty(),
                 class jclib::jString include = jclib::jString::get_empty(),
                 bool is_used_ = false )
-            : awk_name_(awk_name)
+            : awk_namespace_(awk_namespace)
+            , awk_name_(awk_name)
             , c_name_(c_name)
             , type_(type)
             , token_(token)
@@ -74,7 +80,14 @@ namespace awkccc {
             , args_( args )
             , returns_( returns )
             , include_( include )
-            {}
+            {
+                if( c_name_.len() == 0) {
+                    if( awk_namespace_.len() == 0 )
+                        c_name_ = awk_name_ + "_";
+                    else
+                        c_name_ = awk_namespace_ + "_::" + awk_name_ + "_";
+                }
+            }
         void set_type( SymbolType type, int token ){
             type_=type;
             token_=token;
@@ -85,6 +98,7 @@ namespace awkccc {
      * Used for quick loading of the symbol table
     */
     struct _Symbol_loader {
+        const char * awk_namespace_;
         const char * awk_name_;
         const char * c_name_;
         SymbolType type_;
@@ -111,10 +125,15 @@ namespace awkccc {
     private:
         SymbolTable (const SymbolTable &) = delete;
     protected:
-        SymbolTable () {}
+        SymbolTable ( SymbolTable * next = nullptr )
+        : next_( next )
+        {
+        }
     public:
         virtual void insert(jclib::CountedPointer<Symbol>s) = 0;
 
+        /// @brief SymbolTables may be chained.
+        SymbolTable * next_;
         inline void insert(Symbol *s) {
             insert(jclib::CountedPointer<Symbol>(s));
         }
@@ -124,6 +143,7 @@ namespace awkccc {
         }
 
         virtual Symbol * insert( 
+            class jclib::jString awk_namespace, /// AWK source namespace
             class jclib::jString awk_name, /// AWK source name
             class jclib::jString c_name, /// Name in Generated C++ 
             int token,
@@ -133,14 +153,16 @@ namespace awkccc {
             const char * returns_ = "",
             const char * include_ = "" ) = 0;
 
-        virtual Symbol * find( jclib::jString &str) = 0;
+        virtual Symbol * find( jclib::jString &awk_namespace, jclib::jString &awk_name) = 0;
 
         /**
          * return existing Symbol or create a new one
         */
         virtual Symbol * get( 
+                class jclib::jString awk_namespace,
                 class jclib::jString awk_name,
                 int token,
+                bool namespace_required, /// true if forced by code
                 SymbolType type = VARIABLE ) = 0;
 
         virtual void load(std::initializer_list<struct _Symbol_loader>) = 0;
@@ -150,6 +172,7 @@ namespace awkccc {
                     std::initializer_list<struct _NS_Symbol_loader> input) = 0;
 
         static SymbolTable & instance();
+        static SymbolTable & stack_instance();
         static SymbolTable & reset_instance();
 
         virtual ~SymbolTable() {}
@@ -197,7 +220,10 @@ namespace awkccc {
             // Despatcher for Visitors
             virtual void accept( ast_node_visitor * visitor ){
                 visitor->visit_ast_node( this );}
-            ast_node( node_types type, jclib::jString name , int rule_nr = -1, bool dummy = false)
+            ast_node(   node_types type,
+                        jclib::jString name,
+                        int rule_nr = -1,
+                        bool dummy = false)
             : type_( type )
             , name_( name )
             , rule_nr_( rule_nr )
@@ -208,7 +234,25 @@ namespace awkccc {
             , sibling_nodes_()
             , child_nodes_()
             {
-                sym_ = SymbolTable::instance().get(name_, 0, VARIABLE );
+                sym_ = SymbolTable::instance().get(Empty_String, name_, false, 0, VARIABLE );
+            }
+            ast_node(   node_types type,
+                        jclib::jString awk_namespace,
+                        jclib::jString name,
+                        bool namespace_required=true,
+                        int rule_nr = -1,
+                        bool dummy = false)
+            : type_( type )
+            , name_( name )
+            , rule_nr_( rule_nr )
+            , sym_( nullptr )
+            , has_sym_( false )
+            , extra_children_allowed_(true)
+            , dummy_( dummy )
+            , sibling_nodes_()
+            , child_nodes_()
+            {
+                sym_ = SymbolTable::instance().get(awk_namespace, name_, namespace_required, 0, VARIABLE );
             }
             ast_node( char * full_name, node_types type, Symbol *sym, int rule_nr = -1, bool dummy = false)
             : type_( type )
@@ -273,7 +317,10 @@ namespace awkccc {
             virtual void accept( ast_node_visitor * visitor ){
                 visitor->visit_ast_empty_node( this );}
             ast_empty_node( node_types type, jclib::jString name, int rule_nr = -1, bool dummy = true)
-                : ast_node( type, name, rule_nr, dummy )
+                : ast_node( type, Empty_String, name, false, rule_nr, dummy )
+            {}
+            ast_empty_node( node_types type, jclib::jString namespace_, jclib::jString name, int rule_nr = -1, bool dummy = true)
+                : ast_node( type, namespace_, name, false, rule_nr, dummy )
             {}
     };
 
@@ -291,12 +338,12 @@ namespace awkccc {
             virtual void accept( ast_node_visitor * visitor ){
                 visitor->visit_ast_statement_node( this );}
             ast_statement_node( ast_node * kw_node, awkccc::node_types type, jclib::jString name, int rule_nr = -1)
-                : ast_node( type, name, rule_nr )
+                : ast_node( type, Empty_String, name, false, rule_nr )
                 , kw_node_( kw_node )
                 {
                 }
             ast_statement_node( jclib::CountedPointer< ast_node > kw_node, awkccc::node_types type, jclib::jString name, int rule_nr = -1)
-                : ast_node( type, name, rule_nr )
+                : ast_node( type, Empty_String, name, false, rule_nr )
                 , kw_node_( kw_node )
                 {
                 }
@@ -319,12 +366,12 @@ namespace awkccc {
                 visitor->visit_ast_op_node( this );
             }
             ast_op_node( ast_node * op, awkccc::node_types type, jclib::jString name, int rule_nr = -1)
-                : ast_node( type, name, rule_nr )
+                : ast_node( type, Empty_String, name, false, rule_nr )
                 , op_node_( op )
                 {
                 }
             ast_op_node( jclib::CountedPointer< ast_node > op, awkccc::node_types type, jclib::jString name, int rule_nr = -1)
-                : ast_node( type, name, rule_nr )
+                : ast_node( type, Empty_String, name, false, rule_nr )
                 , op_node_( op )
                 {
                 }
@@ -389,7 +436,7 @@ namespace awkccc {
 
     inline jclib::CountedPointer<ast_node> ast_concatenate_expr( jclib::CountedPointer<ast_node> left, jclib::CountedPointer<ast_node> right, int rule_nr = -1) {
         auto kw = jclib::jString("@@@");
-        Symbol * op_sym = SymbolTable::instance().find(kw);
+        Symbol * op_sym = SymbolTable::instance().find( Empty_String,kw);
         jclib::CountedPointer<ast_node> op = new ast_node( Operator, op_sym);
         return new ast_bin_op_node( left,  op, right, rule_nr);
     }
@@ -407,7 +454,7 @@ namespace awkccc {
                     jclib::CountedPointer<ast_node> parameters,
                     jclib::CountedPointer<ast_node> body,
                     int rule_nr = -1)
-                : ast_node( type, name, rule_nr, false)
+                : ast_node( type, Empty_String, name, false, rule_nr, false)
                 , function_(function)
                 , parameters_(parameters)
                 , body_(body)

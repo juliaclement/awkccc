@@ -70,6 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classawkccc_1_1_symbol_table-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">awkccc::SymbolTable Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
@@ -86,6 +87,14 @@ Inheritance diagram for awkccc::SymbolTable:</div>
 <area shape="rect" href="class_symbol_table_impl.html" title=" " alt="" coords="19,80,153,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for awkccc::SymbolTable:</div>
+<div class="dyncontent">
+<div class="center"><img src="classawkccc_1_1_symbol_table__coll__graph.png" border="0" usemap="#aawkccc_1_1_symbol_table_coll__map" alt="Collaboration graph"/></div>
+<map name="aawkccc_1_1_symbol_table_coll__map" id="aawkccc_1_1_symbol_table_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,167,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -95,12 +104,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac7da4d02254aed180427782cf9c5dca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8228c3efce0b6012bac19f2992e8bd2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a8228c3efce0b6012bac19f2992e8bd2c">insert</a> (<a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> &amp;s)</td></tr>
 <tr class="separator:a8228c3efce0b6012bac19f2992e8bd2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4ad78df0f85cb426f46db3f20d69528"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#aa4ad78df0f85cb426f46db3f20d69528">insert</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> c_name, int token, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>, bool is_built_in=false, const char *args_=&quot;&quot;, const char *returns_=&quot;&quot;, const char *include_=&quot;&quot;)=0</td></tr>
-<tr class="separator:aa4ad78df0f85cb426f46db3f20d69528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1acb3a793dbe29ea93b6108034cd821c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a1acb3a793dbe29ea93b6108034cd821c">find</a> (<a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;str)=0</td></tr>
-<tr class="separator:a1acb3a793dbe29ea93b6108034cd821c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed3094b3caf9b2fdc0ca308b048c1f74"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#aed3094b3caf9b2fdc0ca308b048c1f74">get</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, int token, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>)=0</td></tr>
-<tr class="separator:aed3094b3caf9b2fdc0ca308b048c1f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9f7062140f7a52d2045199f802ee9d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a6d9f7062140f7a52d2045199f802ee9d">insert</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_namespace, class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> c_name, int token, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>, bool is_built_in=false, const char *args_=&quot;&quot;, const char *returns_=&quot;&quot;, const char *include_=&quot;&quot;)=0</td></tr>
+<tr class="separator:a6d9f7062140f7a52d2045199f802ee9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a034f2bf82c7dc55ae9d80b1adc42e39a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a034f2bf82c7dc55ae9d80b1adc42e39a">find</a> (<a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;awk_namespace, <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;awk_name)=0</td></tr>
+<tr class="separator:a034f2bf82c7dc55ae9d80b1adc42e39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f81b6bc9268b84f43423f729e96d8dc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a4f81b6bc9268b84f43423f729e96d8dc">get</a> (class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_namespace, class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> awk_name, int token, bool namespace_required, <a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6">SymbolType</a> type=<a class="el" href="namespaceawkccc.html#ae0e6768ba7c134b8601b8ab8f17e57b6afa2e8f3004554987e3e45225dffc29db">VARIABLE</a>)=0</td></tr>
+<tr class="separator:a4f81b6bc9268b84f43423f729e96d8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75d6a02bef48e136005d762cddf4b212"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a75d6a02bef48e136005d762cddf4b212">load</a> (std::initializer_list&lt; struct <a class="el" href="structawkccc_1_1___symbol__loader.html">_Symbol_loader</a> &gt;)=0</td></tr>
 <tr class="separator:a75d6a02bef48e136005d762cddf4b212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fe4ed4ead3adb87445b81df24fafa05"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a7fe4ed4ead3adb87445b81df24fafa05">loadnamespace</a> (const <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;namespace_name, bool also_load_global, std::initializer_list&lt; struct <a class="el" href="structawkccc_1_1___n_s___symbol__loader.html">_NS_Symbol_loader</a> &gt; input)=0</td></tr>
@@ -112,20 +121,28 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8665fa225ab4ea3a907dfd4e074f45f1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a8665fa225ab4ea3a907dfd4e074f45f1">instance</a> ()</td></tr>
 <tr class="separator:a8665fa225ab4ea3a907dfd4e074f45f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c608485904a69e922913ba1efff10d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a91c608485904a69e922913ba1efff10d">stack_instance</a> ()</td></tr>
+<tr class="separator:a91c608485904a69e922913ba1efff10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf451bdbe2311f43c11d7554894d91cb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#aaf451bdbe2311f43c11d7554894d91cb">reset_instance</a> ()</td></tr>
 <tr class="separator:aaf451bdbe2311f43c11d7554894d91cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a32648632a5c4c6c16df9ce6633192222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#a32648632a5c4c6c16df9ce6633192222">next_</a></td></tr>
+<tr class="memdesc:a32648632a5c4c6c16df9ce6633192222"><td class="mdescLeft">&#160;</td><td class="mdescRight">SymbolTables may be chained.  <a href="classawkccc_1_1_symbol_table.html#a32648632a5c4c6c16df9ce6633192222">More...</a><br /></td></tr>
+<tr class="separator:a32648632a5c4c6c16df9ce6633192222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae4b1e5fd2262494616311a18a325c458"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#ae4b1e5fd2262494616311a18a325c458">SymbolTable</a> ()</td></tr>
-<tr class="separator:ae4b1e5fd2262494616311a18a325c458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af75390ca37a999f3a9f2f46fc6bece91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html#af75390ca37a999f3a9f2f46fc6bece91">SymbolTable</a> (<a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> *next=nullptr)</td></tr>
+<tr class="separator:af75390ca37a999f3a9f2f46fc6bece91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00110">110</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00124">124</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae4b1e5fd2262494616311a18a325c458" name="ae4b1e5fd2262494616311a18a325c458"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4b1e5fd2262494616311a18a325c458">&#9670;&nbsp;</a></span>SymbolTable()</h2>
+<a id="af75390ca37a999f3a9f2f46fc6bece91" name="af75390ca37a999f3a9f2f46fc6bece91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af75390ca37a999f3a9f2f46fc6bece91">&#9670;&nbsp;</a></span>SymbolTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,7 +153,8 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">awkccc::SymbolTable::SymbolTable </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> *&#160;</td>
+          <td class="paramname"><em>next</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -147,7 +165,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00114">114</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00128">128</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -174,13 +192,13 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00155">155</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00178">178</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1acb3a793dbe29ea93b6108034cd821c" name="a1acb3a793dbe29ea93b6108034cd821c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1acb3a793dbe29ea93b6108034cd821c">&#9670;&nbsp;</a></span>find()</h2>
+<a id="a034f2bf82c7dc55ae9d80b1adc42e39a" name="a034f2bf82c7dc55ae9d80b1adc42e39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034f2bf82c7dc55ae9d80b1adc42e39a">&#9670;&nbsp;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,8 +210,18 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> * awkccc::SymbolTable::find </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramname"><em>awk_namespace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> &amp;&#160;</td>
+          <td class="paramname"><em>awk_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -203,12 +231,12 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_symbol_table_impl.html#aca3c1080d98d404874fa81e4d1ea131c">SymbolTableImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a207ebb63a3b54f18acfab8a9966528fb">SymbolTableImpl</a>.</p>
 
 </div>
 </div>
-<a id="aed3094b3caf9b2fdc0ca308b048c1f74" name="aed3094b3caf9b2fdc0ca308b048c1f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed3094b3caf9b2fdc0ca308b048c1f74">&#9670;&nbsp;</a></span>get()</h2>
+<a id="a4f81b6bc9268b84f43423f729e96d8dc" name="a4f81b6bc9268b84f43423f729e96d8dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f81b6bc9268b84f43423f729e96d8dc">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,6 +248,12 @@ Protected Member Functions</h2></td></tr>
           <td class="memname">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> * awkccc::SymbolTable::get </td>
           <td>(</td>
           <td class="paramtype">class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
+          <td class="paramname"><em>awk_namespace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
           <td class="paramname"><em>awk_name</em>, </td>
         </tr>
         <tr>
@@ -227,6 +261,12 @@ Protected Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>token</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>namespace_required</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -247,13 +287,19 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p >return existing <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> or create a new one </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>true if forced by code </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a70e862e998ab72a1993946558a9ff7ea">SymbolTableImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a530ddca2a8d6f6fdb6c2f78f8880cc4b">SymbolTableImpl</a>.</p>
 
 </div>
 </div>
-<a id="aa4ad78df0f85cb426f46db3f20d69528" name="aa4ad78df0f85cb426f46db3f20d69528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4ad78df0f85cb426f46db3f20d69528">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/4]</span></h2>
+<a id="a6d9f7062140f7a52d2045199f802ee9d" name="a6d9f7062140f7a52d2045199f802ee9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9f7062140f7a52d2045199f802ee9d">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,6 +310,12 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="classawkccc_1_1_symbol.html">Symbol</a> * awkccc::SymbolTable::insert </td>
           <td>(</td>
+          <td class="paramtype">class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
+          <td class="paramname"><em>awk_namespace</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">class <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
           <td class="paramname"><em>awk_name</em>, </td>
         </tr>
@@ -323,13 +375,14 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">awk_name</td><td>AWK source namespace</td></tr>
     <tr><td class="paramname">c_name</td><td>AWK source name</td></tr>
     <tr><td class="paramname">token</td><td>Name in Generated C++ </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a8231dc5309379e24fb2621cc5d4be2e5">SymbolTableImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_symbol_table_impl.html#a8ffe77319c26271704a9becc1b362c4e">SymbolTableImpl</a>.</p>
 
 </div>
 </div>
@@ -385,7 +438,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00122">122</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00141">141</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +466,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00118">118</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00137">137</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -440,7 +493,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00134">134</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00159">159</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
 
 </div>
 </div>
@@ -539,7 +592,53 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00137">137</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00165">165</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
+
+</div>
+</div>
+<a id="a91c608485904a69e922913ba1efff10d" name="a91c608485904a69e922913ba1efff10d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91c608485904a69e922913ba1efff10d">&#9670;&nbsp;</a></span>stack_instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a> &amp; SymbolTable::stack_instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lexer__lib_8c_09_09_source.html#l00162">162</a> of file <a class="el" href="lexer__lib_8c_09_09_source.html">lexer_lib.c++</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a32648632a5c4c6c16df9ce6633192222" name="a32648632a5c4c6c16df9ce6633192222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32648632a5c4c6c16df9ce6633192222">&#9670;&nbsp;</a></span>next_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a>* awkccc::SymbolTable::next_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SymbolTables may be chained. </p>
+
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00136">136</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>

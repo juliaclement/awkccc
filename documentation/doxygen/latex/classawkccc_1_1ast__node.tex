@@ -29,6 +29,8 @@ virtual void \mbox{\hyperlink{classawkccc_1_1ast__node_a522f2f065284ffd581cce0ad
 \item 
 \mbox{\hyperlink{classawkccc_1_1ast__node_a38da5a80e811f86d04abd69dab1e7e44}{ast\+\_\+node}} (\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}} type, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, int rule\+\_\+nr=-\/1, bool dummy=false)
 \item 
+\mbox{\hyperlink{classawkccc_1_1ast__node_a3eb8c1102c4dea0e7604e66066ae5b93}{ast\+\_\+node}} (\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}} type, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} awk\+\_\+namespace, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} name, bool namespace\+\_\+required=true, int rule\+\_\+nr=-\/1, bool dummy=false)
+\item 
 \mbox{\hyperlink{classawkccc_1_1ast__node_af01f2b9b509b8ae3e17fed49539e69af}{ast\+\_\+node}} (char $\ast$full\+\_\+name, \mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}} type, \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$sym, int rule\+\_\+nr=-\/1, bool dummy=false)
 \item 
 \mbox{\hyperlink{classawkccc_1_1ast__node_a85e60d515b846768ce3f7a244cacb584}{ast\+\_\+node}} (\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}} type, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $>$ sym, int rule\+\_\+nr=-\/1, bool dummy=false)
@@ -67,7 +69,7 @@ std\+::vector$<$ \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Cou
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00186}{186}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00209}{209}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 
@@ -75,32 +77,42 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00186}{186}} of fil
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a38da5a80e811f86d04abd69dab1e7e44}\label{classawkccc_1_1ast__node_a38da5a80e811f86d04abd69dab1e7e44}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!ast\_node@{ast\_node}}
 \index{ast\_node@{ast\_node}!awkccc::ast\_node@{awkccc::ast\_node}}
-\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily awkccc\+::ast\+\_\+node\+::ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}}}]{type,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{int}]{rule\+\_\+nr = {\ttfamily -\/1},  }\item[{bool}]{dummy = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00223}{223}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{classawkccc_1_1ast__node_a3eb8c1102c4dea0e7604e66066ae5b93}\label{classawkccc_1_1ast__node_a3eb8c1102c4dea0e7604e66066ae5b93}} 
+\index{awkccc::ast\_node@{awkccc::ast\_node}!ast\_node@{ast\_node}}
+\index{ast\_node@{ast\_node}!awkccc::ast\_node@{awkccc::ast\_node}}
+\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily awkccc\+::ast\+\_\+node\+::ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}}}]{type,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{awk\+\_\+namespace,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{name,  }\item[{bool}]{namespace\+\_\+required = {\ttfamily true},  }\item[{int}]{rule\+\_\+nr = {\ttfamily -\/1},  }\item[{bool}]{dummy = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00239}{239}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_af01f2b9b509b8ae3e17fed49539e69af}\label{classawkccc_1_1ast__node_af01f2b9b509b8ae3e17fed49539e69af}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!ast\_node@{ast\_node}}
 \index{ast\_node@{ast\_node}!awkccc::ast\_node@{awkccc::ast\_node}}
-\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily awkccc\+::ast\+\_\+node\+::ast\+\_\+node (\begin{DoxyParamCaption}\item[{char $\ast$}]{full\+\_\+name,  }\item[{\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}}}]{type,  }\item[{\mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $\ast$}]{sym,  }\item[{int}]{rule\+\_\+nr = {\ttfamily -\/1},  }\item[{bool}]{dummy = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00213}{213}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00257}{257}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a85e60d515b846768ce3f7a244cacb584}\label{classawkccc_1_1ast__node_a85e60d515b846768ce3f7a244cacb584}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!ast\_node@{ast\_node}}
 \index{ast\_node@{ast\_node}!awkccc::ast\_node@{awkccc::ast\_node}}
-\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\doxysubsubsection{\texorpdfstring{ast\_node()}{ast\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily awkccc\+::ast\+\_\+node\+::ast\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceawkccc_a12a4986c6f88a68f88dfaef2d67d1147}{node\+\_\+types}}}]{type,  }\item[{\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}} $>$}]{sym,  }\item[{int}]{rule\+\_\+nr = {\ttfamily -\/1},  }\item[{bool}]{dummy = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00225}{225}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00269}{269}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 
@@ -117,7 +129,7 @@ Reimplemented in \mbox{\hyperlink{classawkccc_1_1ast__empty__node_a9894ef4f456db
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00198}{198}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00221}{221}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a466fd06348ea5604094ee9613e67164f}\label{classawkccc_1_1ast__node_a466fd06348ea5604094ee9613e67164f}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!add\_child@{add\_child}}
@@ -127,7 +139,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00198}{198}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00247}{247}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00291}{291}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_ac24303a7a76a4d4ccdf0a8259813c310}\label{classawkccc_1_1ast__node_ac24303a7a76a4d4ccdf0a8259813c310}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!add\_children@{add\_children}}
@@ -147,7 +159,7 @@ Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00026}{26}} of 
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00237}{237}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00281}{281}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a039164e3d54fb84f21983221c21701ae}\label{classawkccc_1_1ast__node_a039164e3d54fb84f21983221c21701ae}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!clean\_tree@{clean\_tree}}
@@ -174,7 +186,7 @@ Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00218}{218}} of
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00196}{196}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00219}{219}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a6db131c5ad76de5877c526a10a2087ee}\label{classawkccc_1_1ast__node_a6db131c5ad76de5877c526a10a2087ee}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!dummy\_@{dummy\_}}
@@ -184,7 +196,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00196}{196}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00193}{193}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00216}{216}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_abafd6ca30894f45e2afca5503893fbe1}\label{classawkccc_1_1ast__node_abafd6ca30894f45e2afca5503893fbe1}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!extra\_children\_allowed\_@{extra\_children\_allowed\_}}
@@ -194,7 +206,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00193}{193}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00192}{192}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00215}{215}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a8dd72f6c8bb6da9cfcea1ea6415f4b34}\label{classawkccc_1_1ast__node_a8dd72f6c8bb6da9cfcea1ea6415f4b34}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!has\_sym\_@{has\_sym\_}}
@@ -204,7 +216,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00192}{192}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00191}{191}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00214}{214}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a11fec8e942539602af9d4a824c94c3ae}\label{classawkccc_1_1ast__node_a11fec8e942539602af9d4a824c94c3ae}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!name\_@{name\_}}
@@ -214,7 +226,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00191}{191}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00189}{189}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00212}{212}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a351f755f8bc8c89e0c9e53e9a935ecfd}\label{classawkccc_1_1ast__node_a351f755f8bc8c89e0c9e53e9a935ecfd}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!rule\_nr\_@{rule\_nr\_}}
@@ -224,7 +236,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00189}{189}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00190}{190}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00213}{213}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_ab413bcc14b3541d34ed4355ee2d548d5}\label{classawkccc_1_1ast__node_ab413bcc14b3541d34ed4355ee2d548d5}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!sibling\_nodes\_@{sibling\_nodes\_}}
@@ -234,7 +246,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00190}{190}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00195}{195}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00218}{218}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_ae022314f83cac608ce39f73d93a1defe}\label{classawkccc_1_1ast__node_ae022314f83cac608ce39f73d93a1defe}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!sym\_@{sym\_}}
@@ -244,7 +256,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00195}{195}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00194}{194}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00217}{217}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{classawkccc_1_1ast__node_a436268e62e30d6677240c4288c88e201}\label{classawkccc_1_1ast__node_a436268e62e30d6677240c4288c88e201}} 
 \index{awkccc::ast\_node@{awkccc::ast\_node}!type\_@{type\_}}
@@ -254,7 +266,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00194}{194}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00188}{188}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 
 

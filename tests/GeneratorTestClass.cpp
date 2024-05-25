@@ -151,7 +151,8 @@ private:
     void testBegin() {
         ast_node_ptr node = lex("BEGIN {\na=12;\n}\n");
         generate_cpp( "%begin;",node );
-        std::cout << code_[template_BEGIN] << "\n";
+        std::cout << code_[template_BEGIN]->str() << "\n";
+        std::cout << code_[template_body]->str() << "\n";
     }
 /*
     void test1CharOp() {

@@ -188,7 +188,7 @@
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00184}00184         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00185}00185         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00186}00186         CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  \textcolor{stringliteral}{"{}Awk::avariable"{}});}
-\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00187}00187         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}Awk\_\_avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00187}00187         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}Awk::avariable"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00188}00188     \}}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00189}00189     \textcolor{keywordtype}{void} testNamespaceOverridePermutesVariableName() \{}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00190}00190         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}xxx::avariable"{}});}
@@ -196,14 +196,14 @@
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00192}00192         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00193}00193         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00194}00194         CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  \textcolor{stringliteral}{"{}xxx::avariable"{}});}
-\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00195}00195         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}xxx\_\_avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00195}00195         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}xxx::avariable"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00196}00196     \}}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00197}00197     \textcolor{keywordtype}{void} testNamespacePermutesVariableName() \{}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00198}00198         \mbox{\hyperlink{class_lexer_test_class_a67a9cdf48870c73d2e3b463ddfc5422c}{lex}}(\textcolor{stringliteral}{"{}@namespace xxx avariable"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00199}00199         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00200}00200         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00201}00201         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
-\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00202}00202         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}xxx\_\_avariable"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00202}00202         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}xxx::avariable"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00203}00203         CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  \textcolor{stringliteral}{"{}xxx::avariable"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00204}00204     \}}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00205}00205     \textcolor{keywordtype}{void} testNamespaceIgnoredByAllUppercase() \{}
@@ -211,7 +211,7 @@
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00207}00207         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00208}00208         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00209}00209         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
-\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00210}00210         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}Awk\_\_ABC"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00210}00210         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}Awk::ABC"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00211}00211         CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  \textcolor{stringliteral}{"{}Awk::ABC"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00212}00212     \}}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00213}00213     \textcolor{keywordtype}{void} testNamespaceIgnoredByReservedWord() \{}
@@ -227,7 +227,7 @@
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00223}00223         \mbox{\hyperlink{tests_2_lexer_test_class_8cpp_ac1bb3745bae7c4294c72d4e35ce81a8b}{ParseTOKENTYPE}} token = \mbox{\hyperlink{namespace_lexer_test_class_n_s_a98ded122a9c234dfec34842a0df56460}{the\_parser}}.\mbox{\hyperlink{class_lexer_test_class_n_s_1_1parser__mock_a2c7bd2d2e51b72a5133e33196b3096e6}{trace\_}}[0].token\_;}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00224}00224         CPPUNIT\_ASSERT(token-\/>has\_sym\_);}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00225}00225         \textcolor{keyword}{auto} sym = token-\/>sym\_;}
-\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00226}00226         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}xxx\_\_ABC"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00226}00226         CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  \textcolor{stringliteral}{"{}xxx::ABC"{}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00227}00227     \}}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00228}00228     CPPUNIT\_TEST\_SUITE(\mbox{\hyperlink{class_lexer_test_class}{LexerTestClass}});}
 \DoxyCodeLine{\Hypertarget{tests_2_lexer_test_class_8cpp_source_l00229}00229         CPPUNIT\_TEST(testBegin);}

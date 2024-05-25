@@ -223,124 +223,125 @@ $(function() {
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">void</span> testBegin() {</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <a class="code hl_class" href="classjclib_1_1_counted_pointer.html">ast_node_ptr</a> node = <a class="code hl_function" href="class_generator_test_class.html#a07070410ce331d5a808fbc31278dbbd3">lex</a>(<span class="stringliteral">&quot;BEGIN {\na=12;\n}\n&quot;</span>);</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_function" href="class_generator_test_class.html#a7e9a1fb39095ce040fb4635fd8c854d5">generate_cpp</a>( <span class="stringliteral">&quot;%begin;&quot;</span>,node );</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        std::cout &lt;&lt; <a class="code hl_variable" href="class_generator_test_class.html#afc996b291e2ba0570f34a10bd8d4b484">code_</a>[<a class="code hl_define" href="generate__cpp_8h_09_09.html#ae358de2632060976293f7b933db3e61e">template_BEGIN</a>] &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">    void test1CharOp() {</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">        lex(&quot;*\n&quot;);</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        // Tests that lexer passes the expected token, not that it is the correct token</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_chars[&#39;*&#39;] );</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">    void testRegex() {</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">        lex(&quot;/[A-Z]+[a-z0-9A-Z]/\n&quot;);</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_ERE );</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">    void testRegexNotAllowed() {</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">        // a/... should be interpreted as &#39;a&#39;,&#39;/&#39;, ... &amp; not as a regex</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">        lex(&quot;a/[A-Z]+[a-z0-9A-Z]/\n&quot;);</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_NAME );</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[1].TokenCode_ == PARSER_chars[&#39;/&#39;] );</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">    void testRegexNotAllowed2() {</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">        // a/=... should be interpreted as &#39;a&#39;,&#39;/=&#39;,&#39;...&#39; &amp; not as a regex</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">        lex(&quot;a/=[A-Z]+[a-z0-9A-Z]/\n&quot;);</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_NAME );</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[1].TokenCode_ == PARSER_DIV_ASSIGN );</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">    void testPlusEquals() {</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">        lex(&quot;+=&quot;);</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_ADD_ASSIGN );</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">    void testVariableGoesToVariable() {</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">        lex(&quot;avariable&quot;);</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;type_ ==  awkccc::VARIABLE);</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">    void testVariableName() {</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">        lex(&quot;avariable&quot;);</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;Awk::avariable&quot;);</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;Awk__avariable&quot;);</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">    void testNamespaceOverridePermutesVariableName() {</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">        lex(&quot;xxx::avariable&quot;);</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;xxx::avariable&quot;);</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;xxx__avariable&quot;);</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">    void testNamespacePermutesVariableName() {</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">        lex(&quot;@namespace xxx avariable&quot;);</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;xxx__avariable&quot;);</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;xxx::avariable&quot;);</span></div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">    void testNamespaceIgnoredByAllUppercase() {</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">        lex(&quot;@namespace xxx ABC&quot;);</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;Awk__ABC&quot;);</span></div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;Awk::ABC&quot;);</span></div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">    void testNamespaceIgnoredByReservedWord() {</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">        lex(&quot;@namespace xxx if&quot;);</span></div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;if&quot;);</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;if&quot;);</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">    void testNamespaceOverrideAllUppercase() {</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">        lex(&quot;xxx::ABC&quot;);</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;xxx__ABC&quot;);</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">    }</span></div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    CPPUNIT_TEST_SUITE(<a class="code hl_class" href="class_generator_test_class.html">GeneratorTestClass</a>);</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        CPPUNIT_TEST(testBegin);</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="comment">/*</span></div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">        CPPUNIT_TEST(test1CharOp);</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">        CPPUNIT_TEST(testRegex);</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">        CPPUNIT_TEST(testRegexNotAllowed);</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment">        CPPUNIT_TEST(testRegexNotAllowed2);</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment">        CPPUNIT_TEST(testPlusEquals);</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">        CPPUNIT_TEST(testVariableGoesToVariable);</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">        CPPUNIT_TEST(testVariableName);</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">        CPPUNIT_TEST(testNamespaceOverridePermutesVariableName);</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">        CPPUNIT_TEST(testNamespacePermutesVariableName);</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">        CPPUNIT_TEST(testNamespaceIgnoredByAllUppercase);</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">        CPPUNIT_TEST(testNamespaceIgnoredByReservedWord);</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">        CPPUNIT_TEST(testNamespaceOverrideAllUppercase);</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    CPPUNIT_TEST_SUITE_END();</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>};</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="_generator_test_class_8cpp.html#a4075792134149257912b50cc1c2e4784">  256</a></span><a class="code hl_function" href="_generator_test_class_8cpp.html#a4075792134149257912b50cc1c2e4784">CPPUNIT_TEST_SUITE_REGISTRATION</a>(<a class="code hl_class" href="class_generator_test_class.html">GeneratorTestClass</a>);</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">#ifdef ONE_FIXTURE</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="keywordtype">int</span> <a class="code hl_function" href="awkccc_8c_09_09.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>{</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="comment">// Get the top level suite from the registry</span></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    CPPUNIT_NS::Test *suite = CPPUNIT_NS::TestFactoryRegistry::getRegistry().makeTest();</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    CppUnit::TextUi::TestRunner runner;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    runner.addTest(suite);</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordtype">bool</span> wasSucessful = runner.run();</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">char</span>* c = (<span class="keywordtype">char</span>*) malloc(10 * <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="comment">//scanf (c,&quot;%c&quot;);</span></div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordflow">return</span> wasSucessful ? 0 : 1;</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>}</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        std::cout &lt;&lt; <a class="code hl_variable" href="class_generator_test_class.html#afc996b291e2ba0570f34a10bd8d4b484">code_</a>[<a class="code hl_define" href="generate__cpp_8h_09_09.html#ae358de2632060976293f7b933db3e61e">template_BEGIN</a>]-&gt;str() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        std::cout &lt;&lt; <a class="code hl_variable" href="class_generator_test_class.html#afc996b291e2ba0570f34a10bd8d4b484">code_</a>[<a class="code hl_define" href="generate__cpp_8h_09_09.html#a7a67deafec61fa6d6f719bbfff579cb9">template_body</a>]-&gt;str() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">    void test1CharOp() {</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        lex(&quot;*\n&quot;);</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">        // Tests that lexer passes the expected token, not that it is the correct token</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_chars[&#39;*&#39;] );</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">    void testRegex() {</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        lex(&quot;/[A-Z]+[a-z0-9A-Z]/\n&quot;);</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_ERE );</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">    void testRegexNotAllowed() {</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">        // a/... should be interpreted as &#39;a&#39;,&#39;/&#39;, ... &amp; not as a regex</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">        lex(&quot;a/[A-Z]+[a-z0-9A-Z]/\n&quot;);</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_NAME );</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[1].TokenCode_ == PARSER_chars[&#39;/&#39;] );</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">    void testRegexNotAllowed2() {</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">        // a/=... should be interpreted as &#39;a&#39;,&#39;/=&#39;,&#39;...&#39; &amp; not as a regex</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">        lex(&quot;a/=[A-Z]+[a-z0-9A-Z]/\n&quot;);</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_NAME );</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[1].TokenCode_ == PARSER_DIV_ASSIGN );</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">    void testPlusEquals() {</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">        lex(&quot;+=&quot;);</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">        CPPUNIT_ASSERT(the_parser.trace_[0].TokenCode_ == PARSER_ADD_ASSIGN );</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">    void testVariableGoesToVariable() {</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">        lex(&quot;avariable&quot;);</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;type_ ==  awkccc::VARIABLE);</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">    void testVariableName() {</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">        lex(&quot;avariable&quot;);</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;Awk::avariable&quot;);</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;Awk__avariable&quot;);</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">    void testNamespaceOverridePermutesVariableName() {</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">        lex(&quot;xxx::avariable&quot;);</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;xxx::avariable&quot;);</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;xxx__avariable&quot;);</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">    void testNamespacePermutesVariableName() {</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">        lex(&quot;@namespace xxx avariable&quot;);</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;xxx__avariable&quot;);</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;xxx::avariable&quot;);</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">    void testNamespaceIgnoredByAllUppercase() {</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">        lex(&quot;@namespace xxx ABC&quot;);</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;Awk__ABC&quot;);</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;Awk::ABC&quot;);</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">    void testNamespaceIgnoredByReservedWord() {</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">        lex(&quot;@namespace xxx if&quot;);</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;awk_name_ ==  &quot;if&quot;);</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;if&quot;);</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">    void testNamespaceOverrideAllUppercase() {</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">        lex(&quot;xxx::ABC&quot;);</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">        ParseTOKENTYPE token = the_parser.trace_[0].token_;</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">        CPPUNIT_ASSERT(token-&gt;has_sym_);</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment">        auto sym = token-&gt;sym_;</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">        CPPUNIT_ASSERT( sym-&gt;c_name_ ==  &quot;xxx__ABC&quot;);</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">    }</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    CPPUNIT_TEST_SUITE(<a class="code hl_class" href="class_generator_test_class.html">GeneratorTestClass</a>);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        CPPUNIT_TEST(testBegin);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">        CPPUNIT_TEST(test1CharOp);</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">        CPPUNIT_TEST(testRegex);</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment">        CPPUNIT_TEST(testRegexNotAllowed);</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment">        CPPUNIT_TEST(testRegexNotAllowed2);</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">        CPPUNIT_TEST(testPlusEquals);</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">        CPPUNIT_TEST(testVariableGoesToVariable);</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">        CPPUNIT_TEST(testVariableName);</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">        CPPUNIT_TEST(testNamespaceOverridePermutesVariableName);</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">        CPPUNIT_TEST(testNamespacePermutesVariableName);</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">        CPPUNIT_TEST(testNamespaceIgnoredByAllUppercase);</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">        CPPUNIT_TEST(testNamespaceIgnoredByReservedWord);</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">        CPPUNIT_TEST(testNamespaceOverrideAllUppercase);</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    CPPUNIT_TEST_SUITE_END();</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>};</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="_generator_test_class_8cpp.html#a4075792134149257912b50cc1c2e4784">  257</a></span><a class="code hl_function" href="_generator_test_class_8cpp.html#a4075792134149257912b50cc1c2e4784">CPPUNIT_TEST_SUITE_REGISTRATION</a>(<a class="code hl_class" href="class_generator_test_class.html">GeneratorTestClass</a>);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">#ifdef ONE_FIXTURE</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="keywordtype">int</span> <a class="code hl_function" href="awkccc_8c_09_09.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>{</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="comment">// Get the top level suite from the registry</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    CPPUNIT_NS::Test *suite = CPPUNIT_NS::TestFactoryRegistry::getRegistry().makeTest();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    CppUnit::TextUi::TestRunner runner;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    runner.addTest(suite);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">bool</span> wasSucessful = runner.run();</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keywordtype">char</span>* c = (<span class="keywordtype">char</span>*) malloc(10 * <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="comment">//scanf (c,&quot;%c&quot;);</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordflow">return</span> wasSucessful ? 0 : 1;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_generator_test_class_8cpp_html_a3482753982f3bd597be8c565e2ee697c"><div class="ttname"><a href="_generator_test_class_8cpp.html#a3482753982f3bd597be8c565e2ee697c">get_parser</a></div><div class="ttdeci">PARSER_Parser * get_parser()</div><div class="ttdef"><b>Definition:</b> <a href="_generator_test_class_8cpp_source.html#l00080">GeneratorTestClass.cpp:80</a></div></div>
 <div class="ttc" id="a_generator_test_class_8cpp_html_a4075792134149257912b50cc1c2e4784"><div class="ttname"><a href="_generator_test_class_8cpp.html#a4075792134149257912b50cc1c2e4784">CPPUNIT_TEST_SUITE_REGISTRATION</a></div><div class="ttdeci">CPPUNIT_TEST_SUITE_REGISTRATION(GeneratorTestClass)</div></div>
 <div class="ttc" id="a_generator_test_class_8cpp_html_aa3f793f4cb403f801cad07e1f9619b2d"><div class="ttname"><a href="_generator_test_class_8cpp.html#aa3f793f4cb403f801cad07e1f9619b2d">malloc_t</a></div><div class="ttdeci">void ** malloc_t(size_t)</div><div class="ttdef"><b>Definition:</b> <a href="_generator_test_class_8cpp_source.html#l00046">GeneratorTestClass.cpp:46</a></div></div>
@@ -366,15 +367,16 @@ $(function() {
 <div class="ttc" id="aclass_p_a_r_s_e_r___parser_html_a717bf0e2466824aa4773b0497ecc4d8b"><div class="ttname"><a href="class_p_a_r_s_e_r___parser.html#a717bf0e2466824aa4773b0497ecc4d8b">PARSER_Parser::parse</a></div><div class="ttdeci">virtual void parse(int yymajor, PARSER_TOKENTYPE yyminor PARSER_ARG_PDECL)=0</div></div>
 <div class="ttc" id="aclassawkccc_1_1_lexer_html"><div class="ttname"><a href="classawkccc_1_1_lexer.html">awkccc::Lexer</a></div><div class="ttdef"><b>Definition:</b> <a href="awkccc__lexer_8hpp_source.html#l00029">awkccc_lexer.hpp:29</a></div></div>
 <div class="ttc" id="aclassawkccc_1_1_lexer_html_a46098cfd054dfdb2f3bac17d517cf794"><div class="ttname"><a href="classawkccc_1_1_lexer.html#a46098cfd054dfdb2f3bac17d517cf794">awkccc::Lexer::lex</a></div><div class="ttdeci">int lex()</div><div class="ttdef"><b>Definition:</b> <a href="lexer_8c_09_09_source.html#l00040">lexer.c++:40</a></div></div>
-<div class="ttc" id="aclassawkccc_1_1_lexer_html_a69428bca45a3ce63702e799fce3d4aa7"><div class="ttname"><a href="classawkccc_1_1_lexer.html#a69428bca45a3ce63702e799fce3d4aa7">awkccc::Lexer::initialise_symbol_table</a></div><div class="ttdeci">void initialise_symbol_table()</div><div class="ttdef"><b>Definition:</b> <a href="lexer__lib_8c_09_09_source.html#l00268">lexer_lib.c++:268</a></div></div>
-<div class="ttc" id="aclassawkccc_1_1_symbol_table_html"><div class="ttname"><a href="classawkccc_1_1_symbol_table.html">awkccc::SymbolTable</a></div><div class="ttdef"><b>Definition:</b> <a href="awkccc__ast_8hpp_source.html#l00110">awkccc_ast.hpp:110</a></div></div>
+<div class="ttc" id="aclassawkccc_1_1_lexer_html_a69428bca45a3ce63702e799fce3d4aa7"><div class="ttname"><a href="classawkccc_1_1_lexer.html#a69428bca45a3ce63702e799fce3d4aa7">awkccc::Lexer::initialise_symbol_table</a></div><div class="ttdeci">void initialise_symbol_table()</div><div class="ttdef"><b>Definition:</b> <a href="lexer__lib_8c_09_09_source.html#l00293">lexer_lib.c++:293</a></div></div>
+<div class="ttc" id="aclassawkccc_1_1_symbol_table_html"><div class="ttname"><a href="classawkccc_1_1_symbol_table.html">awkccc::SymbolTable</a></div><div class="ttdef"><b>Definition:</b> <a href="awkccc__ast_8hpp_source.html#l00124">awkccc_ast.hpp:124</a></div></div>
 <div class="ttc" id="aclassjclib_1_1_counted_pointer_html"><div class="ttname"><a href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer&lt; awkccc::ast_node &gt;</a></div></div>
 <div class="ttc" id="aclassjclib_1_1j_string_html"><div class="ttname"><a href="classjclib_1_1j_string.html">jclib::jString</a></div><div class="ttdef"><b>Definition:</b> <a href="j_string_8hpp_source.html#l00146">jString.hpp:146</a></div></div>
+<div class="ttc" id="agenerate__cpp_8h_09_09_html_a7a67deafec61fa6d6f719bbfff579cb9"><div class="ttname"><a href="generate__cpp_8h_09_09.html#a7a67deafec61fa6d6f719bbfff579cb9">template_body</a></div><div class="ttdeci">#define template_body</div><div class="ttdef"><b>Definition:</b> <a href="generate__cpp_8h_09_09_source.html#l00044">generate_cpp.h++:44</a></div></div>
 <div class="ttc" id="agenerate__cpp_8h_09_09_html_ae06498ba520c7b062bf22e186cd9bad8"><div class="ttname"><a href="generate__cpp_8h_09_09.html#ae06498ba520c7b062bf22e186cd9bad8">template_NR_SEGMENTS</a></div><div class="ttdeci">#define template_NR_SEGMENTS</div><div class="ttdef"><b>Definition:</b> <a href="generate__cpp_8h_09_09_source.html#l00047">generate_cpp.h++:47</a></div></div>
 <div class="ttc" id="agenerate__cpp_8h_09_09_html_ae358de2632060976293f7b933db3e61e"><div class="ttname"><a href="generate__cpp_8h_09_09.html#ae358de2632060976293f7b933db3e61e">template_BEGIN</a></div><div class="ttdeci">#define template_BEGIN</div><div class="ttdef"><b>Definition:</b> <a href="generate__cpp_8h_09_09_source.html#l00042">generate_cpp.h++:42</a></div></div>
 <div class="ttc" id="anamespace_cpp_generator_test_class_n_s_html"><div class="ttname"><a href="namespace_cpp_generator_test_class_n_s.html">CppGeneratorTestClassNS</a></div><div class="ttdef"><b>Definition:</b> <a href="_generator_test_class_8cpp_source.html#l00075">GeneratorTestClass.cpp:75</a></div></div>
 <div class="ttc" id="anamespace_cpp_generator_test_class_n_s_html_a91258273b93995b8f8a2b6e83a195f50"><div class="ttname"><a href="namespace_cpp_generator_test_class_n_s.html#a91258273b93995b8f8a2b6e83a195f50">CppGeneratorTestClassNS::the_parser</a></div><div class="ttdeci">PARSER_Parser * the_parser</div><div class="ttdef"><b>Definition:</b> <a href="_generator_test_class_8cpp_source.html#l00076">GeneratorTestClass.cpp:76</a></div></div>
-<div class="ttc" id="anamespaceawkccc_html"><div class="ttname"><a href="namespaceawkccc.html">awkccc</a></div><div class="ttdef"><b>Definition:</b> <a href="awkccc__ast_8hpp_source.html#l00035">awkccc_ast.hpp:35</a></div></div>
+<div class="ttc" id="anamespaceawkccc_html"><div class="ttname"><a href="namespaceawkccc.html">awkccc</a></div><div class="ttdef"><b>Definition:</b> <a href="awkccc__ast_8hpp_source.html#l00038">awkccc_ast.hpp:38</a></div></div>
 <div class="ttc" id="anamespaceawkccc_html_a6120643fd47099b714a73e1229dde3aa"><div class="ttname"><a href="namespaceawkccc.html#a6120643fd47099b714a73e1229dde3aa">awkccc::generate_cpp</a></div><div class="ttdeci">void generate_cpp(std::istream &amp;template_text, std::ostream &amp;program_file, awkccc::ast_node *node, std::vector&lt; postream &gt; code)</div><div class="ttdef"><b>Definition:</b> <a href="generate__cpp_8c_09_09_source.html#l00272">generate_cpp.c++:272</a></div></div>
 <div class="ttc" id="anamespacejclib_html"><div class="ttname"><a href="namespacejclib.html">jclib</a></div><div class="ttdef"><b>Definition:</b> <a href="counted_pointer_8hpp_source.html#l00035">countedPointer.hpp:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

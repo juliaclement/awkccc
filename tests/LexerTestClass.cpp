@@ -184,7 +184,7 @@ private:
         CPPUNIT_ASSERT(token->has_sym_);
         auto sym = token->sym_;
         CPPUNIT_ASSERT( sym->awk_name_ ==  "Awk::avariable");
-        CPPUNIT_ASSERT( sym->c_name_ ==  "Awk__avariable");
+        CPPUNIT_ASSERT( sym->c_name_ ==  "Awk::avariable");
     }
     void testNamespaceOverridePermutesVariableName() {
         lex("xxx::avariable");
@@ -192,14 +192,14 @@ private:
         CPPUNIT_ASSERT(token->has_sym_);
         auto sym = token->sym_;
         CPPUNIT_ASSERT( sym->awk_name_ ==  "xxx::avariable");
-        CPPUNIT_ASSERT( sym->c_name_ ==  "xxx__avariable");
+        CPPUNIT_ASSERT( sym->c_name_ ==  "xxx::avariable");
     }
     void testNamespacePermutesVariableName() {
         lex("@namespace xxx avariable");
         ParseTOKENTYPE token = the_parser.trace_[0].token_;
         CPPUNIT_ASSERT(token->has_sym_);
         auto sym = token->sym_;
-        CPPUNIT_ASSERT( sym->c_name_ ==  "xxx__avariable");
+        CPPUNIT_ASSERT( sym->c_name_ ==  "xxx::avariable");
         CPPUNIT_ASSERT( sym->awk_name_ ==  "xxx::avariable");
     }
     void testNamespaceIgnoredByAllUppercase() {
@@ -207,7 +207,7 @@ private:
         ParseTOKENTYPE token = the_parser.trace_[0].token_;
         CPPUNIT_ASSERT(token->has_sym_);
         auto sym = token->sym_;
-        CPPUNIT_ASSERT( sym->c_name_ ==  "Awk__ABC");
+        CPPUNIT_ASSERT( sym->c_name_ ==  "Awk::ABC");
         CPPUNIT_ASSERT( sym->awk_name_ ==  "Awk::ABC");
     }
     void testNamespaceIgnoredByReservedWord() {
@@ -223,7 +223,7 @@ private:
         ParseTOKENTYPE token = the_parser.trace_[0].token_;
         CPPUNIT_ASSERT(token->has_sym_);
         auto sym = token->sym_;
-        CPPUNIT_ASSERT( sym->c_name_ ==  "xxx__ABC");
+        CPPUNIT_ASSERT( sym->c_name_ ==  "xxx::ABC");
     }
     CPPUNIT_TEST_SUITE(LexerTestClass);
         CPPUNIT_TEST(testBegin);

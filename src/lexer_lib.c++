@@ -31,7 +31,10 @@ jclib::CountedPointer<awkccc::ast_node> Lexer::ast_out;
 
 typedef std::map<jclib::jString, jclib::CountedPointer<Symbol> > map_t;
 
-
+namespace {
+    jclib::jString Empty_Str;
+    jclib::jString Awk("Awk");
+}
 class SymbolTableImpl : public SymbolTable {
     public:
         map_t sym_table_;
@@ -40,6 +43,7 @@ class SymbolTableImpl : public SymbolTable {
         }
         
         virtual Symbol * insert(
+            class jclib::jString awk_namespace, /// AWK source namespace
             class jclib::jString awk_name,
             class jclib::jString c_name,
             int token,
@@ -48,12 +52,15 @@ class SymbolTableImpl : public SymbolTable {
             const char * args = "",
             const char * returns = "",
             const char * include = "" ) {
-            Symbol * sym = new Symbol( awk_name, c_name, token, type, is_built_in, args, returns, include );
+            Symbol * sym = new Symbol( awk_namespace, awk_name, c_name, token, type, is_built_in, args, returns, include );
             sym_table_[sym->awk_name_] = sym;
             return sym;
         }
 
-        virtual Symbol * find( jclib::jString &str) {
+        virtual Symbol * find( jclib::jString &awk_namespace, jclib::jString &awk_name ) {
+            jclib::jString str = ( awk_namespace.len( ) == 0 )
+                ? ( awk_namespace + "::" + awk_name )
+                : awk_name;
             auto search = sym_table_.find(str);
             if (search == sym_table_.end()) {
                 return nullptr;
@@ -65,40 +72,54 @@ class SymbolTableImpl : public SymbolTable {
          * return existing Symbol or create a new one
         */
         virtual Symbol * get( 
+                class jclib::jString awk_namespace,
                 class jclib::jString name,
                 int token,
+                bool namespace_required, /// true if forced by code
                 SymbolType type = VARIABLE) {
-            if( Symbol * exact = find(name) )
-                return exact;
+            if( ! namespace_required )
+                if( Symbol * exact = find(Empty_Str,name) )
+                    return exact;
             auto parts = name.split("::",1);
             auto size = parts.size();
+            jString namespace_;
             jString c_name;
             if( size == 1 ) {
-                c_name = jString("Awk__")+name;
-                name = jString("Awk::")+name;
+                /*
+                    c_name = jString("Awk::")+name;
+                    name = jString("Awk::")+name;
+                */
+               namespace_ = awk_namespace;
             } else {
-                c_name = parts[0]+jString("__")+parts[1];
+                // c_name = parts[0]+jString("::")+parts[1];
+                namespace_ = parts[0];
             }
-            if( Symbol * answer = find(name) )
+            if( Symbol * answer = find(namespace_,name) )
                 return answer;
-            return insert( name, c_name, token, type, false );
+            return insert( namespace_, name, name, token, type, false );
         }
-        static SymbolTableImpl * the_table_;
-        static SymbolTableImpl & instance() {
+        static SymbolTable * the_table_;
+        static SymbolTable & instance() {
             if( ! the_table_ ) {
                 the_table_ = new SymbolTableImpl;
             }
             return * the_table_;
         }
-        static SymbolTableImpl & reset_instance() {
+        static SymbolTable & stack_instance() {
             delete the_table_;
             the_table_ = nullptr;
+            return instance();
+        }
+        static SymbolTable & reset_instance() {
+            SymbolTable * next = the_table_->next_;
+            delete the_table_;
+            the_table_ = next;
             return instance();
         }
 
         virtual void load(std::initializer_list<struct _Symbol_loader> input) {
             for( auto i : input) {
-                insert( i.awk_name_, i.c_name_, i.token_, i.type_, i.is_built_in_, i.returns_, i.args_, i.include_ );
+                insert( i.awk_namespace_, i.awk_name_, i.c_name_, i.token_, i.type_, i.is_built_in_, i.returns_, i.args_, i.include_ );
             }
         }
 
@@ -109,6 +130,7 @@ class SymbolTableImpl : public SymbolTable {
             for( auto i : input) {
                 max_name_len = std::max<size_t>(max_name_len,strlen(i.name_));
             }
+            /*
             auto tmp_awk_name = new char[namespace_name.len()+max_name_len+3];
             auto tmp_c_name = new char[namespace_name.len()+max_name_len+3];
             strcpy(tmp_c_name,(const char *)namespace_name);
@@ -117,10 +139,13 @@ class SymbolTableImpl : public SymbolTable {
             strcpy(tmp_awk_name+namespace_name.len(),"::");
             auto awk_target = tmp_awk_name+namespace_name.len()+2;
             auto c_target = tmp_c_name+namespace_name.len()+2;
+            */
             for( auto i : input) {
-                strcpy(awk_target,i.name_);
-                strcpy(c_target,i.name_);
-                insert( tmp_awk_name, tmp_c_name, i.token_, i.type_, false);
+                //strcpy(awk_target,i.name_);
+                //strcpy(c_target,i.name_);
+                jclib::jString cname = i.name_;
+                cname = cname + "_";
+                insert( namespace_name, i.name_, cname, i.token_, i.type_, false);
             }
             if( also_load_global )
                 loadnamespace("Awk",false,input);
@@ -129,10 +154,13 @@ class SymbolTableImpl : public SymbolTable {
         virtual ~SymbolTableImpl() {}
 };
 
-SymbolTableImpl * SymbolTableImpl::the_table_ = nullptr;
+SymbolTable * SymbolTableImpl::the_table_ = nullptr;
 
 SymbolTable & SymbolTable::instance() {
     return SymbolTableImpl::instance();
+}
+SymbolTable & SymbolTable::stack_instance() {
+    return SymbolTableImpl::stack_instance();
 }
 SymbolTable & SymbolTable::reset_instance() {
     return SymbolTableImpl::reset_instance();
@@ -152,7 +180,7 @@ int PARSER_char_to_token( char chr );
 void Lexer::parse(int token_code, SymbolType type ) {
 	size_t stringlen=buf_-tok_;
     token_ = jString(tok_,buf_);
-    auto sym=symbol_table_->get(token_, token_code, type);
+    auto sym=symbol_table_->get(Empty_Str, token_, false, token_code, type);
     auto ast = new awkccc::ast_node(Expression, sym );
     parser_->parse( sym->token_, ast, & ast_out  );
     allow_regex_ = false; 
@@ -178,11 +206,9 @@ void Lexer::start_namespace(int token_code, SymbolType type) { // @namespace ((w
 
 void Lexer::parsequalified(int token_code, SymbolType type) { // (Not "@") identifier"::"identifier
         token_=jString(tok_,buf_);
-        /*
          jString token = jString(tok_,buf_);
          auto bits = token.split("::",1);
-         token_ = jString("__").join(bits); */
-        auto sym=symbol_table_->get(token_,PARSER_NAME);
+        auto sym=symbol_table_->get(bits[0],bits[1], true,PARSER_NAME);
         auto ast = new awkccc::ast_node(Expression, sym );
         parser_->parse( sym->token_, ast, & ast_out  );
         allow_regex_ = false; 
@@ -195,9 +221,9 @@ Symbol * Lexer::unqualified_to_sym( int token_code, jString & token ) {
         // namespace == Awk:: -> no prefix
         // else namespace__token
         if( ( namespace_prefix_.len()==0) || ( token.isalpha() && token.isupper() ) )
-            return symbol_table_->get(token, token_code, VARIABLE );
+            return symbol_table_->get(Awk, token, token_code, false, VARIABLE );
         
-        auto sym=symbol_table_->find(token);
+        auto sym=symbol_table_->find(namespace_prefix_,token);
         if( sym ) {
             // "Magic" types
             switch( sym->type_ ) {
@@ -207,8 +233,7 @@ Symbol * Lexer::unqualified_to_sym( int token_code, jString & token ) {
                     return sym;
             }
         }
-        token=awk_namespace_prefix_+token;
-        return symbol_table_->get(token, token_code, VARIABLE );
+        return symbol_table_->get(namespace_prefix_,token, token_code, false, VARIABLE );
 }
 
 void Lexer::parseunqualified(int token_code, SymbolType type) { // identifier
@@ -267,66 +292,66 @@ void Lexer::maybe_parse_regex(int token_code) {
 
 void Lexer::initialise_symbol_table() {
     symbol_table_->load({
-        {"\n","\n",OTHER,PARSER_NEWLINE},
-        {"@@@", "@@@", OPERATOR,PARSER_CONCATENATE},    // Dummy used in parser's AST for concatenate
-        {"+=","+=",OPERATOR,PARSER_ADD_ASSIGN},
-        {"-=","-=",OPERATOR,PARSER_SUB_ASSIGN},
-        {"*=","*=",OPERATOR,PARSER_MUL_ASSIGN},
-        {"/=","/=",OPERATOR,PARSER_DIV_ASSIGN},
-        {"%=","%=",OPERATOR,PARSER_MOD_ASSIGN},
-        {"^=","^=",OPERATOR,PARSER_POW_ASSIGN},
-        {"||","||",OPERATOR,PARSER_OROR},
-        {"&&","&&",OPERATOR,PARSER_ANDAND},
-        {"!~","!~",OPERATOR,PARSER_NO_MATCH},
-        {"==","==",OPERATOR,PARSER_EQ},
-        {"<=","<=",OPERATOR,PARSER_LE},
-        {">=",">=",OPERATOR,PARSER_GE},
-        {"!=","!=",OPERATOR,PARSER_NE},
-        {"++","++",OPERATOR,PARSER_INCR},
-        {"--","--",OPERATOR,PARSER_DECR},
-        {">>",">>",OPERATOR,PARSER_APPEND},
-        {"break","break",STATEMENT,PARSER_Break},
-        {"continue","continue",STATEMENT,PARSER_Continue},
-        {"delete","delete",STATEMENT,PARSER_Delete},
-        {"do","do",STATEMENT,PARSER_Do},
-        {"else","else",STATEMENT,PARSER_Else},
-        {"exit","exit",STATEMENT,PARSER_Exit},
-        {"for","for",STATEMENT,PARSER_For},
-        {"function","function",STATEMENT,PARSER_Function},
-        {"if","if",STATEMENT,PARSER_If},
-        {"in","in",KEYWORD,PARSER_In},
-        {"next","next",STATEMENT,PARSER_Next},
-        {"print","print",STATEMENT,PARSER_Print},
-        {"printf","printf",STATEMENT,PARSER_Printf},
-        {"return","return",STATEMENT,PARSER_Return},
-        {"while","while",STATEMENT,PARSER_While},
-        {"getline","getline",STATEMENT,PARSER_GETLINE},});
+        {Empty_Str, "\n","\n",OTHER,PARSER_NEWLINE},
+        {Empty_Str, "@@@", "@@@", OPERATOR,PARSER_CONCATENATE},    // Dummy used in parser's AST for concatenate
+        {Empty_Str, "+=","+=",OPERATOR,PARSER_ADD_ASSIGN},
+        {Empty_Str, "-=","-=",OPERATOR,PARSER_SUB_ASSIGN},
+        {Empty_Str, "*=","*=",OPERATOR,PARSER_MUL_ASSIGN},
+        {Empty_Str, "/=","/=",OPERATOR,PARSER_DIV_ASSIGN},
+        {Empty_Str, "%=","%=",OPERATOR,PARSER_MOD_ASSIGN},
+        {Empty_Str, "^=","^=",OPERATOR,PARSER_POW_ASSIGN},
+        {Empty_Str, "||","||",OPERATOR,PARSER_OROR},
+        {Empty_Str, "&&","&&",OPERATOR,PARSER_ANDAND},
+        {Empty_Str, "!~","!~",OPERATOR,PARSER_NO_MATCH},
+        {Empty_Str, "==","==",OPERATOR,PARSER_EQ},
+        {Empty_Str, "<=","<=",OPERATOR,PARSER_LE},
+        {Empty_Str, ">=",">=",OPERATOR,PARSER_GE},
+        {Empty_Str, "!=","!=",OPERATOR,PARSER_NE},
+        {Empty_Str, "++","++",OPERATOR,PARSER_INCR},
+        {Empty_Str, "--","--",OPERATOR,PARSER_DECR},
+        {Empty_Str, ">>",">>",OPERATOR,PARSER_APPEND},
+        {Empty_Str, "break","break",STATEMENT,PARSER_Break},
+        {Empty_Str, "continue","continue",STATEMENT,PARSER_Continue},
+        {Empty_Str, "delete","delete",STATEMENT,PARSER_Delete},
+        {Empty_Str, "do","do",STATEMENT,PARSER_Do},
+        {Empty_Str, "else","else",STATEMENT,PARSER_Else},
+        {Empty_Str, "exit","exit",STATEMENT,PARSER_Exit},
+        {Empty_Str, "for","for",STATEMENT,PARSER_For},
+        {Empty_Str, "function","function",STATEMENT,PARSER_Function},
+        {Empty_Str, "if","if",STATEMENT,PARSER_If},
+        {Empty_Str, "in","in",KEYWORD,PARSER_In},
+        {Empty_Str, "next","next",STATEMENT,PARSER_Next},
+        {Empty_Str, "print","print",STATEMENT,PARSER_Print},
+        {Empty_Str, "printf","printf",STATEMENT,PARSER_Printf},
+        {Empty_Str, "return","return",STATEMENT,PARSER_Return},
+        {Empty_Str, "while","while",STATEMENT,PARSER_While},
+        {Empty_Str, "getline","getline",STATEMENT,PARSER_GETLINE},});
 
     symbol_table_->load({
         // Mathematic functions
-        {"atan2","atan2",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "FF", "F","<cmath>"},
-        {"cos", "cos",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
-        {"sin","sin",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
-        {"exp","exp",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
-        {"log","log",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
-        {"sqrt","sqrt",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {Empty_Str, "atan2","atan2",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "FF", "F","<cmath>"},
+        {Empty_Str, "cos", "cos",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {Empty_Str, "sin","sin",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {Empty_Str, "exp","exp",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {Empty_Str, "log","log",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {Empty_Str, "sqrt","sqrt",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
         // int_least_64 is a typedef not a function, working on the basis here that a cast will be close enough
-        {"int","int_least64_t",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "I","<cstdint>"},
-        {"rand","rand",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "-", "F","<cmath>"},
-        {"srand","srand",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
+        {Empty_Str, "int","int_least64_t",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "I","<cstdint>"},
+        {Empty_Str, "rand","rand",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "-", "F","<cmath>"},
+        {Empty_Str, "srand","srand",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "F", "F","<cmath>"},
         // String functions
-        {"gsub","gsub",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,true, "", "I",""}, // FIXME
-        {"index","index",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
-        {"length","length",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
-        {"match","match",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,true, "", "I",""}, // FIXME
-        {"split","split",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
-        {"sub","sub",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
-        {"substr","substr",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
-        {"tolower","tolower",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
-        {"toupper","toupper", FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
-        {"sprintf","sprintf",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "S",""}, // FIXME
-        {"close","close",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
-        {"system","std::system",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "S", "I","<stdlib>"},});
+        {Empty_Str, "gsub","gsub",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,true, "", "I",""}, // FIXME
+        {Empty_Str, "index","index",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {Empty_Str, "length","length",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {Empty_Str, "match","match",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,true, "", "I",""}, // FIXME
+        {Empty_Str, "split","split",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {Empty_Str, "sub","sub",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {Empty_Str, "substr","substr",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {Empty_Str, "tolower","tolower",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {Empty_Str, "toupper","toupper", FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "F",""}, // FIXME
+        {Empty_Str, "sprintf","sprintf",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "S",""}, // FIXME
+        {Empty_Str, "close","close",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "", "I",""}, // FIXME
+        {Empty_Str, "system","std::system",FUNCTION,PARSER_BUILTIN_FUNC_NAME,true,false, "S", "I","<stdlib>"},});
 
     symbol_table_->loadnamespace("Awk",false,{
         {"BEGIN",KEYWORD,PARSER_Begin},

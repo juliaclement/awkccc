@@ -155,123 +155,124 @@
 \DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00151}00151     \textcolor{keywordtype}{void} testBegin() \{}
 \DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00152}00152         \mbox{\hyperlink{classjclib_1_1_counted_pointer}{ast\_node\_ptr}} node = \mbox{\hyperlink{class_generator_test_class_a07070410ce331d5a808fbc31278dbbd3}{lex}}(\textcolor{stringliteral}{"{}BEGIN \{\(\backslash\)na=12;\(\backslash\)n\}\(\backslash\)n"{}});}
 \DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00153}00153         \mbox{\hyperlink{class_generator_test_class_a7e9a1fb39095ce040fb4635fd8c854d5}{generate\_cpp}}( \textcolor{stringliteral}{"{}\%begin;"{}},node );}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00154}00154         std::cout << \mbox{\hyperlink{class_generator_test_class_afc996b291e2ba0570f34a10bd8d4b484}{code\_}}[\mbox{\hyperlink{generate__cpp_8h_09_09_ae358de2632060976293f7b933db3e61e}{template\_BEGIN}}] << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00155}00155     \}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00156}00156 \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00157}00157 \textcolor{comment}{    void test1CharOp() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00158}00158 \textcolor{comment}{        lex("{}*\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00159}00159 \textcolor{comment}{        // Tests that lexer passes the expected token, not that it is the correct token}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00160}00160 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_chars['*'] );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00161}00161 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00162}00162 \textcolor{comment}{    void testRegex() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00163}00163 \textcolor{comment}{        lex("{}/[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00164}00164 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_ERE );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00165}00165 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00166}00166 \textcolor{comment}{    void testRegexNotAllowed() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00167}00167 \textcolor{comment}{        // a/... should be interpreted as 'a','/', ... \& not as a regex}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00168}00168 \textcolor{comment}{        lex("{}a/[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00169}00169 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_NAME );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00170}00170 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[1].TokenCode\_ == PARSER\_chars['/'] );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00171}00171 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00172}00172 \textcolor{comment}{    void testRegexNotAllowed2() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00173}00173 \textcolor{comment}{        // a/=... should be interpreted as 'a','/=','...' \& not as a regex}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00174}00174 \textcolor{comment}{        lex("{}a/=[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00175}00175 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_NAME );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00176}00176 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[1].TokenCode\_ == PARSER\_DIV\_ASSIGN );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00177}00177 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00178}00178 \textcolor{comment}{    void testPlusEquals() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00179}00179 \textcolor{comment}{        lex("{}+="{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00180}00180 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_ADD\_ASSIGN );}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00181}00181 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00182}00182 \textcolor{comment}{    void testVariableGoesToVariable() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00183}00183 \textcolor{comment}{        lex("{}avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00184}00184 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00185}00185 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00186}00186 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00187}00187 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>type\_ ==  awkccc::VARIABLE);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00188}00188 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00189}00189 \textcolor{comment}{    void testVariableName() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00190}00190 \textcolor{comment}{        lex("{}avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00191}00191 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00192}00192 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00193}00193 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00194}00194 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}Awk::avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00195}00195 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}Awk\_\_avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00196}00196 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00197}00197 \textcolor{comment}{    void testNamespaceOverridePermutesVariableName() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00198}00198 \textcolor{comment}{        lex("{}xxx::avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00199}00199 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00200}00200 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00201}00201 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00202}00202 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}xxx::avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00203}00203 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}xxx\_\_avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00204}00204 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00205}00205 \textcolor{comment}{    void testNamespacePermutesVariableName() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00206}00206 \textcolor{comment}{        lex("{}@namespace xxx avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00207}00207 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00208}00208 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00209}00209 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00210}00210 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}xxx\_\_avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00211}00211 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}xxx::avariable"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00212}00212 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00213}00213 \textcolor{comment}{    void testNamespaceIgnoredByAllUppercase() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00214}00214 \textcolor{comment}{        lex("{}@namespace xxx ABC"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00215}00215 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00216}00216 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00217}00217 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00218}00218 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}Awk\_\_ABC"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00219}00219 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}Awk::ABC"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00220}00220 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00221}00221 \textcolor{comment}{    void testNamespaceIgnoredByReservedWord() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00222}00222 \textcolor{comment}{        lex("{}@namespace xxx if"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00223}00223 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00224}00224 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00225}00225 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00226}00226 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}if"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00227}00227 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}if"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00228}00228 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00229}00229 \textcolor{comment}{    void testNamespaceOverrideAllUppercase() \{}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00230}00230 \textcolor{comment}{        lex("{}xxx::ABC"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00231}00231 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00232}00232 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00233}00233 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00234}00234 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}xxx\_\_ABC"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00235}00235 \textcolor{comment}{    \}}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00236}00236 \textcolor{comment}{    */}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00237}00237     CPPUNIT\_TEST\_SUITE(\mbox{\hyperlink{class_generator_test_class}{GeneratorTestClass}});}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00238}00238         CPPUNIT\_TEST(testBegin);}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00239}00239     \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00240}00240 \textcolor{comment}{        CPPUNIT\_TEST(test1CharOp);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00241}00241 \textcolor{comment}{        CPPUNIT\_TEST(testRegex);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00242}00242 \textcolor{comment}{        CPPUNIT\_TEST(testRegexNotAllowed);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00243}00243 \textcolor{comment}{        CPPUNIT\_TEST(testRegexNotAllowed2);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00244}00244 \textcolor{comment}{        CPPUNIT\_TEST(testPlusEquals);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00245}00245 \textcolor{comment}{        CPPUNIT\_TEST(testVariableGoesToVariable);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00246}00246 \textcolor{comment}{        CPPUNIT\_TEST(testVariableName);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00247}00247 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceOverridePermutesVariableName);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00248}00248 \textcolor{comment}{        CPPUNIT\_TEST(testNamespacePermutesVariableName);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00249}00249 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceIgnoredByAllUppercase);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00250}00250 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceIgnoredByReservedWord);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00251}00251 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceOverrideAllUppercase);}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00252}00252 \textcolor{comment}{    */}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00253}00253     CPPUNIT\_TEST\_SUITE\_END();}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00254}00254 \};}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00255}00255 }
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00256}\mbox{\hyperlink{_generator_test_class_8cpp_a4075792134149257912b50cc1c2e4784}{00256}} \mbox{\hyperlink{_generator_test_class_8cpp_a4075792134149257912b50cc1c2e4784}{CPPUNIT\_TEST\_SUITE\_REGISTRATION}}(\mbox{\hyperlink{class_generator_test_class}{GeneratorTestClass}});}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00257}00257 }
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00258}00258 \textcolor{preprocessor}{\#ifdef ONE\_FIXTURE}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00259}00259 \textcolor{keywordtype}{int} \mbox{\hyperlink{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[])}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00260}00260 \{}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00261}00261     \textcolor{comment}{// Get the top level suite from the registry}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00262}00262     CPPUNIT\_NS::Test *suite = CPPUNIT\_NS::TestFactoryRegistry::getRegistry().makeTest();}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00263}00263 }
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00264}00264     CppUnit::TextUi::TestRunner runner;}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00265}00265     runner.addTest(suite);}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00266}00266     \textcolor{keywordtype}{bool} wasSucessful = runner.run();}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00267}00267     \textcolor{keywordtype}{char}* c = (\textcolor{keywordtype}{char}*) malloc(10 * \textcolor{keyword}{sizeof} (\textcolor{keywordtype}{char}));}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00268}00268     \textcolor{comment}{//scanf (c,"{}\%c"{});}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00269}00269     \textcolor{keywordflow}{return} wasSucessful ? 0 : 1;}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00270}00270 \}}
-\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00271}00271 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00154}00154         std::cout << \mbox{\hyperlink{class_generator_test_class_afc996b291e2ba0570f34a10bd8d4b484}{code\_}}[\mbox{\hyperlink{generate__cpp_8h_09_09_ae358de2632060976293f7b933db3e61e}{template\_BEGIN}}]-\/>str() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00155}00155         std::cout << \mbox{\hyperlink{class_generator_test_class_afc996b291e2ba0570f34a10bd8d4b484}{code\_}}[\mbox{\hyperlink{generate__cpp_8h_09_09_a7a67deafec61fa6d6f719bbfff579cb9}{template\_body}}]-\/>str() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00156}00156     \}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00157}00157 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00158}00158 \textcolor{comment}{    void test1CharOp() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00159}00159 \textcolor{comment}{        lex("{}*\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00160}00160 \textcolor{comment}{        // Tests that lexer passes the expected token, not that it is the correct token}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00161}00161 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_chars['*'] );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00162}00162 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00163}00163 \textcolor{comment}{    void testRegex() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00164}00164 \textcolor{comment}{        lex("{}/[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00165}00165 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_ERE );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00166}00166 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00167}00167 \textcolor{comment}{    void testRegexNotAllowed() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00168}00168 \textcolor{comment}{        // a/... should be interpreted as 'a','/', ... \& not as a regex}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00169}00169 \textcolor{comment}{        lex("{}a/[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00170}00170 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_NAME );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00171}00171 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[1].TokenCode\_ == PARSER\_chars['/'] );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00172}00172 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00173}00173 \textcolor{comment}{    void testRegexNotAllowed2() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00174}00174 \textcolor{comment}{        // a/=... should be interpreted as 'a','/=','...' \& not as a regex}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00175}00175 \textcolor{comment}{        lex("{}a/=[A-\/Z]+[a-\/z0-\/9A-\/Z]/\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00176}00176 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_NAME );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00177}00177 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[1].TokenCode\_ == PARSER\_DIV\_ASSIGN );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00178}00178 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00179}00179 \textcolor{comment}{    void testPlusEquals() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00180}00180 \textcolor{comment}{        lex("{}+="{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00181}00181 \textcolor{comment}{        CPPUNIT\_ASSERT(the\_parser.trace\_[0].TokenCode\_ == PARSER\_ADD\_ASSIGN );}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00182}00182 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00183}00183 \textcolor{comment}{    void testVariableGoesToVariable() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00184}00184 \textcolor{comment}{        lex("{}avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00185}00185 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00186}00186 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00187}00187 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00188}00188 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>type\_ ==  awkccc::VARIABLE);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00189}00189 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00190}00190 \textcolor{comment}{    void testVariableName() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00191}00191 \textcolor{comment}{        lex("{}avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00192}00192 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00193}00193 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00194}00194 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00195}00195 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}Awk::avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00196}00196 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}Awk\_\_avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00197}00197 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00198}00198 \textcolor{comment}{    void testNamespaceOverridePermutesVariableName() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00199}00199 \textcolor{comment}{        lex("{}xxx::avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00200}00200 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00201}00201 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00202}00202 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00203}00203 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}xxx::avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00204}00204 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}xxx\_\_avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00205}00205 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00206}00206 \textcolor{comment}{    void testNamespacePermutesVariableName() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00207}00207 \textcolor{comment}{        lex("{}@namespace xxx avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00208}00208 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00209}00209 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00210}00210 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00211}00211 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}xxx\_\_avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00212}00212 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}xxx::avariable"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00213}00213 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00214}00214 \textcolor{comment}{    void testNamespaceIgnoredByAllUppercase() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00215}00215 \textcolor{comment}{        lex("{}@namespace xxx ABC"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00216}00216 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00217}00217 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00218}00218 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00219}00219 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}Awk\_\_ABC"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00220}00220 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}Awk::ABC"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00221}00221 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00222}00222 \textcolor{comment}{    void testNamespaceIgnoredByReservedWord() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00223}00223 \textcolor{comment}{        lex("{}@namespace xxx if"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00224}00224 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00225}00225 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00226}00226 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00227}00227 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>awk\_name\_ ==  "{}if"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00228}00228 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}if"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00229}00229 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00230}00230 \textcolor{comment}{    void testNamespaceOverrideAllUppercase() \{}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00231}00231 \textcolor{comment}{        lex("{}xxx::ABC"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00232}00232 \textcolor{comment}{        ParseTOKENTYPE token = the\_parser.trace\_[0].token\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00233}00233 \textcolor{comment}{        CPPUNIT\_ASSERT(token-\/>has\_sym\_);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00234}00234 \textcolor{comment}{        auto sym = token-\/>sym\_;}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00235}00235 \textcolor{comment}{        CPPUNIT\_ASSERT( sym-\/>c\_name\_ ==  "{}xxx\_\_ABC"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00236}00236 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00237}00237 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00238}00238     CPPUNIT\_TEST\_SUITE(\mbox{\hyperlink{class_generator_test_class}{GeneratorTestClass}});}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00239}00239         CPPUNIT\_TEST(testBegin);}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00240}00240     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00241}00241 \textcolor{comment}{        CPPUNIT\_TEST(test1CharOp);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00242}00242 \textcolor{comment}{        CPPUNIT\_TEST(testRegex);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00243}00243 \textcolor{comment}{        CPPUNIT\_TEST(testRegexNotAllowed);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00244}00244 \textcolor{comment}{        CPPUNIT\_TEST(testRegexNotAllowed2);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00245}00245 \textcolor{comment}{        CPPUNIT\_TEST(testPlusEquals);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00246}00246 \textcolor{comment}{        CPPUNIT\_TEST(testVariableGoesToVariable);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00247}00247 \textcolor{comment}{        CPPUNIT\_TEST(testVariableName);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00248}00248 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceOverridePermutesVariableName);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00249}00249 \textcolor{comment}{        CPPUNIT\_TEST(testNamespacePermutesVariableName);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00250}00250 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceIgnoredByAllUppercase);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00251}00251 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceIgnoredByReservedWord);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00252}00252 \textcolor{comment}{        CPPUNIT\_TEST(testNamespaceOverrideAllUppercase);}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00253}00253 \textcolor{comment}{    */}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00254}00254     CPPUNIT\_TEST\_SUITE\_END();}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00255}00255 \};}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00256}00256 }
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00257}\mbox{\hyperlink{_generator_test_class_8cpp_a4075792134149257912b50cc1c2e4784}{00257}} \mbox{\hyperlink{_generator_test_class_8cpp_a4075792134149257912b50cc1c2e4784}{CPPUNIT\_TEST\_SUITE\_REGISTRATION}}(\mbox{\hyperlink{class_generator_test_class}{GeneratorTestClass}});}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00258}00258 }
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00259}00259 \textcolor{preprocessor}{\#ifdef ONE\_FIXTURE}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00260}00260 \textcolor{keywordtype}{int} \mbox{\hyperlink{awkccc_8c_09_09_a3c04138a5bfe5d72780bb7e82a18e627}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[])}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00261}00261 \{}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00262}00262     \textcolor{comment}{// Get the top level suite from the registry}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00263}00263     CPPUNIT\_NS::Test *suite = CPPUNIT\_NS::TestFactoryRegistry::getRegistry().makeTest();}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00264}00264 }
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00265}00265     CppUnit::TextUi::TestRunner runner;}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00266}00266     runner.addTest(suite);}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00267}00267     \textcolor{keywordtype}{bool} wasSucessful = runner.run();}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00268}00268     \textcolor{keywordtype}{char}* c = (\textcolor{keywordtype}{char}*) malloc(10 * \textcolor{keyword}{sizeof} (\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00269}00269     \textcolor{comment}{//scanf (c,"{}\%c"{});}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00270}00270     \textcolor{keywordflow}{return} wasSucessful ? 0 : 1;}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00271}00271 \}}
+\DoxyCodeLine{\Hypertarget{_generator_test_class_8cpp_source_l00272}00272 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
