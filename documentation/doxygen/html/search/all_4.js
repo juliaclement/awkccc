@@ -8,7 +8,7 @@ var searchData=
   ['declkeyword_5',['declkeyword',['../structpstate.html#a4eadfc640270f030a5db5ac0cac350cc',1,'pstate']]],
   ['decllinenoslot_6',['decllinenoslot',['../structpstate.html#acbd23424f898cb8b75311aed1ad1020f',1,'pstate']]],
   ['decr_7',['DECR',['../namespaceawkcc.html#a26a6c900538982f462683f35678f9d7ca3984eaba6206a56de36fcb8dd82cf091',1,'awkcc']]],
-  ['delete_5fbuffer_8',['delete_buffer',['../class_lexer_test_class.html#a901a234ae7d8fb2cf4833c81082d76b1',1,'LexerTestClass']]],
+  ['delete_5fbuffer_8',['delete_buffer',['../class_generator_test_class.html#a3fa87169062cd2453d39245c9e68e0be',1,'GeneratorTestClass::delete_buffer()'],['../class_lexer_test_class.html#a901a234ae7d8fb2cf4833c81082d76b1',1,'LexerTestClass::delete_buffer()']]],
   ['deleteconfig_9',['deleteconfig',['../musami_8c_09_09.html#a49b2edd29f6d42adb58379d4560efaca',1,'musami.c++']]],
   ['desc_5f_10',['desc_',['../classjclib_1_1arg__base.html#a384d18e78f2a5f60ec069ceafa8aeb32',1,'jclib::arg_base']]],
   ['destlineno_11',['destLineno',['../structsymbol.html#a55d70eaf5600ae084267cdeda492895a',1,'symbol']]],

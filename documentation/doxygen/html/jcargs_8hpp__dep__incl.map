@@ -1,6 +1,8 @@
 <map id="include/jcargs.hpp" name="include/jcargs.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="111,5,251,32"/>
-<area shape="rect" id="node2" href="$awkccc_8h_09_09.html" title=" " alt="" coords="21,80,176,107"/>
-<area shape="rect" id="node4" href="$awkccc_8c_09_09.html" title=" " alt="" coords="201,80,327,107"/>
-<area shape="rect" id="node3" href="$generate__source_8c_09_09.html" title=" " alt="" coords="5,155,192,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="153,5,293,32"/>
+<area shape="rect" id="node2" href="$awkccc_8h_09_09.html" title=" " alt="" coords="11,155,166,181"/>
+<area shape="rect" id="node4" href="$generate__cpp_8h_09_09.html" title=" " alt="" coords="126,80,321,107"/>
+<area shape="rect" id="node6" href="$awkccc_8c_09_09.html" title=" " alt="" coords="345,80,472,107"/>
+<area shape="rect" id="node3" href="$generate__cpp_8c_09_09.html" title=" " alt="" coords="5,229,172,256"/>
+<area shape="rect" id="node5" href="$_generator_test_class_8cpp.html" title=" " alt="" coords="190,155,401,181"/>
 </map>

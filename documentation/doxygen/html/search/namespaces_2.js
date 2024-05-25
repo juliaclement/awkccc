@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lexertestclassns_0',['LexerTestClassNS',['../namespace_lexer_test_class_n_s.html',1,'']]]
+  ['jclib_0',['jclib',['../namespacejclib.html',1,'']]],
+  ['private_1',['Private',['../namespacejclib_1_1_private.html',1,'jclib']]]
 ];

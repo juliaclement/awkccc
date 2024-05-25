@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['user_5farguments_0',['User_Arguments',['../struct_user___arguments.html',1,'']]]
+  ['s_5foptions_0',['s_options',['../structs__options.html',1,'']]],
+  ['s_5fx1_1',['s_x1',['../structs__x1.html',1,'']]],
+  ['s_5fx1node_2',['s_x1node',['../structs__x1node.html',1,'']]],
+  ['s_5fx2_3',['s_x2',['../structs__x2.html',1,'']]],
+  ['s_5fx2node_4',['s_x2node',['../structs__x2node.html',1,'']]],
+  ['s_5fx3_5',['s_x3',['../structs__x3.html',1,'']]],
+  ['s_5fx3node_6',['s_x3node',['../structs__x3node.html',1,'']]],
+  ['s_5fx4_7',['s_x4',['../structs__x4.html',1,'']]],
+  ['s_5fx4node_8',['s_x4node',['../structs__x4node.html',1,'']]],
+  ['saver_9',['Saver',['../classjclib_1_1_private_1_1_saver.html',1,'jclib::Private']]],
+  ['simple_5fbool_10',['simple_bool',['../classjclib_1_1simple__bool.html',1,'jclib']]],
+  ['state_11',['state',['../structstate.html',1,'']]],
+  ['symbol_12',['Symbol',['../classawkccc_1_1_symbol.html',1,'awkccc']]],
+  ['symbol_13',['symbol',['../structsymbol.html',1,'']]],
+  ['symboltable_14',['SymbolTable',['../classawkccc_1_1_symbol_table.html',1,'awkccc']]],
+  ['symboltableimpl_15',['SymbolTableImpl',['../class_symbol_table_impl.html',1,'']]]
 ];

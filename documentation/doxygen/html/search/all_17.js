@@ -13,5 +13,6 @@ var searchData=
   ['waiting_5ffor_5ftoken_5fname_10',['WAITING_FOR_TOKEN_NAME',['../musami_8c_09_09.html#a74a75e4700f1f71bb89d80765319e57bae082c8d695e1682ca1aec6e1870591be',1,'musami.c++']]],
   ['waiting_5ffor_5fwildcard_5fid_11',['WAITING_FOR_WILDCARD_ID',['../musami_8c_09_09.html#a74a75e4700f1f71bb89d80765319e57bac225b509cb5d2b8307d5527ee14c1eb8',1,'musami.c++']]],
   ['while_12',['While',['../namespaceawkccc.html#a12a4986c6f88a68f88dfaef2d67d1147ad3e92e662b2fefdf47ac06f7a5a69b26',1,'awkccc']]],
-  ['wildcard_13',['wildcard',['../structlemon.html#a5930609f3cc485e971fc008239835c09',1,'lemon']]]
+  ['wildcard_13',['wildcard',['../structlemon.html#a5930609f3cc485e971fc008239835c09',1,'lemon']]],
+  ['write_5fto_5fcpp_14',['write_to_cpp',['../namespaceawkccc.html#a77cfd5a5a8a12ecdef4795b1ddf52a6f',1,'awkccc']]]
 ];

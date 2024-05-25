@@ -11,11 +11,12 @@ Inheritance diagram for Symbol\+Table\+Impl\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Symbol\+Table\+Impl\+:\nopagebreak
+Collaboration diagram for Symbol\+Table\+Impl\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=201pt]{class_symbol_table_impl__coll__graph}
+\includegraphics[width=264pt]{class_symbol_table_impl__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -39,11 +40,18 @@ virtual \mbox{\hyperlink{class_symbol_table_impl_ac686d91c47522df99d64f834bb4878
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{class_symbol_table_impl}{Symbol\+Table\+Impl}} \& \mbox{\hyperlink{class_symbol_table_impl_aa9abe31f15c86703b6d3fcd81c56d094}{instance}} ()
+\item 
+static \mbox{\hyperlink{class_symbol_table_impl}{Symbol\+Table\+Impl}} \& \mbox{\hyperlink{class_symbol_table_impl_a22c866e87407f1378a5478a2c7b02743}{reset\+\_\+instance}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{lexer__lib_8c_09_09_af7676e8b19f771aa7a9d161ca44cff59}{map\+\_\+t}} \mbox{\hyperlink{class_symbol_table_impl_a2a93c29cff88f1143af45a1e3915a9cb}{sym\+\_\+table\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_symbol_table_impl}{Symbol\+Table\+Impl}} $\ast$ \mbox{\hyperlink{class_symbol_table_impl_a51c3ffd9a8afb77b45c40d17d04dd0ee}{the\+\_\+table\+\_\+}} = nullptr
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -64,7 +72,7 @@ Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00035}{35}} of f
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00122}{122}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00129}{129}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 
 
@@ -147,7 +155,7 @@ Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a75d6a02bef48e136005d76
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00092}{92}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00099}{99}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 \mbox{\Hypertarget{class_symbol_table_impl_a2ba635e25527d96b8acb2f34264ae679}\label{class_symbol_table_impl_a2ba635e25527d96b8acb2f34264ae679}} 
 \index{SymbolTableImpl@{SymbolTableImpl}!loadnamespace@{loadnamespace}}
@@ -161,7 +169,17 @@ Implements \mbox{\hyperlink{classawkccc_1_1_symbol_table_a7fe4ed4ead3adb87445b81
 
 
 
-Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00098}{98}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00105}{105}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{class_symbol_table_impl_a22c866e87407f1378a5478a2c7b02743}\label{class_symbol_table_impl_a22c866e87407f1378a5478a2c7b02743}} 
+\index{SymbolTableImpl@{SymbolTableImpl}!reset\_instance@{reset\_instance}}
+\index{reset\_instance@{reset\_instance}!SymbolTableImpl@{SymbolTableImpl}}
+\doxysubsubsection{\texorpdfstring{reset\_instance()}{reset\_instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_symbol_table_impl}{Symbol\+Table\+Impl}} \& Symbol\+Table\+Impl\+::reset\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00093}{93}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 
 
@@ -175,6 +193,16 @@ Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00098}{98}} of f
 
 
 Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00037}{37}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
+
+\mbox{\Hypertarget{class_symbol_table_impl_a51c3ffd9a8afb77b45c40d17d04dd0ee}\label{class_symbol_table_impl_a51c3ffd9a8afb77b45c40d17d04dd0ee}} 
+\index{SymbolTableImpl@{SymbolTableImpl}!the\_table\_@{the\_table\_}}
+\index{the\_table\_@{the\_table\_}!SymbolTableImpl@{SymbolTableImpl}}
+\doxysubsubsection{\texorpdfstring{the\_table\_}{the\_table\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_symbol_table_impl}{Symbol\+Table\+Impl}} $\ast$ Symbol\+Table\+Impl\+::the\+\_\+table\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{lexer__lib_8c_09_09_source_l00086}{86}} of file \mbox{\hyperlink{lexer__lib_8c_09_09_source}{lexer\+\_\+lib.\+c++}}.
 
 
 

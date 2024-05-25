@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variabletestclass_0',['VariableTestClass',['../class_variable_test_class.html',1,'']]]
+  ['user_5farguments_0',['User_Arguments',['../struct_user___arguments.html',1,'']]]
 ];

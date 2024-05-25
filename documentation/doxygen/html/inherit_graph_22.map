@@ -1,3 +1,19 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structjclib_1_1_private_1_1j_string_base.html" title=" " alt="" coords="5,5,191,32"/>
+<area shape="rect" id="node1" href="$classjclib_1_1_counted_pointer_target.html" title=" " alt="" coords="5,137,203,164"/>
+<area shape="rect" id="node2" href="$structarg__name__value.html" title=" " alt="" coords="254,61,385,88"/>
+<area shape="rect" id="node3" href="$classawkccc_1_1_symbol.html" title=" " alt="" coords="256,112,383,139"/>
+<area shape="rect" id="node4" href="$classawkccc_1_1ast__node.html" title=" " alt="" coords="251,163,388,189"/>
+<area shape="rect" id="node15" href="$classjclib_1_1arg__base.html" title=" " alt="" coords="261,271,377,297"/>
+<area shape="rect" id="node5" href="$classawkccc_1_1ast__empty__node.html" title=" " alt="" coords="448,61,635,88"/>
+<area shape="rect" id="node6" href="$classawkccc_1_1ast__function__node.html" title=" " alt="" coords="443,112,640,139"/>
+<area shape="rect" id="node7" href="$classawkccc_1_1ast__op__node.html" title=" " alt="" coords="461,163,621,189"/>
+<area shape="rect" id="node12" href="$classawkccc_1_1ast__statement__node.html" title=" " alt="" coords="436,220,647,247"/>
+<area shape="rect" id="node8" href="$classawkccc_1_1ast__bin__op__node.html" title=" " alt="" coords="700,5,887,32"/>
+<area shape="rect" id="node9" href="$classawkccc_1_1ast__left__unary__op__node.html" title=" " alt="" coords="708,57,879,98"/>
+<area shape="rect" id="node10" href="$classawkccc_1_1ast__right__unary__op__node.html" title=" " alt="" coords="704,122,883,163"/>
+<area shape="rect" id="node11" href="$classawkccc_1_1ast__ternary__op__node.html" title=" " alt="" coords="717,187,869,229"/>
+<area shape="rect" id="node13" href="$classawkccc_1_1ast__branch__loop__node.html" title=" " alt="" coords="719,253,868,294"/>
+<area shape="rect" id="node14" href="$classawkccc_1_1ast__for__loop__node.html" title=" " alt="" coords="695,319,892,345"/>
+<area shape="rect" id="node16" href="$classjclib_1_1config.html" title=" " alt="" coords="493,271,589,297"/>
+<area shape="rect" id="node17" href="$classjclib_1_1simple__bool.html" title=" " alt="" coords="473,321,609,348"/>
 </map>

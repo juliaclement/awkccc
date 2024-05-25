@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xmain_0',['xmain',['../awkccc_8c_09_09.html#a8337c914423f4f746209d8dfe56d97cb',1,'awkccc.c++']]]
+  ['write_5fto_5fcpp_0',['write_to_cpp',['../namespaceawkccc.html#a77cfd5a5a8a12ecdef4795b1ddf52a6f',1,'awkccc']]]
 ];

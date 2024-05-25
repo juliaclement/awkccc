@@ -9,8 +9,9 @@ var searchData=
   ['lim_5f_6',['lim_',['../classawkccc_1_1_lexer.html#acff2c0922156fa5ccc45148066736bd3',1,'awkccc::Lexer']]],
   ['line_7',['line',['../structrule.html#a6d834a168ea936d857d83b6ec36c394e',1,'rule']]],
   ['line_5f_8',['line_',['../classawkccc_1_1_lexer.html#ac37a331d3402d6721918c5901f848992',1,'awkccc::Lexer']]],
-  ['long_5fname_5f_9',['long_name_',['../classjclib_1_1arg__base.html#aa508815352fb3e888462ce387b4fdd7d',1,'jclib::arg_base']]],
-  ['long_5fnames_5f_10',['long_names_',['../classjclib_1_1arguments.html#a6406eea5066a1fc333f854dbf30c3774',1,'jclib::arguments']]],
-  ['lookahead_11',['lookahead',['../structlookahead__action.html#a26425f73d1349eed630b51267ed3be1e',1,'lookahead_action']]],
-  ['loop_5fbody_5f_12',['loop_body_',['../classawkccc_1_1ast__for__loop__node.html#a4fc4df87e1a5a006ba0de0c71cf01916',1,'awkccc::ast_for_loop_node']]]
+  ['local_5fcode_5f_9',['local_code_',['../classawkccc_1_1ast__to__cpp.html#a0459dff4b0ba0732a5dd60d2caebd41e',1,'awkccc::ast_to_cpp']]],
+  ['long_5fname_5f_10',['long_name_',['../classjclib_1_1arg__base.html#aa508815352fb3e888462ce387b4fdd7d',1,'jclib::arg_base']]],
+  ['long_5fnames_5f_11',['long_names_',['../classjclib_1_1arguments.html#a6406eea5066a1fc333f854dbf30c3774',1,'jclib::arguments']]],
+  ['lookahead_12',['lookahead',['../structlookahead__action.html#a26425f73d1349eed630b51267ed3be1e',1,'lookahead_action']]],
+  ['loop_5fbody_5f_13',['loop_body_',['../classawkccc_1_1ast__for__loop__node.html#a4fc4df87e1a5a006ba0de0c71cf01916',1,'awkccc::ast_for_loop_node']]]
 ];

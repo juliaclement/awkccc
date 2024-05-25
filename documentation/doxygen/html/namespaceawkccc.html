@@ -65,6 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">awkccc Namespace Reference</div></div>
@@ -103,6 +104,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__ternary__op__node.html">ast_ternary_op_node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1ast__to__cpp.html">ast_to_cpp</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_awkccc__variable.html">Awkccc_variable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_lexer.html">Lexer</a></td></tr>
@@ -111,6 +114,13 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classawkccc_1_1_symbol_table.html">SymbolTable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a00613215ea059e69cb86fa78f16b3f1a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a00613215ea059e69cb86fa78f16b3f1a">ast_node_ptr</a></td></tr>
+<tr class="separator:a00613215ea059e69cb86fa78f16b3f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523d921c34f85b16a69d1427f2591b9b"><td class="memItemLeft" align="right" valign="top">typedef std::ostringstream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a523d921c34f85b16a69d1427f2591b9b">postream</a></td></tr>
+<tr class="separator:a523d921c34f85b16a69d1427f2591b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -188,7 +198,48 @@ Functions</h2></td></tr>
 <tr class="separator:afaef8b3b896ca9c46ebf70e86de88b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac44a893b766e74442cc4b51ad6fb5787"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1ast__node.html">ast_node</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#ac44a893b766e74442cc4b51ad6fb5787">ast_ternary_op</a> (<a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1ast__node.html">ast_node</a> &gt; question, <a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1ast__node.html">ast_node</a> &gt; op, <a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1ast__node.html">ast_node</a> &gt; if_true, <a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt; <a class="el" href="classawkccc_1_1ast__node.html">ast_node</a> &gt; if_false, int rule_nr=-1)</td></tr>
 <tr class="separator:ac44a893b766e74442cc4b51ad6fb5787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77cfd5a5a8a12ecdef4795b1ddf52a6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a77cfd5a5a8a12ecdef4795b1ddf52a6f">write_to_cpp</a> (std::istream &amp;template_text, std::ostream &amp;program_file, std::vector&lt; <a class="el" href="namespaceawkccc.html#a523d921c34f85b16a69d1427f2591b9b">postream</a> &gt; &amp;code)</td></tr>
+<tr class="separator:a77cfd5a5a8a12ecdef4795b1ddf52a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6120643fd47099b714a73e1229dde3aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a6120643fd47099b714a73e1229dde3aa">generate_cpp</a> (std::istream &amp;template_text, std::ostream &amp;program_file, <a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> *node, std::vector&lt; <a class="el" href="namespaceawkccc.html#a523d921c34f85b16a69d1427f2591b9b">postream</a> &gt; code)</td></tr>
+<tr class="separator:a6120643fd47099b714a73e1229dde3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ba8c34e02b1e437b764c42fb94111eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a7ba8c34e02b1e437b764c42fb94111eb">generate_cpp</a> (std::istream &amp;template_text, std::ostream &amp;program_file, <a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> *node)</td></tr>
+<tr class="separator:a7ba8c34e02b1e437b764c42fb94111eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c171dbd6e07a7fbfed1cca4c582c99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceawkccc.html#a92c171dbd6e07a7fbfed1cca4c582c99">generate_cpp</a> (<a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> template_filename, <a class="el" href="classjclib_1_1j_string.html">jclib::jString</a> filename_out, <a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> *node)</td></tr>
+<tr class="separator:a92c171dbd6e07a7fbfed1cca4c582c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a00613215ea059e69cb86fa78f16b3f1a" name="a00613215ea059e69cb86fa78f16b3f1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00613215ea059e69cb86fa78f16b3f1a">&#9670;&nbsp;</a></span>ast_node_ptr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classjclib_1_1_counted_pointer.html">jclib::CountedPointer</a>&lt;<a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a>&gt; <a class="el" href="namespaceawkccc.html#a00613215ea059e69cb86fa78f16b3f1a">awkccc::ast_node_ptr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00262">262</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a523d921c34f85b16a69d1427f2591b9b" name="a523d921c34f85b16a69d1427f2591b9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a523d921c34f85b16a69d1427f2591b9b">&#9670;&nbsp;</a></span>postream</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::ostringstream* <a class="el" href="namespaceawkccc.html#a523d921c34f85b16a69d1427f2591b9b">awkccc::postream</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="generate__cpp_8h_09_09_source.html#l00049">49</a> of file <a class="el" href="generate__cpp_8h_09_09_source.html">generate_cpp.h++</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a7a5163f4f9d772fbbc8ea8dcca5f6619" name="a7a5163f4f9d772fbbc8ea8dcca5f6619"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7a5163f4f9d772fbbc8ea8dcca5f6619">&#9670;&nbsp;</a></span>Awkccc_data_type</h2>
@@ -239,7 +290,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a12a4986c6f88a68f88dfaef2d67d1147a7111987a52d677d1a10f53abf27e3c4c" name="a12a4986c6f88a68f88dfaef2d67d1147a7111987a52d677d1a10f53abf27e3c4c"></a>Empty&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00156">156</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00157">157</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +367,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00384">384</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00386">386</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -360,7 +411,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00388">388</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00390">390</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +461,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00487">487</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00489">489</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -472,7 +523,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00537">537</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00539">539</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -528,7 +579,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00474">474</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00476">476</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -578,7 +629,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00468">468</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00470">470</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -622,7 +673,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00347">347</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00349">349</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -666,7 +717,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00362">362</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00364">364</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -722,7 +773,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00584">584</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00586">586</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -778,7 +829,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00588">588</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00590">590</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -828,7 +879,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00481">481</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00483">483</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +917,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00282">282</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00284">284</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +961,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00278">278</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00280">280</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -966,7 +1017,124 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00420">420</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00422">422</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a92c171dbd6e07a7fbfed1cca4c582c99" name="a92c171dbd6e07a7fbfed1cca4c582c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c171dbd6e07a7fbfed1cca4c582c99">&#9670;&nbsp;</a></span>generate_cpp() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void awkccc::generate_cpp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
+          <td class="paramname"><em>template_filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classjclib_1_1j_string.html">jclib::jString</a>&#160;</td>
+          <td class="paramname"><em>filename_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Dump the contents of the ast to filename_out stream controlled by template_filename Under normal circumstances this is the routine to be called for this function </p>
+
+<p class="definition">Definition at line <a class="el" href="generate__cpp_8c_09_09_source.html#l00300">300</a> of file <a class="el" href="generate__cpp_8c_09_09_source.html">generate_cpp.c++</a>.</p>
+
+</div>
+</div>
+<a id="a7ba8c34e02b1e437b764c42fb94111eb" name="a7ba8c34e02b1e437b764c42fb94111eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ba8c34e02b1e437b764c42fb94111eb">&#9670;&nbsp;</a></span>generate_cpp() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void awkccc::generate_cpp </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>template_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>program_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Dump the contents of the ast to program_file stream controlled by template_text Under normal circumstances this routine will be called by the other overload This copy exposes generated code for unit testing. </p>
+
+<p class="definition">Definition at line <a class="el" href="generate__cpp_8c_09_09_source.html#l00285">285</a> of file <a class="el" href="generate__cpp_8c_09_09_source.html">generate_cpp.c++</a>.</p>
+
+</div>
+</div>
+<a id="a6120643fd47099b714a73e1229dde3aa" name="a6120643fd47099b714a73e1229dde3aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6120643fd47099b714a73e1229dde3aa">&#9670;&nbsp;</a></span>generate_cpp() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void awkccc::generate_cpp </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>template_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>program_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classawkccc_1_1ast__node.html">awkccc::ast_node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceawkccc.html#a523d921c34f85b16a69d1427f2591b9b">postream</a> &gt;&#160;</td>
+          <td class="paramname"><em>code</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Dump the contents of the ast to program_file stream controlled by template_text Under normal circumstances this routine will be called by the other overload This copy exposes generated code, and code parts for unit testing. </p>
+
+<p class="definition">Definition at line <a class="el" href="generate__cpp_8c_09_09_source.html#l00272">272</a> of file <a class="el" href="generate__cpp_8c_09_09_source.html">generate_cpp.c++</a>.</p>
 
 </div>
 </div>
@@ -1052,7 +1220,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00303">303</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00305">305</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1264,45 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00307">307</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="awkccc__ast_8hpp_source.html#l00309">309</a> of file <a class="el" href="awkccc__ast_8hpp_source.html">awkccc_ast.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a77cfd5a5a8a12ecdef4795b1ddf52a6f" name="a77cfd5a5a8a12ecdef4795b1ddf52a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77cfd5a5a8a12ecdef4795b1ddf52a6f">&#9670;&nbsp;</a></span>write_to_cpp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void awkccc::write_to_cpp </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>template_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>program_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="namespaceawkccc.html#a523d921c34f85b16a69d1427f2591b9b">postream</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>code</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >write_to_cpp writes the generated code to the output usually called by <a class="el" href="namespaceawkccc.html#a6120643fd47099b714a73e1229dde3aa">generate_cpp()</a> but publically exposed to support being called from unit tests</p>
+<p >Dump the contents of code to program_file stream controlled by template_text Under normal circumstances this will only be called by generate_cpp, it is exposed for unit testing </p>
+
+<p class="definition">Definition at line <a class="el" href="generate__cpp_8c_09_09_source.html#l00243">243</a> of file <a class="el" href="generate__cpp_8c_09_09_source.html">generate_cpp.c++</a>.</p>
 
 </div>
 </div>

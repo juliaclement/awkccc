@@ -1,0 +1,74 @@
+\hypertarget{generate__cpp_8h_09_09_source}{}\doxysection{generate\+\_\+cpp.\+h++}
+\label{generate__cpp_8h_09_09_source}\index{include/generate\_cpp.h++@{include/generate\_cpp.h++}}
+\mbox{\hyperlink{generate__cpp_8h_09_09}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00001}00001 \textcolor{comment}{/***}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00002}00002 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00003}00003 \textcolor{comment}{** AWKCCC: Generate cpp from an AST}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00004}00004 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00005}00005 \textcolor{comment}{** Copyright (C) 2024 Julia Ingleby Clement}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00006}00006 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00007}00007 \textcolor{comment}{** Licensed under the Apache License, Version 2.0 (the "{}License"{});}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00008}00008 \textcolor{comment}{** you may not use this file except in compliance with the License.}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00009}00009 \textcolor{comment}{** You may obtain a copy of the License at}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00010}00010 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00011}00011 \textcolor{comment}{**     http://www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00012}00012 \textcolor{comment}{**}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00013}00013 \textcolor{comment}{** Unless required by applicable law or agreed to in writing, software}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00014}00014 \textcolor{comment}{** distributed under the License is distributed on an "{}AS IS"{} BASIS,}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00015}00015 \textcolor{comment}{** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00016}00016 \textcolor{comment}{** See the License for the specific language governing permissions and}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00017}00017 \textcolor{comment}{** limitations under the License.}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00018}00018 \textcolor{comment}{***/}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00021}00021 \textcolor{comment}{/* }}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00022}00022 \textcolor{comment}{ * File:   awkccc\_ast.hpp}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00023}00023 \textcolor{comment}{ * Author: Julia Clement <Julia at Clement dot nz>}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00024}00024 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00025}00025 \textcolor{comment}{ * Part of the awkccc project https://github.com/juliaclement/awkccc}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00026}00026 \textcolor{comment}{ *}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00027}00027 \textcolor{comment}{ * Created on 24 May 2024, 16:54}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00028}00028 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00029}00029 \textcolor{preprocessor}{\#ifndef AWKCCC\_GENERATE\_CPP\_HPP}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00030}00030 \textcolor{preprocessor}{\#define AWKCCC\_GENERATE\_CPP\_HPP}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00032}00032 \textcolor{preprocessor}{\#include "{}../include/awkccc\_ast.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00033}00033 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00034}00034 \textcolor{preprocessor}{\#include "{}../include/jString.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00035}00035 \textcolor{preprocessor}{\#include "{}../include/jcargs.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00036}00036 \textcolor{preprocessor}{\#include "{}../src/parser.h++"{}}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00038}00038 \textcolor{comment}{// Write Output using a template. Defined in generate\_cpp.c++}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00039}\mbox{\hyperlink{generate__cpp_8h_09_09_aabdbdb189cfd44ca123b8b274a62786d}{00039}} \textcolor{preprocessor}{\#define template\_INCLUDES 0}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00040}\mbox{\hyperlink{generate__cpp_8h_09_09_a5a624b26aa1c1ed9be385d1df68c1699}{00040}} \textcolor{preprocessor}{\#define template\_VARS 1}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00041}\mbox{\hyperlink{generate__cpp_8h_09_09_a05cc62d81baa93412c502ec423746ceb}{00041}} \textcolor{preprocessor}{\#define template\_PROCS 2}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00042}\mbox{\hyperlink{generate__cpp_8h_09_09_ae358de2632060976293f7b933db3e61e}{00042}} \textcolor{preprocessor}{\#define template\_BEGIN 3}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00043}\mbox{\hyperlink{generate__cpp_8h_09_09_a21636b473c233d8345d2174ab25fec18}{00043}} \textcolor{preprocessor}{\#define template\_BEGIN\_FILE 4}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00044}\mbox{\hyperlink{generate__cpp_8h_09_09_a7a67deafec61fa6d6f719bbfff579cb9}{00044}} \textcolor{preprocessor}{\#define template\_body 5}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00045}\mbox{\hyperlink{generate__cpp_8h_09_09_a148a5e1e95f82a4e10334c819a0868d0}{00045}} \textcolor{preprocessor}{\#define template\_END\_FILE 6}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00046}\mbox{\hyperlink{generate__cpp_8h_09_09_aea9d72b1524324e5ed5825f597ebd0fc}{00046}} \textcolor{preprocessor}{\#define template\_END 7}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00047}\mbox{\hyperlink{generate__cpp_8h_09_09_ae06498ba520c7b062bf22e186cd9bad8}{00047}} \textcolor{preprocessor}{\#define template\_NR\_SEGMENTS 8}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00048}00048 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceawkccc}{awkccc}} \{}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00049}\mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{00049}}     \textcolor{keyword}{typedef} std::ostringstream * \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{postream}};}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00055}00055     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceawkccc_a77cfd5a5a8a12ecdef4795b1ddf52a6f}{write\_to\_cpp}}(  std::istream \& template\_text,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00056}00056                         std::ostream \& program\_file,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00057}00057                         std::vector< postream > \& code );}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00064}00064     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}{generate\_cpp}}(  std::istream \& template\_text,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00065}00065                         std::ostream \& program\_file,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00066}00066                         \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc::ast\_node}} * node,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00067}00067                         std::vector<postream> code );}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00074}00074     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}{generate\_cpp}}(  std::istream \& template\_text,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00075}00075                         std::ostream \& program\_file,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00076}00076                         \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc::ast\_node}} * node );}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00082}00082     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}{generate\_cpp}}(  \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} template\_filename,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00083}00083                         \mbox{\hyperlink{classjclib_1_1j_string}{jclib::jString}} filename\_out,}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00084}00084                         \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc::ast\_node}} * node );}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00085}00085 \}}
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{generate__cpp_8h_09_09_source_l00087}00087 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

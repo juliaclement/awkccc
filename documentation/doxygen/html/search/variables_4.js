@@ -9,7 +9,7 @@ var searchData=
   ['errsym_6',['errsym',['../structlemon.html#abc9604a50182ad25f9adac62c9af6b1c',1,'lemon']]],
   ['expect_5finclude_5ffilename_5f_7',['expect_include_filename_',['../classawkccc_1_1_lexer.html#a93624200e19461b245c4057105314ec0',1,'awkccc::Lexer']]],
   ['expect_5fnamespacename_5f_8',['expect_namespacename_',['../classawkccc_1_1_lexer.html#a1d15077388e7b34925716f59677df2d0',1,'awkccc::Lexer']]],
-  ['extra_5f_9',['extra_',['../structawkccc_1_1ast__printer_1_1printer__ctl.html#a959ac292fbb20e610dece88b0f768c86',1,'awkccc::ast_printer::printer_ctl']]],
+  ['extra_5f_9',['extra_',['../structawkccc_1_1ast__to__cpp_1_1cpp__generator__ctl.html#a26695456de2f23e3c58c0896716cf846',1,'awkccc::ast_to_cpp::cpp_generator_ctl::extra_()'],['../structawkccc_1_1ast__printer_1_1printer__ctl.html#a959ac292fbb20e610dece88b0f768c86',1,'awkccc::ast_printer::printer_ctl::extra_()']]],
   ['extra_5fchildren_5fallowed_5f_10',['extra_children_allowed_',['../classawkccc_1_1ast__node.html#abafd6ca30894f45e2afca5503893fbe1',1,'awkccc::ast_node']]],
   ['extracode_11',['extracode',['../structlemon.html#ac4795352f79823338f9eb6861e996b24',1,'lemon']]]
 ];

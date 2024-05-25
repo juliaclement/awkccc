@@ -33,6 +33,8 @@ class \mbox{\hyperlink{classawkccc_1_1ast__statement__node}{ast\+\_\+statement\+
 \item 
 class \mbox{\hyperlink{classawkccc_1_1ast__ternary__op__node}{ast\+\_\+ternary\+\_\+op\+\_\+node}}
 \item 
+class \mbox{\hyperlink{classawkccc_1_1ast__to__cpp}{ast\+\_\+to\+\_\+cpp}}
+\item 
 class \mbox{\hyperlink{classawkccc_1_1_awkccc__variable}{Awkccc\+\_\+variable}}
 \item 
 class \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}}
@@ -40,6 +42,13 @@ class \mbox{\hyperlink{classawkccc_1_1_lexer}{Lexer}}
 class \mbox{\hyperlink{classawkccc_1_1_symbol}{Symbol}}
 \item 
 class \mbox{\hyperlink{classawkccc_1_1_symbol_table}{Symbol\+Table}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $>$ \mbox{\hyperlink{namespaceawkccc_a00613215ea059e69cb86fa78f16b3f1a}{ast\+\_\+node\+\_\+ptr}}
+\item 
+typedef std\+::ostringstream $\ast$ \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{postream}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -115,7 +124,38 @@ void \mbox{\hyperlink{namespaceawkccc_ada7e21f5105fc61990864f035d772b59}{print\+
 \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ \mbox{\hyperlink{namespaceawkccc_afaef8b3b896ca9c46ebf70e86de88b9b}{ast\+\_\+ternary\+\_\+op}} (\mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$question, \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$op, \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$if\+\_\+true, \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $\ast$if\+\_\+false, int rule\+\_\+nr=-\/1)
 \item 
 \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ \mbox{\hyperlink{namespaceawkccc_ac44a893b766e74442cc4b51ad6fb5787}{ast\+\_\+ternary\+\_\+op}} (\mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ question, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ op, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ if\+\_\+true, \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$ \mbox{\hyperlink{classawkccc_1_1ast__node}{ast\+\_\+node}} $>$ if\+\_\+false, int rule\+\_\+nr=-\/1)
+\item 
+void \mbox{\hyperlink{namespaceawkccc_a77cfd5a5a8a12ecdef4795b1ddf52a6f}{write\+\_\+to\+\_\+cpp}} (std\+::istream \&template\+\_\+text, std\+::ostream \&program\+\_\+file, std\+::vector$<$ \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{postream}} $>$ \&code)
+\item 
+void \mbox{\hyperlink{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}{generate\+\_\+cpp}} (std\+::istream \&template\+\_\+text, std\+::ostream \&program\+\_\+file, \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $\ast$node, std\+::vector$<$ \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{postream}} $>$ code)
+\item 
+void \mbox{\hyperlink{namespaceawkccc_a7ba8c34e02b1e437b764c42fb94111eb}{generate\+\_\+cpp}} (std\+::istream \&template\+\_\+text, std\+::ostream \&program\+\_\+file, \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $\ast$node)
+\item 
+void \mbox{\hyperlink{namespaceawkccc_a92c171dbd6e07a7fbfed1cca4c582c99}{generate\+\_\+cpp}} (\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} template\+\_\+filename, \mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}} filename\+\_\+out, \mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $\ast$node)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceawkccc_a00613215ea059e69cb86fa78f16b3f1a}\label{namespaceawkccc_a00613215ea059e69cb86fa78f16b3f1a}} 
+\index{awkccc@{awkccc}!ast\_node\_ptr@{ast\_node\_ptr}}
+\index{ast\_node\_ptr@{ast\_node\_ptr}!awkccc@{awkccc}}
+\doxysubsubsection{\texorpdfstring{ast\_node\_ptr}{ast\_node\_ptr}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classjclib_1_1_counted_pointer}{jclib\+::\+Counted\+Pointer}}$<$\mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}}$>$ \mbox{\hyperlink{namespaceawkccc_a00613215ea059e69cb86fa78f16b3f1a}{awkccc\+::ast\+\_\+node\+\_\+ptr}}}
+
+
+
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00262}{262}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}\label{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}} 
+\index{awkccc@{awkccc}!postream@{postream}}
+\index{postream@{postream}!awkccc@{awkccc}}
+\doxysubsubsection{\texorpdfstring{postream}{postream}}
+{\footnotesize\ttfamily typedef std\+::ostringstream$\ast$ \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{awkccc\+::postream}}}
+
+
+
+Definition at line \mbox{\hyperlink{generate__cpp_8h_09_09_source_l00049}{49}} of file \mbox{\hyperlink{generate__cpp_8h_09_09_source}{generate\+\_\+cpp.\+h++}}.
+
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -205,7 +245,7 @@ Empty&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00157}{157}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}\label{namespaceawkccc_ae0e6768ba7c134b8601b8ab8f17e57b6}} 
 \index{awkccc@{awkccc}!SymbolType@{SymbolType}}
@@ -262,7 +302,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00036}{36}} of file
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00384}{384}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00386}{386}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a5a39025192ef4539a3b6bfb419330e4c}\label{namespaceawkccc_a5a39025192ef4539a3b6bfb419330e4c}} 
 \index{awkccc@{awkccc}!ast\_concatenate\_expr@{ast\_concatenate\_expr}}
@@ -272,7 +312,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00384}{384}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00388}{388}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00390}{390}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a8bcd3826509e5ba4c5f2cf60f534414f}\label{namespaceawkccc_a8bcd3826509e5ba4c5f2cf60f534414f}} 
 \index{awkccc@{awkccc}!ast\_do\_statement@{ast\_do\_statement}}
@@ -282,7 +322,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00388}{388}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00487}{487}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00489}{489}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_aab5fc0aee88ee5356f80bd49dfecb83b}\label{namespaceawkccc_aab5fc0aee88ee5356f80bd49dfecb83b}} 
 \index{awkccc@{awkccc}!ast\_for\_C\_statement@{ast\_for\_C\_statement}}
@@ -292,7 +332,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00487}{487}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00537}{537}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00539}{539}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a62075a6d3771dd580e1bd4c4a3ab3ff3}\label{namespaceawkccc_a62075a6d3771dd580e1bd4c4a3ab3ff3}} 
 \index{awkccc@{awkccc}!ast\_if\_else\_statement@{ast\_if\_else\_statement}}
@@ -302,7 +342,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00537}{537}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00474}{474}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00476}{476}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a9c172e9a78f271baa543bc66c9cf4880}\label{namespaceawkccc_a9c172e9a78f271baa543bc66c9cf4880}} 
 \index{awkccc@{awkccc}!ast\_if\_statement@{ast\_if\_statement}}
@@ -312,7 +352,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00474}{474}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00468}{468}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00470}{470}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a545adf3363fe3adef36364fa701ce293}\label{namespaceawkccc_a545adf3363fe3adef36364fa701ce293}} 
 \index{awkccc@{awkccc}!ast\_left\_unary\_op@{ast\_left\_unary\_op}}
@@ -322,7 +362,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00468}{468}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00349}{349}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a6213b8996cc79e93e952f9493860c35b}\label{namespaceawkccc_a6213b8996cc79e93e952f9493860c35b}} 
 \index{awkccc@{awkccc}!ast\_right\_unary\_op@{ast\_right\_unary\_op}}
@@ -332,7 +372,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00347}{347}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00362}{362}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00364}{364}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_afaef8b3b896ca9c46ebf70e86de88b9b}\label{namespaceawkccc_afaef8b3b896ca9c46ebf70e86de88b9b}} 
 \index{awkccc@{awkccc}!ast\_ternary\_op@{ast\_ternary\_op}}
@@ -342,7 +382,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00362}{362}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00584}{584}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00586}{586}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_ac44a893b766e74442cc4b51ad6fb5787}\label{namespaceawkccc_ac44a893b766e74442cc4b51ad6fb5787}} 
 \index{awkccc@{awkccc}!ast\_ternary\_op@{ast\_ternary\_op}}
@@ -352,7 +392,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00584}{584}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00588}{588}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00590}{590}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a5f439a16a1e4188ac764a2691047219f}\label{namespaceawkccc_a5f439a16a1e4188ac764a2691047219f}} 
 \index{awkccc@{awkccc}!ast\_while\_statement@{ast\_while\_statement}}
@@ -362,7 +402,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00588}{588}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00481}{481}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00483}{483}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_a77390c9bc6e5861bae732a474b3f1269}\label{namespaceawkccc_a77390c9bc6e5861bae732a474b3f1269}} 
 \index{awkccc@{awkccc}!empty\_node@{empty\_node}}
@@ -372,7 +412,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00481}{481}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00284}{284}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_aecbda66897af318708e5685bf6dd7b90}\label{namespaceawkccc_aecbda66897af318708e5685bf6dd7b90}} 
 \index{awkccc@{awkccc}!empty\_node@{empty\_node}}
@@ -382,7 +422,7 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00282}{282}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00278}{278}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00280}{280}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_aeacb7553923c89290c2912c03cb7faa7}\label{namespaceawkccc_aeacb7553923c89290c2912c03cb7faa7}} 
 \index{awkccc@{awkccc}!function\_node@{function\_node}}
@@ -392,7 +432,37 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00278}{278}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00420}{420}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00422}{422}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceawkccc_a92c171dbd6e07a7fbfed1cca4c582c99}\label{namespaceawkccc_a92c171dbd6e07a7fbfed1cca4c582c99}} 
+\index{awkccc@{awkccc}!generate\_cpp@{generate\_cpp}}
+\index{generate\_cpp@{generate\_cpp}!awkccc@{awkccc}}
+\doxysubsubsection{\texorpdfstring{generate\_cpp()}{generate\_cpp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void awkccc\+::generate\+\_\+cpp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{template\+\_\+filename,  }\item[{\mbox{\hyperlink{classjclib_1_1j_string}{jclib\+::j\+String}}}]{filename\+\_\+out,  }\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+Dump the contents of the ast to filename\+\_\+out stream controlled by template\+\_\+filename Under normal circumstances this is the routine to be called for this function 
+
+Definition at line \mbox{\hyperlink{generate__cpp_8c_09_09_source_l00300}{300}} of file \mbox{\hyperlink{generate__cpp_8c_09_09_source}{generate\+\_\+cpp.\+c++}}.
+
+\mbox{\Hypertarget{namespaceawkccc_a7ba8c34e02b1e437b764c42fb94111eb}\label{namespaceawkccc_a7ba8c34e02b1e437b764c42fb94111eb}} 
+\index{awkccc@{awkccc}!generate\_cpp@{generate\_cpp}}
+\index{generate\_cpp@{generate\_cpp}!awkccc@{awkccc}}
+\doxysubsubsection{\texorpdfstring{generate\_cpp()}{generate\_cpp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void awkccc\+::generate\+\_\+cpp (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{template\+\_\+text,  }\item[{std\+::ostream \&}]{program\+\_\+file,  }\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+Dump the contents of the ast to program\+\_\+file stream controlled by template\+\_\+text Under normal circumstances this routine will be called by the other overload This copy exposes generated code for unit testing. 
+
+Definition at line \mbox{\hyperlink{generate__cpp_8c_09_09_source_l00285}{285}} of file \mbox{\hyperlink{generate__cpp_8c_09_09_source}{generate\+\_\+cpp.\+c++}}.
+
+\mbox{\Hypertarget{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}\label{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}} 
+\index{awkccc@{awkccc}!generate\_cpp@{generate\_cpp}}
+\index{generate\_cpp@{generate\_cpp}!awkccc@{awkccc}}
+\doxysubsubsection{\texorpdfstring{generate\_cpp()}{generate\_cpp()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void awkccc\+::generate\+\_\+cpp (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{template\+\_\+text,  }\item[{std\+::ostream \&}]{program\+\_\+file,  }\item[{\mbox{\hyperlink{classawkccc_1_1ast__node}{awkccc\+::ast\+\_\+node}} $\ast$}]{node,  }\item[{std\+::vector$<$ \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{postream}} $>$}]{code }\end{DoxyParamCaption})}
+
+Dump the contents of the ast to program\+\_\+file stream controlled by template\+\_\+text Under normal circumstances this routine will be called by the other overload This copy exposes generated code, and code parts for unit testing. 
+
+Definition at line \mbox{\hyperlink{generate__cpp_8c_09_09_source_l00272}{272}} of file \mbox{\hyperlink{generate__cpp_8c_09_09_source}{generate\+\_\+cpp.\+c++}}.
 
 \mbox{\Hypertarget{namespaceawkccc_ada7e21f5105fc61990864f035d772b59}\label{namespaceawkccc_ada7e21f5105fc61990864f035d772b59}} 
 \index{awkccc@{awkccc}!print\_ast@{print\_ast}}
@@ -412,7 +482,7 @@ Definition at line \mbox{\hyperlink{parser__lib_8c_09_09_source_l00210}{210}} of
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00303}{303}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00305}{305}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
 
 \mbox{\Hypertarget{namespaceawkccc_ab59f6c8cebe81e25373993dc11a84e15}\label{namespaceawkccc_ab59f6c8cebe81e25373993dc11a84e15}} 
 \index{awkccc@{awkccc}!statement\_node@{statement\_node}}
@@ -422,5 +492,17 @@ Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00303}{303}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00307}{307}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+Definition at line \mbox{\hyperlink{awkccc__ast_8hpp_source_l00309}{309}} of file \mbox{\hyperlink{awkccc__ast_8hpp_source}{awkccc\+\_\+ast.\+hpp}}.
+
+\mbox{\Hypertarget{namespaceawkccc_a77cfd5a5a8a12ecdef4795b1ddf52a6f}\label{namespaceawkccc_a77cfd5a5a8a12ecdef4795b1ddf52a6f}} 
+\index{awkccc@{awkccc}!write\_to\_cpp@{write\_to\_cpp}}
+\index{write\_to\_cpp@{write\_to\_cpp}!awkccc@{awkccc}}
+\doxysubsubsection{\texorpdfstring{write\_to\_cpp()}{write\_to\_cpp()}}
+{\footnotesize\ttfamily void awkccc\+::write\+\_\+to\+\_\+cpp (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{template\+\_\+text,  }\item[{std\+::ostream \&}]{program\+\_\+file,  }\item[{std\+::vector$<$ \mbox{\hyperlink{namespaceawkccc_a523d921c34f85b16a69d1427f2591b9b}{postream}} $>$ \&}]{code }\end{DoxyParamCaption})}
+
+write\+\_\+to\+\_\+cpp writes the generated code to the output usually called by \mbox{\hyperlink{namespaceawkccc_a6120643fd47099b714a73e1229dde3aa}{generate\+\_\+cpp()}} but publically exposed to support being called from unit tests
+
+Dump the contents of code to program\+\_\+file stream controlled by template\+\_\+text Under normal circumstances this will only be called by generate\+\_\+cpp, it is exposed for unit testing 
+
+Definition at line \mbox{\hyperlink{generate__cpp_8c_09_09_source_l00243}{243}} of file \mbox{\hyperlink{generate__cpp_8c_09_09_source}{generate\+\_\+cpp.\+c++}}.
 
