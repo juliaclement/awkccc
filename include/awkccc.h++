@@ -19,22 +19,10 @@
 #include "../include/countedPointer.hpp"
 #include "../include/awkccc_ast.hpp"
 #include "../include/awkccc_lexer.hpp"
+#include "../include/generate_cpp.h++"
 #include "../include/jString.hpp"
 #include "../include/jcargs.hpp"
 #include "../src/parser.h++"
 #include <iostream>
 #include <cstdio>
 #include <sstream>
-
-// Write Output using a template. Defined in generate_cpp.c++
-#define template_INCLUDES 0
-#define template_VARS 1
-#define template_PROCS 2
-#define template_BEGIN 3
-#define template_BEGIN_FILE 4
-#define template_body 5
-#define template_END_FILE 6
-#define template_END 7
-void generate_output( std::ifstream &template_text, jclib::jString filename_out, std::vector<jclib::jString> code[7] );
-
-void generate_output( jclib::jString template_filename, jclib::jString filename_out, std::vector<jclib::jString> code[7] );

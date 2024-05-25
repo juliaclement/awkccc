@@ -150,6 +150,7 @@ namespace awkccc {
                     std::initializer_list<struct _NS_Symbol_loader> input) = 0;
 
         static SymbolTable & instance();
+        static SymbolTable & reset_instance();
 
         virtual ~SymbolTable() {}
     };
@@ -258,6 +259,7 @@ namespace awkccc {
             /*** Recursively promote siblings to parent (if allowed) */
             virtual void clean_tree(ast_node * parent);
     };
+    typedef  jclib::CountedPointer<awkccc::ast_node> ast_node_ptr;
 
     void print_ast( std::ostream & out, 
                     ast_node * node,

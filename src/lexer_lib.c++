@@ -83,10 +83,17 @@ class SymbolTableImpl : public SymbolTable {
                 return answer;
             return insert( name, c_name, token, type, false );
         }
-
+        static SymbolTableImpl * the_table_;
         static SymbolTableImpl & instance() {
-            static SymbolTableImpl the_table;
-            return the_table;
+            if( ! the_table_ ) {
+                the_table_ = new SymbolTableImpl;
+            }
+            return * the_table_;
+        }
+        static SymbolTableImpl & reset_instance() {
+            delete the_table_;
+            the_table_ = nullptr;
+            return instance();
         }
 
         virtual void load(std::initializer_list<struct _Symbol_loader> input) {
@@ -122,8 +129,13 @@ class SymbolTableImpl : public SymbolTable {
         virtual ~SymbolTableImpl() {}
 };
 
+SymbolTableImpl * SymbolTableImpl::the_table_ = nullptr;
+
 SymbolTable & SymbolTable::instance() {
     return SymbolTableImpl::instance();
+}
+SymbolTable & SymbolTable::reset_instance() {
+    return SymbolTableImpl::reset_instance();
 }
 
 // interface to musami generated parser

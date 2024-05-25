@@ -27,3 +27,7 @@ tests/LexerTestClass
 bin/generate_source.o
 bin/VariableTestClass
 bin/VariableTestRunner
+bin/GeneratorTestClass
+bin/GeneratorTestClass.o
+bin/GeneratorTestRunner
+bin/generate_cpp.o

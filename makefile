@@ -12,10 +12,10 @@ INCS += $(INCDIR)/jcargs.hpp
 INCS += $(INCDIR)/Save.hpp
 INCS += $(SRCDIR)/parser.h++
 INCS += $(INCDIR)/awkccc.h++
-OBJS = $(BINDIR)/lexer_lib.o $(BINDIR)/lexer.o $(BINDIR)/parser_lib.o $(BINDIR)/parser.o $(BINDIR)/generate_source.o
+OBJS = $(BINDIR)/lexer_lib.o $(BINDIR)/lexer.o $(BINDIR)/parser_lib.o $(BINDIR)/parser.o $(BINDIR)/generate_cpp.o
 CPP = CPP=/usr/bin/g++
 
-build: $(BINDIR)/musami $(BINDIR)/awkccc $(BINDIR)/LexerTestClass
+build: $(BINDIR)/musami $(BINDIR)/awkccc $(BINDIR)/LexerTestClass $(BINDIR)/GeneratorTestClass
 
 $(BINDIR)/musami: $(SRCDIR)/musami.c++
 	g++ -g $< -o $@
@@ -33,6 +33,9 @@ $(SRCDIR)/parser.c++ $(SRCDIR)/parser.h++:  $(BINDIR)/musami $(BINDIR)/musami_sk
 $(BINDIR)/LexerTestClass.o: $(TESTDIR)/LexerTestClass.cpp $(INCS)
 	g++ -g -DDEBUG -DONE_FIXTURE -std=c++17 -I../$(INCDIR) -I/usr/include -c $< -o $@
 
+$(BINDIR)/GeneratorTestClass.o: $(TESTDIR)/GeneratorTestClass.cpp $(INCS)
+	g++ -g -DDEBUG -DONE_FIXTURE -std=c++17 -I../$(INCDIR) -I/usr/include -c $< -o $@
+
 $(BINDIR)/%.o: $(SRCDIR)/%.cpp $(INCS)
 	g++ -g  -DDEBUG -I$(INCDIR) -std=c++17 -c $< -o $@
 
@@ -42,8 +45,11 @@ $(BINDIR)/%.o: $(SRCDIR)/%.c++ $(INCS)
 $(BINDIR)/%.o: $(TESTDIR)/%.cpp $(INCS)
 	g++ -g -DDEBUG -DONE_FIXTURE -std=c++17 -I../$(INCDIR) -I/usr/include -c $< -o $@
 
-$(BINDIR)/LexerTestClass: $(BINDIR)/LexerTestClass.o $(BINDIR)/lexer.o $(BINDIR)/lexer_lib.o $(BINDIR)/parser_lib.o $(BINDIR)/generate_source.o
-	g++ -o $@ $< $(BINDIR)/lexer.o $(BINDIR)/lexer_lib.o $(BINDIR)/parser_lib.o $(BINDIR)/generate_source.o /usr/lib/x86_64-linux-gnu/libcppunit.a
+$(BINDIR)/LexerTestClass: $(BINDIR)/LexerTestClass.o $(BINDIR)/lexer.o $(BINDIR)/lexer_lib.o $(BINDIR)/parser_lib.o $(BINDIR)/generate_cpp.o
+	g++ -o $@ $< $(BINDIR)/lexer.o $(BINDIR)/lexer_lib.o $(BINDIR)/parser_lib.o $(BINDIR)/generate_cpp.o /usr/lib/x86_64-linux-gnu/libcppunit.a
+
+$(BINDIR)/GeneratorTestClass: $(BINDIR)/GeneratorTestClass.o $(BINDIR)/lexer.o $(BINDIR)/lexer_lib.o $(BINDIR)/parser.o $(BINDIR)/parser_lib.o $(BINDIR)/generate_cpp.o
+	g++ -o $@ $< $(BINDIR)/lexer.o $(BINDIR)/lexer_lib.o $(BINDIR)/parser.o $(BINDIR)/parser_lib.o $(BINDIR)/generate_cpp.o /usr/lib/x86_64-linux-gnu/libcppunit.a
 
 PHONY : clean
 clean :
